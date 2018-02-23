@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
-import './App.css';
+import './styles/App.css';
 import Faq from './Faq';
+import Portfolio from './Portfolio';
+import Reviews from './Reviews';
+import { Switch, Route, Link } from 'react-router-dom';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Faq />
-        <header className="App-header">
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Link to='/faq'>FAQ</Link>
+        <Switch>
+          <Route exact path='/faq' render={() =>
+            <Faq />} />
+        </Switch>
+
+        <Portfolio />
+        <Reviews />
       </div>
     );
   }
