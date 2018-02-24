@@ -12,5 +12,20 @@ img.mike {
   margin: -50px auto;
 }
 h1.title {
-  font-size: 3rem;
+  font-size: 2.75rem;
+}
+button {
+  font-size: 1rem;
+  padding: 10px;
+  background: none;
+}
+button#sign-in {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+div#sign-in-links {
+  position: absolute;
+  top: 0;
+  right: 90px;
 }

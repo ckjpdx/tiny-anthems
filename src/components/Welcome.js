@@ -1,10 +1,9 @@
-import React from 'react'; // always import core React library
+import React from 'react'; 
 
 function Welcome(){
   return (
     <div>
-      <h1>Welcome!</h1>
-      <h1>"Be Enshrined in the Glory of Song"</h1>
+      <h1>Be Enshrined in the Glory of Song</h1>
       <h2>What is This?</h2>
       <p>
         For over 40,000 years, humans have been making music. From flutes made from bones to Mozart's symphonies to that one Kanye album you really like, music has been a consistent part of our lives. In the 21st century, music is more accessible than ever, filling every space in our homes, headphones, and places of commerce.
