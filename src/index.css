@@ -3,3 +3,14 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+img {
+  display: block;
+  width: 100%;
+}
+img.mike {
+  max-width: 300px;
+  margin: -50px auto;
+}
+h1.title {
+  font-size: 3rem;
+}
