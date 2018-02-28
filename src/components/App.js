@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './styles/App.css';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Faq from './Faq';
 import Portfolio from './Portfolio';
 import Reviews from './Reviews';
