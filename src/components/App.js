@@ -5,6 +5,7 @@ import Faq from './Faq';
 import Portfolio from './Portfolio';
 import Reviews from './Reviews';
 import Welcome from './Welcome';
+import Questionnaire from './Questionnaire';
 import Error404 from './Error404';
 import User from './User';
 import { Switch, Route, Link } from 'react-router-dom';
@@ -54,8 +55,10 @@ class App extends React.Component {
             <Portfolio />} />
           <Route path='/reviews' render={() =>
             <Reviews />} />
-          <Route path='/user' render={() =>
+          <Route exact path='/user' render={() =>
             <User />} />
+          <Route path='/user/questionnaire' render={() =>
+            <Questionnaire />} />
           <Route component={Error404} />
         </Switch>
       </div>
