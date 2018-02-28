@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower|Rajdhani|Roboto|Source+Code+Pro');
+
 body {
+  font-family: 'Roboto', sans-serif;
   margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+  padding: 15px;
+  box-sizing: border-box;
 }
 img {
   display: block;
@@ -11,8 +14,15 @@ img.mike {
   max-width: 300px;
   margin: -50px auto;
 }
+h1, h2, h3 {
+  font-family: 'Rajdhani', sans-serif;
+}
 h1.title {
+  font-family: 'Source Code Pro', monospace;
   font-size: 2.75rem;
+}
+p {
+  font-family: 'Indie Flower', cursive;
 }
 button {
   font-size: 1rem;
@@ -28,4 +38,9 @@ div#sign-in-links {
   position: absolute;
   top: 0;
   right: 90px;
+}
+input, textarea {
+  display: block;
+  width: 100%;
+  margin: 0 0 20px;
 }
