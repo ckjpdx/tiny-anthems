@@ -5,11 +5,9 @@ function SongList(){
   return (
     <div>
       <h2>Your Song List</h2>
-      <ul>
-        <li><Song /></li>
-        <li><Song /></li>
-        <li><Song /></li>
-      </ul>
+      <Song />
+      <Song />
+      <Song />
     </div>
   );
 }

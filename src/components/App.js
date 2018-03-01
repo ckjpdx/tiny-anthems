@@ -3,7 +3,7 @@ import './styles/App.css';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Faq from './Faq';
 import Portfolio from './Portfolio';
-import Reviews from './Reviews';
+import ReviewList from './ReviewList';
 import Welcome from './Welcome';
 import Questionnaire from './Questionnaire';
 import Error404 from './Error404';
@@ -45,7 +45,7 @@ class App extends React.Component {
         <Link to='/'>Welcome</Link>
         <Link to='/faq'>FAQ</Link>
         <Link to='/portfolio'>Portfolio</Link>
-        <Link to='/reviews'>Reviews</Link>
+        <Link to='/review-list'>Reviews</Link>
         <Switch>
           <Route exact path='/' render={() =>
             <Welcome />} />
@@ -53,8 +53,8 @@ class App extends React.Component {
             <Faq />} />
           <Route path='/portfolio' render={() =>
             <Portfolio />} />
-          <Route path='/reviews' render={() =>
-            <Reviews />} />
+          <Route path='/review-list' render={() =>
+            <ReviewList />} />
           <Route exact path='/user' render={() =>
             <User />} />
           <Route path='/user/questionnaire' render={() =>
