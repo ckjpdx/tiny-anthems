@@ -5,6 +5,7 @@ import Faq from './Faq';
 import Portfolio from './Portfolio';
 import ReviewList from './ReviewList';
 import Welcome from './Welcome';
+import WriteReview from './WriteReview';
 import Questionnaire from './Questionnaire';
 import Error404 from './Error404';
 import User from './User';
@@ -57,8 +58,10 @@ class App extends React.Component {
             <ReviewList />} />
           <Route exact path='/user' render={() =>
             <User />} />
-          <Route path='/user/questionnaire' render={() =>
+          <Route exact path='/user/questionnaire' render={() =>
             <Questionnaire />} />
+          <Route exact path='/user/review' render={() =>
+            <WriteReview />} />
           <Route component={Error404} />
         </Switch>
       </div>

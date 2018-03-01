@@ -9,7 +9,6 @@ function User(){
       <Link to='/user/questionnaire'>
         <button>Take the Questionnaire!</button>
       </Link>
-      <button>Write a review!</button>
       <SongList />
     </div>
   );
