@@ -15,30 +15,30 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      isUserSignedIn: false,
-      signInButton: 'Sign In'
+      signIn: {
+        isUserSignedIn: false,
+        signInButtonText: 'Sign In'
+      }
     };
     this.handleSignInButton = this.handleSignInButton.bind(this);
   }
   handleSignInButton(){
-    if (this.state.isUserSignedIn === false){
-      this.setState({isUserSignedIn: true});
-      this.setState({signInButton: 'Sign Out'});
+    if (this.state.signIn.isUserSignedIn === false){
+      this.setState({signIn:{isUserSignedIn: true, signInButtonText: 'Sign Out'}});
     } else {
-      this.setState({isUserSignedIn: false});
-      this.setState({signInButton: 'Sign In'});
+      this.setState({signIn:{isUserSignedIn: false, signInButtonText: 'Sign In'}});
     }
   }
   render() {
     let userSignInLinks = null;
-    if (this.state.isUserSignedIn){
+    if (this.state.signIn.isUserSignedIn){
       userSignInLinks = <div id="sign-in-links">
         <Link to='/user'><button>Profile</button></Link>
       </div>
     }
     return (
       <div className="App">
-        <button id="sign-in" onClick={this.handleSignInButton}>{this.state.signInButton}</button>
+        <button id="sign-in" onClick={this.handleSignInButton}>{this.state.signIn.signInButtonText}</button>
         {userSignInLinks}
         <img src={mike} alt="cartoon of mike throwing up musical notes" className="mike" />
         <h1 className="title">Tiny Anthems</h1>
