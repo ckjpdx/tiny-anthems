@@ -1,9 +1,8 @@
-input {
-  width: 50%;
+input.admin-upload-input {
+  width: 160px;
   margin: 0;
   display: inline;
 }
-p#upload-label {
-  width: 50%;
+p.admin-upload-label {
   display: inline;
 }

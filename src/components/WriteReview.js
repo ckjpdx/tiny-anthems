@@ -4,7 +4,7 @@ function WriteReview(){
   return (
     <div>
       <h1>Review (song name)</h1>
-      <input type="text"></input>
+      <textarea />
       <button>Submit</button>
     </div>
   );

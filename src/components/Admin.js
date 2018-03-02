@@ -12,8 +12,8 @@ function Admin(){
       <h2>(Pending Questionnaires)</h2>
       <h3>User123</h3>
       <div>
-        <p id="upload-label">UPLOAD</p>
-        <input type="file"/>
+        <p className="admin-upload-label">UPLOAD SONG--></p>
+        <input className="admin-upload-input" type="file"/>
       </div>
       <p>Q: Answer</p>
       <p>Q: Answer</p>

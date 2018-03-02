@@ -18,30 +18,32 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      signIn: {
+      userAccount: {
         isUserSignedIn: false,
-        signInButtonText: 'Sign In'
+        signInButtonText: 'Sign In',
+        userName: null,
       }
     };
     this.handleSignInButton = this.handleSignInButton.bind(this);
   }
   handleSignInButton(){
-    if (this.state.signIn.isUserSignedIn === false){
-      this.setState({signIn:{isUserSignedIn: true, signInButtonText: 'Sign Out'}});
+    if (this.state.userAccount.isUserSignedIn === false){
+      const userName = prompt("Enter your name");
+      this.setState({userAccount:{isUserSignedIn: true, signInButtonText: 'Sign Out', userName: userName}});
     } else {
-      this.setState({signIn:{isUserSignedIn: false, signInButtonText: 'Sign In'}});
+      this.setState({userAccount:{isUserSignedIn: false, signInButtonText: 'Sign In'}});
     }
   }
   render() {
     let userSignInLinks = null;
-    if (this.state.signIn.isUserSignedIn){
+    if (this.state.userAccount.isUserSignedIn){
       userSignInLinks = <div id="sign-in-links">
         <Link to='/user'><button>Profile</button></Link>
       </div>
     }
     return (
       <div className="App">
-        <button id="sign-in" onClick={this.handleSignInButton}>{this.state.signIn.signInButtonText}</button>
+        <button id="sign-in" onClick={this.handleSignInButton}>{this.state.userAccount.signInButtonText}</button>
         {userSignInLinks}
         <img src={mike} alt="cartoon of mike throwing up musical notes" className="mike" />
         <h1 className="title">Tiny Anthems</h1>
@@ -55,7 +57,7 @@ class App extends React.Component {
           <Route path='/portfolio' component={Portfolio} />
           <Route path='/review-list' component={ReviewList} />
           <Route exact path='/user' render={() =>
-            <User />} />
+            <User userAccount={this.state.userAccount}/>} />
           <Route exact path='/user/questionnaire' render={() =>
             <Questionnaire />} />
           <Route exact path='/user/review' render={() =>
