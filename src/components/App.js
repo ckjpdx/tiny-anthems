@@ -9,6 +9,7 @@ import Admin from './Admin';
 import AdminSearch from './AdminSearch';
 import WriteReview from './WriteReview';
 import Questionnaire from './Questionnaire';
+import ListedQuestionnaire from './ListedQuestionnaire';
 import Error404 from './Error404';
 import User from './User';
 import { Switch, Route, Link } from 'react-router-dom';
