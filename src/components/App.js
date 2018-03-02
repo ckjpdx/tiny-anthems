@@ -22,6 +22,7 @@ class App extends React.Component {
         isUserSignedIn: false,
         signInButtonText: 'Sign In',
         userName: null,
+        questionnaireIds: []
       },
       questionnairesById: {
 
@@ -36,14 +37,20 @@ class App extends React.Component {
   handleSignInButton(){
     if (this.state.userAccount.isUserSignedIn === false){
       const userName = prompt("Enter your name");
-      this.setState({userAccount:{isUserSignedIn: true, signInButtonText: 'Sign Out', userName: userName}});
+      const newUserAccount = Object.assign({}, this.state.userAccount, {isUserSignedIn: true, signInButtonText: 'Sign Out', userName: userName});
+      this.setState({userAccount: newUserAccount});
     } else {
-      this.setState({userAccount:{isUserSignedIn: false, signInButtonText: 'Sign In'}});
+      const newUserAccount = Object.assign({}, this.state.userAccount, {isUserSignedIn: false, signInButtonText: 'Sign In'});
+      this.setState({userAccount: newUserAccount});
     }
   }
   handleAddNewQuestionnaire(newQuestionnaire){
-    let newQuestionnairesById = Object.assign({}, this.state.questionnairesById, {[newQuestionnaire.id]: newQuestionnaire});
+    const newQuestionnairesById = Object.assign({}, this.state.questionnairesById, {[newQuestionnaire.id]: newQuestionnaire});
     this.setState({questionnairesById: newQuestionnairesById});
+    console.log(this.state);
+    const newQuestionnaireIds = this.state.userAccount.questionnaireIds.push(newQuestionnaire.id);
+    const newUserAccount = Object.assign({}, this.state.userAccount, {questionnairesIds: newQuestionnaireIds});
+    this.setState({userAccount: newUserAccount});
     console.log(this.state);
   }
   render() {
@@ -60,10 +67,10 @@ class App extends React.Component {
         {userSignInLinks}
         <img src={mike} alt="cartoon of mike throwing up musical notes" className="mike" />
         <h1 className="title">Tiny Anthems</h1>
-        <Link to='/'>Welcome</Link>
-        <Link to='/faq'>FAQ</Link>
-        <Link to='/portfolio'>Portfolio</Link>
-        <Link to='/review-list'>Reviews</Link>
+        <Link className="App-main-links" to='/'>Welcome</Link>
+        <Link className="App-main-links" to='/faq'>FAQ</Link>
+        <Link className="App-main-links" to='/portfolio'>Portfolio</Link>
+        <Link className="App-main-links" to='/review-list'>Reviews</Link>
         <Switch>
           <Route exact path='/' component={Welcome} />
           <Route path='/faq' component={Faq} />
@@ -76,7 +83,7 @@ class App extends React.Component {
           <Route exact path='/user/review' render={() =>
             <WriteReview />} />
           <Route exact path='/admin' render={() =>
-            <Admin />} />
+            <Admin questionnaires={this.state.questionnairesById} />} />
           <Route exact path='/admin/search' render={() =>
             <AdminSearch />} />
           <Route component={Error404} />
