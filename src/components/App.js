@@ -22,9 +22,16 @@ class App extends React.Component {
         isUserSignedIn: false,
         signInButtonText: 'Sign In',
         userName: null,
+      },
+      questionnairesById: {
+
+      },
+      songsById: {
+
       }
     };
     this.handleSignInButton = this.handleSignInButton.bind(this);
+    this.handleAddNewQuestionnaire = this.handleAddNewQuestionnaire.bind(this);
   }
   handleSignInButton(){
     if (this.state.userAccount.isUserSignedIn === false){
@@ -34,11 +41,17 @@ class App extends React.Component {
       this.setState({userAccount:{isUserSignedIn: false, signInButtonText: 'Sign In'}});
     }
   }
+  handleAddNewQuestionnaire(newQuestionnaire){
+    let newQuestionnairesById = Object.assign({}, this.state.questionnairesById, {[newQuestionnaire.id]: newQuestionnaire});
+    this.setState({questionnairesById: newQuestionnairesById});
+    console.log(this.state);
+  }
   render() {
     let userSignInLinks = null;
+    let userName = this.state.userAccount.userName
     if (this.state.userAccount.isUserSignedIn){
       userSignInLinks = <div id="sign-in-links">
-        <Link to='/user'><button>Profile</button></Link>
+        <Link to='/user'><button>{userName}'s Profile</button></Link>
       </div>
     }
     return (
@@ -59,7 +72,7 @@ class App extends React.Component {
           <Route exact path='/user' render={() =>
             <User userAccount={this.state.userAccount}/>} />
           <Route exact path='/user/questionnaire' render={() =>
-            <Questionnaire />} />
+            <Questionnaire onQuestionnaireFormSubmit={this.handleAddNewQuestionnaire}/>} />
           <Route exact path='/user/review' render={() =>
             <WriteReview />} />
           <Route exact path='/admin' render={() =>
