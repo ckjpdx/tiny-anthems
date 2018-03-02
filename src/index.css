@@ -11,7 +11,7 @@ a {
   color: #428282;
   padding: 10px;
 }
-a:hover {
+a.main-links:hover {
   border-bottom: solid #428282 2px;
 }
 img {

@@ -5,6 +5,8 @@ import Faq from './Faq';
 import Portfolio from './Portfolio';
 import ReviewList from './ReviewList';
 import Welcome from './Welcome';
+import Admin from './Admin';
+import AdminSearch from './AdminSearch';
 import WriteReview from './WriteReview';
 import Questionnaire from './Questionnaire';
 import Error404 from './Error404';
@@ -48,20 +50,20 @@ class App extends React.Component {
         <Link to='/portfolio'>Portfolio</Link>
         <Link to='/review-list'>Reviews</Link>
         <Switch>
-          <Route exact path='/' render={() =>
-            <Welcome />} />
-          <Route path='/faq' render={() =>
-            <Faq />} />
-          <Route path='/portfolio' render={() =>
-            <Portfolio />} />
-          <Route path='/review-list' render={() =>
-            <ReviewList />} />
+          <Route exact path='/' component={Welcome} />
+          <Route path='/faq' component={Faq} />
+          <Route path='/portfolio' component={Portfolio} />
+          <Route path='/review-list' component={ReviewList} />
           <Route exact path='/user' render={() =>
             <User />} />
           <Route exact path='/user/questionnaire' render={() =>
             <Questionnaire />} />
           <Route exact path='/user/review' render={() =>
             <WriteReview />} />
+          <Route exact path='/admin' render={() =>
+            <Admin />} />
+          <Route exact path='/admin/search' render={() =>
+            <AdminSearch />} />
           <Route component={Error404} />
         </Switch>
       </div>

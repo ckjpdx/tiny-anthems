@@ -1,0 +1,9 @@
+input {
+  width: 50%;
+  margin: 0;
+  display: inline;
+}
+p#upload-label {
+  width: 50%;
+  display: inline;
+}
