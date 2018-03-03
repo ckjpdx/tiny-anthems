@@ -14,7 +14,7 @@ function Admin(props){
         {Object.keys(props.questionnaires).map((quizId) => {
           console.log(props.questionnaires, quizId);
           let quiz = props.questionnaires[quizId];
-          return <ListedQuestionnaire quiz={quiz} key={quiz.id} />;
+          return <ListedQuestionnaire quiz={quiz} onSongUpload={props.onSongUpload} key={quiz.id} />;
         })}
     </div>
   );

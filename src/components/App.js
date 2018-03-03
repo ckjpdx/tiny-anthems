@@ -34,6 +34,7 @@ class App extends React.Component {
     };
     this.handleSignInButton = this.handleSignInButton.bind(this);
     this.handleAddNewQuestionnaire = this.handleAddNewQuestionnaire.bind(this);
+    this.handleSongUpload = this.handleSongUpload.bind(this);
   }
   handleSignInButton(){
     if (this.state.userAccount.isUserSignedIn === false){
@@ -45,13 +46,19 @@ class App extends React.Component {
       this.setState({userAccount: newUserAccount});
     }
   }
-  handleAddNewQuestionnaire(newQuestionnaire){
-    const newQuestionnairesById = Object.assign({}, this.state.questionnairesById, {[newQuestionnaire.id]: newQuestionnaire});
-    this.setState({questionnairesById: newQuestionnairesById});
+  handleAddNewQuestionnaire(newQuiz){
     console.log(this.state);
-    const newQuestionnaireIds = this.state.userAccount.questionnaireIds.push(newQuestionnaire.id);
-    const newUserAccount = Object.assign({}, this.state.userAccount, {questionnairesIds: newQuestionnaireIds});
+    console.log(this.state.userAccount.questionnaireIds);
+    const newQuestionnairesById = Object.assign({}, this.state.questionnairesById, {[newQuiz.id]: newQuiz});
+    this.setState({questionnairesById: newQuestionnairesById});
+    const newQuestionnaireIds = this.state.userAccount.questionnaireIds;
+    newQuestionnaireIds.push(newQuiz.id);
+    const newUserAccount = Object.assign({}, this.state.userAccount, {questionnaireIds: newQuestionnaireIds});
     this.setState({userAccount: newUserAccount});
+  }
+  handleSongUpload(newSong){
+    const newSongsById = Object.assign({}, this.state.songsById, {[newSong.id]: newSong});
+    this.setState({songsById: newSongsById});
     console.log(this.state);
   }
   render() {
@@ -84,7 +91,7 @@ class App extends React.Component {
           <Route exact path='/user/review' render={() =>
             <WriteReview />} />
           <Route exact path='/admin' render={() =>
-            <Admin questionnaires={this.state.questionnairesById} />} />
+            <Admin questionnaires={this.state.questionnairesById} onSongUpload={this.handleSongUpload} />} />
           <Route exact path='/admin/search' render={() =>
             <AdminSearch />} />
           <Route component={Error404} />

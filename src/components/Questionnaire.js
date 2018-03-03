@@ -7,14 +7,14 @@ function Questionnaire(props){
   let _anythingElse = null;
   function handleQuestionnaireFormSubmit(e){
     e.preventDefault();
-    const newQuestionnare = {
+    const newQuestionnaire = {
       id: v4(),
       name: _name.value,
       dob: _dob.value,
       anythingElse: _anythingElse.value
     }
-    console.log(newQuestionnare);
-    props.onQuestionnaireFormSubmit(newQuestionnare);
+    console.log(newQuestionnaire);
+    props.onQuestionnaireFormSubmit(newQuestionnaire);
   }
   return (
     <div>
