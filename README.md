@@ -28,6 +28,8 @@ Created for local Portland musician Mike Long, this site will use persistent sta
 #### [AWS Amplify](https://github.com/aws/aws-amplify)
 > AWS Amplify is an open source JavaScript library for frontend and mobile developers building cloud-enabled applications. The AWS Mobile CLI, built on AWS Mobile Hub, provides a command line interface for frontend JavaScript developers to seamlessly enable and configure AWS services into their apps.
 
+[Adding User Data Storage](https://docs.aws.amazon.com/aws-mobile/latest/developerguide/web-add-storage.html)
+
 #### AWS Mobile Hub
 > Sets up backend. Gives you a single place to easily configure AWS services. It generates a cloud configuration file, which stores information about configured services. AWS Mobile SDK to connect to your backend.
 
