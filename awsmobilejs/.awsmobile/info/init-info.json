@@ -1,0 +1,44 @@
+{
+	"projectPath": "/Users/Guest/Desktop/tiny-anthems",
+	"projectInfo": {
+		"ProjectName": "tiny-anthems",
+		"ProjectPath": "/Users/Guest/Desktop/tiny-anthems",
+		"InitializationTime": "",
+		"LastConfigurationTime": "",
+		"LastNPMInstallTime": "",
+		"FrontendLastBuildTime": "",
+		"LastPublishTime": "",
+		"BackendLastSyncTime": "",
+		"BackendLastBuildTime": "",
+		"BackendLastPushTime": "",
+		"BackendLastPushSuccessful": false,
+		"BackendProjectID": "",
+		"BackendProjectName": "",
+		"BackendProjectConsoleUrl": "",
+		"BackendProjectCreationTime": "",
+		"BackendProjectLastUpdatedTime": "",
+		"Framework": "react"
+	},
+	"packageJson": {
+		"name": "tiny-anthems-static",
+		"version": "0.1.0",
+		"private": true,
+		"dependencies": {
+			"material-ui": "^0.20.0",
+			"react": "^16.2.0",
+			"react-dom": "^16.2.0",
+			"react-router-dom": "^4.2.2",
+			"react-scripts": "1.1.1",
+			"uuid": "^3.2.1"
+		},
+		"scripts": {
+			"start": "react-scripts start",
+			"build": "react-scripts build",
+			"test": "react-scripts test --env=jsdom",
+			"eject": "react-scripts eject"
+		}
+	},
+	"framework": "react",
+	"initialStage": "clean-slate",
+	"strategy": "create"
+}

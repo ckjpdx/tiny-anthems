@@ -1,0 +1,19 @@
+{
+	"ProjectName": "tiny-anthems",
+	"ProjectPath": "/Users/Guest/Desktop/tiny-anthems",
+	"InitializationTime": "",
+	"LastConfigurationTime": "2018-03-05-15-37-27",
+	"LastNPMInstallTime": "",
+	"FrontendLastBuildTime": "",
+	"LastPublishTime": "",
+	"BackendLastSyncTime": "2018-03-05-16-05-08",
+	"BackendLastBuildTime": "2018-03-05-16-04-56",
+	"BackendLastPushTime": "2018-03-05-16-05-03",
+	"BackendLastPushSuccessful": true,
+	"BackendProjectID": "319f86c6-20ce-11e8-b21f-6da413101de0",
+	"BackendProjectName": "tiny-anthems-2018-03-05-15-37-27",
+	"BackendProjectConsoleUrl": "https://console.aws.amazon.com/mobilehub/home#/319f86c6-20ce-11e8-b21f-6da413101de0/build",
+	"BackendProjectCreationTime": "2018-03-05T23:37:40.677Z",
+	"BackendProjectLastUpdatedTime": "2018-03-06T00:05:02.505Z",
+	"Framework": "react"
+}

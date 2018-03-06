@@ -1,0 +1,128 @@
+{
+	"name": "tiny-anthems-2018-03-05-15-37-27",
+	"projectId": "319f86c6-20ce-11e8-b21f-6da413101de0",
+	"region": "us-west-1",
+	"state": "NORMAL",
+	"createdDate": "2018-03-05T23:37:40.677Z",
+	"lastUpdatedDate": "2018-03-06T00:05:02.505Z",
+	"consoleUrl": "https://console.aws.amazon.com/mobilehub/home#/319f86c6-20ce-11e8-b21f-6da413101de0/build",
+	"resources": [
+		{
+			"type": "AWS::S3::Bucket",
+			"name": "tinyanthems-userfiles-mobilehub-1742520150",
+			"arn": null,
+			"feature": "user-data",
+			"attributes": {
+				"lastUpdateRequestID": "014f115f-20d2-11e8-a8a5-078cd4bcb2bd",
+				"region": "us-west-1",
+				"s3-bucket-console-url": "https://s3.console.aws.amazon.com/s3/buckets/tinyanthems-userfiles-mobilehub-1742520150"
+			}
+		},
+		{
+			"type": "AWS::IAM::Policy",
+			"name": "tinyanthems_userfiles_MOBILEHUB_1742520150",
+			"arn": null,
+			"feature": "user-data",
+			"attributes": {
+				"authType": "unauthenticated",
+				"lastUpdateRequestID": "014f115f-20d2-11e8-a8a5-078cd4bcb2bd",
+				"role": "tinyanthems_unauth_MOBILEHUB_1742520150"
+			}
+		},
+		{
+			"type": "AWS::Cognito::IdentityPool",
+			"name": "tinyanthems_MOBILEHUB_1742520150",
+			"arn": "us-west-2:d0895e4e-0c4d-45c0-a4eb-681ef76c97a7",
+			"feature": "user-signin",
+			"attributes": {
+				"lastUpdateRequestID": "31d1b980-20ce-11e8-a8a5-078cd4bcb2bd",
+				"poolid": "us-west-2:d0895e4e-0c4d-45c0-a4eb-681ef76c97a7",
+				"roleARNs": "arn:aws:iam::751505621054:role/tinyanthems_unauth_MOBILEHUB_1742520150"
+			}
+		},
+		{
+			"type": "AWS::IAM::Role",
+			"name": "tinyanthems_unauth_MOBILEHUB_1742520150",
+			"arn": "arn:aws:iam::751505621054:role/tinyanthems_unauth_MOBILEHUB_1742520150",
+			"feature": "user-signin",
+			"attributes": {
+				"authType": "unauthenticated",
+				"lastUpdateRequestID": "31d1b980-20ce-11e8-a8a5-078cd4bcb2bd"
+			}
+		},
+		{
+			"type": "AWS::Pinpoint::AnalyticsApplication",
+			"name": "tinyanthems20180305153727_MobileHub",
+			"arn": "a7974dfe8ec345b0aa14bba16107c6f2",
+			"feature": "analytics",
+			"attributes": {
+				"lastUpdateRequestID": "31d1b980-20ce-11e8-a8a5-078cd4bcb2bd"
+			}
+		},
+		{
+			"type": "AWS::IAM::Policy",
+			"name": "tinyanthems_mobileanalytics_MOBILEHUB_1742520150",
+			"arn": null,
+			"feature": "analytics",
+			"attributes": {
+				"authType": "unauthenticated",
+				"lastUpdateRequestID": "31d1b980-20ce-11e8-a8a5-078cd4bcb2bd",
+				"role": "tinyanthems_unauth_MOBILEHUB_1742520150"
+			}
+		},
+		{
+			"type": "AWS::S3::Bucket",
+			"name": "tinyanthems-hosting-mobilehub-1742520150",
+			"arn": null,
+			"feature": "hosting",
+			"attributes": {
+				"lastUpdateRequestID": "31d1b980-20ce-11e8-a8a5-078cd4bcb2bd",
+				"region": "us-west-1",
+				"s3-bucket-console-url": "https://s3.console.aws.amazon.com/s3/buckets/tinyanthems-hosting-mobilehub-1742520150",
+				"s3-bucket-website-url": "https://s3.amazonaws.com/tinyanthems-hosting-mobilehub-1742520150"
+			}
+		},
+		{
+			"type": "AWS::CloudFront::Distribution",
+			"name": "d196v3voat23t4.cloudfront.net",
+			"arn": null,
+			"feature": "hosting",
+			"attributes": {
+				"id": "EPUAGYIACMYFZ",
+				"lastUpdateRequestID": "31d1b980-20ce-11e8-a8a5-078cd4bcb2bd"
+			}
+		},
+		{
+			"type": "AWS::IAM::Policy",
+			"name": "tinyanthems_hosting_MOBILEHUB_1742520150",
+			"arn": null,
+			"feature": "hosting",
+			"attributes": {
+				"authType": "unauthenticated",
+				"lastUpdateRequestID": "31d1b980-20ce-11e8-a8a5-078cd4bcb2bd",
+				"role": "tinyanthems_unauth_MOBILEHUB_1742520150"
+			}
+		},
+		{
+			"type": "AWS::S3::Bucket",
+			"name": "tinyanthems-deployments-mobilehub-1742520150",
+			"arn": null,
+			"feature": "common",
+			"attributes": {
+				"region": "us-west-1",
+				"s3-bucket-console-url": "https://s3.console.aws.amazon.com/s3/buckets/tinyanthems-deployments-mobilehub-1742520150"
+			}
+		},
+		{
+			"type": "AWS::CloudFormation::Stack",
+			"name": "Development",
+			"arn": null,
+			"feature": "cloud-api",
+			"attributes": {
+				"primary": "true",
+				"region": "us-west-1",
+				"stateSummary": "NOT_YET_DEPLOYED"
+			}
+		}
+	]
+}
