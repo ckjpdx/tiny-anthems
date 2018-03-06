@@ -35,6 +35,8 @@ Created for local Portland musician Mike Long, this site will use persistent sta
 #### AWS Cognito
 > Amazon Cognito lets you add user sign-up, sign-in, and access control to your web and mobile apps quickly and easily. Amazon Cognito scales to millions of users and supports sign-in with social identity providers, such as Facebook, Google, and Amazon, and enterprise identity providers via SAML 2.0.
 
+#### [Facebook SDK for React](https://medium.com/front-end-hacking/facebook-authorization-in-a-react-app-b7a9176aacb6)
+
 #### AWS S3
 S3 API??? https://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html
 
