@@ -9,7 +9,7 @@ import Admin from './Admin';
 import AdminSearch from './AdminSearch';
 import WriteReview from './WriteReview';
 import Questionnaire from './Questionnaire';
-import ListedQuestionnaire from './ListedQuestionnaire';
+import FacebookLogin from './FacebookLogin';
 import Error404 from './Error404';
 import User from './User';
 import { Switch, Route, Link } from 'react-router-dom';
@@ -20,6 +20,8 @@ class App extends React.Component {
     super(props);
     this.state = {
       userAccount: {
+        id: null,
+        name: null,
         questionnaireIds: []
       },
       questionnairesById: {
@@ -29,52 +31,14 @@ class App extends React.Component {
 
       }
     };
-    this.handleSignInButton = this.handleSignInButton.bind(this);
     this.handleAddNewQuestionnaire = this.handleAddNewQuestionnaire.bind(this);
     this.handleSongUpload = this.handleSongUpload.bind(this);
+    this.handleFacebookLogin = this.handleFacebookLogin.bind(this);
   }
-
-  componentDidMount() {
-    this.handleFBLogin();
-  }
-
-  handleFBLogin() {
-    console.log(window);
-    window.fbAsyncInit = function() {
-      window.FB.init({
-        appId      : '202716210312589',
-        cookie     : true,
-        xfbml      : true,
-        version    : 'v2.12'
-      });
-
-      window.FB.Event.subscribe('auth.statusChange', (response) => {
-        if (response.authResponse) {
-          this.updateLoggedInState(response)
-        } else {
-          this.updateLoggedInState()
-        }
-      });
-    }.bind(this);
-
-    (function(d, s, id){
-       var js, fjs = d.getElementsByTagName(s)[0];
-       if (d.getElementById(id)) {return;}
-       js = d.createElement(s); js.id = id;
-       js.src = "https://connect.facebook.net/en_US/sdk.js";
-       fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-  }
-
-  handleSignInButton(){
-    if (this.state.userAccount.isUserSignedIn === false){
-      const userName = prompt("Enter your name");
-      const newUserAccount = Object.assign({}, this.state.userAccount, {isUserSignedIn: true, signInButtonText: 'Sign Out', userName: userName});
-      this.setState({userAccount: newUserAccount});
-    } else {
-      const newUserAccount = Object.assign({}, this.state.userAccount, {isUserSignedIn: false, signInButtonText: 'Sign In'});
-      this.setState({userAccount: newUserAccount});
-    }
+  handleFacebookLogin(id, name){
+    const newUserAccount = Object.assign({}, this.state.userAccount, {id: id, name: name});
+    this.setState({userAccount: newUserAccount});
+    console.log(this.state);
   }
   handleAddNewQuestionnaire(newQuiz){
     console.log(this.state);
@@ -95,7 +59,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <div id="sign-in-links">
-          <Link to='/user'><button>Profile</button></Link>
+          <Link to='/facebook-login'><button>Profile</button></Link>
         </div>
         <img src={mike} alt="cartoon of mike throwing up musical notes" className="mike" />
         <h1 className="title">Tiny Anthems</h1>
@@ -108,6 +72,8 @@ class App extends React.Component {
           <Route path='/faq' component={Faq} />
           <Route path='/portfolio' component={Portfolio} />
           <Route path='/review-list' component={ReviewList} />
+          <Route exact path='/facebook-login' render={() =>
+            <FacebookLogin onFacebookLogin={this.handleFacebookLogin} userAccount={this.state.userAccount}/>} />
           <Route exact path='/user' render={() =>
             <User userAccount={this.state.userAccount}/>} />
           <Route exact path='/user/questionnaire' render={() =>
