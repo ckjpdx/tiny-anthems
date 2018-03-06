@@ -38,6 +38,6 @@ Created for local Portland musician Mike Long, this site will use persistent sta
 #### AWS S3
 S3 API??? https://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html
 
-## Planning
+## Structure
 ![Components](./tiny-anthems-components4.png)
 ![Interface](./tiny-anthems-interface3.png)

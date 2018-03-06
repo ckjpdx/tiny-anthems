@@ -49,7 +49,7 @@ button#sign-in {
 div#sign-in-links {
   position: absolute;
   top: 0;
-  right: 90px;
+  right: 0;
 }
 input, textarea {
   display: block;

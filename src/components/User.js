@@ -1,6 +1,7 @@
 import React from 'react';
 import SongList from './SongList';
 import { Link } from 'react-router-dom';
+import { withAuthenticator } from 'aws-amplify-react';
 
 function User(props){
   return (
@@ -14,4 +15,4 @@ function User(props){
   );
 }
 
-export default User;
+export default withAuthenticator(User);

@@ -20,9 +20,6 @@ class App extends React.Component {
     super(props);
     this.state = {
       userAccount: {
-        isUserSignedIn: false,
-        signInButtonText: 'Sign In',
-        userName: null,
         questionnaireIds: []
       },
       questionnairesById: {
@@ -62,17 +59,11 @@ class App extends React.Component {
     console.log(this.state);
   }
   render() {
-    let userSignInLinks = null;
-    let userName = this.state.userAccount.userName
-    if (this.state.userAccount.isUserSignedIn){
-      userSignInLinks = <div id="sign-in-links">
-        <Link to='/user'><button>{userName}'s Profile</button></Link>
-      </div>
-    }
     return (
       <div className="App">
-        <button id="sign-in" onClick={this.handleSignInButton}>{this.state.userAccount.signInButtonText}</button>
-        {userSignInLinks}
+        <div id="sign-in-links">
+          <Link to='/user'><button>Profile</button></Link>
+        </div>
         <img src={mike} alt="cartoon of mike throwing up musical notes" className="mike" />
         <h1 className="title">Tiny Anthems</h1>
         <Link className="App-main-links" to='/'>Welcome</Link>
