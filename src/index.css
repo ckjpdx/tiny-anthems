@@ -51,6 +51,11 @@ div#sign-in-links {
   top: 0;
   right: 0;
 }
+.facebook-button {
+  padding: 20px;
+  color: white;
+  background: #3b5998;
+}
 input, textarea {
   display: block;
   width: 100%;
