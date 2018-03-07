@@ -12,6 +12,7 @@ import Questionnaire from './Questionnaire';
 import FacebookLogin from './FacebookLogin';
 import Error404 from './Error404';
 import User from './User';
+import ImageViewer from './ImageViewer';
 import { Switch, Route, Link } from 'react-router-dom';
 import mike from './../assets/img/mike.gif';
 
@@ -20,35 +21,31 @@ class App extends React.Component {
     super(props);
     this.state = {
       userAccount: {
-        id: null,
+        isAdmin: false,
+        userId: null,
         name: null,
         questionnaireIds: []
       },
-      questionnairesById: {
-
-      },
-      songsById: {
-
-      }
+      questionnairesById: {},
+      songsById: {}
     };
     this.handleAddNewQuestionnaire = this.handleAddNewQuestionnaire.bind(this);
     this.handleSongUpload = this.handleSongUpload.bind(this);
     this.handleFacebookLogin = this.handleFacebookLogin.bind(this);
   }
-  handleFacebookLogin(id, name){
-    const newUserAccount = Object.assign({}, this.state.userAccount, {id: id, name: name});
+  handleFacebookLogin(userId, name){
+    const newUserAccount = Object.assign({}, this.state.userAccount, {userId: userId, name: name});
     this.setState({userAccount: newUserAccount});
     console.log(this.state);
   }
   handleAddNewQuestionnaire(newQuiz){
-    console.log(this.state);
-    console.log(this.state.userAccount.questionnaireIds);
-    const newQuestionnairesById = Object.assign({}, this.state.questionnairesById, {[newQuiz.id]: newQuiz});
+    const newQuestionnairesById = Object.assign({}, this.state.questionnairesById, {[newQuiz.quizId]: newQuiz});
     this.setState({questionnairesById: newQuestionnairesById});
     const newQuestionnaireIds = this.state.userAccount.questionnaireIds;
-    newQuestionnaireIds.push(newQuiz.id);
+    newQuestionnaireIds.push(newQuiz.quizId);
     const newUserAccount = Object.assign({}, this.state.userAccount, {questionnaireIds: newQuestionnaireIds});
     this.setState({userAccount: newUserAccount});
+    console.log(this.state);
   }
   handleSongUpload(newSong){
     const newSongsById = Object.assign({}, this.state.songsById, {[newSong.id]: newSong});
@@ -58,7 +55,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <div id="sign-in-links">
+        <div id="App-profile-button">
           <Link to='/facebook-login'><button>Profile</button></Link>
         </div>
         <img src={mike} alt="cartoon of mike throwing up musical notes" className="mike" />
@@ -74,12 +71,13 @@ class App extends React.Component {
           <Route path='/faq' component={Faq} />
           <Route path='/portfolio' component={Portfolio} />
           <Route path='/review-list' component={ReviewList} />
+          <Route path='/image-viewer' component={ImageViewer} />
           <Route exact path='/facebook-login' render={() =>
             <FacebookLogin onFacebookLogin={this.handleFacebookLogin} userAccount={this.state.userAccount}/>} />
           <Route exact path='/user' render={() =>
             <User userAccount={this.state.userAccount}/>} />
           <Route exact path='/user/questionnaire' render={() =>
-            <Questionnaire onQuestionnaireFormSubmit={this.handleAddNewQuestionnaire}/>} />
+            <Questionnaire onQuestionnaireFormSubmit={this.handleAddNewQuestionnaire} userId={this.state.userAccount.userId}/>} />
           <Route exact path='/user/review' render={() =>
             <WriteReview />} />
           <Route exact path='/admin' render={() =>

@@ -26,7 +26,7 @@ class FacebookLogin extends Component {
         </Login>
       </FacebookProvider>;
     const userComponentDisplay = <User />;
-    if (!this.props.userAccount.id) {
+    if (!this.props.userAccount.userId) {
       displaySwitch = facebookLoginDisplay;
     } else {
       displaySwitch = <User userAccount={this.props.userAccount}/>;

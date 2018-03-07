@@ -8,7 +8,8 @@ function Questionnaire(props){
   function handleQuestionnaireFormSubmit(e){
     e.preventDefault();
     const newQuestionnaire = {
-      id: v4(),
+      userId: props.userId,
+      quizId: v4(),
       name: _name.value,
       dob: _dob.value,
       anythingElse: _anythingElse.value
