@@ -1,6 +1,14 @@
 .App {
   text-align: center;
 }
-a.App-main-links:hover {
+a.App-link:hover {
   border-bottom: solid #428282 2px;
+}
+div#sign-in-links {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+div#App-main-links {
+  margin: 20px
 }

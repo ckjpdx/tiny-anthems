@@ -63,10 +63,12 @@ class App extends React.Component {
         </div>
         <img src={mike} alt="cartoon of mike throwing up musical notes" className="mike" />
         <h1 className="title">Tiny Anthems</h1>
-        <Link className="App-main-links" to='/'>Welcome</Link>
-        <Link className="App-main-links" to='/faq'>FAQ</Link>
-        <Link className="App-main-links" to='/portfolio'>Portfolio</Link>
-        <Link className="App-main-links" to='/review-list'>Reviews</Link>
+        <div id="App-main-links">
+          <Link className="App-link" to='/'>Welcome</Link>
+          <Link className="App-link" to='/faq'>FAQ</Link>
+          <Link className="App-link" to='/portfolio'>Portfolio</Link>
+          <Link className="App-link" to='/review-list'>Reviews</Link>
+        </div>
         <Switch>
           <Route exact path='/' component={Welcome} />
           <Route path='/faq' component={Faq} />

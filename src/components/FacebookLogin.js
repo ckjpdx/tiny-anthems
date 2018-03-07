@@ -33,7 +33,6 @@ class FacebookLogin extends Component {
     }
     return (
       <div>
-      <h1>Facebook Login</h1>
         {displaySwitch}
       </div>
     );
