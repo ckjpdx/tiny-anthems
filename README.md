@@ -10,11 +10,12 @@ Created for local Portland musician Mike Long, this site will use persistent sta
 * AWS S3, Cognito, User Database
 
 ## Install
- 
+
 
 ## Goals
 - [ ] Material UI is installed but still must be implemented: [Material UI](https://www.npmjs.com/package/material-ui)
 - [ ] Display demo songs to play via portfolio
+- [x] react-facebook npm is used to sign in users
 - [ ] AWS user database is used to put/get persistent state
 - [ ] AWS S3 is used to store mp3 files
 - [ ] AWS Cognito is used to securely sign in users/admin
