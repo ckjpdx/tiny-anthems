@@ -5,9 +5,6 @@ import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
 import { HashRouter } from 'react-router-dom';
 
-import Amplify from 'aws-amplify';
-import aws_exports from './aws-exports';
-
 ReactDOM.render(
   <HashRouter>
     <App />
@@ -16,4 +13,3 @@ ReactDOM.render(
 );
 
 registerServiceWorker();
-Amplify.configure(aws_exports);
