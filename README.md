@@ -33,3 +33,7 @@ aws s3 sync s3://wildrydes-us-east-1/WebApplication/1_StaticWebHosting/website s
 * [Tutorial for building a Web Application with Amazon S3, Lambda, DynamoDB and API Gateway](https://codeburst.io/tutorial-for-building-a-web-application-with-amazon-s3-lambda-dynamodb-and-api-gateway-6d3ddf77f15a)
 * [Serverless Web Application Workshop](https://github.com/awslabs/aws-serverless-workshops/tree/master/WebApplication)
 * [Material UI](https://www.npmjs.com/package/material-ui)
+
+## Structure
+![components tree](tiny-anthems-components4.png)
+![interface tree](tiny-anthems-interface3.png)
