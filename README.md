@@ -30,3 +30,7 @@ Created for local Portland musician Mike Long, this site will use persistent sta
 S3 API??? https://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html
 
 aws s3 sync s3://wildrydes-us-east-1/WebApplication/1_StaticWebHosting/website s3://YOUR_BUCKET_NAME --region YOUR_BUCKET_REGION
+
+## Resources
+[Tutorial for building a Web Application with Amazon S3, Lambda, DynamoDB and API Gateway](https://codeburst.io/tutorial-for-building-a-web-application-with-amazon-s3-lambda-dynamodb-and-api-gateway-6d3ddf77f15a)
+[Serverless Web Application Workshop](https://github.com/awslabs/aws-serverless-workshops/tree/master/WebApplication)
