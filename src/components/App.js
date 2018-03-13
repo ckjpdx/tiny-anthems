@@ -12,7 +12,6 @@ import Questionnaire from './Questionnaire';
 import FacebookLogin from './FacebookLogin';
 import Error404 from './Error404';
 import User from './User';
-import ImageViewer from './ImageViewer';
 import { Switch, Route, Link } from 'react-router-dom';
 import mike from './../assets/img/mike.gif';
 
@@ -71,7 +70,6 @@ class App extends React.Component {
           <Route path='/faq' component={Faq} />
           <Route path='/portfolio' component={Portfolio} />
           <Route path='/review-list' component={ReviewList} />
-          <Route path='/image-viewer' component={ImageViewer} />
           <Route exact path='/facebook-login' render={() =>
             <FacebookLogin onFacebookLogin={this.handleFacebookLogin} userAccount={this.state.userAccount}/>} />
           <Route exact path='/user' render={() =>
