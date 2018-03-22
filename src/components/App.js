@@ -9,7 +9,6 @@ import Admin from './Admin';
 import AdminSearch from './AdminSearch';
 import WriteReview from './WriteReview';
 import Questionnaire from './Questionnaire';
-import FacebookLogin from './FacebookLogin';
 import Error404 from './Error404';
 import User from './User';
 import { Switch, Route, Link } from 'react-router-dom';
@@ -30,12 +29,6 @@ class App extends React.Component {
     };
     this.handleAddNewQuestionnaire = this.handleAddNewQuestionnaire.bind(this);
     this.handleSongUpload = this.handleSongUpload.bind(this);
-    this.handleFacebookLogin = this.handleFacebookLogin.bind(this);
-  }
-  handleFacebookLogin(userId, name){
-    const newUserAccount = Object.assign({}, this.state.userAccount, {userId: userId, name: name});
-    this.setState({userAccount: newUserAccount});
-    console.log(this.state);
   }
   handleAddNewQuestionnaire(newQuiz){
     const newQuestionnairesById = Object.assign({}, this.state.questionnairesById, {[newQuiz.quizId]: newQuiz});
@@ -70,8 +63,6 @@ class App extends React.Component {
           <Route path='/faq' component={Faq} />
           <Route path='/portfolio' component={Portfolio} />
           <Route path='/review-list' component={ReviewList} />
-          <Route exact path='/facebook-login' render={() =>
-            <FacebookLogin onFacebookLogin={this.handleFacebookLogin} userAccount={this.state.userAccount}/>} />
           <Route exact path='/user' render={() =>
             <User userAccount={this.state.userAccount}/>} />
           <Route exact path='/user/questionnaire' render={() =>

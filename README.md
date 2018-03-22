@@ -1,7 +1,7 @@
 # Tiny Anthems (static)
 *by Chris Knight Johnson*
 ## Description
-Created for local Portland musician Mike Long, this site will use persistent state via AWS, user sign in via OAuth, and host mp3 files via S3.
+Created for local Portland musician Mike Long. AWS services are used to gather questionnaires from customers in need of a personalized song about their life, allow the musician to retrieve the questionnaires for music making, and then post their song securely for downloading.
 
 ## [View App Planning Repo](https://github.com/ckjpdx/tiny-anthems-planning)
 ## Tech Used
