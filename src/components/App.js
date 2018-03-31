@@ -13,6 +13,7 @@ import Error404 from './Error404';
 import User from './User';
 import { Switch, Route, Link } from 'react-router-dom';
 import mike from './../assets/img/mike.gif';
+import * as firebase from 'firebase';
 
 class App extends React.Component {
   constructor(props){
