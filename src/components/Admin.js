@@ -1,23 +1,27 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { observer } from 'mobx-react';
+import { quizzesCollection } from './../store';
 import { Link } from 'react-router-dom';
 import ListedQuestionnaire from './ListedQuestionnaire';
 import './styles/Admin.css';
 
-function Admin(props){
-  return (
-    <div>
-      <h1>ADMIN</h1>
-      <Link to='/admin/search'>
-        <button>Search Database</button>
-      </Link>
-      <h2>Questionnaires</h2>
-        {Object.keys(props.questionnaires).map((quizId) => {
-          console.log(props.questionnaires, quizId);
-          let quiz = props.questionnaires[quizId];
-          return <ListedQuestionnaire quiz={quiz} onSongUpload={props.onSongUpload} key={quiz.id} />;
-        })}
-    </div>
-  );
-}
+const Admin = observer(class Admin extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {};
+	}
+
+	render() {
+		const { docs, query } = quizzesCollection;
+		const quizChildren = docs.map((quiz) => <ListedQuestionnaire key={quiz.id} quiz={quiz} />);
+		const { fetching } = quizzesCollection;
+		return (
+			<div>
+        <h2>Questionnaires</h2>
+        {quizChildren}
+			</div>
+		);
+	}
+});
 
 export default Admin;

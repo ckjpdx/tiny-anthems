@@ -28,17 +28,7 @@ class App extends React.Component {
       questionnairesById: {},
       songsById: {}
     };
-    this.handleAddNewQuestionnaire = this.handleAddNewQuestionnaire.bind(this);
     this.handleSongUpload = this.handleSongUpload.bind(this);
-  }
-  handleAddNewQuestionnaire(newQuiz){
-    const newQuestionnairesById = Object.assign({}, this.state.questionnairesById, {[newQuiz.quizId]: newQuiz});
-    this.setState({questionnairesById: newQuestionnairesById});
-    const newQuestionnaireIds = this.state.userAccount.questionnaireIds;
-    newQuestionnaireIds.push(newQuiz.quizId);
-    const newUserAccount = Object.assign({}, this.state.userAccount, {questionnaireIds: newQuestionnaireIds});
-    this.setState({userAccount: newUserAccount});
-    console.log(this.state);
   }
   handleSongUpload(newSong){
     const newSongsById = Object.assign({}, this.state.songsById, {[newSong.id]: newSong});
