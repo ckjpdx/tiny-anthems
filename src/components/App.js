@@ -8,7 +8,7 @@ import Welcome from './Welcome';
 import Admin from './Admin';
 import AdminSearch from './AdminSearch';
 import WriteReview from './WriteReview';
-import Questionnaire from './Questionnaire';
+import Quiz from './Quiz';
 import Error404 from './Error404';
 import User from './User';
 import { Switch, Route, Link } from 'react-router-dom';
@@ -23,9 +23,9 @@ class App extends React.Component {
         isAdmin: false,
         userId: null,
         name: null,
-        questionnaireIds: []
+        QuizIds: []
       },
-      questionnairesById: {},
+      QuizsById: {},
       songsById: {}
     };
     this.handleSongUpload = this.handleSongUpload.bind(this);
@@ -56,12 +56,12 @@ class App extends React.Component {
           <Route path='/review-list' component={ReviewList} />
           <Route exact path='/user' render={() =>
             <User userAccount={this.state.userAccount}/>} />
-          <Route exact path='/user/questionnaire' render={() =>
-            <Questionnaire onQuestionnaireFormSubmit={this.handleAddNewQuestionnaire} userId={this.state.userAccount.userId}/>} />
+          <Route exact path='/user/quiz' render={() =>
+            <Quiz onQuizFormSubmit={this.handleAddNewQuiz} userId={this.state.userAccount.userId}/>} />
           <Route exact path='/user/review' render={() =>
             <WriteReview />} />
           <Route exact path='/admin' render={() =>
-            <Admin questionnaires={this.state.questionnairesById} onSongUpload={this.handleSongUpload} />} />
+            <Admin Quizs={this.state.QuizsById} onSongUpload={this.handleSongUpload} />} />
           <Route exact path='/admin/search' render={() =>
             <AdminSearch />} />
           <Route component={Error404} />

@@ -6,8 +6,8 @@ function User(props){
   return (
     <div>
       <h1>Hello, {props.userAccount.name}!</h1>
-      <Link to='/user/questionnaire'>
-        <button>Take the Questionnaire!</button>
+      <Link to='/user/Quiz'>
+        <button>Take the Quiz!</button>
       </Link>
       <SongList />
     </div>

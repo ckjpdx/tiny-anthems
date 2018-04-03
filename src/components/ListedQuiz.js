@@ -3,20 +3,20 @@ import PropTypes from 'prop-types';
 import { observer } from 'mobx-react';
 import { v4 } from 'uuid';
 import { quizzesCollection } from './../store';
-import './styles/ListedQuestionnaire.css';
+import './styles/ListedQuiz.css';
 
-class ListedQuestionnaire extends Component {
+class ListedQuiz extends Component {
 	static propTypes = {
 		quiz: PropTypes.any
 	};
 
-  onUpload = async () => {
+  onUploadSong = async () => {
     const { quiz } = this.props;
     const quizId = quiz.id;
-    // const title = null;
+    // const newTitle = null;
     // const url = null;
     const uploadInfo = {
-      title: "title",
+      newTitle: "title",
       songUrl: "url"
     };
     await quiz.update({
@@ -26,26 +26,27 @@ class ListedQuestionnaire extends Component {
   };
 
 	render() {
-    let title = null;
-    let url = null;
+    let newTitle = null;
+    let newUrl = null;
 		const { quiz } = this.props;
-
+    const { name, title, url } = quiz.data;
+    console.log(name);
 		return (
-      <div className="ListedQuestionnaire-div">
-        <h3>{this.props.quiz.name}</h3>
+      <div className="ListedQuiz-div">
+        <h3>{name}</h3>
+        <p>For {name}</p>
+        <p>{url}</p>
         <div>
           <label>Title:</label>
-          <input ref={(input) => {title = input;}} />
+          <input ref={(input) => {newTitle = input;}} />
           <label>URL:</label>
-          <input ref={(input) => {url = input;}} />
+          <input ref={(input) => {newUrl = input;}} />
           <p className="admin-upload-label">UPLOAD SONG--></p>
-          <button onClick={this.onUpload}>Upload Song</button>
+          <button onClick={this.onUploadSong}>Upload Song</button>
         </div>
-        <p>{this.props.quiz.dob}</p>
-        <p>{this.props.quiz.anythingElse}</p>
       </div>
 		);
 	}
 }
 
-export default observer(ListedQuestionnaire);
+export default observer(ListedQuiz);

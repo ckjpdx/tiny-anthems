@@ -4,7 +4,7 @@ import v4 from 'uuid';
 import { quizzesCollection } from './../store';
 import { usersCollection } from './../store';
 
-const Questionnaire = observer(class Questionnaire extends Component {
+const Quiz = observer(class Quiz extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -14,9 +14,9 @@ const Questionnaire = observer(class Questionnaire extends Component {
     };
   }
 
-  onQuestionnaireFormSubmit = async () => {
+  onQuizFormSubmit = async () => {
     const uuidForQuiz = v4();
-    const newQuestionnaire = {
+    const newQuiz = {
       userId: null,
       quizId: uuidForQuiz,
       name: this.state.name.value,
@@ -24,7 +24,7 @@ const Questionnaire = observer(class Questionnaire extends Component {
       anythingElse: this.state.anythingElse.value
     }
     const doc = await quizzesCollection.add({
-      uuidForQuiz: newQuestionnaire
+      uuidForQuiz: newQuiz
     });
     console.log(doc.id);
   };
@@ -39,17 +39,17 @@ const Questionnaire = observer(class Questionnaire extends Component {
         <p>
           `Note that sometimes I will reference the things you mention in song, and sometimes I won't. It's less of a madlib for music and more of me trying to have a strange roadmap to navigate the songwriting process. Thank you, and enjoy the questions!`
         </p>
-        <h2>Questions:</h2>
+        <h2>Answer these questions:</h2>
           <label>Name:</label>
           <input type="text" ref={(input) => {this.state.name = input;}}/>
           <label>DOB:</label>
           <input type="text" ref={(input) => {this.state.dob = input;}}/>
           <label>Is there anything else you’d like to share?</label>
           <textarea ref={(input) => {this.state.anythingElse = input;}}/>
-          <button onClick={this.onQuestionnaireFormSubmit}>Make me immortal thru song</button>
+          <button onClick={this.onQuizFormSubmit}>Make me immortal thru song</button>
       </div>
     );
   }
 });
 
-export default Questionnaire;
+export default Quiz;
