@@ -15,10 +15,7 @@ class ListedQuiz extends Component {
     const quizId = quiz.id;
     // const newTitle = null;
     // const url = null;
-    const uploadInfo = {
-      newTitle: "title",
-      songUrl: "url"
-    };
+
     await quiz.update({
       title: "title test",
       songUrl: "song url test"
@@ -29,11 +26,11 @@ class ListedQuiz extends Component {
     let newTitle = null;
     let newUrl = null;
 		const { quiz } = this.props;
-    const { name, title, url } = quiz.data;
+    const { name, songName, title, url } = quiz.data;
     console.log(name);
 		return (
       <div className="ListedQuiz-div">
-        <h3>{name}</h3>
+        <h3>{songName}</h3>
         <p>For {name}</p>
         <p>{url}</p>
         <div>
