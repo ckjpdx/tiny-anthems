@@ -6,10 +6,7 @@ import ListedQuiz from './ListedQuiz';
 import './styles/Admin.css';
 
 const Admin = observer(class Admin extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {};
-	}
+	state = {};
 
 	render() {
 		const { docs, query } = quizzesCollection;

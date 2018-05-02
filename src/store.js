@@ -17,4 +17,4 @@ initFirestorter({ firebase: firebase });
 const usersCollection = new Collection('users');
 const quizzesCollection = new Collection('quizzes');
 
-export { usersCollection, quizzesCollection };
+export { firebase, usersCollection, quizzesCollection };

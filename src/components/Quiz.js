@@ -41,11 +41,11 @@ const Quiz = observer(class Quiz extends Component {
         </p>
         <h2>Answer these questions:</h2>
           <label>Name:</label>
-          <input type="text" ref={(input) => {this.state.name = input;}}/>
+          <input type="text" ref={(input) => {this.setState({name: input})}}/>
           <label>DOB:</label>
-          <input type="text" ref={(input) => {this.state.dob = input;}}/>
+          <input type="text" ref={(input) => {this.setState({dob: input})}}/>
           <label>Is there anything else you’d like to share?</label>
-          <textarea ref={(input) => {this.state.anythingElse = input;}}/>
+          <textarea ref={(input) => {this.setState({anythingElse: input})}}/>
           <button onClick={this.onQuizFormSubmit}>Make me immortal thru song</button>
       </div>
     );
