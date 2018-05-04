@@ -1,6 +1,7 @@
 import React from 'react';
 import './styles/App.css';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import Login from './Login';
 import Faq from './Faq';
 import Portfolio from './Portfolio';
 import ReviewList from './ReviewList';
@@ -11,35 +12,58 @@ import WriteReview from './WriteReview';
 import Quiz from './Quiz';
 import Error404 from './Error404';
 import User from './User';
-import { Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route, Link, Redirect } from 'react-router-dom';
 import mike from './../assets/img/mike.gif';
 import * as firebase from 'firebase';
 
+
 class App extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      userAccount: {
-        isAdmin: false,
-        userId: null,
-        name: null,
-        QuizIds: []
-      },
-      QuizsById: {},
-      songsById: {}
-    };
-    this.handleSongUpload = this.handleSongUpload.bind(this);
-  }
+  state = {
+    userAccount: {
+      isAdmin: false,
+      userId: null,
+      name: null,
+      QuizIds: []
+    },
+    QuizsById: {},
+    songsById: {}
+  };
+  // PrivateRoute is here to access state
+  PrivateRoute = ({ component: Component, ...rest }) => (
+    <Route
+      {...rest}
+      render={props =>
+        firebase.auth ? (
+          <Component {...props} />
+        ) : (
+          <Redirect
+            to={{
+              pathname: "/login",
+              state: { from: props.location }
+            }}
+          />
+        )
+      }
+    />
+  );
+
   handleSongUpload(newSong){
     const newSongsById = Object.assign({}, this.state.songsById, {[newSong.id]: newSong});
     this.setState({songsById: newSongsById});
     console.log(this.state);
   }
+
+  handleSignOn(userId){
+    this.setState({
+      userId
+    });
+  }
+
   render() {
     return (
       <div className="App">
         <div id="App-profile-button">
-          <Link to='/facebook-login'><button>Profile</button></Link>
+          <Link to='/login'><button>Profile</button></Link>
         </div>
         <img src={mike} alt="cartoon of mike throwing up musical notes" className="mike" />
         <h1 className="title">Tiny Anthems</h1>
@@ -51,8 +75,10 @@ class App extends React.Component {
         </div>
         <Switch>
           <Route exact path='/' component={Welcome} />
+          <Route exact path='/login' render={() =>
+            <Login test123="test123" onSignOn={this.handleSignOn}/>} />
           <Route path='/faq' component={Faq} />
-          <Route path='/portfolio' component={Portfolio} />
+          <this.PrivateRoute path='/portfolio' component={Portfolio} />
           <Route path='/review-list' component={ReviewList} />
           <Route exact path='/user' render={() =>
             <User userAccount={this.state.userAccount}/>} />
