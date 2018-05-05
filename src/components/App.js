@@ -15,37 +15,12 @@ import User from './User';
 import { Switch, Route, Link, Redirect } from 'react-router-dom';
 import mike from './../assets/img/mike.gif';
 import * as firebase from 'firebase';
-
+import PrivateRoute from './reusable/PrivateRoute';
 
 class App extends React.Component {
   state = {
-    userAccount: {
-      isAdmin: false,
-      userId: null,
-      name: null,
-      QuizIds: []
-    },
-    QuizsById: {},
-    songsById: {}
+    user: 'test'
   };
-  // PrivateRoute is here to access state
-  PrivateRoute = ({ component: Component, ...rest }) => (
-    <Route
-      {...rest}
-      render={props =>
-        firebase.auth ? (
-          <Component {...props} />
-        ) : (
-          <Redirect
-            to={{
-              pathname: "/login",
-              state: { from: props.location }
-            }}
-          />
-        )
-      }
-    />
-  );
 
   handleSongUpload(newSong){
     const newSongsById = Object.assign({}, this.state.songsById, {[newSong.id]: newSong});
@@ -53,10 +28,11 @@ class App extends React.Component {
     console.log(this.state);
   }
 
-  handleSignOn(userId){
+  handleSignUser = (user = null) => {
     this.setState({
-      userId
+      user: user
     });
+    console.log(this.state);
   }
 
   render() {
@@ -76,9 +52,9 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/' component={Welcome} />
           <Route exact path='/login' render={() =>
-            <Login test123="test123" onSignOn={this.handleSignOn}/>} />
+            <Login onSignUser={this.handleSignUser}/>} />
           <Route path='/faq' component={Faq} />
-          <this.PrivateRoute path='/portfolio' component={Portfolio} />
+          <PrivateRoute path='/portfolio' component={Portfolio} user={this.state.user}/>
           <Route path='/review-list' component={ReviewList} />
           <Route exact path='/user' render={() =>
             <User userAccount={this.state.userAccount}/>} />

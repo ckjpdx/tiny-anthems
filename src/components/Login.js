@@ -4,19 +4,19 @@ import { firebase } from './../store';
 const provider = new firebase.auth.GoogleAuthProvider();
 
 const Login = (props) => {
-  console.log(props.test123);
   const signIn = () => {
     firebase.auth().signInWithPopup(provider).then((result) => {
       console.log(result.user);
-      props.onSignOn(result.uid);
+      props.onSignUser(result.user);
     }).catch((error) => {
       console.error(error);
     });
   };
 
   const signOut = () => {
+    console.log('Signed Out');
     firebase.auth().signOut().then(() => {
-      console.log('Signed Out');
+      props.onSignUser()
     }).catch((error) => {
       console.error(error);
     });
@@ -24,7 +24,6 @@ const Login = (props) => {
 
     return (
       <div>
-        {props.test123}
         <button onClick={signIn}>SIGN IN</button>
         <button onClick={signOut}>SIGN OUT</button>
       </div>
