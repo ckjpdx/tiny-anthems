@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
-import v4 from 'uuid';
 import { quizzesCollection } from './../store';
 import { usersCollection } from './../store';
 
@@ -15,10 +14,8 @@ const Quiz = observer(class Quiz extends Component {
   }
 
   onQuizFormSubmit = async () => {
-    const uuidForQuiz = v4();
     const newQuiz = {
       userId: null,
-      quizId: uuidForQuiz,
       name: this.state.name.value,
       dob: this.state.dob.value,
       anythingElse: this.state.anythingElse.value

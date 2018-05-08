@@ -16,7 +16,7 @@ const Login = (props) => {
   const signOut = () => {
     console.log('Signed Out');
     firebase.auth().signOut().then(() => {
-      props.onSignUser()
+      props.onSignUser('sign out')
     }).catch((error) => {
       console.error(error);
     });
