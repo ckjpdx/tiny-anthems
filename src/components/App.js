@@ -1,4 +1,5 @@
 import React from 'react';
+// import { observer } from 'mobx-react';
 import './styles/App.css';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Login from './Login';
@@ -16,16 +17,15 @@ import { Switch, Route, Link, Redirect } from 'react-router-dom';
 import mike from './../assets/img/mike.gif';
 import * as firebase from 'firebase';
 import PrivateRoute from './reusable/PrivateRoute';
-import { usersCollection } from './../store';
-import { Document } from 'firestorter';
 
 class App extends React.Component {
-  state = {
-    user: {
-      uid: null,
-      isAdmin: false
-    }
-  };
+    state = {
+      userState: {
+        uid: null,
+        isAdmin: false
+      },
+    };
+
 
   handleSongUpload(newSong){
     const newSongsById = Object.assign({}, this.state.songsById, {[newSong.id]: newSong});
@@ -33,31 +33,32 @@ class App extends React.Component {
     console.log(this.state);
   }
 
-  handleSignUser = async (auth = null) => {
-    console.log(auth);
-    const { docs, query } = usersCollection;
-    // look for exisiting user
-    const user = docs.filter(user => user.uid === auth.uid)[0];
-    console.log(user);
-    if (user) { // sign in existing user
-      console.log('EXISTING USER');
-      this.setState({
-        user: user
-      });
-    } else if (auth) { // create new user
-      console.log('CREATE USER');
-      this.setState({
-        user: {
-          uid: auth.uid,
-        }
-      });
-      const addUserDoc = await new Document(`users/${auth.uid}`);
-      addUserDoc.set({
-        uid: auth.uid,
-        isAdmin: false,
-        name: auth.displayName
-      });
-    } else { // if auth is null, logout
+  handleSignIn = async (auth = null) => {
+    // const { docs, query } = usersCollection;
+    // // look for exisiting user
+    // const user = docs.filter(user => user.uid === auth.uid)[0];
+    // console.log(user);
+    // if (user) { // sign in existing user
+    //   console.log('EXISTING USER');
+    //   this.setState({
+    //     user: user
+    //   });
+    // } else if (auth) { // create new user
+    //   console.log('CREATE USER');
+    //   this.setState({
+    //     user: {
+    //       uid: auth.uid,
+    //     }
+    //   });
+    //   const addUserDoc = await new Document(`users/${auth.uid}`);
+    //   addUserDoc.set({
+    //     uid: auth.uid,
+    //     isAdmin: false,
+    //     name: auth.displayName
+    //   });
+    // } // if auth is null, logout
+  }
+  handleSignOut = async () => {
       console.log('LOG OUT USER');
       this.setState({
         user: {
@@ -66,12 +67,12 @@ class App extends React.Component {
       });
       console.log(this.state);
     }
-  }
+
 
   render() {
     const signInOrOut = this.state.auth ? 'Sign Out' : 'Sign In';
-    console.log(this.state.user.isAdmin);
-    const isUserAdmin = this.state.user.isAdmin;
+    console.log(this.state.userState.isAdmin);
+    const isUserAdmin = this.state.userState.isAdmin;
     return (
       <div className="App">
         <div id="App-profile-button">
@@ -91,7 +92,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/' component={Welcome} />
           <Route exact path='/login' render={() =>
-            <Login onSignUser={this.handleSignUser}/>} />
+            <Login onSignIn={this.handleSignIn} onSignOut={this.handleSignOut}/>} />
           <Route path='/faq' component={Faq} />
           <PrivateRoute path='/portfolio' component={Portfolio} auth={this.state.auth}/>
           <Route path='/review-list' component={ReviewList} />

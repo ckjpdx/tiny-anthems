@@ -1,6 +1,6 @@
 import firebase from 'firebase';
 import 'firebase/firestore';
-import { initFirestorter, Collection } from 'firestorter';
+import { initFirestorter, Collection, Document } from 'firestorter';
 
 // Initialize Firebase
 firebase.initializeApp({
@@ -16,5 +16,11 @@ initFirestorter({ firebase: firebase });
 
 const usersCollection = new Collection('users');
 const quizzesCollection = new Collection('quizzes');
+const userDoc = new Document();
 
-export { firebase, usersCollection, quizzesCollection };
+export {
+  firebase,
+  usersCollection,
+  quizzesCollection,
+  userDoc
+};
