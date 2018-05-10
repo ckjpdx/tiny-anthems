@@ -17,15 +17,16 @@ import { Switch, Route, Link, Redirect } from 'react-router-dom';
 import mike from './../assets/img/mike.gif';
 import * as firebase from 'firebase';
 import PrivateRoute from './reusable/PrivateRoute';
+import { usersCollection, userDoc } from './../store';
 
 class App extends React.Component {
-    state = {
-      userState: {
-        uid: null,
-        isAdmin: false
-      },
+  constructor(props) {
+    super(props);
+    this.state = {
+      userDoc: userDoc,
+      userResult: null
     };
-
+  }
 
   handleSongUpload(newSong){
     const newSongsById = Object.assign({}, this.state.songsById, {[newSong.id]: newSong});
@@ -33,51 +34,41 @@ class App extends React.Component {
     console.log(this.state);
   }
 
-  handleSignIn = async (auth = null) => {
-    // const { docs, query } = usersCollection;
-    // // look for exisiting user
-    // const user = docs.filter(user => user.uid === auth.uid)[0];
-    // console.log(user);
-    // if (user) { // sign in existing user
-    //   console.log('EXISTING USER');
+  handleSignIn = async (userResult) => {
+    console.log(userDoc.path, userDoc.id, userDoc.data.uid);
+    // usersCollection.query = usersCollection.ref.where('uid', '==', '12345');
+    if (userDoc.data.uid) { // sign in existing user
+      console.log('MATCH EXISTING USER', userDoc.data.uid);
     //   this.setState({
-    //     user: user
+    //     userResult: userResult
     //   });
-    // } else if (auth) { // create new user
-    //   console.log('CREATE USER');
-    //   this.setState({
-    //     user: {
-    //       uid: auth.uid,
-    //     }
-    //   });
-    //   const addUserDoc = await new Document(`users/${auth.uid}`);
-    //   addUserDoc.set({
-    //     uid: auth.uid,
-    //     isAdmin: false,
-    //     name: auth.displayName
-    //   });
-    // } // if auth is null, logout
+    //   console.log(this.state);
+    } else { // create new user
+      console.log('NO MATCH: CREATE USER', userDoc.data.uid);
+    //   await userDoc.set({
+    //     displayName: userResult.displayName,
+    //     uid: userResult.uid
+      // });
+    }
   }
+
   handleSignOut = async () => {
       console.log('LOG OUT USER');
       this.setState({
-        user: {
-          isAdmin: false},
+        user: null,
         auth: null
       });
       console.log(this.state);
     }
 
-
   render() {
-    const signInOrOut = this.state.auth ? 'Sign Out' : 'Sign In';
-    console.log(this.state.userState.isAdmin);
-    const isUserAdmin = this.state.userState.isAdmin;
+    const signInOrOut = this.state.userResult ? 'Sign Out' : 'Sign In';
     return (
       <div className="App">
         <div id="App-profile-button">
-          <p style={{fontFamily: 'monospace'}}>User: {this.state.auth && this.state.auth.displayName}</p>
-          {isUserAdmin ? <Link to='/admin'><button>Admin</button></Link> : ''}
+          {userDoc.path}
+          <p style={{fontFamily: 'monospace'}}>User: {userDoc.data.displayName}</p>
+          {/* {isAdmin ? <Link to='/admin'><button>Admin</button></Link> : ''} */}
           <Link to='/user'><button>Profile</button></Link>
           <Link to='/login'><button>{signInOrOut}</button></Link>
         </div>
