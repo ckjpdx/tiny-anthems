@@ -19,13 +19,12 @@ import * as firebase from 'firebase';
 import PrivateRoute from './reusable/PrivateRoute';
 import { usersCollection, userDoc } from './../store';
 
+const initialState = {};
+
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      userDoc: userDoc,
-      userResult: null
-    };
+    this.state = {};
   }
 
   handleSongUpload(newSong){
@@ -35,39 +34,25 @@ class App extends React.Component {
   }
 
   handleSignIn = async (userResult) => {
-    console.log(userDoc.path, userDoc.id, userDoc.data.uid);
-    // usersCollection.query = usersCollection.ref.where('uid', '==', '12345');
-    if (userDoc.data.uid) { // sign in existing user
-      console.log('MATCH EXISTING USER', userDoc.data.uid);
-    //   this.setState({
-    //     userResult: userResult
-    //   });
-    //   console.log(this.state);
-    } else { // create new user
-      console.log('NO MATCH: CREATE USER', userDoc.data.uid);
-    //   await userDoc.set({
-    //     displayName: userResult.displayName,
-    //     uid: userResult.uid
-      // });
-    }
+    this.setState({
+      uid: userResult.uid,
+      userName: userResult.displayName
+    });
+    console.log(this.state);
   }
 
   handleSignOut = async () => {
-      console.log('LOG OUT USER');
-      this.setState({
-        user: null,
-        auth: null
-      });
-      console.log(this.state);
-    }
+    console.log('LOG OUT USER');
+    this.state = Object.assign({});
+    console.log(this.state);
+  }
 
   render() {
-    const signInOrOut = this.state.userResult ? 'Sign Out' : 'Sign In';
+    const signInOrOut = this.state.uid ? 'Sign Out' : 'Sign In';
     return (
       <div className="App">
         <div id="App-profile-button">
-          {userDoc.path}
-          <p style={{fontFamily: 'monospace'}}>User: {userDoc.data.displayName}</p>
+          <p style={{fontFamily: 'monospace'}}>{this.state.userName}</p>
           {/* {isAdmin ? <Link to='/admin'><button>Admin</button></Link> : ''} */}
           <Link to='/user'><button>Profile</button></Link>
           <Link to='/login'><button>{signInOrOut}</button></Link>
@@ -85,12 +70,11 @@ class App extends React.Component {
           <Route exact path='/login' render={() =>
             <Login onSignIn={this.handleSignIn} onSignOut={this.handleSignOut}/>} />
           <Route path='/faq' component={Faq} />
-          <PrivateRoute path='/portfolio' component={Portfolio} auth={this.state.auth}/>
+          <Route path='/portfolio' component={Portfolio} />
           <Route path='/review-list' component={ReviewList} />
-          <Route exact path='/user' render={() =>
-            <User userAccount={this.state.userAccount}/>} />
-          <Route exact path='/user/quiz' render={() =>
-            <Quiz onQuizFormSubmit={this.handleAddNewQuiz} userId={this.state.userAccount.userId}/>} />
+          <PrivateRoute exact path='/user' uid={this.state.uid} component={User}/>
+          {/* <PrivateRoute exact path='/user/quiz' uid={this.state.uid} component={Quiz} /> */}
+          <Route exact path='/user/quiz' uid="123" component={Quiz} />
           <Route exact path='/user/review' render={() =>
             <WriteReview />} />
           <Route exact path='/admin' render={() =>

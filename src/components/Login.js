@@ -13,7 +13,7 @@ const Login = observer(class Login extends React.Component {
     console.log('sign in');
     firebase.auth().signInWithPopup(provider).then((result) => {
       userDoc.path = `users/${result.user.uid}`;
-      userDoc.data.uid ? console.log('yes uid') : console.log('no uid');
+      console.log(userDoc.data.uid);
       this.props.onSignIn(result.user);
     }).catch((error) => {
       console.error(error);
@@ -23,7 +23,7 @@ const Login = observer(class Login extends React.Component {
   signOut = () => {
     console.log('Signed Out');
     firebase.auth().signOut().then(() => {
-      userDoc.path = undefined;
+      userDoc.path = 'users/guest';
       this.props.onSignOut()
     }).catch((error) => {
       console.error(error);
@@ -39,6 +39,7 @@ const Login = observer(class Login extends React.Component {
     const userChildren = docs.map((user) => <h1 key={user.id} >{user.id}</h1>);
     return (
       <div>
+        {userDoc.data.uid}
         <button onClick={this.signIn}>SIGN IN</button>
         <button onClick={this.signOut}>SIGN OUT</button>
         <button onClick={this.doTest}>TEST</button>

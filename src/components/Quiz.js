@@ -6,23 +6,17 @@ import { usersCollection } from './../store';
 const Quiz = observer(class Quiz extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      name: null,
-      dob: null,
-      anythingElse: null
-    };
+    this.state = {};
+    this.handleChange = this.handleChange.bind(this);
+    this.handleQuizFormSubmit = this.handleQuizFormSubmit.bind(this);
   }
 
-  onQuizFormSubmit = async () => {
-    const newQuiz = {
-      userId: null,
-      name: this.state.name.value,
-      dob: this.state.dob.value,
-      anythingElse: this.state.anythingElse.value
-    }
-    const doc = await quizzesCollection.add({
-      uuidForQuiz: newQuiz
-    });
+  handleChange(e) {
+    this.setState({[e.target.name]: e.target.value});
+  }
+
+  handleQuizFormSubmit = async () => {
+    const doc = await quizzesCollection.add(this.state);
     console.log(doc.id);
   };
 
@@ -30,6 +24,7 @@ const Quiz = observer(class Quiz extends Component {
     return (
       <div>
         <h1>Questionnaire</h1>
+        {this.props.uid}
         <p>
           `Welcome, friend. I'm going to ask you a series of questions. Some of them will seem like obvious get-to-know-you type of inquiries. Others will appear bizarre and irrelevant. You are free to skip any questions you'd like, of course, and there will be time at the end for you to provide any additional biographical information you'd like.`
         </p>
@@ -38,12 +33,12 @@ const Quiz = observer(class Quiz extends Component {
         </p>
         <h2>Answer these questions:</h2>
           <label>Name:</label>
-          <input type="text" ref={(input) => {this.setState({name: input})}}/>
+          <input type="text" name="name" onChange={this.handleChange} />
           <label>DOB:</label>
-          <input type="text" ref={(input) => {this.setState({dob: input})}}/>
-          <label>Is there anything else you’d like to share?</label>
-          <textarea ref={(input) => {this.setState({anythingElse: input})}}/>
-          <button onClick={this.onQuizFormSubmit}>Make me immortal thru song</button>
+          <input type="text" name="dob" onChange={this.handleChange} />
+          <label>Favorite Food:</label>
+          <input type="text" name="favoriteFood" onChange={this.handleChange} />
+          <button onClick={this.handleQuizFormSubmit}>Make me immortal thru song</button>
       </div>
     );
   }

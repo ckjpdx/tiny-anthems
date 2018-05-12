@@ -2,16 +2,21 @@ import React from 'react';
 import { firebase } from './../store';
 
 class ListedQuizUpload extends React.Component {
+  constructor(props){
+    super(props);
 
-  state = {
-    title: null,
-    file: null,
-    progressPercent: 0
+    this.state = {
+      songTitle: props.quiz.data.songTitle || '',
+      songRef: props.quiz.data.songRef || '',
+      file: '',
+      progressPercent: 0
+    };
+    console.log(this.state);
   };
 
   onTextChange = (event) => {
 		this.setState({
-			title: event.target.value
+			songTitle: event.target.value
 		});
 	};
 
@@ -24,11 +29,13 @@ class ListedQuizUpload extends React.Component {
 	};
 
   onUploadSong = async () => {
+    const songFileRef = `songs/${this.state.file.name}`;
 		const { quiz } = this.props;
 		await quiz.update({
-			title: this.state.title
+			songTitle: this.state.songTitle,
+      songRef: songFileRef
 		});
-    const storageRef = firebase.storage().ref(`songs/${this.state.file.name}`);
+    const storageRef = firebase.storage().ref(songFileRef);
     const task = storageRef.put(this.state.file);
     task.on(
       'state_changed',
@@ -44,19 +51,11 @@ class ListedQuizUpload extends React.Component {
       );
 	};
 
-  componentDidMount(){
-    const { title, url } = this.props.quiz.data;
-    this.setState({
-      title,
-      url
-    });
-  }
-
   render() {
     return (
       <form>
-        <label>Title:</label>
-        <input type="text" onChange={this.onTextChange} value={this.state.title || ''} />
+        <label>songTitle:</label>
+        <input type="text" onChange={this.onTextChange} value={this.state.songTitle || ''} />
         <input type="file" onChange={this.onFileSelect} />
         <p>Upload: {this.state.progressPercent}%</p>
         <p className="admin-upload-label">UPLOAD SONG--></p>
