@@ -9,7 +9,7 @@ const provider = new firebase.auth.GoogleAuthProvider();
 const Login = observer(class Login extends React.Component {
   state = {}
 
-  signIn = () => {
+  signIn = async () => {
     console.log('sign in');
     firebase.auth().signInWithPopup(provider).then((result) => {
       userDoc.path = `users/${result.user.uid}`;

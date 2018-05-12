@@ -34,12 +34,14 @@ firebase.auth result
   * (result) => result.user.uid
 
 # Goals
-- [ ] Material UI is installed, but not yet implemented
+- [ ] Material UI styles (is installed, but not yet implemented)
 - [x] Display demo songs to play via portfolio
 - [x] react-facebook npm is used to sign in users (may be removed)
 - [ ] Google Cloud Storage is used to static site files and store mp3 files
 - [ ] Google Firestore is used to put/get persistent state
 - [ ] Google Firebase Authentication is used to securely sign in users/admin
+- [ ] Database references
+- [ ]
 
 # Resources
 

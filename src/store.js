@@ -16,7 +16,7 @@ initFirestorter({ firebase: firebase });
 
 const usersCollection = new Collection('users');
 const quizzesCollection = new Collection('quizzes');
-const userDoc = new Document();
+const userDoc = new Document('users/w6kuWYde9GM5A8Vjn72Y5fIjOhG2', {debug: true}); //empty this later!
 
 export {
   firebase,

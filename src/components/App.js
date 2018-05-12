@@ -19,12 +19,12 @@ import * as firebase from 'firebase';
 import PrivateRoute from './reusable/PrivateRoute';
 import { usersCollection, userDoc } from './../store';
 
-const initialState = {};
-
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      uid: 'w6kuWYde9GM5A8Vjn72Y5fIjOhG2' // delete this later
+    };
   }
 
   handleSongUpload(newSong){
@@ -34,6 +34,11 @@ class App extends React.Component {
   }
 
   handleSignIn = async (userResult) => {
+    await userDoc.set({
+      uid: userResult.uid,
+      displayName: userResult.displayName,
+      email: userResult.email
+    }, true);
     this.setState({
       uid: userResult.uid,
       userName: userResult.displayName
@@ -74,7 +79,7 @@ class App extends React.Component {
           <Route path='/review-list' component={ReviewList} />
           <PrivateRoute exact path='/user' uid={this.state.uid} component={User}/>
           {/* <PrivateRoute exact path='/user/quiz' uid={this.state.uid} component={Quiz} /> */}
-          <Route exact path='/user/quiz' uid="123" component={Quiz} />
+          <Route exact path='/user/quiz' uid={this.state.uid} component={Quiz} />
           <Route exact path='/user/review' render={() =>
             <WriteReview />} />
           <Route exact path='/admin' render={() =>

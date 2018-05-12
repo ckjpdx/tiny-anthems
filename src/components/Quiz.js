@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
-import { quizzesCollection } from './../store';
-import { usersCollection } from './../store';
+import { quizzesCollection, usersCollection, userDoc } from './../store';
 
 const Quiz = observer(class Quiz extends Component {
   constructor(props) {
@@ -9,6 +8,8 @@ const Quiz = observer(class Quiz extends Component {
     this.state = {};
     this.handleChange = this.handleChange.bind(this);
     this.handleQuizFormSubmit = this.handleQuizFormSubmit.bind(this);
+    userDoc.fetch().then(({data}) => console.log(data.snapshot));
+    console.log(userDoc);
   }
 
   handleChange(e) {
@@ -16,15 +17,19 @@ const Quiz = observer(class Quiz extends Component {
   }
 
   handleQuizFormSubmit = async () => {
+    const quizRefs = userDoc.data.quiz_refs;
+    console.log('user data quizz_refs:', quizRefs);
     const doc = await quizzesCollection.add(this.state);
-    console.log(doc.id);
+    const newQuizRefs = quizRefs ? quizRefs.push(doc.id) : [doc.id];
+    await userDoc.set({quiz_refs: newQuizRefs}, {merge: true});
   };
 
   render(){
     return (
       <div>
+        {userDoc.data.quiz_refs}
         <h1>Questionnaire</h1>
-        {this.props.uid}
+        {this.state.quizRefs}
         <p>
           `Welcome, friend. I'm going to ask you a series of questions. Some of them will seem like obvious get-to-know-you type of inquiries. Others will appear bizarre and irrelevant. You are free to skip any questions you'd like, of course, and there will be time at the end for you to provide any additional biographical information you'd like.`
         </p>
