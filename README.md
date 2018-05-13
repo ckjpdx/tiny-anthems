@@ -29,9 +29,15 @@ firestorter document properties
 * doc.id
 * doc.data.property
 
+userDoc.fetch().then(({data}) => console.log(data.snapshot));
+
 firebase.auth result
 * signInWithPopup returns result
   * (result) => result.user.uid
+
+### firestore (vanilla)
+const docRef = firebase.firestore().collection("users").doc("12345");
+docRef.get().then(doc => console.log(doc.data()))
 
 # Goals
 - [ ] Material UI styles (is installed, but not yet implemented)
@@ -48,3 +54,32 @@ firebase.auth result
 # Structure
 ![components tree](tiny-anthems-components4.png)
 ![interface tree](tiny-anthems-interface3.png)
+
+# Database
+users: {
+  123: {
+    name: 'chris',
+    quizzes: ['000', '001']
+  }
+}
+
+users: {
+  123: {
+    name: 'chris',
+    quizzes: {
+      000: {fav1: 'fav1'}
+    }
+  }
+}
+
+quizzes: {
+  123: {
+    pending: true,
+    email: 'ckj@gmail.com',
+    questions: {
+      q1: 'a1',
+      q2: 'a2',
+    },
+    songs: ['songs/song1.mp3']
+  }
+}

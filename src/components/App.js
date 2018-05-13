@@ -17,13 +17,16 @@ import { Switch, Route, Link, Redirect } from 'react-router-dom';
 import mike from './../assets/img/mike.gif';
 import * as firebase from 'firebase';
 import PrivateRoute from './reusable/PrivateRoute';
-import { usersCollection, userDoc } from './../store';
+import { usersCollection } from './../store';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      uid: 'w6kuWYde9GM5A8Vjn72Y5fIjOhG2' // delete this later
+      uid: 'w6kuWYde9GM5A8Vjn72Y5fIjOhG2',
+      email: 'jacko@pugtower.com',
+      displayName: 'Jacko', // delete this laterz
+      pending: true
     };
   }
 
@@ -34,11 +37,6 @@ class App extends React.Component {
   }
 
   handleSignIn = async (userResult) => {
-    await userDoc.set({
-      uid: userResult.uid,
-      displayName: userResult.displayName,
-      email: userResult.email
-    }, true);
     this.setState({
       uid: userResult.uid,
       userName: userResult.displayName
@@ -79,11 +77,10 @@ class App extends React.Component {
           <Route path='/review-list' component={ReviewList} />
           <PrivateRoute exact path='/user' uid={this.state.uid} component={User}/>
           {/* <PrivateRoute exact path='/user/quiz' uid={this.state.uid} component={Quiz} /> */}
-          <Route exact path='/user/quiz' uid={this.state.uid} component={Quiz} />
+          <PrivateRoute exact path='/user/quiz' uid={this.state.uid} appState={this.state} component={Quiz} />
           <Route exact path='/user/review' render={() =>
             <WriteReview />} />
-          <Route exact path='/admin' render={() =>
-            <Admin Quizs={this.state.QuizsById} onSongUpload={this.handleSongUpload} />} />
+          <PrivateRoute exact path='/admin' onSongUpload={this.handleSongUpload} uid={this.state.uid} component={Admin} />} />
           <Route exact path='/admin/search' render={() =>
             <AdminSearch />} />
           <Route component={Error404} />

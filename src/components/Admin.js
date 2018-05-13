@@ -5,8 +5,31 @@ import { Link } from 'react-router-dom';
 import ListedQuiz from './ListedQuiz';
 import './styles/Admin.css';
 
+
 const Admin = observer(class Admin extends Component {
-	state = {};
+	constructor(props) {
+		super(props);
+		quizzesCollection.query = quizzesCollection.ref.where('pending', '==', true);
+
+		this.state = {
+			filterPending: true
+		};
+	}
+
+	onChangePending() {
+		this.setState(
+			{filterPending: !this.state.filterPending},
+			this.switchPendingQuery
+		);
+	}
+
+	switchPendingQuery() {
+		this.state.filterPending ? (
+			quizzesCollection.query = quizzesCollection.ref.where('pending', '==', true)
+		):(
+			quizzesCollection.query = undefined
+		)
+	}
 
 	render() {
 		const { docs, query } = quizzesCollection;
@@ -14,6 +37,8 @@ const Admin = observer(class Admin extends Component {
 		const { fetching } = quizzesCollection;
 		return (
 			<div>
+				<label>Filter by Pending</label>
+				<input type="checkbox" checked={this.state.filterPending} onChange={this.onChangePending.bind(this)}/>
         <h2>Questionnaires</h2>
         {quizChildren}
 			</div>
