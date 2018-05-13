@@ -6,36 +6,30 @@ class ListedQuizUpload extends React.Component {
     super(props);
 
     this.state = {
-      songTitle: props.quiz.data.songTitle || '',
-      songRef: props.quiz.data.songRef || '',
-      file: '',
+      file: null,
       progressPercent: 0
     };
-    console.log(this.state);
   };
 
-  onTextChange = (event) => {
-		this.setState({
-			songTitle: event.target.value
-		});
-	};
-
   onFileSelect = (event) => {
-		console.log("onFileSelect");
-    this.setState({
-      file: event.target.files[0]
-    });
+    console.log("onFileSelect");
+    event.target.files[0]
+    && this.setState({
+        file: event.target.files[0]
+      });
     console.log(event.target.files[0]);
 	};
 
-  onUploadSong = async () => {
-    const songFileRef = `songs/${this.state.file.name}`;
-		const { quiz } = this.props;
+  onUploadSong = async (quiz) => {
+    let newSongs = quiz.data.songs || [];
+    this.state.file.name && newSongs.push(this.state.file.name);
 		await quiz.update({
-			songTitle: this.state.songTitle,
-      songRef: songFileRef
+			songs: newSongs,
 		});
+
+    const songFileRef = `songs/${this.state.file.name}`;
     const storageRef = firebase.storage().ref(songFileRef);
+    console.log(songFileRef, storageRef);
     const task = storageRef.put(this.state.file);
     task.on(
       'state_changed',
@@ -54,12 +48,10 @@ class ListedQuizUpload extends React.Component {
   render() {
     return (
       <form>
-        <label>songTitle:</label>
-        <input type="text" onChange={this.onTextChange} value={this.state.songTitle || ''} />
         <input type="file" onChange={this.onFileSelect} />
         <p>Upload: {this.state.progressPercent}%</p>
         <p className="admin-upload-label">UPLOAD SONG--></p>
-        <button onClick={this.onUploadSong}>Upload Song</button>
+        <button onClick={() => this.onUploadSong(this.props.quiz)}>Upload Song</button>
       </form>
     );
   }

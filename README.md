@@ -39,6 +39,19 @@ firebase.auth result
 const docRef = firebase.firestore().collection("users").doc("12345");
 docRef.get().then(doc => console.log(doc.data()))
 
+### two way data binding
+```javascript
+onTextChange = (event) => {
+  this.setState({
+    songTitle: event.target.value
+  });
+};
+
+<label>songTitle:</label>
+<input type="text" onChange={this.onTextChange} value={this.state.songTitle || ''} />
+```
+
+
 # Goals
 - [ ] Material UI styles (is installed, but not yet implemented)
 - [x] Display demo songs to play via portfolio
