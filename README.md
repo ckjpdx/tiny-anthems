@@ -59,8 +59,8 @@ onTextChange = (event) => {
 - [ ] Google Cloud Storage is used to static site files and store mp3 files
 - [ ] Google Firestore is used to put/get persistent state
 - [ ] Google Firebase Authentication is used to securely sign in users/admin
-- [ ] Database references
-- [ ]
+- [x] Database references
+- [ ] React Context used for auth and other global state
 
 # Resources
 

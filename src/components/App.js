@@ -75,9 +75,9 @@ class App extends React.Component {
           <Route path='/faq' component={Faq} />
           <Route path='/portfolio' component={Portfolio} />
           <Route path='/review-list' component={ReviewList} />
-          <PrivateRoute exact path='/user' uid={this.state.uid} component={User}/>
+          <PrivateRoute exact path='/user' component={User} appState={this.state}/>
           {/* <PrivateRoute exact path='/user/quiz' uid={this.state.uid} component={Quiz} /> */}
-          <PrivateRoute exact path='/user/quiz' uid={this.state.uid} appState={this.state} component={Quiz} />
+          <PrivateRoute exact path='/user/quiz' appState={this.state} component={Quiz} />
           <Route exact path='/user/review' render={() =>
             <WriteReview />} />
           <PrivateRoute exact path='/admin' onSongUpload={this.handleSongUpload} uid={this.state.uid} component={Admin} />} />

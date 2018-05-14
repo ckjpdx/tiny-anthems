@@ -6,8 +6,8 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
     <Route
       {...rest}
       render={props =>
-        rest.uid ? (
-          <Component {...props} uid={rest.uid} appState={rest.appState} />
+        rest.appState.uid ? (
+          <Component {...props} appState={rest.appState} />
         ) : (
           <Redirect
             to={{
