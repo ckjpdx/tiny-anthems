@@ -25,10 +25,8 @@ const User = observer(class User extends Component {
   }
 
   render() {
-    const quizzesDocArr = quizzesCollection.docs.map(doc => doc);
-    const arrayOfSongsArrays = quizzesCollection.docs.map(quiz => quiz.data.songs);
     let displaySongs = [];
-    arrayOfSongsArrays.map(songArray => {
+    quizzesCollection.docs.map(quiz => quiz.data.songs).map(songArray => {
       return songArray && songArray.forEach(song => displaySongs.push(song));
     });
 

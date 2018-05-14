@@ -80,7 +80,7 @@ class App extends React.Component {
           <PrivateRoute exact path='/user/quiz' appState={this.state} component={Quiz} />
           <Route exact path='/user/review' render={() =>
             <WriteReview />} />
-          <PrivateRoute exact path='/admin' onSongUpload={this.handleSongUpload} uid={this.state.uid} component={Admin} />} />
+          <PrivateRoute exact path='/admin' component={Admin} onSongUpload={this.handleSongUpload} appState={this.state}/>} />
           <Route exact path='/admin/search' render={() =>
             <AdminSearch />} />
           <Route component={Error404} />
