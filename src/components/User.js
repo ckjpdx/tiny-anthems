@@ -7,40 +7,30 @@ import fileDownload from 'js-file-download';
 
 const User = observer(class User extends Component {
 
-  downloadSong(songFileName){
-    const song = songFileName;
-    console.log(song);
+  downloadSong(song){
     const storage = firebase.storage();
-    // const storageRef = storage.ref();
     const gsReference = storage.refFromURL('gs://tiny-anthems-2043a.appspot.com/songs/' + song);
     gsReference.getDownloadURL().then((url) => {
-      var xhr = new XMLHttpRequest();
+      const xhr = new XMLHttpRequest();
       xhr.responseType = 'blob';
       xhr.onload = (event) => {
-        var blob = xhr.response;
-        console.log(event, blob, song);
+        const blob = xhr.response;
         fileDownload(blob, song);
       };
       xhr.open('GET', url);
       xhr.send();
-      console.log(xhr);
-    }).catch(function(error) {
+    }).catch((error) => {
       console.error(error);
     });
   }
 
   render() {
-    console.log(quizzesCollection.docs.map(doc => doc), quizzesCollection.docs.map(doc => doc.data.name));
-
     const quizzesDocArr = quizzesCollection.docs.map(doc => doc);
-    // let allSongs = [];
     const arrayOfSongsArrays = quizzesCollection.docs.map(quiz => quiz.data.songs);
-    // [undefined, ObservableArray]
     let displaySongs = [];
     arrayOfSongsArrays.map(songArray => {
       return songArray && songArray.forEach(song => displaySongs.push(song));
     });
-    console.log(displaySongs);
 
     return (
       <div>
