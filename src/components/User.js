@@ -25,6 +25,7 @@ const User = observer(class User extends Component {
   }
 
   render() {
+    // refactor? https://stackoverflow.com/questions/10865025/merge-flatten-an-array-of-arrays-in-javascript
     let displaySongs = [];
     quizzesCollection.docs.map(quiz => quiz.data.songs).map(songArray => {
       return songArray && songArray.forEach(song => displaySongs.push(song));

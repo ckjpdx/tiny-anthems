@@ -35,6 +35,7 @@ const Admin = observer(class Admin extends Component {
 		const { docs, query } = quizzesCollection;
 		const quizChildren = docs.map((quiz) => <ListedQuiz key={quiz.id} quiz={quiz} />);
 		const { fetching } = quizzesCollection;
+		
 		return (
 			<div>
 				<label>Filter by Pending</label>
