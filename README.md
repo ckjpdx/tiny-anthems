@@ -30,9 +30,15 @@ This web app allows:
 * [MobX](https://mobx.js.org/index.html), state management and Observables for use with Firestorter
 * [js-file-download](https://www.npmjs.com/package/js-file-download), library for blob downloading thru browsers to local drive
 
-# Goals
-- [x] Display demo songs to play on portfolio page via Soundcloud imbeds
+# Progress
+### Authentication
 - [x] Authenticate users with Google sign in
+- [x] Use PrivateRoute function to restrict access to unlogged users
+- [ ] Use AdminRoute to restrict admin area
+- [ ] React Context used for auth
+- [ ] Switch from PrivateRoute & AdminRoute to Auth HOC
+
+### Database & Storage
 - [x] Submit questionnaire for song creation
 - [x] Display list of questionnaires
 - [x] Client can view their completed songs
@@ -43,17 +49,16 @@ This web app allows:
 - [x] Admin can sort pending questionnaires with collection queries
 - [ ] Mark pending questionnaires as 'false' (complete)
 - [ ] Automatically email client to notify of song completion
-- [ ] Redesign site styles
-- [ ] Two questionnaires: for either the visitor or for someone the visitor knows
-- [ ] Material UI styles (is installed, but not yet implemented)
 - [ ] Google Cloud Storage is used to store static site files for hosting
-- [ ] Google Firebase Authentication is used to securely sign in users/admin
-- [ ] React Context used for auth and other global state
-- [ ] ~~Google Firestore is used to put/get persistent state~~
 
-# Bugs
+### UX & Interface
+- [x] Display demo songs to play on portfolio page via Soundcloud imbeds
+- [ ] Redesign site styles
+- [ ] Two questionnaires: for either the user or for someone the user knows
+- [ ] Material UI styles (is installed, but not yet implemented)
+
+### Bugs
 * Clicking upload on the admin page when there isn't a local file selected will crash the app
-*
 
 # Install
 1. git clone
@@ -70,7 +75,7 @@ This web app allows:
 
 # Notes (misc & unorganized)
 
-## firestorter & firebase connections
+### firestorter & firebase connections
 mapping out documents in a collection:
 ```javascript
 const { docs, query } = someCollection;
