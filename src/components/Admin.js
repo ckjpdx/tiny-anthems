@@ -1,23 +1,50 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { observer } from 'mobx-react';
+import { quizzesCollection } from './../store';
 import { Link } from 'react-router-dom';
-import ListedQuestionnaire from './ListedQuestionnaire';
+import ListedQuiz from './ListedQuiz';
 import './styles/Admin.css';
 
-function Admin(props){
-  return (
-    <div>
-      <h1>ADMIN</h1>
-      <Link to='/admin/search'>
-        <button>Search Database</button>
-      </Link>
-      <h2>Questionnaires</h2>
-        {Object.keys(props.questionnaires).map((quizId) => {
-          console.log(props.questionnaires, quizId);
-          let quiz = props.questionnaires[quizId];
-          return <ListedQuestionnaire quiz={quiz} onSongUpload={props.onSongUpload} key={quiz.id} />;
-        })}
-    </div>
-  );
-}
+
+const Admin = observer(class Admin extends Component {
+	constructor(props) {
+		super(props);
+		quizzesCollection.query = quizzesCollection.ref.where('pending', '==', true);
+
+		this.state = {
+			filterPending: true
+		};
+	}
+
+	onChangePending() {
+		this.setState(
+			{filterPending: !this.state.filterPending},
+			this.switchPendingQuery
+		);
+	}
+
+	switchPendingQuery() {
+		this.state.filterPending ? (
+			quizzesCollection.query = quizzesCollection.ref.where('pending', '==', true)
+		):(
+			quizzesCollection.query = undefined
+		)
+	}
+
+	render() {
+		const { docs, query } = quizzesCollection;
+		const quizChildren = docs.map((quiz) => <ListedQuiz key={quiz.id} quiz={quiz} />);
+		const { fetching } = quizzesCollection;
+		
+		return (
+			<div>
+				<label>Filter by Pending</label>
+				<input type="checkbox" checked={this.state.filterPending} onChange={this.onChangePending.bind(this)}/>
+        <h2>Questionnaires</h2>
+        {quizChildren}
+			</div>
+		);
+	}
+});
 
 export default Admin;

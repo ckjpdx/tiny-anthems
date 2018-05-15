@@ -1,6 +1,8 @@
 import React from 'react';
+// import { observer } from 'mobx-react';
 import './styles/App.css';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import Login from './Login';
 import Faq from './Faq';
 import Portfolio from './Portfolio';
 import ReviewList from './ReviewList';
@@ -8,48 +10,55 @@ import Welcome from './Welcome';
 import Admin from './Admin';
 import AdminSearch from './AdminSearch';
 import WriteReview from './WriteReview';
-import Questionnaire from './Questionnaire';
+import Quiz from './Quiz';
 import Error404 from './Error404';
 import User from './User';
-import { Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route, Link, Redirect } from 'react-router-dom';
 import mike from './../assets/img/mike.gif';
 import * as firebase from 'firebase';
+import PrivateRoute from './reusable/PrivateRoute';
+import { usersCollection } from './../store';
 
 class App extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-      userAccount: {
-        isAdmin: false,
-        userId: null,
-        name: null,
-        questionnaireIds: []
-      },
-      questionnairesById: {},
-      songsById: {}
+      uid: 'w6kuWYde9GM5A8Vjn72Y5fIjOhG2',
+      email: 'jacko@pugtower.com',
+      displayName: 'Jacko', // delete this laterz
+      pending: true
     };
-    this.handleAddNewQuestionnaire = this.handleAddNewQuestionnaire.bind(this);
-    this.handleSongUpload = this.handleSongUpload.bind(this);
   }
-  handleAddNewQuestionnaire(newQuiz){
-    const newQuestionnairesById = Object.assign({}, this.state.questionnairesById, {[newQuiz.quizId]: newQuiz});
-    this.setState({questionnairesById: newQuestionnairesById});
-    const newQuestionnaireIds = this.state.userAccount.questionnaireIds;
-    newQuestionnaireIds.push(newQuiz.quizId);
-    const newUserAccount = Object.assign({}, this.state.userAccount, {questionnaireIds: newQuestionnaireIds});
-    this.setState({userAccount: newUserAccount});
-    console.log(this.state);
-  }
+
   handleSongUpload(newSong){
     const newSongsById = Object.assign({}, this.state.songsById, {[newSong.id]: newSong});
     this.setState({songsById: newSongsById});
     console.log(this.state);
   }
+
+  handleSignIn = async (userResult) => {
+    this.setState({
+      uid: userResult.uid,
+      userName: userResult.displayName
+    });
+    console.log(this.state);
+  }
+
+  handleSignOut = async () => {
+    console.log('LOG OUT USER');
+    this.state = Object.assign({});
+    console.log(this.state);
+  }
+
   render() {
+    const signInOrOut = this.state.uid ? 'Sign Out' : 'Sign In';
     return (
       <div className="App">
         <div id="App-profile-button">
-          <Link to='/facebook-login'><button>Profile</button></Link>
+          <p style={{fontFamily: 'monospace'}}>{this.state.userName}</p>
+          {/* {isAdmin ? <Link to='/admin'><button>Admin</button></Link> : ''} */}
+          <Link to='/user'><button>Profile</button></Link>
+          <Link to='/login'><button>{signInOrOut}</button></Link>
         </div>
         <img src={mike} alt="cartoon of mike throwing up musical notes" className="mike" />
         <h1 className="title">Tiny Anthems</h1>
@@ -61,17 +70,17 @@ class App extends React.Component {
         </div>
         <Switch>
           <Route exact path='/' component={Welcome} />
+          <Route exact path='/login' render={() =>
+            <Login onSignIn={this.handleSignIn} onSignOut={this.handleSignOut}/>} />
           <Route path='/faq' component={Faq} />
           <Route path='/portfolio' component={Portfolio} />
           <Route path='/review-list' component={ReviewList} />
-          <Route exact path='/user' render={() =>
-            <User userAccount={this.state.userAccount}/>} />
-          <Route exact path='/user/questionnaire' render={() =>
-            <Questionnaire onQuestionnaireFormSubmit={this.handleAddNewQuestionnaire} userId={this.state.userAccount.userId}/>} />
+          <PrivateRoute exact path='/user' component={User} appState={this.state}/>
+          {/* <PrivateRoute exact path='/user/quiz' uid={this.state.uid} component={Quiz} /> */}
+          <PrivateRoute exact path='/user/quiz' appState={this.state} component={Quiz} />
           <Route exact path='/user/review' render={() =>
             <WriteReview />} />
-          <Route exact path='/admin' render={() =>
-            <Admin questionnaires={this.state.questionnairesById} onSongUpload={this.handleSongUpload} />} />
+          <PrivateRoute exact path='/admin' component={Admin} onSongUpload={this.handleSongUpload} appState={this.state}/>} />
           <Route exact path='/admin/search' render={() =>
             <AdminSearch />} />
           <Route component={Error404} />

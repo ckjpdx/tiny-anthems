@@ -1,39 +1,104 @@
-# Tiny Anthems (static)
+# Tiny Anthems
+## Songs about you
 *by Chris Knight Johnson*
+### [View App Planning Repo](https://github.com/ckjpdx/tiny-anthems-planning)
+
 ## Description
-Created for local Portland musician Mike Long. AWS services are used to gather questionnaires from customers in need of a personalized song about their life, allow the musician to retrieve the questionnaires for music making, and then post their song securely for downloading.
+This React web app was created for local Portland musician Mike Long. Using Google Web Services, visitors in need of a personalized song about their life, or in need of a song to serenade a loved one, can fill out a questionnaire that will be saved in Google's cutting edge Firestore database. The musician/minstrel can then sign in as an admin to retrieve the questionnaires for direction in song creation, and then post his client's completed song on Google Storage for download.
 
-## [View App Planning Repo](https://github.com/ckjpdx/tiny-anthems-planning)
-## Tech Used
-* create-react-app.
-* Material UI
-* AWS S3
-* AWS DynamoDB
-* AWS Cognito
-* AWS Lambda
-* AWS API Gateway
+This web app allows:
 
-## Install
+...a visiting user to:
+* read information about the musician's service
+* login with a Google account
+* fill out a questionnaire for themselves or another person to receive custom song
+* retrieve song from their profile once completed and uploaded by musician (admin)
+
+...the musician (admin) to:
+* login to see pending questionnaires
+* upload a song file to that specific questionnaire for client retrieval
 
 
-## Goals
-- [ ] Material UI is installed, but still must be implemented
-- [ ] Display demo songs to play via portfolio
-- [x] react-facebook npm is used to sign in users (may be removed)
-- [ ] AWS S3 is used to static site files and store mp3 files
-- [ ] AWS DynamoDB is used to put/get persistent state
-- [ ] AWS Cognito is used to securely sign in users/admin
+## Technology
+* Facebook [create-react-app](https://github.com/facebook/create-react-app)
+* ~~Material UI~~ not yet implemented
+* Google [SDK](https://cloud.google.com/sdk)
+* Google [Cloud Storage](https://cloud.google.com/)
+* Google [Firestore Database](https://firebase.google.com/docs/firestore/)
+* Google [Firebase Authentication](https://firebase.google.com/docs/auth/)
+* [Firestorter](https://github.com/IjzerenHein/firestorter), an incredible Firestore reference and live-update library
+* [MobX](https://mobx.js.org/index.html), state management and Observables for use with Firestorter
+* [js-file-download](https://www.npmjs.com/package/js-file-download), library for blob downloading thru browsers to local drive
 
-#### AWS S3
-S3 API??? https://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html
+# Goals
+- [x] Display demo songs to play on portfolio page via Soundcloud imbeds
+- [x] Authenticate users with Google sign in
+- [x] Submit questionnaire for song creation
+- [x] Display list of questionnaires
+- [x] Client can view their completed songs
+- [x] Client can download their songs
+- [x] Google Cloud Storage is used to store mp3 files
+- [x] Database references saved song files as nested array in each quiz object
+- [x] Admin can delete songs from questionnaires (removes reference from database and song file from storage)
+- [x] Admin can sort pending questionnaires with collection queries
+- [ ] Mark pending questionnaires as 'false' (complete)
+- [ ] Automatically email client to notify of song completion
+- [ ] Redesign site styles
+- [ ] Two questionnaires: for either the visitor or for someone the visitor knows
+- [ ] Material UI styles (is installed, but not yet implemented)
+- [ ] Google Cloud Storage is used to store static site files for hosting
+- [ ] Google Firebase Authentication is used to securely sign in users/admin
+- [ ] React Context used for auth and other global state
+- [ ] ~~Google Firestore is used to put/get persistent state~~
 
-aws s3 sync s3://wildrydes-us-east-1/WebApplication/1_StaticWebHosting/website s3://YOUR_BUCKET_NAME --region YOUR_BUCKET_REGION
+# Bugs
+* Clicking upload on the admin page when there isn't a local file selected will crash the app
+*
 
-## Resources
-* [Tutorial for building a Web Application with Amazon S3, Lambda, DynamoDB and API Gateway](https://codeburst.io/tutorial-for-building-a-web-application-with-amazon-s3-lambda-dynamodb-and-api-gateway-6d3ddf77f15a)
-* [Serverless Web Application Workshop](https://github.com/awslabs/aws-serverless-workshops/tree/master/WebApplication)
-* [Material UI](https://www.npmjs.com/package/material-ui)
+# Install
+1. git clone
+1. npm install
+1. configure firebase via firebase web console
+1. generate your own apikey on firebase console
+1. place new api key in .env file in top directory as REACT_APP_APIKEY="AIexample123456789"
+1. npm start
+1. view at localhost:3000
 
-## Structure
+# Structure
 ![components tree](tiny-anthems-components4.png)
 ![interface tree](tiny-anthems-interface3.png)
+
+# Notes (misc & unorganized)
+
+## firestorter & firebase connections
+mapping out documents in a collection:
+```javascript
+const { docs, query } = someCollection;
+const children = docs.map((doc) => <p key={doc.id}>doc.id is {doc.id}<br/>doc.data.name is {doc.data.name}</p>);
+```
+firestorter document properties
+* doc.path
+* doc.id
+* doc.data.property
+
+userDoc.fetch().then(({data}) => console.log(data.snapshot));
+
+firebase.auth result
+* signInWithPopup returns result
+  * (result) => result.user.uid
+
+### firestore (vanilla)
+const docRef = firebase.firestore().collection("users").doc("12345");
+docRef.get().then(doc => console.log(doc.data()))
+
+### two way data binding
+```javascript
+onTextChange = (event) => {
+  this.setState({
+    songTitle: event.target.value
+  });
+};
+
+<label>songTitle:</label>
+<input type="text" onChange={this.onTextChange} value={this.state.songTitle || ''} />
+```
