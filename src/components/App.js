@@ -1,6 +1,7 @@
 import React from 'react';
-// import { observer } from 'mobx-react';
-import './styles/App.css';
+import { Switch, Route, Link, Redirect, withRouter } from 'react-router-dom';
+import { usersCollection } from './../store';
+import * as firebase from 'firebase';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Login from './Login';
 import Faq from './Faq';
@@ -13,11 +14,9 @@ import WriteReview from './WriteReview';
 import Quiz from './Quiz';
 import Error404 from './Error404';
 import User from './User';
-import { Switch, Route, Link, Redirect } from 'react-router-dom';
-import mike from './../assets/img/mike.gif';
-import * as firebase from 'firebase';
 import PrivateRoute from './reusable/PrivateRoute';
-import { usersCollection } from './../store';
+import mike from './../assets/img/mike.gif';
+import './styles/App.css';
 
 class App extends React.Component {
   constructor(props) {
@@ -25,7 +24,7 @@ class App extends React.Component {
     this.state = {
       uid: null,
       email: null,
-      name: null, // delete this laterz
+      name: null,
       pending: true
     };
   }
@@ -36,12 +35,11 @@ class App extends React.Component {
       name: userResult.displayName,
       email: userResult.email
     });
-    console.log(this.state);
+    this.props.history.push('/user');
   }
 
   handleSignOut = () => {
     this.setState({uid: null, name: null, email: null});
-    console.log(this.state);
   }
 
   render() {
@@ -78,4 +76,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default withRouter(App);

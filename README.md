@@ -37,8 +37,8 @@ This web app allows:
 ### Authentication
 - [x] Authenticate users with Google sign in
 - [x] Use PrivateRoute function to restrict access to unlogged users
+- [x] Redirect to /user Profile page after successful sign in
 - [ ] Use AdminRoute to restrict admin access
-- [ ] Redirect to /user Profile page after successful sign in
 - [ ] React Context used for auth
 - [ ] Switch from PrivateRoute & AdminRoute to Auth HOC
 

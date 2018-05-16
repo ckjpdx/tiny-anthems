@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { observer } from 'mobx-react';
-import { v4 } from 'uuid';
 import { quizzesCollection } from './../store';
 import ListedQuizUpload from './ListedQuizUpload';
 import './styles/ListedQuiz.css';
