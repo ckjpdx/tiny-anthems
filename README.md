@@ -37,7 +37,8 @@ This web app allows:
 ### Authentication
 - [x] Authenticate users with Google sign in
 - [x] Use PrivateRoute function to restrict access to unlogged users
-- [ ] Use AdminRoute to restrict admin area
+- [ ] Use AdminRoute to restrict admin access
+- [ ] Redirect to /user Profile page after successful sign in
 - [ ] React Context used for auth
 - [ ] Switch from PrivateRoute & AdminRoute to Auth HOC
 
@@ -49,6 +50,7 @@ This web app allows:
 - [x] View their completed songs
 - [x] Download their songs
 - [x] Store questionnaire answers in a nested object inside their quiz
+- [ ] Redirect after successful quiz submission
 - [ ] Two questionnaires: toggle quiz for either the client or for someone the client knows
 - [ ] Review songs by posting to quiz document object
 
@@ -64,6 +66,7 @@ This web app allows:
 
 ### UX & Interface
 - [x] Display demo songs to play on portfolio page via Soundcloud imbeds
+- [ ] Confirm quiz was submitted
 - [ ] Contact Mike Long the minstrel via email
 - [ ] Redesign site styles
 - [ ] Material UI styles (is installed, but not yet implemented)

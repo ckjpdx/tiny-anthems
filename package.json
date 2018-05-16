@@ -2,6 +2,7 @@
   "name": "tiny-anthems-static",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://ckjpdx.github.io/tiny-anthems",
   "dependencies": {
     "firebase": "^4.12.0",
     "firestorter": "^0.10.0",
@@ -20,6 +21,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "devDependencies": {
+    "gh-pages": "^1.1.0"
   }
 }
