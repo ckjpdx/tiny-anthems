@@ -46,10 +46,11 @@ This web app allows:
 
 ##### Client
 - [x] Submit questionnaire for song creation
-- [x] Client can view their completed songs
-- [x] Client can download their songs
+- [x] View their completed songs
+- [x] Download their songs
 - [x] Store questionnaire answers in a nested object inside their quiz
 - [ ] Two questionnaires: toggle quiz for either the client or for someone the client knows
+- [ ] Review songs by posting to quiz document object
 
 ##### Admin
 - [x] Display list of questionnaires
@@ -63,6 +64,7 @@ This web app allows:
 
 ### UX & Interface
 - [x] Display demo songs to play on portfolio page via Soundcloud imbeds
+- [ ] Contact Mike Long the minstrel via email
 - [ ] Redesign site styles
 - [ ] Material UI styles (is installed, but not yet implemented)
 
