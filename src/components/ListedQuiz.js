@@ -8,6 +8,12 @@ import './styles/ListedQuiz.css';
 import firebase from 'firebase';
 
 class ListedQuiz extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {};
+		this.changePending = this.changePending.bind(this);
+	}
+
 	static propTypes = {
 		quiz: PropTypes.any
 	};
@@ -26,13 +32,30 @@ class ListedQuiz extends Component {
 			.catch(err => console.error(song, quiz));
 	}
 
+	async changePending(quiz) {
+		const newPending = !quiz.data.pending;
+		await quiz.update({pending: newPending});
+	}
+
+	// switchPendingQuery() {
+	// 	this.state.filterPending ? (
+	// 		quizzesCollection.query = quizzesCollection.ref.where('pending', '==', true)
+	// 	):(
+	// 		quizzesCollection.query = undefined
+	// 	)
+	// }
+
 	render() {
 		const { quiz } = this.props;
 		const quizQuestionsArrays = quiz.data.questions ? Object.entries(quiz.data.questions) : [['no questions', 'no answers']];
 
 		return (
-      <div className="ListedQuiz-div">
-        <p>{quiz.data.email}</p>
+      <div className="ListedQuiz">
+				<div className="ListedQuiz-pending-complete">
+					<p>{quiz.data.email}</p>
+					<input type="checkbox" checked={quiz.data.pending} onChange={() => this.changePending(quiz)}/>
+					<p>Pending</p>
+				</div>
 				{quizQuestionsArrays.map((questionArray, i) => <div key={i}><h3>{questionArray[0]}?</h3><p>{questionArray[1]}</p></div>)}
 				<h2>Song(s)</h2>
 				{quiz.data.songs && quiz.data.songs.map((song, i) => {

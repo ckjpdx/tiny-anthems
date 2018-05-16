@@ -38,7 +38,7 @@ const Admin = observer(class Admin extends Component {
 
 		return (
 			<div>
-				<label>Filter by Pending</label>
+				<label>Filter for Pending</label>
 				<input type="checkbox" checked={this.state.filterPending} onChange={this.changeFilterPending.bind(this)}/>
         <h2>Questionnaires</h2>
         {quizChildren}

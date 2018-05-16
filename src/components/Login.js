@@ -11,7 +11,7 @@ const Login = observer(class Login extends React.Component {
     console.log(props);
   }
 
-  signIn = async () => {
+  signIn = () => {
     console.log('sign in');
     firebase.auth().signInWithPopup(provider).then((result) => {
       this.props.onSignIn(result.user);

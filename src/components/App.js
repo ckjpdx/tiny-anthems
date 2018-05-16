@@ -40,7 +40,6 @@ class App extends React.Component {
   }
 
   handleSignOut = () => {
-    console.log('LOG OUT USER');
     this.setState({uid: null, name: null, email: null});
     console.log(this.state);
   }
