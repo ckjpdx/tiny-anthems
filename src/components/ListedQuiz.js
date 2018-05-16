@@ -33,7 +33,8 @@ class ListedQuiz extends Component {
 		return (
       <div className="ListedQuiz-div">
         <p>{quiz.data.email}</p>
-				{quizQuestionsArrays.map((questionArray, i) => <div key={i}><h2>{questionArray[0]}</h2><p>{questionArray[1]}</p></div>)}
+				{quizQuestionsArrays.map((questionArray, i) => <div key={i}><h3>{questionArray[0]}?</h3><p>{questionArray[1]}</p></div>)}
+				<h2>Song(s)</h2>
 				{quiz.data.songs && quiz.data.songs.map((song, i) => {
           return <p key={i}>{song} <span key={'x'+i} onClick={() => this.deleteSong(song, quiz)}>X</span></p>
         })}

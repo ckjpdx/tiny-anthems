@@ -16,7 +16,7 @@ const Admin = observer(class Admin extends Component {
 		};
 	}
 
-	handleChangeFilterPending() {
+	changeFilterPending() {
 		this.setState(
 			{filterPending: !this.state.filterPending},
 			this.switchPendingQuery
@@ -39,7 +39,7 @@ const Admin = observer(class Admin extends Component {
 		return (
 			<div>
 				<label>Filter by Pending</label>
-				<input type="checkbox" checked={this.state.filterPending} onChange={this.handleChangeFilterPending.bind(this)}/>
+				<input type="checkbox" checked={this.state.filterPending} onChange={this.changeFilterPending.bind(this)}/>
         <h2>Questionnaires</h2>
         {quizChildren}
 			</div>

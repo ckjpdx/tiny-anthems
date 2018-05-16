@@ -6,6 +6,10 @@ import firebase from 'firebase';
 import fileDownload from 'js-file-download';
 
 const User = observer(class User extends Component {
+  constructor(props){
+    super(props);
+    quizzesCollection.query = quizzesCollection.ref.where('uid', '==', this.props.appState.uid);
+  }
 
   downloadSong(song){
     const storage = firebase.storage();
@@ -28,13 +32,12 @@ const User = observer(class User extends Component {
     // refactor? https://stackoverflow.com/questions/10865025/merge-flatten-an-array-of-arrays-in-javascript
     let displaySongs = [];
     quizzesCollection.docs.map(quiz => quiz.data.songs).map(songArray => {
-      return songArray && songArray.forEach(song => displaySongs.push(song));
+      songArray && songArray.forEach(song => displaySongs.push(song));
     });
 
     return (
       <div>
         <h1>Profile</h1>
-        {this.props.appState.email}
         <Link to='/user/quiz'>
           <button>Take the Quiz!</button>
         </Link>

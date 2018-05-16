@@ -23,42 +23,34 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      uid: 'w6kuWYde9GM5A8Vjn72Y5fIjOhG2',
-      email: 'jacko@pugtower.com',
-      name: 'Jacko', // delete this laterz
+      uid: null,
+      email: null,
+      name: null, // delete this laterz
       pending: true
     };
   }
 
-  handleSongUpload(newSong){
-    const newSongsById = Object.assign({}, this.state.songsById, {[newSong.id]: newSong});
-    this.setState({songsById: newSongsById});
-    console.log(this.state);
-  }
-
-  handleSignIn = async (userResult) => {
+  handleSignIn = (userResult) => {
     this.setState({
       uid: userResult.uid,
-      userName: userResult.displayName
+      name: userResult.displayName,
+      email: userResult.email
     });
     console.log(this.state);
   }
 
-  handleSignOut = async () => {
+  handleSignOut = () => {
     console.log('LOG OUT USER');
-    this.state = Object.assign({});
+    this.setState({uid: null, name: null, email: null});
     console.log(this.state);
   }
 
   render() {
-    const signInOrOut = this.state.uid ? 'Sign Out' : 'Sign In';
     return (
       <div className="App">
         <div id="App-profile-button">
-          <p style={{fontFamily: 'monospace'}}>{this.state.userName}</p>
-          {/* {isAdmin ? <Link to='/admin'><button>Admin</button></Link> : ''} */}
-          <Link to='/user'><button>Profile</button></Link>
-          <Link to='/login'><button>{signInOrOut}</button></Link>
+          <Link to='/user'><p style={{fontFamily: 'monospace'}}>{this.state.email}</p></Link>
+          <Login appState={this.state} onSignIn={this.handleSignIn} onSignOut={this.handleSignOut}/>
         </div>
         <img src={mike} alt="cartoon of mike throwing up musical notes" className="mike" />
         <h1 className="title">Tiny Anthems</h1>
@@ -70,17 +62,14 @@ class App extends React.Component {
         </div>
         <Switch>
           <Route exact path='/' component={Welcome} />
-          <Route exact path='/login' render={() =>
-            <Login onSignIn={this.handleSignIn} onSignOut={this.handleSignOut}/>} />
           <Route path='/faq' component={Faq} />
           <Route path='/portfolio' component={Portfolio} />
           <Route path='/review-list' component={ReviewList} />
           <PrivateRoute exact path='/user' component={User} appState={this.state}/>
-          {/* <PrivateRoute exact path='/user/quiz' uid={this.state.uid} component={Quiz} /> */}
           <PrivateRoute exact path='/user/quiz' appState={this.state} component={Quiz} />
           <Route exact path='/user/review' render={() =>
             <WriteReview />} />
-          <PrivateRoute exact path='/admin' component={Admin} onSongUpload={this.handleSongUpload} appState={this.state}/>} />
+          <PrivateRoute exact path='/admin' component={Admin} appState={this.state}/>} />
           <Route exact path='/admin/search' render={() =>
             <AdminSearch />} />
           <Route component={Error404} />

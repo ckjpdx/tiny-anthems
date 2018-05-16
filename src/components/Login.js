@@ -1,13 +1,15 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 import { firebase } from './../store';
-import { usersCollection } from './../store';
 import { initFirestorter, Collection, Document } from 'firestorter';
 
 const provider = new firebase.auth.GoogleAuthProvider();
 
 const Login = observer(class Login extends React.Component {
-  state = {}
+  constructor(props){
+    super(props);
+    console.log(props);
+  }
 
   signIn = async () => {
     console.log('sign in');
@@ -19,7 +21,7 @@ const Login = observer(class Login extends React.Component {
   };
 
   signOut = () => {
-    console.log('Signed Out');
+    console.log('sign out');
     firebase.auth().signOut().then(() => {
       this.props.onSignOut()
     }).catch((error) => {
@@ -27,20 +29,11 @@ const Login = observer(class Login extends React.Component {
     });
   };
 
-  doTest = () => {
-    usersCollection.query = usersCollection.ref.where('uid', '==', '12345');
-  };
-
   render(){
-    const { docs } = usersCollection;
-    const userChildren = docs.map((user) => <h1 key={user.id} >{user.id}</h1>);
+    console.log(this.props);
+    const signUserButton = this.props.appState.uid ? <button onClick={this.signOut}>Sign Out</button> : <button onClick={this.signIn}>Sign In</button>;
     return (
-      <div>
-        <button onClick={this.signIn}>SIGN IN</button>
-        <button onClick={this.signOut}>SIGN OUT</button>
-        <button onClick={this.doTest}>TEST</button>
-        {userChildren}
-      </div>
+      <div>{signUserButton}</div>
     );
   }
 });
