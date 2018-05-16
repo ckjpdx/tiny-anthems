@@ -20,13 +20,7 @@ class ListedQuizUpload extends React.Component {
     console.log(event.target.files[0]);
 	};
 
-  onUploadSong = async (quiz) => {
-    let newSongs = quiz.data.songs || [];
-    this.state.file.name && newSongs.push(this.state.file.name);
-		await quiz.update({
-			songs: newSongs,
-		});
-
+  onUploadSong = (quiz) => {
     const songFileRef = `songs/${this.state.file.name}`;
     const storageRef = firebase.storage().ref(songFileRef);
     console.log(songFileRef, storageRef);
@@ -41,8 +35,14 @@ class ListedQuizUpload extends React.Component {
         console.log(this.state.progressPercent);
       },
       (err) => {console.error(err);},
-      () => {console.log('Upload Complete');}
-      );
+      async () => {
+        let newSongs = quiz.data.songs || [];
+        this.state.file.name && newSongs.push(this.state.file.name);
+        await quiz.update({
+          songs: newSongs,
+        });
+      }
+    );
 	};
 
   render() {

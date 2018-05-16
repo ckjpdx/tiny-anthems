@@ -1,7 +1,6 @@
 # Tiny Anthems
 ## Songs about you
 *by Chris Knight Johnson*
-### [View App Planning Repo](https://github.com/ckjpdx/tiny-anthems-planning)
 
 ## Description
 This React web app was created for local Portland musician Mike Long. Using Google Web Services, visitors in need of a personalized song about their life, or in need of a song to serenade a loved one, can fill out a questionnaire that will be saved in Google's cutting edge Firestore database. The musician/minstrel can then sign in as an admin to retrieve the questionnaires for direction in song creation, and then post his client's completed song on Google Storage for download.
@@ -31,6 +30,10 @@ This web app allows:
 * [js-file-download](https://www.npmjs.com/package/js-file-download), library for blob downloading thru browsers to local drive
 
 # Progress
+### Protocol
+- [ ] PropType checking in all components
+- [ ] Test cases for all components
+
 ### Authentication
 - [x] Authenticate users with Google sign in
 - [x] Use PrivateRoute function to restrict access to unlogged users
@@ -46,10 +49,11 @@ This web app allows:
 - [x] Client can view their completed songs
 - [x] Client can download their songs
 - [x] Store questionnaire answers in a nested object inside their quiz
+- [ ] Two questionnaires: toggle quiz for either the client or for someone the client knows
 
 ##### Admin
 - [x] Display list of questionnaires
-- [x] Google Cloud Storage is used to store mp3 files
+- [x] Upload songs to Google Cloud Storage
 - [x] Database references saved song files as nested array in each quiz object
 - [x] Admin can delete songs from questionnaires (removes reference from database and song file from storage)
 - [x] Admin can sort pending questionnaires with collection queries
@@ -60,7 +64,6 @@ This web app allows:
 ### UX & Interface
 - [x] Display demo songs to play on portfolio page via Soundcloud imbeds
 - [ ] Redesign site styles
-- [ ] Two questionnaires: for either the user or for someone the user knows
 - [ ] Material UI styles (is installed, but not yet implemented)
 
 ### Bugs
