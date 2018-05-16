@@ -28,9 +28,12 @@ class ListedQuiz extends Component {
 
 	render() {
 		const { quiz } = this.props;
+		const quizQuestionsArrays = quiz.data.questions ? Object.entries(quiz.data.questions) : [['no questions', 'no answers']];
+
 		return (
       <div className="ListedQuiz-div">
-        <p>{quiz.data.name} -- {quiz.data.email}</p>
+        <p>{quiz.data.email}</p>
+				{quizQuestionsArrays.map((questionArray, i) => <div key={i}><h2>{questionArray[0]}</h2><p>{questionArray[1]}</p></div>)}
 				{quiz.data.songs && quiz.data.songs.map((song, i) => {
           return <p key={i}>{song} <span key={'x'+i} onClick={() => this.deleteSong(song, quiz)}>X</span></p>
         })}

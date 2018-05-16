@@ -39,17 +39,23 @@ This web app allows:
 - [ ] Switch from PrivateRoute & AdminRoute to Auth HOC
 
 ### Database & Storage
+- [ ] Google Cloud Storage is used to store static site files for hosting
+
+##### Client
 - [x] Submit questionnaire for song creation
-- [x] Display list of questionnaires
 - [x] Client can view their completed songs
 - [x] Client can download their songs
+- [x] Store questionnaire answers in a nested object inside their quiz
+
+##### Admin
+- [x] Display list of questionnaires
 - [x] Google Cloud Storage is used to store mp3 files
 - [x] Database references saved song files as nested array in each quiz object
 - [x] Admin can delete songs from questionnaires (removes reference from database and song file from storage)
 - [x] Admin can sort pending questionnaires with collection queries
-- [ ] Mark pending questionnaires as 'false' (complete)
+- [x] Display quiz questions and answers on admin view using Object.entries
+- [ ] Admin checkbox to mark pending questionnaires as complete
 - [ ] Automatically email client to notify of song completion
-- [ ] Google Cloud Storage is used to store static site files for hosting
 
 ### UX & Interface
 - [x] Display demo songs to play on portfolio page via Soundcloud imbeds

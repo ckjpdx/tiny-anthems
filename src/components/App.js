@@ -25,7 +25,7 @@ class App extends React.Component {
     this.state = {
       uid: 'w6kuWYde9GM5A8Vjn72Y5fIjOhG2',
       email: 'jacko@pugtower.com',
-      displayName: 'Jacko', // delete this laterz
+      name: 'Jacko', // delete this laterz
       pending: true
     };
   }

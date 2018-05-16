@@ -13,7 +13,9 @@ const Quiz = observer(class Quiz extends Component {
   }
 
   handleChange(e) {
-    this.setState({[e.target.name]: e.target.value});
+    let newQuestions = Object.assign({}, this.state.questions);
+    newQuestions[e.target.name] = e.target.value;
+    this.setState({questions: newQuestions});
   }
 
   handleQuizFormSubmit = async () => {
@@ -21,24 +23,48 @@ const Quiz = observer(class Quiz extends Component {
     await quizzesCollection.add(this.state); // can return doc.id
   };
 
+
   render(){
+    const forMeQuestions = <div>
+      <label>What is your name? Do you have any nicknames?</label>
+      <textarea type="text" name="nameOrNickname" onChange={this.handleChange} />
+      <label>When were you born?</label>
+      <textarea type="text" name="whenBorn" onChange={this.handleChange} />
+      <label>What are some of your hobbies or interests?</label>
+      <textarea type="text" name="hobbiesInterests" onChange={this.handleChange} />
+      <label>Who are some of your favorite characters, fictional or non-fictional and why?</label>
+      <textarea type="text" name="favoriteCharacters" onChange={this.handleChange} />
+      <label>What are some accomplishments or victories that you’re proud of? What are some of your future goals?</label>
+      <textarea type="text" name="accomplishments" onChange={this.handleChange} />
+      <label>Describe a memorable life experience you’ve had with an animal or with a special place. OR BOTH.</label>
+      <textarea type="text" name="memorableExperience" onChange={this.handleChange} />
+      <label>What are some things you wish had never been invented and why?</label>
+      <textarea type="text" name="neverInvented" onChange={this.handleChange} />
+      <label>If you had a super power, what would it be and why? What would you do with it? DON’T YOU LIE TO ME.</label>
+      <textarea type="text" name="superPower" onChange={this.handleChange} />
+      <label>If you could book a round-trip ticket to anywhere in a time machine, where and when would you go? What if it was one-way?</label>
+      <textarea type="text" name="timeMachine" onChange={this.handleChange} />
+      <label>If there was a meteor on a collision course with the earth in two weeks, how would you spend that time?</label>
+      <textarea type="text" name="meteorDeath" onChange={this.handleChange} />
+      <label>Anything else you’d like to share: (This can be a personal biography, story that you think defines you, list of stuff you like, or anything else you think sheds light on who you are)</label>
+      <textarea type="text" name="anythingElse" onChange={this.handleChange} />
+      <button onClick={this.handleQuizFormSubmit}>Immortalize me thru song</button>
+    </div>;
+
+    const forThemQuestions = <div>
+      <label>Who is this for? What names do people call them by?</label>
+      <input type="text" name="whosThisFor" onChange={this.handleChange} />
+      <button onClick={this.handleQuizFormSubmit}>Immortalize them thru song</button>
+    </div>;
+
     return (
       <div>
         <h1>Questionnaire</h1>
         <p>
-          `Welcome, friend. I'm going to ask you a series of questions. Some of them will seem like obvious get-to-know-you type of inquiries. Others will appear bizarre and irrelevant. You are free to skip any questions you'd like, of course, and there will be time at the end for you to provide any additional biographical information you'd like.`
-        </p>
-        <p>
-          `Note that sometimes I will reference the things you mention in song, and sometimes I won't. It's less of a madlib for music and more of me trying to have a strange roadmap to navigate the songwriting process. Thank you, and enjoy the questions!`
+          In order to get a sense of your personality to guide the song, I’ve put together a small series of questions. They are all optional and there will be a field at the end to freely write anything you choose. It’s possible that none, some, or all of the information will be used in the song, the more information you provide, the better!
         </p>
         <h2>Answer these questions:</h2>
-          <label>Name:</label>
-          <input type="text" name="name" onChange={this.handleChange} />
-          <label>DOB:</label>
-          <input type="text" name="dob" onChange={this.handleChange} />
-          <label>Favorite Food:</label>
-          <input type="text" name="favoriteFood" onChange={this.handleChange} />
-          <button onClick={() => this.handleQuizFormSubmit(userDoc)}>Immortalize me thru song</button>
+        {forMeQuestions}
       </div>
     );
   }
