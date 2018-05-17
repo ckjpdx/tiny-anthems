@@ -53,6 +53,8 @@ This web app allows:
 - [ ] Redirect after successful quiz submission
 - [ ] Two questionnaires: toggle quiz for either the client or for someone the client knows
 - [ ] Review songs by posting to quiz document object
+- [ ] Redirect to success page after quiz submitted
+- [ ] Display a message in /user profile if no songs in Firestore
 
 ##### Admin
 - [x] Display list of questionnaires

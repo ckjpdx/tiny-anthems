@@ -37,7 +37,7 @@ const User = observer(class User extends Component {
 
     return (
       <div>
-        <h1>Profile</h1>
+        <h1>{this.props.appState.name}'s Profile</h1>
         <Link to='/user/quiz'>
           <button>Take the Quiz!</button>
         </Link>
