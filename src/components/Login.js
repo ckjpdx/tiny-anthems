@@ -8,29 +8,28 @@ const provider = new firebase.auth.GoogleAuthProvider();
 const Login = observer(class Login extends React.Component {
   constructor(props){
     super(props);
-    console.log(props);
   }
 
   signIn = () => {
-    console.log('sign in');
-    firebase.auth().signInWithPopup(provider).then((result) => {
-      this.props.onSignIn(result.user);
-    }).catch((error) => {
-      console.error(error);
-    });
+    console.log('signIn');
+    firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+      .then(() => {
+        return firebase.auth().signInWithPopup(provider)
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   signOut = () => {
-    console.log('sign out');
-    firebase.auth().signOut().then(() => {
-      this.props.onSignOut()
-    }).catch((error) => {
-      console.error(error);
-    });
+    console.log('signOut');
+    firebase.auth().signOut()
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   render(){
-    console.log(this.props);
     const signUserButton = this.props.appState.uid ? <button onClick={this.signOut}>Sign Out</button> : <button onClick={this.signIn}>Sign In</button>;
     return (
       <div>{signUserButton}</div>

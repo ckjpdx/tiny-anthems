@@ -27,6 +27,13 @@ class App extends React.Component {
       name: null,
       pending: true
     };
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.handleSignIn(user);
+      } else {
+        this.handleSignOut();
+      }
+    });
   }
 
   handleSignIn = (userResult) => {
@@ -47,7 +54,7 @@ class App extends React.Component {
       <div className="App">
         <div id="App-profile-button">
           <Link to='/user'><p style={{fontFamily: 'monospace'}}>{this.state.email}</p></Link>
-          <Login appState={this.state} onSignIn={this.handleSignIn} onSignOut={this.handleSignOut}/>
+          <Login appState={this.state} />
         </div>
         <img src={mike} alt="cartoon of mike throwing up musical notes" className="mike" />
         <h1 className="title">Tiny Anthems</h1>

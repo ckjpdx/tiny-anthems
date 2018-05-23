@@ -21,10 +21,11 @@ This web app allows:
 ## Technology
 * Facebook [create-react-app](https://github.com/facebook/create-react-app)
 * ~~Material UI~~ not yet implemented
-* Google [SDK](https://cloud.google.com/sdk)
-* Google [Cloud Storage](https://cloud.google.com/)
-* Google [Firestore Database](https://firebase.google.com/docs/firestore/)
-* Google [Firebase Authentication](https://firebase.google.com/docs/auth/)
+* [Google SDK](https://cloud.google.com/sdk)
+  * [Google Firebase Authentication](https://firebase.google.com/docs/auth/)
+  * [Google Sign In](https://firebase.google.com/docs/auth/web/google-signin)
+* [Google Cloud Storage](https://cloud.google.com/)
+* [Google Firestore Database](https://firebase.google.com/docs/firestore/)
 * [Firestorter](https://github.com/IjzerenHein/firestorter), an incredible Firestore reference and live-update library
 * [MobX](https://mobx.js.org/index.html), state management and Observables for use with Firestorter
 * [js-file-download](https://www.npmjs.com/package/js-file-download), library for blob downloading thru browsers to local drive
@@ -35,9 +36,11 @@ This web app allows:
 - [ ] Test cases for all components
 
 ### Authentication
-- [x] Authenticate users with Google sign in
+- [x] Authenticate users with Google SDK sign in
 - [x] Use PrivateRoute function to restrict access to unlogged users
 - [x] Redirect to /user Profile page after successful sign in
+- [x] [Auth change observer](https://firebase.google.com/docs/auth/web/manage-users)
+- [x] [Auth persistence](https://firebase.google.com/docs/auth/web/auth-state-persistence)
 - [ ] Use AdminRoute to restrict admin access
 - [ ] React Context used for auth
 - [ ] Switch from PrivateRoute & AdminRoute to Auth HOC
@@ -70,7 +73,7 @@ This web app allows:
 - [x] Display demo songs to play on portfolio page via Soundcloud imbeds
 - [x] Confirm quiz was submitted and redirect to profile page.
   - [x] via basic alert()
-  - [ ] Improve confirmation with modal
+  - [ ] improve confirmation with modal
 - [ ] Contact Mike Long the minstrel via email
 - [ ] Redesign site styles
 - [ ] Material UI styles (is installed, but not yet implemented)
