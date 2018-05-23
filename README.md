@@ -79,7 +79,7 @@ This web app allows:
 - [ ] Material UI styles (is installed, but not yet implemented)
 
 ### Bugs
-* Clicking upload on the admin page when there isn't a local file selected will crash the app
+* ~~Clicking upload on the admin page when there isn't a local file selected will crash the app~~
 
 # Install
 1. git clone
