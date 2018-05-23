@@ -36,11 +36,11 @@ class App extends React.Component {
     });
   }
 
-  handleSignIn = (userResult) => {
+  handleSignIn = (user) => {
     this.setState({
-      uid: userResult.uid,
-      name: userResult.displayName,
-      email: userResult.email
+      uid: user.uid,
+      name: user.displayName,
+      email: user.email
     });
     this.props.history.push('/user');
   }

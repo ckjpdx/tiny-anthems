@@ -30,23 +30,27 @@ const User = observer(class User extends Component {
 
   render() {
     // refactor? https://stackoverflow.com/questions/10865025/merge-flatten-an-array-of-arrays-in-javascript
-    let displaySongs = [];
-    quizzesCollection.docs.map(quiz => quiz.data.songs).map(songArray => {
-      songArray && songArray.forEach(song => displaySongs.push(song));
+    let allUserSongs = [];
+    let listSongs = [];
+    quizzesCollection.docs.map(quiz => quiz.data.songs).map(songsArray => {
+      songsArray && songsArray.forEach(song => allUserSongs.push(song));
     });
+    if (allUserSongs.length) {
+      listSongs = allUserSongs.map((song, i) =>
+        <p key={i} onClick={() => this.downloadSong(song)}>{song}</p>
+      )
+    } else {
+      listSongs = `You don't have any anthems made yet! Fill out a questionnaire to begin the immortalization process!`;
+    }
 
     return (
       <div>
         <h1>{this.props.appState.name}'s Profile</h1>
         <Link to='/user/quiz'>
-          <button>Take the Quiz!</button>
+          <button>Start Questionnaire!</button>
         </Link>
-        <h2>Your Songs:</h2>
-        {displaySongs.map((song, i) => {
-          const storage = firebase.storage();
-          const pathReference = storage.ref(`songs/${song}`);
-          return <p key={i} onClick={() => this.downloadSong(song)}>{song}</p>
-        })}
+        <h2>Your anthems:</h2>
+        {listSongs}
       </div>
     );
   }

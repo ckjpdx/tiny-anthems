@@ -53,11 +53,8 @@ This web app allows:
 - [x] View their completed songs
 - [x] Download their songs
 - [x] Store questionnaire answers in a nested object inside their quiz
-- [ ] Redirect after successful quiz submission
-- [ ] Two questionnaires: toggle quiz for either the client or for someone the client knows
-- [ ] Review songs by posting to quiz document object
-- [ ] Redirect to success page after quiz submitted
-- [ ] Display a message in /user profile if no songs in Firestore
+- [x] Display a message in /user profile if no songs in Firestore for current user
+- [ ] Review songs by updating quiz document object
 
 ##### Admin
 - [x] Display list of questionnaires
@@ -66,14 +63,15 @@ This web app allows:
 - [x] Admin can delete songs from questionnaires (removes reference from database and song file from storage)
 - [x] Admin can sort pending questionnaires with collection queries
 - [x] Display quiz questions and answers on admin view using Object.entries
-- [ ] Admin checkbox to mark pending questionnaires as complete
+- [x] Admin checkbox to mark pending questionnaires as complete
 - [ ] Automatically email client to notify of song completion
 
 ### UX & Interface
 - [x] Display demo songs to play on portfolio page via Soundcloud imbeds
 - [x] Confirm quiz was submitted and redirect to profile page.
-  - [x] via basic alert()
+  - [x] confirm via basic alert()
   - [ ] improve confirmation with modal
+- [ ] Two questionnaires: toggle for either the client or for someone the client knows
 - [ ] Contact Mike Long the minstrel via email
 - [ ] Redesign site styles
 - [ ] Material UI styles (is installed, but not yet implemented)
