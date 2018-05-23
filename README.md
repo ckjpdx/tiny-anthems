@@ -68,7 +68,9 @@ This web app allows:
 
 ### UX & Interface
 - [x] Display demo songs to play on portfolio page via Soundcloud imbeds
-- [ ] Confirm quiz was submitted
+- [x] Confirm quiz was submitted and redirect to profile page.
+  - [x] via basic alert()
+  - [ ] Improve confirmation with modal
 - [ ] Contact Mike Long the minstrel via email
 - [ ] Redesign site styles
 - [ ] Material UI styles (is installed, but not yet implemented)

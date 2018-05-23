@@ -18,9 +18,16 @@ const Quiz = observer(class Quiz extends Component {
     this.setState({questions: newQuestions});
   }
 
-  handleQuizFormSubmit = async () => {
-    console.log(this.state);
-    await quizzesCollection.add(this.state); // can return doc.id
+  handleQuizFormSubmit = async (e) => {
+    e.preventDefault();
+    const quizSubmitId = await quizzesCollection.add(this.state); // can return doc.id
+    console.log(quizSubmitId.id);
+    if (quizSubmitId.id) {
+      alert('Your questionnaire has been submitted! Please allow several weeks for song creation. Mike may be in contact with you via email for further information.');
+      this.props.history.push('/');
+    } else {
+      alert('Something broke on the submission! We havent any idea why. Please try again later or contact Mike and tell him his stupid app is broken so he can come yell at me.');
+    }
   };
 
 
