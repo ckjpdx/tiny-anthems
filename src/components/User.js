@@ -30,8 +30,10 @@ const User = observer(class User extends Component {
 
   render() {
     // refactor? https://stackoverflow.com/questions/10865025/merge-flatten-an-array-of-arrays-in-javascript
+    const quizzes = quizzesCollection.docs.map(quiz => <h3 key={quiz.id}>{quiz.data.questions.nameOrNickname} - {quiz.data.pending ? 'Pending' : 'Complete'}</h3>);
     let allUserSongs = [];
     let listSongs = [];
+
     quizzesCollection.docs.map(quiz => quiz.data.songs).map(songsArray => {
       songsArray && songsArray.forEach(song => allUserSongs.push(song));
     });
@@ -40,8 +42,9 @@ const User = observer(class User extends Component {
         <p key={i} onClick={() => this.downloadSong(song)}>{song}</p>
       )
     } else {
-      listSongs = `You don't have any anthems made yet! Fill out a questionnaire to begin the immortalization process!`;
+      listSongs = <p>You don't have any anthems made yet! Fill out a questionnaire to begin the immortalization process!</p>;
     }
+
 
     return (
       <div>
@@ -49,6 +52,8 @@ const User = observer(class User extends Component {
         <Link to='/user/quiz'>
           <button>Start Questionnaire!</button>
         </Link>
+        <h2>Your questionnaires:</h2>
+        {quizzes.length ? quizzes : <p>No questionnaires submitted yet</p>}
         <h2>Your anthems:</h2>
         {listSongs}
       </div>

@@ -13,12 +13,9 @@ class ListedQuizUpload extends React.Component {
   };
 
   onFileSelect = (event) => {
-    console.log("onFileSelect");
     event.target.files[0]
-    && this.setState({
-        file: event.target.files[0]
-      });
-    console.log(event.target.files[0]);
+      ? this.setState({file: event.target.files[0]})
+      : this.setState({file: null});
 	};
 
   onUploadSong = (quiz) => {
@@ -44,7 +41,7 @@ class ListedQuizUpload extends React.Component {
         });
       }
     );
-	};
+  };
 
   render() {
     return (
@@ -52,7 +49,7 @@ class ListedQuizUpload extends React.Component {
         <input type="file" onChange={this.onFileSelect} />
         <p>Upload: {this.state.progressPercent}%</p>
         <p className="admin-upload-label">UPLOAD SONG--></p>
-        <button onClick={() => this.onUploadSong(this.props.quiz)}>Upload Song</button>
+        <button type="button" onClick={() => this.state.file && this.onUploadSong(this.props.quiz)}>Upload Song</button>
       </form>
     );
   }

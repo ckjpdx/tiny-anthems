@@ -1,22 +1,20 @@
 # Tiny Anthems
-## Songs about you
 *by Chris Knight Johnson*
 
-## Description
-This React web app was created for local Portland musician Mike Long. Using Google Web Services, visitors in need of a personalized song about their life, or in need of a song to serenade a loved one, can fill out a questionnaire that will be saved in Google's cutting edge Firestore database. The musician/minstrel can then sign in as an admin to retrieve the questionnaires for direction in song creation, and then post his client's completed song on Google Storage for download.
+### Description
+Songs about you! This React web app was created for local Portland musician Mike Long. Using Google Web Services, visitors in need of a personalized song about their life, or in need of a song to serenade a loved one, can fill out a questionnaire that will be saved in Google's cutting edge Firestore database. The musician/minstrel can then sign in as an admin to retrieve the questionnaires for direction in song creation, and then post his client's completed song on Google Storage for download.
 
 This web app allows:
 
-...a visiting user to:
+`a visiting user to:`
 * read information about the musician's service
 * login with a Google account
 * fill out a questionnaire for themselves or another person to receive custom song
 * retrieve song from their profile once completed and uploaded by musician (admin)
 
-...the musician (admin) to:
+`the musician (admin) to:`
 * login to see pending questionnaires
 * upload a song file to that specific questionnaire for client retrieval
-
 
 ## Technology
 * Facebook [create-react-app](https://github.com/facebook/create-react-app)
@@ -52,8 +50,9 @@ This web app allows:
 - [x] Submit questionnaire for song creation
 - [x] View their completed songs
 - [x] Download their songs
-- [x] Store questionnaire answers in a nested object inside their quiz
-- [x] Display a message in /user profile if no songs in Firestore for current user
+- [x] Store questionnaire answers in a nested object inside each quiz document
+- [x] User page displays completed questionnaires and songs
+  - [x] Display message if user has no songs/questionnaires to list
 - [ ] Review songs by updating quiz document object
 
 ##### Admin
@@ -77,7 +76,7 @@ This web app allows:
 - [ ] Material UI styles (is installed, but not yet implemented)
 
 ### Bugs
-* ~~Clicking upload on the admin page when there isn't a local file selected will crash the app~~
+none yet!
 
 # Install
 1. git clone
