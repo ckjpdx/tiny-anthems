@@ -28,6 +28,7 @@ This web app allows:
 * [MobX](https://mobx.js.org/index.html), state management and Observables for use with Firestorter
 * [js-file-download](https://www.npmjs.com/package/js-file-download), library for blob downloading thru browsers to local drive
 * [gh-pages](https://github.com/gitname/react-gh-pages), library to build and deploy app
+  * use $`gh-pages-clean` to fix deployment [issues](https://github.com/tschaub/gh-pages/issues/17)
 
 # Progress
 ### Protocol
