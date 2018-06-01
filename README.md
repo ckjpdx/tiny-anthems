@@ -27,6 +27,7 @@ This web app allows:
 * [Firestorter](https://github.com/IjzerenHein/firestorter), an incredible Firestore reference and live-update library
 * [MobX](https://mobx.js.org/index.html), state management and Observables for use with Firestorter
 * [js-file-download](https://www.npmjs.com/package/js-file-download), library for blob downloading thru browsers to local drive
+* [gh-pages](https://github.com/gitname/react-gh-pages), library to build and deploy app
 
 # Progress
 ### Protocol
