@@ -52,6 +52,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <a className="App-readme-link" href="https://github.com/ckjpdx/tiny-anthems/blob/master/README.md" target="_blank">README</a>
         <div id="App-profile-button">
           <Link to='/user'><p style={{fontFamily: 'monospace'}}>{this.state.email}</p></Link>
           <Login appState={this.state} />
