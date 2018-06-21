@@ -33,6 +33,9 @@ const Quiz = observer(class Quiz extends Component {
 
   render(){
     const forMeQuestions = <div>
+      <p>
+        In order to get a sense of your personality to guide the song, I’ve put together a small series of questions. They are all optional and there will be a field at the end to freely write anything you choose. It’s possible that none, some, or all of the information will be used in the song, the more information you provide, the better!
+      </p>
       <label>What is your name? Do you have any nicknames?</label>
       <textarea type="text" name="nameOrNickname" onChange={this.handleChange} />
       <label>When were you born?</label>
@@ -59,6 +62,17 @@ const Quiz = observer(class Quiz extends Component {
     </div>;
 
     const forThemQuestions = <div>
+      <p>
+        Congratulations on choosing to deify and for immortalize a loved one through song. In order to paint a vivid picture of this person’s greatness, I’ll need a little information about them. I have just a few very simple questions about their identifying characteristics. Most importantly, you’ll have a chance to write freely about this person. Details might include BUT ARE ABSOLUTELY NOT LIMITED TO:
+        <ul>
+          <li>Your personal history/relationship with this person</li>
+          <li>Personality traits worthy of being forever enshrined in the magnificent glory of song</li>
+          <li>Their job, hobbies, etc</li>
+          <li>A TV show or piece of pop-culture they’re really into</li>
+          <li>Anything weird or interesting about them</li>
+        </ul>
+        Remember that there is no right or wrong information or details to share, per se, but more details to work with are always great and a little specificity goes a long way.
+      </p>
       <label>Who is this for? What names do people call them by?</label>
       <input type="text" name="whosThisFor" onChange={this.handleChange} />
       <button onClick={this.handleQuizFormSubmit}>Immortalize them thru song</button>
@@ -67,10 +81,6 @@ const Quiz = observer(class Quiz extends Component {
     return (
       <div>
         <h1>Questionnaire</h1>
-        <p>
-          In order to get a sense of your personality to guide the song, I’ve put together a small series of questions. They are all optional and there will be a field at the end to freely write anything you choose. It’s possible that none, some, or all of the information will be used in the song, the more information you provide, the better!
-        </p>
-        <h2>Answer these questions:</h2>
         {forMeQuestions}
       </div>
     );
