@@ -25,7 +25,8 @@ class App extends React.Component {
       uid: null,
       email: null,
       name: null,
-      pending: true
+      pending: true,
+      quizType: null
     };
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
