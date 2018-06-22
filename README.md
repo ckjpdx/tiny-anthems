@@ -72,7 +72,7 @@ This web app allows:
 - [x] Confirm quiz was submitted and redirect to profile page.
   - [x] confirm via basic alert()
   - [ ] improve confirmation with modal
-- [ ] Two questionnaires: toggle for either the client or for someone the client knows
+- [x] Two questionnaires: toggle for either the client or for someone the client knows
 - [ ] Contact Mike Long the minstrel via email
 - [ ] Redesign site styles
 - [ ] Material UI styles (is installed, but not yet implemented)
