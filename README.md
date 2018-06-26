@@ -73,6 +73,7 @@ This web app allows:
   - [x] confirm via basic alert()
   - [ ] improve confirmation with modal
 - [x] Two questionnaires: toggle for either the client or for someone the client knows
+- [x] Update React Router to use BrowserRouter instead of HashRouter
 - [ ] Contact Mike Long the minstrel via email
 - [ ] Redesign site styles
 - [ ] Material UI styles (is installed, but not yet implemented)
