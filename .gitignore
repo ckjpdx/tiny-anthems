@@ -6,9 +6,11 @@
 # testing
 /coverage
 
+# source
+src/**/*.css
+
 # production
 /build
-src/**/*.css
 
 # misc
 .DS_Store

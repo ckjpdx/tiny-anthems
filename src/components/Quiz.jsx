@@ -32,10 +32,9 @@ const Quiz = observer(class Quiz extends Component {
       alert('Your questionnaire has been submitted! Please allow several weeks for song creation. Mike may be in contact with you via email for further information.');
       this.props.history.push('/');
     } else {
-      alert('Something broke on the submission! We havent any idea why. Please try again later or contact Mike and tell him his stupid app is broken so he can come yell at me.');
+      alert('Something broke on the submission! We havent any idea why. Please try again later or contact Mike and tell him his stupid app is broken so he can come yell at me. -jack');
     }
   };
-
 
   render(){
     const forMeQuestions = <div>

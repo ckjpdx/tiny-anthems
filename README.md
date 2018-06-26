@@ -76,6 +76,7 @@ This web app allows:
 - [x] Update React Router to use BrowserRouter instead of HashRouter
 - [ ] Contact Mike Long the minstrel via email
 - [ ] Redesign site styles
+  - [x] Sass integration
 - [ ] Material UI styles (is installed, but not yet implemented)
 
 ### Bugs
