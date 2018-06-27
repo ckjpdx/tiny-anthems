@@ -24,11 +24,12 @@ This web app allows:
   * [Google Sign In](https://firebase.google.com/docs/auth/web/google-signin)
 * [Google Cloud Storage](https://cloud.google.com/)
 * [Google Firestore Database](https://firebase.google.com/docs/firestore/)
-* [Firestorter](https://github.com/IjzerenHein/firestorter), an incredible Firestore reference and live-update library
+* [Firestorter](https://github.com/IjzerenHein/firestorter), an incredible Firestore referencer and live-update library
 * [MobX](https://mobx.js.org/index.html), state management and Observables for use with Firestorter
 * [js-file-download](https://www.npmjs.com/package/js-file-download), library for blob downloading thru browsers to local drive
 * [gh-pages](https://github.com/gitname/react-gh-pages), library to build and deploy app
   * use $`gh-pages-clean` to fix deployment [issues](https://github.com/tschaub/gh-pages/issues/17)
+* [Sass/SCSS](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-a-css-preprocessor-sass-less-etc)
 
 # Progress
 ### Protocol
@@ -76,6 +77,7 @@ This web app allows:
 - [x] Update React Router to use BrowserRouter instead of HashRouter
 - [ ] Contact Mike Long the minstrel via email
 - [ ] Redesign site styles
+  - [x] Sass integration
 - [ ] Material UI styles (is installed, but not yet implemented)
 
 ### Bugs
