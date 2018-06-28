@@ -15,7 +15,6 @@ import Quiz from './Quiz';
 import Error404 from './Error404';
 import User from './User';
 import PrivateRoute from './reusable/PrivateRoute';
-import mike from './../assets/img/mike.gif';
 import './styles/App.css';
 
 class App extends React.Component {
@@ -58,10 +57,8 @@ class App extends React.Component {
           <Link to='/user'><p style={{fontFamily: 'monospace'}}>{this.state.email}</p></Link>
           <Login appState={this.state} />
         </div>
-        <img src={mike} alt="cartoon of mike throwing up musical notes" className="mike" />
         <h1 className="title">Tiny Anthems</h1>
         <div id="App-main-links">
-          <Link className="App-link" to='/'>Welcome</Link>
           <Link className="App-link" to='/faq'>FAQ</Link>
           <Link className="App-link" to='/portfolio'>Portfolio</Link>
           <Link className="App-link" to='/review-list'>Reviews</Link>

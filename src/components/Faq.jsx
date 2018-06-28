@@ -1,8 +1,10 @@
 import React from 'react';
+import mike from './../assets/img/mike.gif';
 
 function Faq(){
   return (
     <div>
+      <img src={mike} alt="cartoon of mike throwing up musical notes" className="mike" />
       <h1>FAQ</h1>
       <h2>
         How does it work?

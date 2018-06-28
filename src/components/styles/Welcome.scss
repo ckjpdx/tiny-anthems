@@ -1,0 +1,40 @@
+img.welcome-tape {
+  width: 60%;
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  animation-duration: 1s;
+  animation-name: tapeInsert;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: paused;
+}
+
+img.welcome-player-open {
+  width: 90%;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+@keyframes tapeInsert {
+  0% {
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, 0) rotate(0deg);
+  }
+  50% {
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, 0) rotate(540deg);
+    opacity: 1;
+  }
+  100% {
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, 0) rotate(540deg);
+    opacity: 0;
+  }
+}
