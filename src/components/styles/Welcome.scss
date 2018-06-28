@@ -1,4 +1,4 @@
-img.welcome-tape {
+img.Welcome-tape {
   width: 60%;
   position: absolute;
   top: 5%;
@@ -9,14 +9,21 @@ img.welcome-tape {
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
   animation-play-state: paused;
+  z-index: 1
 }
 
-img.welcome-player-open {
+img.Welcome-player-open {
   width: 90%;
   position: absolute;
   bottom: 5%;
   left: 50%;
   transform: translate(-50%, 0);
+}
+
+p.Welcome-tagline {
+  margin-top: 20vh;
+  text-align: center;
+  transform: translate(0, -50%);
 }
 
 @keyframes tapeInsert {
@@ -29,6 +36,8 @@ img.welcome-player-open {
     top: 5%;
     left: 50%;
     transform: translate(-50%, 0) rotate(540deg);
+  }
+  75% {
     opacity: 1;
   }
   100% {

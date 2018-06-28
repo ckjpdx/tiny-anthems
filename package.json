@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "http://ckjpdx.github.io/tiny-anthems",
   "dependencies": {
+    "@material-ui/core": "^1.3.0",
     "firebase": "^4.12.0",
     "firestorter": "^0.10.0",
     "js-file-download": "^0.4.1",

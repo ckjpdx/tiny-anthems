@@ -3,16 +3,18 @@ import playerOpen from './../assets/img/tiny_metal_player_front_open.png';
 import tinyTape from './../assets/img/tiny_tape_small.png';
 import './styles/Welcome.css';
 
-function Welcome(){
+function Welcome(props){
   const handleTapeClick = () => {
+    document.getElementsByClassName("Welcome-tape")[0].style.WebkitAnimationPlayState = "running";
     setTimeout(() => {
-      document.getElementsByClassName("welcome-tape")[0].style.WebkitAnimationPlayState = "running";
+      props.history.push('/faq');
     }, 1000);
   }
   return (
     <div>
-      <img src={tinyTape} alt="tiny anthems casette tape" className="welcome-tape" onClick={handleTapeClick}></img>
-      <img src={playerOpen} alt="open tape player" className="welcome-player-open"></img>
+      <img src={tinyTape} alt="tiny anthems casette tape" className="Welcome-tape" onClick={handleTapeClick}></img>
+      <p className="Welcome-tagline">...songs about you!</p>
+      <img src={playerOpen} alt="open tape player" className="Welcome-player-open"></img>
     </div>
   );
 }
