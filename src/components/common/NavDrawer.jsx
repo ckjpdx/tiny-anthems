@@ -6,22 +6,15 @@ import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import playerSide from './../../assets/img/tiny_metal_player_side_both.png';
+import './../styles/NavDrawer.css';
 
 const styles = {
-  list: {
-    width: 250,
-  },
-  fullList: {
-    width: 'auto',
-  },
+
 };
 
 class NavDrawer extends React.Component {
   state = {
-    top: false,
-    left: false,
-    bottom: false,
-    right: false,
+    top: false
   };
 
   toggleDrawer = (side, open) => () => {
@@ -33,16 +26,16 @@ class NavDrawer extends React.Component {
   render() {
     const { classes } = this.props;
 
-    const fullList = (
-      <div className={classes.fullList}>
-        <img src={playerSide} />
-        <Divider />
+    const navPlayer = (
+      <div style={{position:'relative'}}>
+        <img src={playerSide}/>
+        <div id="click-faq"></div>
       </div>
     );
 
     return (
       <div>
-        <Button onClick={this.toggleDrawer('top', true)}>Open Top</Button>
+        <Button onClick={this.toggleDrawer('top', true)}>NAV</Button>
         <Drawer anchor="top" open={this.state.top} onClose={this.toggleDrawer('top', false)}>
           <div
             tabIndex={0}
@@ -50,8 +43,8 @@ class NavDrawer extends React.Component {
             onClick={this.toggleDrawer('top', false)}
             onKeyDown={this.toggleDrawer('top', false)}
           >
-            {fullList}
           </div>
+          {navPlayer}
         </Drawer>
       </div>
     );

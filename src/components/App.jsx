@@ -2,7 +2,6 @@ import React from 'react';
 import { Switch, Route, Link, Redirect, withRouter } from 'react-router-dom';
 import { usersCollection } from './../store';
 import * as firebase from 'firebase';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Login from './Login';
 import Faq from './Faq';
 import Portfolio from './Portfolio';
@@ -53,16 +52,16 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <NavDrawer />
         <div className="App-nav-header">
-          <NavDrawer />
           <a className="App-readme-link" href="https://github.com/ckjpdx/tiny-anthems/blob/master/README.md" target="_blank">README</a>
           <div id="App-profile-button">
             <Link to='/user'><p style={{fontFamily: 'monospace'}}>{this.state.email}</p></Link>
             <Login appState={this.state} />
           </div>
-          <Link className="App-link" to='/faq'>FAQ</Link>
-          <Link className="App-link" to='/portfolio'>Portfolio</Link>
-          <Link className="App-link" to='/review-list'>Reviews</Link>
+          <Link className="App-link" to='/faq'></Link>
+          <Link className="App-link" to='/portfolio'></Link>
+          <Link className="App-link" to='/review-list'></Link>
         </div>
         <img src={sharpie} />
         <Switch>
