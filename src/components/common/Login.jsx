@@ -34,11 +34,9 @@ const Login = observer(class Login extends React.Component {
     if (this.props.showLogout){
       signUserButton = this.props.appState.uid ? <button onClick={this.signOut}>Sign Out</button> : <button onClick={this.signIn}>Sign In</button>;
     } else {
-      signUserButton = this.props.appState.uid ? null : <button onClick={this.signIn}>Sign In</button>;
+      signUserButton = this.props.appState.uid ? null : <div onClick={this.signIn} id="playerLogin" role="button"></div>;
     }
-    return (
-      <div>{signUserButton}</div>
-    );
+    return signUserButton;
   }
 });
 

@@ -15,14 +15,6 @@ const styles = {
   playerSideNav: {
     backgroundImage: `url(${legalPad})`,
     background: 'red'
-  },
-  loginButton: {
-    color: 'red',
-    position: 'absolute',
-    width: '29%',
-    height: '9%',
-    top: '23%',
-    left: '21%'
   }
 };
 
@@ -43,7 +35,7 @@ class NavDrawer extends React.Component {
     const { classes } = this.props;
 
     return (
-      <div>
+      <div className="NavDrawer">
         <Button onClick={this.toggleDrawer('top', true)}>TELEPORTER</Button>
         <Drawer anchor="top" open={this.state.top} onClose={this.toggleDrawer('top', false)}>
           <div style={{position:'relative'}} className={classes.playerSideNav}>
