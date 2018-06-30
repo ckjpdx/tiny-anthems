@@ -8,8 +8,8 @@ import Divider from '@material-ui/core/Divider';
 import playerSide from './../../assets/img/tiny_metal_player_side_both.png';
 import legalPad from './../../assets/img/legal-pad.jpg';
 import './../styles/NavDrawer.css';
-import { withRouter } from 'react-router-dom';
 import Login from './Login';
+import { Link, withRouter } from 'react-router-dom';
 
 const styles = {
   playerSideNav: {
@@ -38,6 +38,10 @@ class NavDrawer extends React.Component {
       <div className="NavDrawer">
         <Button onClick={this.toggleDrawer('top', true)}>TELEPORTER</Button>
         <Drawer anchor="top" open={this.state.top} onClose={this.toggleDrawer('top', false)}>
+          <div id="NavDrawer-profile-display">
+            <Link to='/user'><p style={{fontFamily: 'monospace'}}>{this.props.appState.email}</p></Link>
+            <Login appState={this.props.appState} showLogout="true"/>
+          </div>
           <div style={{position:'relative'}} className={classes.playerSideNav}>
             <img src={playerSide}/>
             <div id="click-other" role="button" onClick={this.toggleDrawer('top', false, 'portfolio')}></div>
@@ -47,6 +51,7 @@ class NavDrawer extends React.Component {
             <div id="click-begin" role="button" onClick={this.toggleDrawer('top', false, 'user')}>
               <Login appState={this.props.appState} />
             </div>
+            <a className="NavDrawer-readme-link" href="https://github.com/ckjpdx/tiny-anthems/blob/master/README.md" target="_blank">README</a>
           </div>
         </Drawer>
       </div>

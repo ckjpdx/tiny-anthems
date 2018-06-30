@@ -1,3 +1,8 @@
-img#mike {
-  transition: width 5s linear 2s;
+img#About-mike {
+  width: 100%;
+  margin: -10% auto;
+  transition: all 5s ease-in-out 1s;
+}
+p#About-mike-label {
+  color: gray;
 }

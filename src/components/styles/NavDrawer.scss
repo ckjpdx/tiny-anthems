@@ -5,42 +5,55 @@ div.NavDrawer {
   yellow 10px,
   white 10px,
   white 20px
-);
+  );
+}
+
+a.NavDrawer-readme-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+div#NavDrawer-profile-display {
+  display: flex;
+  justify-content: space-between;
+  * {
+    display: inline;
+  }
 }
 
 @mixin playerButtons {
   position: absolute;
-  background: red;
+  // background: red;
 }
-#click-other {
+div#click-other {
   @include playerButtons;
   width: 13%;
   height: 8%;
   top: 22%;
   left: 62%;
 }
-#click-faq {
+div#click-faq {
   @include playerButtons;
   width: 11%;
   height: 8%;
   top: 35%;
   left: 21%;
 }
-#click-about {
+div#click-about {
   @include playerButtons;
   width: 9%;
   height: 8%;
   top: 35%;
   left: 33%;
 }
-#click-feedback {
+div#click-feedback {
   @include playerButtons;
   width: 8%;
   height: 8%;
   top: 35%;
   left: 43%;
 }
-#click-begin {
+div#click-begin {
   @include playerButtons;
   width: 29%;
   height: 9%;
@@ -48,7 +61,7 @@ div.NavDrawer {
   left: 21%;
 }
 div#playerLogin {
-  background: blue;
+  // background: blue;
   width: 100%;
   height: 100%;
   left: 0;

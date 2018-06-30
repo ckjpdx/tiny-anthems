@@ -45,10 +45,10 @@ const User = observer(class User extends Component {
       listSongs = <p>You don't have any anthems made yet! Fill out a questionnaire to begin the immortalization process!</p>;
     }
 
-
     return (
       <div>
-        <h1>{this.props.appState.name}'s Profile</h1>
+        <h1>Account</h1>
+        <h3>{this.props.appState.name}</h3>
         <Link to='/user/quiz'>
           <button>Start Questionnaire!</button>
         </Link>
