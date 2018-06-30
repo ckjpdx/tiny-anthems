@@ -1,8 +1,17 @@
+div.NavDrawer {
+  background: repeating-linear-gradient(
+  45deg,
+  yellow,
+  yellow 10px,
+  white 10px,
+  white 20px
+);
+}
+
 @mixin playerButtons {
   position: absolute;
   background: red;
 }
-
 #click-other {
   @include playerButtons;
   width: 13%;

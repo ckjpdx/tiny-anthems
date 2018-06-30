@@ -4,6 +4,7 @@ import { usersCollection } from './../store';
 import * as firebase from 'firebase';
 import Login from './common/Login';
 import Faq from './Faq';
+import About from './About';
 import Portfolio from './Portfolio';
 import Feedback from './Feedback';
 import Welcome from './Welcome';
@@ -50,6 +51,7 @@ class App extends React.Component {
   }
 
   render() {
+    console.log(this.props.history);
     return (
       <div className="App">
         <NavDrawer appState={this.state}/>
@@ -63,10 +65,11 @@ class App extends React.Component {
           <Link className="App-link" to='/portfolio'></Link>
           <Link className="App-link" to='/review-list'></Link> */}
         </div>
-        <img src={sharpie} />
+        {this.props.history.location.pathname !== '/' && <img src={sharpie} />}
         <Switch>
           <Route exact path='/' component={Welcome} />
           <Route path='/faq' component={Faq} />
+          <Route path='/about' component={About} />
           <Route path='/portfolio' component={Portfolio} />
           <Route path='/feedback' component={Feedback} />
           <PrivateRoute exact path='/user' component={User} appState={this.state}/>

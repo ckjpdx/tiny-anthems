@@ -21,10 +21,14 @@ img.Welcome-player-open {
 }
 
 p.Welcome-tagline {
-  margin-top: 20vh;
-  text-align: center;
-  transform: translate(0, -50%);
-}
+  position: absolute;
+    top: 45%;
+    left: 50%;
+    text-align: center;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
 
 @keyframes tapeInsert {
   0% {
