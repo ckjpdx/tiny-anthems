@@ -22,10 +22,6 @@ img {
   display: block;
   width: 100%;
 }
-img.mike {
-  max-width: 300px;
-  margin: -50px auto;
-}
 h1, h2, h3 {
   font-family: 'Rajdhani', sans-serif;
 }
@@ -36,16 +32,6 @@ button {
   font-size: 1rem;
   padding: 10px;
   background: none;
-}
-button#sign-in {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-.facebook-button {
-  padding: 20px;
-  color: white;
-  background: #3b5998;
 }
 textarea {
   display: block;

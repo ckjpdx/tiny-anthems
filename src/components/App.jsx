@@ -2,10 +2,10 @@ import React from 'react';
 import { Switch, Route, Link, Redirect, withRouter } from 'react-router-dom';
 import { usersCollection } from './../store';
 import * as firebase from 'firebase';
-import Login from './Login';
+import Login from './common/Login';
 import Faq from './Faq';
 import Portfolio from './Portfolio';
-import ReviewList from './ReviewList';
+import Feedback from './Feedback';
 import Welcome from './Welcome';
 import Admin from './Admin';
 import WriteReview from './WriteReview';
@@ -52,23 +52,23 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <NavDrawer />
+        <NavDrawer appState={this.state}/>
         <div className="App-nav-header">
           <a className="App-readme-link" href="https://github.com/ckjpdx/tiny-anthems/blob/master/README.md" target="_blank">README</a>
           <div id="App-profile-button">
             <Link to='/user'><p style={{fontFamily: 'monospace'}}>{this.state.email}</p></Link>
-            <Login appState={this.state} />
+            <Login appState={this.state} showLogout="true"/>
           </div>
-          <Link className="App-link" to='/faq'></Link>
+          {/* <Link className="App-link" to='/faq'></Link>
           <Link className="App-link" to='/portfolio'></Link>
-          <Link className="App-link" to='/review-list'></Link>
+          <Link className="App-link" to='/review-list'></Link> */}
         </div>
         <img src={sharpie} />
         <Switch>
           <Route exact path='/' component={Welcome} />
           <Route path='/faq' component={Faq} />
           <Route path='/portfolio' component={Portfolio} />
-          <Route path='/review-list' component={ReviewList} />
+          <Route path='/feedback' component={Feedback} />
           <PrivateRoute exact path='/user' component={User} appState={this.state}/>
           <PrivateRoute exact path='/user/quiz' appState={this.state} component={Quiz} />
           <Route exact path='/user/review' render={() =>

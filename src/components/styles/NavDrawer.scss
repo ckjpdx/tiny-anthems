@@ -1,40 +1,40 @@
-#click-other {
-  background: red;
-  width: 11%;
-  height: 8%;
+@mixin playerButtons {
   position: absolute;
-  top: 35%;
-  left: 21%;
+  background: red;
+}
+
+#click-other {
+  @include playerButtons;
+  width: 13%;
+  height: 8%;
+  top: 22%;
+  left: 62%;
 }
 #click-faq {
-  background: red;
+  @include playerButtons;
   width: 11%;
   height: 8%;
-  position: absolute;
   top: 35%;
   left: 21%;
 }
 #click-about {
-  background: red;
-  width: 11%;
+  @include playerButtons;
+  width: 9%;
   height: 8%;
-  position: absolute;
   top: 35%;
-  left: 21%;
+  left: 33%;
 }
 #click-feedback {
-  background: red;
-  width: 11%;
+  @include playerButtons;
+  width: 8%;
   height: 8%;
-  position: absolute;
   top: 35%;
-  left: 21%;
+  left: 43%;
 }
 #click-begin {
-  background: red;
-  width: 11%;
-  height: 8%;
-  position: absolute;
-  top: 35%;
+  @include playerButtons;
+  width: 29%;
+  height: 9%;
+  top: 23%;
   left: 21%;
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function ReviewList(){
+function Feedback(){
   return (
     <div>
       <h1>Reviews</h1>
@@ -20,4 +20,4 @@ function ReviewList(){
   );
 }
 
-export default ReviewList;
+export default Feedback;

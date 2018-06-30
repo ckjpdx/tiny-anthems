@@ -1,6 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react';
-import { firebase } from './../store';
+import { firebase } from './../../store';
 import { initFirestorter, Collection, Document } from 'firestorter';
 
 const provider = new firebase.auth.GoogleAuthProvider();
@@ -30,7 +30,12 @@ const Login = observer(class Login extends React.Component {
   };
 
   render(){
-    const signUserButton = this.props.appState.uid ? <button onClick={this.signOut}>Sign Out</button> : <button onClick={this.signIn}>Sign In</button>;
+    let signUserButton;
+    if (this.props.showLogout){
+      signUserButton = this.props.appState.uid ? <button onClick={this.signOut}>Sign Out</button> : <button onClick={this.signIn}>Sign In</button>;
+    } else {
+      signUserButton = this.props.appState.uid ? null : <button onClick={this.signIn}>Sign In</button>;
+    }
     return (
       <div>{signUserButton}</div>
     );
