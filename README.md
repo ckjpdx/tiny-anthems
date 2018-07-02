@@ -77,7 +77,7 @@ This web app allows:
 - [x] Two questionnaires: toggle for either the client or for someone the client knows
 - [x] Update React Router to use BrowserRouter instead of HashRouter
 - [ ] Contact Mike Long the minstrel via email
-- [ ] Redesign site styles
+- [ ] Design navigation button
   - [x] Sass integration
 - [x] Material UI components
   - [x] Drawer used for navigation links
@@ -85,7 +85,7 @@ This web app allows:
 - [ ] Song download page
   - [ ] player that fires confetti
   - [ ] ...and casette with song name on it in "marker" font
-  - [ ] ...which initiates blob download onClick 
+  - [ ] ...which initiates blob download onClick
 
 ### Bugs
 none yet!
