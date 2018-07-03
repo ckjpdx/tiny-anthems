@@ -77,7 +77,7 @@ This web app allows:
 - [x] Two questionnaires: toggle for either the client or for someone the client knows
 - [x] Update React Router to use BrowserRouter instead of HashRouter
 - [ ] Contact Mike Long the minstrel via email
-- [ ] Design navigation button
+- [ ] Navigation button design
   - [x] Sass integration
 - [x] Material UI components
   - [x] Drawer used for navigation links
