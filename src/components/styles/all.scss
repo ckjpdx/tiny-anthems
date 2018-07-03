@@ -38,3 +38,12 @@ textarea {
   width: 100%;
   margin: 0 0 20px;
 }
+.all-non-mobile-view-text {
+    display: none;
+    z-index: 10;
+    position: absolute;
+    background: red;
+    @media screen and (min-width: 500px) {
+      display: block;
+  }
+}
