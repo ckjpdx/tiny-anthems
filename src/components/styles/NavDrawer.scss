@@ -1,18 +1,7 @@
 div.NavDrawer {
-  background: repeating-linear-gradient(
-  45deg,
-  yellow,
-  yellow 10px,
-  white 10px,
-  white 20px
-  );
+
 }
 
-a.NavDrawer-readme-link {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
 div#NavDrawer-profile-display {
   display: flex;
   justify-content: space-between;
@@ -25,45 +14,52 @@ div#NavDrawer-profile-display {
   position: absolute;
   // background: red;
 }
-div#click-other {
+div#click-record {
   @include playerButtons;
-  width: 13%;
-  height: 8%;
-  top: 22%;
-  left: 62%;
+  width: 11%;
+  height: 40%;
+  top: 27%;
+  left: 15%;
+}
+div#click-welcome {
+  @include playerButtons;
+  width: 10%;
+  height: 40%;
+  top: 27%;
+  left: 38%;
+}
+div#click-play {
+  @include playerButtons;
+  width: 10%;
+  height: 40%;
+  top: 27%;
+  left: 27%;
 }
 div#click-faq {
   @include playerButtons;
-  width: 11%;
-  height: 8%;
-  top: 35%;
-  left: 21%;
+  width: 10%;
+  height: 39%;
+  top: 27%;
+  left: 51%;
 }
 div#click-about {
   @include playerButtons;
-  width: 9%;
-  height: 8%;
-  top: 35%;
-  left: 33%;
+  width: 10%;
+  height: 40%;
+  top: 27%;
+  left: 74%;
 }
 div#click-feedback {
   @include playerButtons;
-  width: 8%;
-  height: 8%;
-  top: 35%;
-  left: 43%;
+  width: 10%;
+  height: 40%;
+  top: 27%;
+  left: 62%;
 }
-div#click-begin {
-  @include playerButtons;
-  width: 29%;
-  height: 9%;
-  top: 23%;
-  left: 21%;
-}
-div#playerLogin {
-  // background: blue;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-}
+// div#playerLogin {
+//   // background: blue;
+//   width: 100%;
+//   height: 100%;
+//   left: 0;
+//   top: 0;
+// }

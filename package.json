@@ -4,6 +4,9 @@
   "private": true,
   "homepage": "http://ckjpdx.github.io/tiny-anthems",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.0-14",
+    "@fortawesome/free-solid-svg-icons": "^5.1.0-11",
+    "@fortawesome/react-fontawesome": "0.1.0-11",
     "@material-ui/core": "^1.3.0",
     "firebase": "^4.12.0",
     "firestorter": "^0.10.0",

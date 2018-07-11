@@ -12,6 +12,12 @@ img.Welcome-tape {
   z-index: 1
 }
 
+a.Welcome-readme-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 img.Welcome-player-open {
   width: 90%;
   position: absolute;
@@ -19,16 +25,6 @@ img.Welcome-player-open {
   left: 50%;
   transform: translate(-50%, 0);
 }
-
-p.Welcome-tagline {
-  position: absolute;
-    top: 45%;
-    left: 50%;
-    text-align: center;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-  }
 
 @keyframes tapeInsert {
   0% {
