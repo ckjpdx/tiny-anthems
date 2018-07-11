@@ -69,6 +69,7 @@ This web app allows:
 - [ ] Automatically email client to notify of song completion
 
 ### UX & Interface
+- [x] Landing page with Tiny Anthems tape that goes into player when clicked and advances user into the site
 - [x] Display demo songs to play on portfolio page via Soundcloud imbeds
 - [x] Confirm quiz was submitted and redirect to profile page.
   - [x] confirm via basic alert()
@@ -76,9 +77,15 @@ This web app allows:
 - [x] Two questionnaires: toggle for either the client or for someone the client knows
 - [x] Update React Router to use BrowserRouter instead of HashRouter
 - [ ] Contact Mike Long the minstrel via email
-- [ ] Redesign site styles
+- [ ] Navigation button design
   - [x] Sass integration
-- [ ] Material UI styles (is installed, but not yet implemented)
+- [x] Material UI components
+  - [x] Drawer used for navigation links
+  - [x] Buttons used
+- [ ] Song download page
+  - [ ] player that fires confetti
+  - [ ] ...and casette with song name on it in "marker" font
+  - [ ] ...which initiates blob download onClick
 
 ### Bugs
 none yet!
