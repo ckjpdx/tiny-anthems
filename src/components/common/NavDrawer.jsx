@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 import tapePlayer from './../../assets/img/tiny_player_jack_buttons.png';
-import './../styles/NavDrawer.css';
+import './NavDrawer.css';
 import Login from './Login';
 import { Link, withRouter } from 'react-router-dom';
 
@@ -44,8 +44,8 @@ class NavDrawer extends React.Component {
         <Drawer anchor="top" open={this.state.top} onClose={this.toggleDrawer('top', false)}>
           <div style={{position:'relative'}} className={classes.playerSideNav}>
             <img src={tapePlayer} id="tape-player" />
-            <div id="click-welcome" role="button" onClick={this.toggleDrawer('top', false, '/')}></div>
-            <div id="click-play" role="button" onClick={this.toggleDrawer('top', false, '/portfolio')}></div>
+            <div id="click-home" role="button" onClick={this.toggleDrawer('top', false, '/')}></div>
+            <div id="click-demo" role="button" onClick={this.toggleDrawer('top', false, '/portfolio')}></div>
             <div id="click-faq" role="button" onClick={this.toggleDrawer('top', false, '/faq')}></div>
             <div id="click-about" role="button" onClick={this.toggleDrawer('top', false, '/about')}></div>
             <div id="click-feedback" role="button" onClick={this.toggleDrawer('top', false, '/feedback')}></div>

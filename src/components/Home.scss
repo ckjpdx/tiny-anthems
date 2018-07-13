@@ -1,0 +1,81 @@
+div#Home-TinyPlayer {
+  position: relative;
+  max-width: calc(100vh * 0.53);
+  margin: 0 auto;
+  animation-delay: 2s;
+  animation-duration: 1s;
+  animation-name: playerFlyAway;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: paused;
+
+  img#Home-TinyPlayer-cover {
+    position: absolute;
+    width: 87%;
+    bottom: 23%;
+    left: 7%;
+    z-index: 2;
+  }
+  img#Home-TinyPlayer-empty {
+    // the image of the player doesnt really need to do anything
+  }
+  div#Home-TinyTape {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    animation-duration: 1.5s;
+    animation-name: tapeInsert;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-play-state: paused;
+    z-index: 1;
+
+    img#Home-TinySharpie {
+      position: absolute;
+      z-index: inherit;
+      width: 57%;
+      top: 12%;
+      left: 21%;
+    }
+  }
+}
+
+@keyframes tapeInsert {
+  0% {
+    z-index: 3;
+    width: 150%;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, 0) rotate(0deg);
+  }
+  50% {
+    width: 60%;
+    top: 5%;
+    transform: translate(-50%, 0) rotate(360deg);
+  }
+  100% {
+    z-index: 2;
+    width: 60%;
+    top: 51%;
+    transform: translate(-50%, 0) rotate(360deg);
+  }
+}
+
+@keyframes playerFlyAway {
+  to {
+    margin: -100vh auto 0;
+  }
+}
+
+img#Home-Vommy {
+  z-index: -1;
+  top: 5%;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  max-height: 90%;
+  width: auto;
+}

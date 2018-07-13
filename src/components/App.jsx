@@ -7,7 +7,7 @@ import Faq from './Faq';
 import About from './About';
 import Portfolio from './Portfolio';
 import Feedback from './Feedback';
-import Welcome from './Welcome';
+import Home from './Home';
 import Admin from './Admin';
 import WriteReview from './WriteReview';
 import Quiz from './Quiz';
@@ -57,7 +57,7 @@ class App extends React.Component {
       <div className="App">
         {navAndTitle}
         <Switch>
-          <Route exact path='/' component={Welcome} />
+          <Route exact path='/' component={Home} />
           <Route path='/faq' component={Faq} />
           <Route path='/about' component={About} />
           <Route path='/portfolio' component={Portfolio} />

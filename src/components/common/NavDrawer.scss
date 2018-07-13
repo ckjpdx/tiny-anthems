@@ -21,19 +21,19 @@ div#click-record {
   top: 27%;
   left: 15%;
 }
-div#click-welcome {
-  @include playerButtons;
-  width: 10%;
-  height: 40%;
-  top: 27%;
-  left: 38%;
-}
-div#click-play {
+div#click-home {
   @include playerButtons;
   width: 10%;
   height: 40%;
   top: 27%;
   left: 27%;
+}
+div#click-demo {
+  @include playerButtons;
+  width: 10%;
+  height: 40%;
+  top: 27%;
+  left: 38%;
 }
 div#click-faq {
   @include playerButtons;
