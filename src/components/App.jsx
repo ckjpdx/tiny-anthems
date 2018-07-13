@@ -51,7 +51,6 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.props.history);
     const navAndTitle = this.props.history.location.pathname !== '/' && <div><NavDrawer appState={this.state}/><img src={sharpie} /></div>;
     return (
       <div className="App">

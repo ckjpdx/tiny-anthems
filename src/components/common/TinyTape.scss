@@ -19,7 +19,7 @@ img.TinyTape-tape {
     }
 }
 img.TinyTape-wheel-left {
-  @include spin-animation(500ms);
+  @include spin-animation(700ms);
   position: absolute;
   left: 23%;
   top: 36%;
