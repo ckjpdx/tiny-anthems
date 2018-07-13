@@ -8,8 +8,8 @@ import './Home.css';
 
 function Home(props){
   const handleTapeClick = () => {
-    document.getElementById("Home-TinyTape").style.WebkitAnimationPlayState = "running";
-    document.getElementById("Home-TinyPlayer").style.WebkitAnimationPlayState = "running";
+    document.getElementById("Home-TinyTape").classList.add('playTapeInsert');
+    document.getElementById("Home-TinyPlayer").classList.add('playPlayerFlyAway');
     setTimeout(() => {
       props.history.push('/faq');
     }, 3000);

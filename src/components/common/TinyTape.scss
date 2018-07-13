@@ -11,15 +11,15 @@ img.TinyTape-tape {
   animation-timing-function: linear;
 }
 @keyframes spin {
-    from {
-        transform:rotate(0deg);
-    }
-    to {
-        transform:rotate(360deg);
-    }
+  from {
+      transform:rotate(0deg);
+  }
+  to {
+      transform:rotate(360deg);
+  }
 }
 img.TinyTape-wheel-left {
-  @include spin-animation(700ms);
+  @include spin-animation(1200ms);
   position: absolute;
   left: 23%;
   top: 36%;

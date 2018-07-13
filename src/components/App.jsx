@@ -14,9 +14,9 @@ import Quiz from './Quiz';
 import Error404 from './Error404';
 import User from './User';
 import PrivateRoute from './common/PrivateRoute';
-import './styles/App.css';
 import sharpie from './../assets/img/tiny_sharpie.png';
 import NavDrawer from './common/NavDrawer';
+import './App.css';
 
 class App extends React.Component {
   constructor(props) {
@@ -51,7 +51,7 @@ class App extends React.Component {
   }
 
   render() {
-    const navAndTitle = this.props.history.location.pathname !== '/' && <div><NavDrawer appState={this.state}/><img src={sharpie} /></div>;
+    const navAndTitle = this.props.history.location.pathname !== '/' && <div><NavDrawer appState={this.state}/><img src={sharpie} id="App-tiny-sharpie"/></div>;
     return (
       <div className="App">
         {navAndTitle}
