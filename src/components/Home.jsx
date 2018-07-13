@@ -8,8 +8,8 @@ import './Home.css';
 
 function Home(props){
   const handleTapeClick = () => {
-    document.getElementById("Home-TinyTape").classList.add('playTapeInsert');
-    document.getElementById("Home-TinyPlayer").classList.add('playPlayerFlyAway');
+    document.getElementById("Home-TinyTape").classList.add('play-tape-insert');
+    document.getElementById("Home-TinyPlayer").classList.add('play-player-fly-away');
     setTimeout(() => {
       props.history.push('/faq');
     }, 3000);
@@ -20,6 +20,7 @@ function Home(props){
       <div id="Home-TinyPlayer">
         <div id="Home-TinyTape" onClick={handleTapeClick} >
           <img src={TinySharpie} id="Home-TinySharpie"/>
+          <p id="Home-tape-clickme">Click Me!</p>
           <TinyTape />
         </div>
         <img src={TinyPlayerCover} id="Home-TinyPlayer-cover"/>

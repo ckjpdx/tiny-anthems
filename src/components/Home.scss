@@ -38,10 +38,18 @@ div#Home-TinyPlayer {
       top: 12%;
       left: 21%;
     }
+
+    p#Home-tape-clickme {
+      position: absolute;
+      z-index: 1;
+      top: 53%;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
   }
 }
 
-.playTapeInsert {
+.play-tape-insert {
   @include prefixer((
   animation-duration: 1.5s,
   animation-name: tapeInsert,
@@ -80,7 +88,7 @@ div#Home-TinyPlayer {
   }
 }
 
-.playPlayerFlyAway {
+.play-player-fly-away {
   @include prefixer((
     animation-delay: 2s,
     animation-duration: 1s,
