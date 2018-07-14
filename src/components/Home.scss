@@ -52,13 +52,13 @@ div#Home-TinyPlayer {
 .play-tape-insert {
   @include prefixer((
   animation-duration: 1.5s,
-  animation-name: tapeInsert,
+  animation-name: tape-insert,
   animation-iteration-count: 1,
   animation-fill-mode: forwards,
   animation-play-state: playing
   ));
 }
-@keyframes tapeInsert {
+@keyframes tape-insert {
   0% {
     z-index: 3;
     width: 150%;

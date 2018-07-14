@@ -1,8 +1,10 @@
 div.App {
   text-align: center;
 }
+div#App-nav-and-title {
+  overflow: hidden;
+}
 img#App-tiny-sharpie {
-  width: 0;
   margin-left: 50%;
   transform: translateX(-50%);
   animation: sharpie-bounce 3s ease-out forwards;
@@ -16,12 +18,8 @@ img#App-tiny-sharpie {
   }
   45% {
     width: 150%;
-    margin-left: 50%;
-    transform: translateX(-50%);
   }
   100% {
     width: 100%;
-    margin-left: 0;
-    transform: translateX(0);
   }
 }
