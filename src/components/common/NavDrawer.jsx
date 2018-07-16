@@ -39,7 +39,7 @@ class NavDrawer extends React.Component {
     return (
       <div className="NavDrawer">
         <Button onClick={this.toggleDrawer('top', true)}>
-          <FontAwesomeIcon icon={faBars} size="5x" border />
+          <FontAwesomeIcon icon={faBars} size="2x" />
         </Button>
         <Drawer anchor="top" open={this.state.top} onClose={this.toggleDrawer('top', false)}>
           <div style={{position:'relative'}} className={classes.playerSideNav}>
@@ -49,7 +49,7 @@ class NavDrawer extends React.Component {
             <div id="click-faq" role="button" onClick={this.toggleDrawer('top', false, '/faq')}></div>
             <div id="click-about" role="button" onClick={this.toggleDrawer('top', false, '/about')}></div>
             <div id="click-feedback" role="button" onClick={this.toggleDrawer('top', false, '/feedback')}></div>
-            <div id="click-record" role="button" onClick={this.toggleDrawer('top', false, '/user')}>
+            <div id="click-record" role="button" onClick={this.toggleDrawer('top', false)}>
               <Login appState={this.props.appState} />
             </div>
           </div>

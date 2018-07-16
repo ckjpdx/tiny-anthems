@@ -30,6 +30,7 @@ This web app allows:
 * [gh-pages](https://github.com/gitname/react-gh-pages), library to build and deploy app
   * use $`gh-pages-clean` to fix deployment [issues](https://github.com/tschaub/gh-pages/issues/17)
 * [Sass/SCSS](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-a-css-preprocessor-sass-less-etc)
+* [Font Awesome for React](https://github.com/FortAwesome/react-fontawesome)
 
 # Progress
 ### Protocol
