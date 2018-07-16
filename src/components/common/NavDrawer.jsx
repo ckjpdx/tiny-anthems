@@ -55,7 +55,7 @@ class NavDrawer extends React.Component {
           </div>
           <div id="NavDrawer-profile-display">
             <Link to='/user'><p style={{fontFamily: 'monospace'}}>{this.props.appState.email}</p></Link>
-            <Login appState={this.props.appState} showLogout="true"/>
+            <Login appState={this.props.appState} isVisible="true"/>
           </div>
         </Drawer>
       </div>
