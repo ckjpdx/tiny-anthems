@@ -4,6 +4,7 @@ import { quizzesCollection } from './../store';
 import { Link } from 'react-router-dom';
 import firebase from 'firebase';
 import fileDownload from 'js-file-download';
+import './User.css';
 
 const User = observer(class User extends Component {
   constructor(props){
@@ -47,15 +48,19 @@ const User = observer(class User extends Component {
 
     return (
       <div>
-        <h1>Account</h1>
+        <h1>Welcome!</h1>
         <h3>{this.props.appState.name}</h3>
         <Link to='/user/quiz'>
           <button>Start Questionnaire!</button>
         </Link>
         <h2>Your questionnaires:</h2>
-        {quizzes.length ? quizzes : <p>No questionnaires submitted yet</p>}
+        <div className="User-list-area">
+          {quizzes.length ? quizzes : <p>No questionnaires submitted yet!</p>}
+        </div>
         <h2>Your anthems:</h2>
-        {listSongs}
+        <div className="User-list-area">
+          {listSongs.length ? listSongs : <p>No songs for download yet!</p>}
+        </div>
       </div>
     );
   }

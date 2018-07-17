@@ -27,6 +27,13 @@ h1, h2, h3 {
 p {
   font-family: 'Kalam', cursive;
 }
+ul {
+  text-align: left;
+  padding-left: 30px;
+  li {
+    margin: 0 0 10px;
+  }
+}
 button {
   font-size: 1rem;
   padding: 10px;
@@ -35,6 +42,7 @@ button {
 textarea {
   display: block;
   width: 100%;
+  background: #EEF;
   margin: 0 0 20px;
 }
 .all-non-mobile-view-text {
