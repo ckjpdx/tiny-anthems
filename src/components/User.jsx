@@ -59,7 +59,7 @@ const User = observer(class User extends Component {
         </div>
         <h2>Your anthems:</h2>
         <div className="User-list-area">
-          {listSongs.length ? listSongs : <p>No songs for download yet!</p>}
+          {listSongs}
         </div>
       </div>
     );
