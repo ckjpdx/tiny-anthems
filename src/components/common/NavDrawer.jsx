@@ -49,7 +49,7 @@ class NavDrawer extends React.Component {
             <div id="click-faq" role="button" onClick={this.toggleDrawer('top', false, '/faq')}></div>
             <div id="click-about" role="button" onClick={this.toggleDrawer('top', false, '/about')}></div>
             <div id="click-feedback" role="button" onClick={this.toggleDrawer('top', false, '/feedback')}></div>
-            <div id="click-record" role="button" onClick={this.toggleDrawer('top', false)}>
+            <div id="click-record" role="button" onClick={this.toggleDrawer('top', false, '/user')}>
               <Login appState={this.props.appState} />
             </div>
           </div>

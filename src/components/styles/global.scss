@@ -6,12 +6,11 @@
 }
 html {
   font-family: 'Roboto', sans-serif;
-
   box-sizing: border-box;
 }
 body {
   max-width: $bp-desktop;
-  margin: 0 auto;
+  margin: auto;
   padding: 15px;
 }
 a {
@@ -29,8 +28,12 @@ p {
   font-family: 'Kalam', cursive;
 }
 ul {
+  margin: auto;
   text-align: left;
   padding-left: 30px;
+  @media screen and (min-width: $bp-tablet) {
+    max-width: 75%;
+  }
   li {
 
   }

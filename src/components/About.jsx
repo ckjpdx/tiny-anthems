@@ -13,7 +13,6 @@ class About extends React.Component {
         <img src={vommy} alt="cartoon of mike throwing up musical notes" id="About-vommy" />
         <p id="About-vommy-label">Illustration of Mike's creative process</p>
         <h1>About Mike</h1>
-        <h2>Intrepid Minstrel</h2>
         <p>What is this, exactly?</p>
         <p>
           In the depths of winter, a bored and intrepid minstrel set about the noble (nay, heroic) task of writing vainglorious ballads of the people of the world. In an effort to make life more radical and to generally, you know, get pumped up, Tiny Anthems is the attempt to offer citizens of the world the chance to be immortalized; to be enshrined in the glory of song.
