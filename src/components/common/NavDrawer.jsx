@@ -37,13 +37,13 @@ class NavDrawer extends React.Component {
     const { classes } = this.props;
 
     return (
-      <div className="NavDrawer">
+      <div id="NavDrawer">
         <Button onClick={this.toggleDrawer('top', true)}>
           <FontAwesomeIcon icon={faBars} size="2x" />
         </Button>
         <Drawer anchor="top" open={this.state.top} onClose={this.toggleDrawer('top', false)}>
-          <div style={{position:'relative'}} className={classes.playerSideNav}>
-            <img src={tapePlayer} id="tape-player" />
+          <div id="NavDrawer-player-wrap" style={{position:'relative'}} className={classes.playerSideNav}>
+            <img src={tapePlayer} />
             <div id="click-home" role="button" onClick={this.toggleDrawer('top', false, '/')}></div>
             <div id="click-demo" role="button" onClick={this.toggleDrawer('top', false, '/portfolio')}></div>
             <div id="click-faq" role="button" onClick={this.toggleDrawer('top', false, '/faq')}></div>

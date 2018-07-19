@@ -19,6 +19,9 @@ img#App-tiny-sharpie {
   @media screen and (min-width: $bp-tablet) {
     width: 50vw;
   }
+  @media screen and (min-width: $bp-desktop) {
+    width: 30vw;
+  }
 }
 
 

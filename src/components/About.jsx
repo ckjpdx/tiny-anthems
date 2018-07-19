@@ -1,17 +1,17 @@
 import React from 'react';
-import mike from './../assets/img/mike.gif';
+import vommy from './../assets/img/mike.gif';
 import './About.css';
 
 class About extends React.Component {
   componentDidMount() {
-    document.getElementById("About-mike").style.width = "30%";
+    document.getElementById("About-vommy").classList.add('play-vommy-shrink');
   }
 
   render(){
     return (
       <div>
-        <img src={mike} alt="cartoon of mike throwing up musical notes" id="About-mike" />
-        <p id="About-mike-label">Illustration of Mike's creative process</p>
+        <img src={vommy} alt="cartoon of mike throwing up musical notes" id="About-vommy" />
+        <p id="About-vommy-label">Illustration of Mike's creative process</p>
         <h1>About Mike</h1>
         <h2>Intrepid Minstrel</h2>
         <p>What is this, exactly?</p>

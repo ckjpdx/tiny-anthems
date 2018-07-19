@@ -1,4 +1,15 @@
-div.NavDrawer {
+@import '../styles/_variables';
+
+div#NavDrawer {
+}
+div#NavDrawer-player-wrap {
+  margin: 0 auto;
+  @media screen and (min-width: $bp-tablet) {
+    width: 66vw;
+  }
+  @media screen and (min-width: $bp-desktop) {
+    width: 50vw;
+  }
 
 }
 
@@ -10,47 +21,47 @@ div#NavDrawer-profile-display {
   }
 }
 
-@mixin playerButtons {
+%playerButtons {
   position: absolute;
   // background: red;
 }
 div#click-record {
-  @include playerButtons;
+  @extend %playerButtons;
   width: 11%;
   height: 40%;
   top: 27%;
   left: 15%;
 }
 div#click-home {
-  @include playerButtons;
+  @extend %playerButtons;
   width: 10%;
   height: 40%;
   top: 27%;
   left: 27%;
 }
 div#click-demo {
-  @include playerButtons;
+  @extend %playerButtons;
   width: 10%;
   height: 40%;
   top: 27%;
   left: 38%;
 }
 div#click-faq {
-  @include playerButtons;
+  @extend %playerButtons;
   width: 10%;
   height: 39%;
   top: 27%;
   left: 51%;
 }
 div#click-about {
-  @include playerButtons;
+  @extend %playerButtons;
   width: 10%;
   height: 40%;
   top: 27%;
   left: 74%;
 }
 div#click-feedback {
-  @include playerButtons;
+  @extend %playerButtons;
   width: 10%;
   height: 40%;
   top: 27%;

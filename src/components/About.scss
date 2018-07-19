@@ -1,8 +1,32 @@
-img#About-mike {
+@import 'styles/_variables';
+
+img#About-vommy {
   width: 100%;
   margin: -10% auto;
-  transition: all 5s ease-in-out 1s;
+  animation: vommy 2s linear 1 forwards;
 }
-p#About-mike-label {
+
+.play-vommy-shrink {
+  @keyframes vommy {
+    from {
+      width: 100%
+    }
+    to {
+      width: 40%
+    }
+  }
+  @media screen and (min-width: $bp-tablet) {
+    @keyframes vommy {
+      from {
+        width: 100%
+      }
+      to {
+        width: 20%
+      }
+    }
+  }
+}
+
+p#About-vommy-label {
   color: gray;
 }

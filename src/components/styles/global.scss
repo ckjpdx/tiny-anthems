@@ -1,17 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Kalam|Rajdhani|Roboto|Source+Code+Pro');
 @import 'variables';
 
-html {
-  font-family: 'Roboto', sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 *, *:before, *:after {
   box-sizing: inherit;
 }
+html {
+  font-family: 'Roboto', sans-serif;
+
+  box-sizing: border-box;
+}
 body {
-  margin: 0;
+  max-width: $bp-desktop;
+  margin: 0 auto;
   padding: 15px;
 }
 a {
@@ -32,7 +32,7 @@ ul {
   text-align: left;
   padding-left: 30px;
   li {
-    margin: 0 0 10px;
+
   }
 }
 button {
