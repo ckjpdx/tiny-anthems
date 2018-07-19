@@ -6,7 +6,7 @@ import './TinyTape.css';
 
 function TinyTape(props){
   return (
-    <div className="TinyTape">
+    <div id="TinyTape">
       <img src={tinyTapeNoWheels} alt="tiny anthems casette tape" className="TinyTape-tape" />
       <img src={tinyTapeWheelLeft} alt="tape wheel" className="TinyTape-wheel-left"/>
       <img src={tinyTapeWheelRight} alt="tape wheel" className="TinyTape-wheel-right" />

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Kalam|Rajdhani|Roboto|Source+Code+Pro');
+@import 'variables';
 
 html {
   font-family: 'Roboto', sans-serif;
@@ -44,13 +45,4 @@ textarea {
   width: 100%;
   background: #EEF;
   margin: 0 0 20px;
-}
-.all-non-mobile-view-text {
-    display: none;
-    z-index: 10;
-    position: absolute;
-    background: red;
-    @media screen and (min-width: 500px) {
-      display: block;
-  }
 }

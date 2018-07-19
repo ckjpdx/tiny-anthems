@@ -1,3 +1,5 @@
+@import 'styles/_variables';
+
 div.App {
   text-align: center;
 }
@@ -5,21 +7,24 @@ div#App-nav-and-title {
   overflow: hidden;
 }
 img#App-tiny-sharpie {
-  margin-left: 50%;
-  transform: translateX(-50%);
-  animation: sharpie-bounce 3s ease-out forwards;
-}
-@keyframes sharpie-bounce {
-  0% {
-    width: 0;
+  animation: sharpie 0.5s linear infinite alternate;
+  @keyframes sharpie {
+    from {
+      transform: rotate(3deg);
+    }
+    to {
+      transform: rotate(-3deg);
+    }
   }
-  30% {
-    width: 0;
-  }
-  45% {
-    width: 150%;
-  }
-  100% {
-    width: 100%;
+  @media screen and (min-width: $bp-tablet) {
+    width: 50vw;
   }
 }
+
+
+// @media screen and (min-width: 400px) {
+//   img#App-tiny-sharpie {
+//
+//     display: none;
+//   }
+// }

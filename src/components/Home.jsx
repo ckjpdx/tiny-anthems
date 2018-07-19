@@ -8,7 +8,7 @@ import './Home.css';
 
 function Home(props){
   const handleTapeClick = () => {
-    document.getElementById("Home-TinyTape").classList.add('play-tape-insert');
+    document.getElementById("Home-TinyTape-wrap").classList.add('play-tape-insert');
     document.getElementById("Home-TinyPlayer").classList.add('play-player-fly-away');
     setTimeout(() => {
       props.history.push('/faq');
@@ -16,15 +16,14 @@ function Home(props){
   }
   return (
     <div id="Home">
-      <p className="all-non-mobile-view-text">CURRENTLY ONLY MOBILE VIEW HAS BEEN DEVELOPED. PLEASE USE DEV TOOLS OR SHRINK SCREEN HORIZONTALLY.</p>
       <div id="Home-TinyPlayer">
-        <div id="Home-TinyTape" onClick={handleTapeClick} >
+        <div id="Home-TinyTape-wrap" onClick={handleTapeClick} >
           <img src={TinySharpie} id="Home-TinySharpie"/>
           <p id="Home-tape-clickme">Click Me!</p>
           <TinyTape />
         </div>
         <img src={TinyPlayerCover} id="Home-TinyPlayer-cover"/>
-        <img src={TinyPlayer} id="Home-TinyPlayer-empty"/>
+        <img src={TinyPlayer} />
       </div>
       <img src={Vommy} id="Home-Vommy"/>
     </div>

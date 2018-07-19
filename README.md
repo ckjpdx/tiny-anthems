@@ -27,7 +27,7 @@ This web app allows:
 * [Firestorter](https://github.com/IjzerenHein/firestorter), an incredible Firestore referencer and live-update library
 * [MobX](https://mobx.js.org/index.html), state management and Observables for use with Firestorter
 * [js-file-download](https://www.npmjs.com/package/js-file-download), library for blob downloading thru browsers to local drive
-* [gh-pages](https://github.com/gitname/react-gh-pages), library to build and deploy app
+* [react-gh-pages](https://github.com/gitname/react-gh-pages), library to build and deploy app
   * use $`gh-pages-clean` to fix deployment [issues](https://github.com/tschaub/gh-pages/issues/17)
 * [Sass/SCSS](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-a-css-preprocessor-sass-less-etc)
 * [Font Awesome for React](https://github.com/FortAwesome/react-fontawesome)
@@ -48,7 +48,7 @@ This web app allows:
 - [ ] Switch from PrivateRoute & AdminRoute to Auth HOC
 
 ### Database & Storage
-- [ ] Google Cloud Storage is used to store static site files for hosting
+- [ ] Google Cloud Storage is used for hosting
 
 ##### Client
 - [x] Submit questionnaire for song creation
@@ -78,15 +78,16 @@ This web app allows:
 - [x] Two questionnaires: toggle for either the client or for someone the client knows
 - [x] Update React Router to use BrowserRouter instead of HashRouter
 - [ ] Contact Mike Long the minstrel via email
-- [ ] Navigation button design
-  - [x] Sass integration
+- [x] Navigation 'tape-player' button design
+- [x] Sass integration
 - [x] Material UI components
   - [x] Drawer used for navigation links
   - [x] Buttons used
 - [ ] Song download page
   - [ ] player that fires confetti
-  - [ ] ...and casette with song name on it in "marker" font
+  - [ ] ...and cassette with song name on it in "marker" font
   - [ ] ...which initiates blob download onClick
+- [ ] breakpoint styles for tablet and desktop
 
 ### Bugs
 none yet!
