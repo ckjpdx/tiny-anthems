@@ -3,6 +3,7 @@ import { observer } from 'mobx-react';
 import { quizzesCollection, usersCollection, userDoc } from './../store';
 import firebase from 'firebase';
 import 'firebase/firestore';
+import './Quiz.css';
 
 const Quiz = observer(class Quiz extends Component {
   constructor(props) {
@@ -108,10 +109,16 @@ const Quiz = observer(class Quiz extends Component {
         {!this.state.quizType &&
         <div>
           <p>Fill out a questionnaire for:</p>
-          <input type="radio" id="for-me" name="for-who-buttons" onChange={this.handleQuizTypeToggle}/>
-          <label htmlFor="for-me">Myself</label>
-          <input type="radio" id="for-them" name="for-who-buttons" onChange={this.handleQuizTypeToggle}/>
-          <label htmlFor="for-them">Someone Else</label>
+          <section id="Quiz-labels">
+            <div>
+              <input type="radio" id="for-me" name="for-who-buttons" onChange={this.handleQuizTypeToggle}/>
+              <label htmlFor="for-me">Myself</label>
+            </div>
+            <div>
+              <input type="radio" id="for-them" name="for-who-buttons" onChange={this.handleQuizTypeToggle}/>
+              <label htmlFor="for-them">Someone Else</label>
+            </div>
+          </section>
         </div>
         }
         {displayQuiz}

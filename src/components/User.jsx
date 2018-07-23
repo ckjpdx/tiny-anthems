@@ -4,6 +4,7 @@ import { quizzesCollection } from './../store';
 import { Link } from 'react-router-dom';
 import firebase from 'firebase';
 import fileDownload from 'js-file-download';
+import immortalize from './../assets/img/immortalize.jpg'
 import './User.css';
 
 const User = observer(class User extends Component {
@@ -40,7 +41,7 @@ const User = observer(class User extends Component {
     });
     if (allUserSongs.length) {
       listSongs = allUserSongs.map((song, i) =>
-        <p key={i} onClick={() => this.downloadSong(song)}>{song}</p>
+        <h3 key={i} onClick={() => this.downloadSong(song)}>{song}</h3>
       )
     } else {
       listSongs = <p>You don't have any anthems made yet! Fill out a questionnaire to begin the immortalization process!</p>;
@@ -48,11 +49,11 @@ const User = observer(class User extends Component {
 
     return (
       <div>
-        <h1>Welcome!</h1>
-        <h3>{this.props.appState.name}</h3>
+        <h2>Welcome home, {this.props.appState.name}</h2>
         <Link to='/user/quiz'>
-          <button>Start Questionnaire!</button>
+          <button id="launch" />
         </Link>
+        <img src={immortalize} id="immortalize"/>
         <h2>Your questionnaires:</h2>
         <div className="User-list-area">
           {quizzes.length ? quizzes : <p>No questionnaires submitted yet!</p>}
