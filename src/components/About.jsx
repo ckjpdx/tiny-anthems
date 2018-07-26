@@ -21,7 +21,7 @@ class About extends React.Component {
         </p>
         <p>Mike likes songs and is a proud member of the clean plate club.</p>
         <hr />
-        <FontAwesomeIcon icon={faReact} size="6x"/>
+        <FontAwesomeIcon icon={faReact} size="6x" id="About-react"/>
         <p>Tiny Anthems, a React App</p>
 
           <p><a href="https://ckjpdx.github.io/portfolio/" target="_blank">by Chris Knight Johnson</a></p>
