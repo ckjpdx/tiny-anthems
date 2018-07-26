@@ -17,8 +17,8 @@ This web app allows:
 * upload a song file to that specific questionnaire for client retrieval
 
 ## Technology
-* Facebook [create-react-app](https://github.com/facebook/create-react-app)
-* ~~Material UI~~ not yet implemented
+* [Facebook create-react-app](https://github.com/facebook/create-react-app)
+* [Material UI](https://material-ui.com/)
 * [Google SDK](https://cloud.google.com/sdk)
   * [Google Firebase Authentication](https://firebase.google.com/docs/auth/)
   * [Google Sign In](https://firebase.google.com/docs/auth/web/google-signin)
