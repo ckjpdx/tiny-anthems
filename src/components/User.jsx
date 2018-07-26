@@ -5,11 +5,10 @@ import { Link } from 'react-router-dom';
 import firebase from 'firebase';
 import fileDownload from 'js-file-download';
 import immortalize from './../assets/img/immortalize.jpg';
-import redButton from './../assets/img/redbutton.png';
 import './User.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFileAudio, faFileAlt } from '@fortawesome/free-solid-svg-icons';
+import { faFileAudio, faFileAlt, faForward } from '@fortawesome/free-solid-svg-icons';
 import { faFortAwesome } from '@fortawesome/free-brands-svg-icons'
 
 const User = observer(class User extends Component {
@@ -56,15 +55,10 @@ const User = observer(class User extends Component {
       <div>
         <FontAwesomeIcon icon={faFortAwesome} size="5x" />
         <h2>Welcome home, {this.props.appState.name}</h2>
-        <section id="User-immortalize-panel">
-          <Link to='/user/quiz'>
-            <div style={{position: 'relative'}}>
-              <img id="User-launch" src={redButton}/>
-              <h3 id="User-button-text">START</h3>
-            </div>
-          </Link>
-          <img src={immortalize} id="User-immortalize-label"/>
-        </section>
+        <Link to='/user/quiz'>
+          <FontAwesomeIcon icon={faForward} size="5x" id="User-start"/>
+        </Link>
+        <img src={immortalize} id="User-immortalize-label"/>
         <h2>Your questionnaires:</h2>
         <div className="User-list-area">
           {quizzes.length ? quizzes : <p>No questionnaires submitted yet!</p>}

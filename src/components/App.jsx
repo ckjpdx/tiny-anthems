@@ -14,8 +14,8 @@ import Quiz from './Quiz';
 import Error404 from './Error404';
 import User from './User';
 import PrivateRoute from './common/PrivateRoute';
-import sharpie from './../assets/img/tiny_sharpie.png';
 import NavDrawer from './common/NavDrawer';
+import sharpie from './../assets/img/tiny_sharpie.png';
 import './App.css';
 
 class App extends React.Component {

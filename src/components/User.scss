@@ -1,32 +1,11 @@
 @import 'styles/_variables';
 
-img#User-launch {
-  width: 50%;
-  max-width: 250px;
-}
-
 img#User-immortalize-label {
   display: block;
-  margin: 0 auto 10vw;
+  margin: 5vw auto 10vw;
   transform: scaleY(1.5);
   @media screen and (min-width: $bp-tablet) {
-    width: 75%;
-  }
-}
-
-section#User-immortalize-panel {
-  // border: solid gray 2px;
-  // border-radius: 10px;
-  // padding: 5px;
-  h3#User-button-text {
-    color: white;
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    @media screen and (min-width: $bp-tablet) {
-      font-size: 2em;
-    }
+    width: 50%;
   }
 }
 
@@ -37,6 +16,14 @@ div.User-list-area {
   border: 1px solid #DDE
 }
 
-FontAwesomeIcon {
-  color: yellow
+#User-start {
+  animation: fastforward 1s ease infinite alternate;
+  @keyframes fastforward {
+    to {
+      color: crimson;
+    }
+    from {
+      color: #800;
+    }
+  }
 }
