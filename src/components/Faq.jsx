@@ -1,9 +1,11 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 
 function Faq(){
   return (
     <div>
-      <h1>FAQ</h1>
+      <h1><FontAwesomeIcon icon={faInfoCircle} /> FAQ</h1>
       <h2>
         How does it work?
       </h2>

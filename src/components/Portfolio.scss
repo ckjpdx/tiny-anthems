@@ -1,4 +1,9 @@
+@import 'styles/_variables';
+
 iframe.sample-song {
   display: block;
   margin: 50px auto;
+}
+img#slug {
+  max-width: 450px;
 }

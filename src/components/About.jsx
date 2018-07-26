@@ -1,5 +1,7 @@
 import React from 'react';
 import vommy from './../assets/img/mike.gif';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faReact } from '@fortawesome/free-brands-svg-icons'
 import './About.css';
 
 class About extends React.Component {
@@ -19,9 +21,11 @@ class About extends React.Component {
         </p>
         <p>Mike likes songs and is a proud member of the clean plate club.</p>
         <hr />
-        <p>
-          <a href="https://ckjpdx.github.io/portfolio/" target="_blank">React App by Chris Knight Johnson</a>
-        </p>
+        <FontAwesomeIcon icon={faReact} size="6x"/>
+        <p>Tiny Anthems, a React App</p>
+
+          <p><a href="https://ckjpdx.github.io/portfolio/" target="_blank">by Chris Knight Johnson</a></p>
+
         <p>
           <a href="https://github.com/ckjpdx/tiny-anthems/blob/master/README.md" target="_blank">Tiny Anthems README</a>
         </p>

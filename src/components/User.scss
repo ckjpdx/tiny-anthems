@@ -1,61 +1,32 @@
 @import 'styles/_variables';
 
-button#launch {
-  display: inline-block;
-  background-color: #D99;
-  padding: 40px 40px;
-  margin: auto;
-  border: 1px solid #FAA;
-  background-image: linear-gradient(bottom, rgb(200,13,18) 0%, rgb(200,15,20) 100%);
-
-  // background-image: -webkit-gradient(
-  //     linear,
-  //     left bottom,
-  //     left top,
-  //     color-stop(0, rgb(200,132,180)),
-  //     color-stop(1, rgb(200,155,203))
-  // );
-  border-radius: 50%;
-  text-shadow: 0px -1px 0px rgba(0,0,0,.5);
-  box-shadow: 0px 5px 0px #700, inset 0px 10px 30px rgba(255,255,255,.75), inset 0px 1px 0px rgba(255,255,255,.3), inset 0px 0px 3px rgba(255,255,255,.5), 0px 5px 30px rgba(0,0,0,.5);
-
-  // &:after {
-  //   content: "";
-  //   position: absolute;
-  //   top: -110%;
-  //   left: -210%;
-  //   width: 200%;
-  //   height: 200%;
-  //   opacity: 0;
-  //   transform: rotate(30deg);
-  //
-  //   background: rgba(255, 255, 255, 0.5);
-  //   background: linear-gradient(
-  //   to right,
-  //   rgba(255, 255, 255, 0.13) 0%,
-  //   rgba(255, 255, 255, 0.13) 77%,
-  //   rgba(255, 255, 255, 0.5) 92%,
-  //   rgba(255, 255, 255, 0.0) 100%
-  //   );
-  // }
-  // &:hover:after {
-  //   opacity: 1;
-  //   top: -30%;
-  //   left: -30%;
-  //   transition-property: left, top, opacity;
-  //   transition-duration: 0.7s, 0.7s, 0.15s;
-  //   transition-timing-function: ease;
-  // }
-  // &:active:after {
-  //   opacity: 0;
-  // }
+img#User-launch {
+  width: 50%;
+  max-width: 250px;
 }
 
-img#immortalize {
+img#User-immortalize-label {
   display: block;
-  margin:  50px auto;
+  margin: 0 auto 10vw;
+  transform: scaleY(1.5);
   @media screen and (min-width: $bp-tablet) {
     width: 75%;
+  }
+}
+
+section#User-immortalize-panel {
+  // border: solid gray 2px;
+  // border-radius: 10px;
+  // padding: 5px;
+  h3#User-button-text {
+    color: white;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    @media screen and (min-width: $bp-tablet) {
+      font-size: 2em;
+    }
   }
 }
 
@@ -64,4 +35,8 @@ div.User-list-area {
   background: #EEF;
   padding: 5px;
   border: 1px solid #DDE
+}
+
+FontAwesomeIcon {
+  color: yellow
 }

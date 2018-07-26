@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 import { quizzesCollection, usersCollection, userDoc } from './../store';
 import firebase from 'firebase';
+import boat from './../assets/img/boat.png';
+import waves from './../assets/img/waves.png';
 import 'firebase/firestore';
 import './Quiz.css';
 
@@ -108,6 +110,11 @@ const Quiz = observer(class Quiz extends Component {
         <h1>Questionnaire</h1>
         {!this.state.quizType &&
         <div>
+          <p>You are about to begin your quest. Who is this for?</p>
+          <div style={{position: 'relative'}}>
+            <img src={waves} alt="waves" id="waves"/>
+            <img src={boat} alt="a boat" id="boat"/>
+          </div>
           <p>Fill out a questionnaire for:</p>
           <section id="Quiz-labels">
             <div>

@@ -118,3 +118,32 @@ img#Home-Vommy {
     transform: translateX(-50%)
   ));
 }
+
+img#Home-ghost {
+  position: absolute;
+  width: 50px;
+  animation: ghost 15s linear infinite alternate;
+  z-index: 2;
+  @keyframes ghost {
+    0% {
+      top: 0%;
+      left: 0%;
+    }
+    25% {
+      top: 100%;
+      left: 100%;
+    }
+    50% {
+      top: 0%;
+      left: 100%;
+    }
+    75% {
+      top: 100%;
+      left: 0%;
+    }
+    100% {
+      top: 50%;
+      left: 50%;
+    }
+  }
+}

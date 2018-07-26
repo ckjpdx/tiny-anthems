@@ -1,9 +1,10 @@
 import React from 'react';
 import TinyTape from './common/TinyTape';
-import TinyPlayer from './../assets/img/tiny_player_jack_empty.png';
-import TinyPlayerCover from './../assets/img/tiny_player_jack_cover.png';
-import TinySharpie from './../assets/img/tiny_sharpie.png';
-import Vommy from './../assets/img/mike.gif';
+import tinyPlayer from './../assets/img/tiny_player_jack_empty.png';
+import tinyPlayerCover from './../assets/img/tiny_player_jack_cover.png';
+import tinySharpie from './../assets/img/tiny_sharpie.png';
+import vommy from './../assets/img/mike.gif';
+import ghost from './../assets/img/ghost.png';
 import './Home.css';
 
 function Home(props){
@@ -16,16 +17,17 @@ function Home(props){
   }
   return (
     <div id="Home">
+      <img src={ghost} alt="a ghost" id="Home-ghost"/>
       <div id="Home-TinyPlayer">
         <div id="Home-TinyTape-wrap" onClick={handleTapeClick} >
-          <img src={TinySharpie} id="Home-TinySharpie"/>
+          <img src={tinySharpie} id="Home-TinySharpie"/>
           <p id="Home-tape-clickme">Click Me!</p>
           <TinyTape />
         </div>
-        <img src={TinyPlayerCover} id="Home-TinyPlayer-cover"/>
-        <img src={TinyPlayer} />
+        <img src={tinyPlayerCover} id="Home-TinyPlayer-cover"/>
+        <img src={tinyPlayer} />
       </div>
-      <img src={Vommy} id="Home-Vommy"/>
+      <img src={vommy} id="Home-Vommy"/>
     </div>
   );
 }

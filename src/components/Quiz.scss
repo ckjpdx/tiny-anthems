@@ -2,3 +2,29 @@ section#Quiz-labels {
   display: flex;
   justify-content: space-evenly;
 }
+img#boat {
+  width: 50%;
+  animation: boat 0.75s linear infinite alternate;
+  @keyframes boat {
+    from {
+      transform: rotate(3deg);
+    }
+    to {
+      transform: rotate(-3deg);
+    }
+  }
+}
+img#waves {
+  animation: waves 2s linear infinite alternate;
+  position: absolute;
+  bottom: 30%;
+  left: 0%;
+  @keyframes waves {
+    from {
+      transform: translateX(-5%);
+    }
+    to {
+      transform: translateX(5%);
+    }
+  }
+}
