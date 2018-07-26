@@ -1,3 +1,5 @@
+@import 'styles/_variables';
+
 section#Quiz-labels {
   display: flex;
   justify-content: space-evenly;
@@ -13,6 +15,9 @@ img#boat {
       transform: rotate(-3deg);
     }
   }
+  @media screen and (min-width: $bp-tablet) {
+    width: 25%;
+  }
 }
 img#waves {
   animation: waves 2s linear infinite alternate;
@@ -26,5 +31,9 @@ img#waves {
     to {
       transform: translateX(5%);
     }
+  }
+  @media screen and (min-width: $bp-tablet) {
+    width: 50%;
+    left: 25%;
   }
 }
