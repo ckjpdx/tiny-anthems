@@ -14,6 +14,7 @@ import Quiz from './Quiz';
 import Error404 from './Error404';
 import User from './User';
 import PrivateRoute from './common/PrivateRoute';
+import AdminRoute from './common/AdminRoute';
 import NavDrawer from './common/NavDrawer';
 import sharpie from './../assets/img/tiny_sharpie.png';
 import './App.css';
@@ -65,7 +66,7 @@ class App extends React.Component {
           <PrivateRoute exact path='/user/quiz' appState={this.state} component={Quiz} />
           <Route exact path='/user/review' render={() =>
             <WriteReview />} />
-          <PrivateRoute exact path='/admin' component={Admin} appState={this.state}/>} />
+          <AdminRoute exact path='/admin' component={Admin} appState={this.state}/>} />
           <Route component={Error404} />
         </Switch>
       </div>
