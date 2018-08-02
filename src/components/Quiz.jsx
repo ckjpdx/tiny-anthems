@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
-import { quizzesCollection, usersCollection, userDoc } from './../store';
-import firebase from 'firebase';
+import { quizzesCollection } from './../store';
 import boat from './../assets/img/boat.png';
 import waves from './../assets/img/waves.png';
 import 'firebase/firestore';

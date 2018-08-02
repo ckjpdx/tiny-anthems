@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
@@ -43,7 +41,7 @@ class NavDrawer extends React.Component {
         </Button>
         <Drawer anchor="top" open={this.state.top} onClose={this.toggleDrawer('top', false)}>
           <div id="NavDrawer-player-wrap" style={{position:'relative'}} className={classes.playerSideNav}>
-            <img src={tapePlayer} />
+            <img src={tapePlayer} alt="tape player"/>
             <div id="click-home" role="button" onClick={this.toggleDrawer('top', false, '/')}></div>
             <div id="click-demo" role="button" onClick={this.toggleDrawer('top', false, '/portfolio')}></div>
             <div id="click-faq" role="button" onClick={this.toggleDrawer('top', false, '/faq')}></div>

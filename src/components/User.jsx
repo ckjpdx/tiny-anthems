@@ -58,7 +58,7 @@ const User = observer(class User extends Component {
         <Link to='/user/quiz'>
           <FontAwesomeIcon icon={faForward} size="5x" id="User-start"/>
         </Link>
-        <img src={immortalize} id="User-immortalize-label"/>
+        <img src={immortalize} id="User-immortalize-label" alt="immortalize label"/>
         <h2>Your questionnaires:</h2>
         <div className="User-list-area">
           {quizzes.length ? quizzes : <p>No questionnaires submitted yet!</p>}

@@ -20,14 +20,14 @@ function Home(props){
       <img src={ghost} alt="a ghost" id="Home-ghost"/>
       <div id="Home-TinyPlayer">
         <div id="Home-TinyTape-wrap" onClick={handleTapeClick} >
-          <img src={tinySharpie} id="Home-TinySharpie"/>
+          <img alt="tiny anthems" src={tinySharpie} id="Home-TinySharpie"/>
           <p id="Home-tape-clickme">Click Me!</p>
           <TinyTape />
         </div>
-        <img src={tinyPlayerCover} id="Home-TinyPlayer-cover"/>
-        <img src={tinyPlayer} />
+        <img src={tinyPlayerCover} id="Home-TinyPlayer-cover" alt=""/>
+        <img src={tinyPlayer} alt=""/>
       </div>
-      <img src={vommy} id="Home-Vommy"/>
+      <img src={vommy} id="Home-Vommy" alt="vommy the mascott"/>
     </div>
   );
 }

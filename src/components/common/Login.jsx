@@ -1,14 +1,10 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 import { firebase } from './../../store';
-import { initFirestorter, Collection, Document } from 'firestorter';
 
 const provider = new firebase.auth.GoogleAuthProvider();
 
 const Login = observer(class Login extends React.Component {
-  constructor(props){
-    super(props);
-  }
 
   signIn = () => {
     console.log('signIn');

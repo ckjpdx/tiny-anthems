@@ -1,8 +1,6 @@
 import React from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom';
-import { usersCollection } from './../store';
 import * as firebase from 'firebase';
-import Login from './common/Login';
 import Faq from './Faq';
 import About from './About';
 import Portfolio from './Portfolio';
@@ -52,7 +50,7 @@ class App extends React.Component {
   }
 
   render() {
-    const navAndTitle = this.props.history.location.pathname !== '/' && <div id="App-nav-and-title"><NavDrawer appState={this.state}/><img src={sharpie} id="App-tiny-sharpie"/></div>;
+    const navAndTitle = this.props.history.location.pathname !== '/' && <div id="App-nav-and-title"><NavDrawer appState={this.state}/><img src={sharpie} id="App-tiny-sharpie" alt="tiny anthems title" /></div>;
     return (
       <div className="App">
         {navAndTitle}

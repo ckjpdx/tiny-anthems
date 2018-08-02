@@ -24,10 +24,10 @@ class About extends React.Component {
         <FontAwesomeIcon icon={faReact} size="6x" id="About-react"/>
         <p>Tiny Anthems, a React App</p>
 
-          <p><a href="https://ckjpdx.github.io/portfolio/" target="_blank">by Chris Knight Johnson</a></p>
+          <p><a href="https://ckjpdx.github.io/portfolio/" target="_blank" rel="noopener noreferrer">by Chris Knight Johnson</a></p>
 
         <p>
-          <a href="https://github.com/ckjpdx/tiny-anthems/blob/master/README.md" target="_blank">Tiny Anthems README</a>
+          <a href="https://github.com/ckjpdx/tiny-anthems/blob/master/README.md" target="_blank" rel="noopener noreferrer">Tiny Anthems README</a>
         </p>
       </div>
     );

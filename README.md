@@ -1,4 +1,6 @@
 # Tiny Anthems
+a dynamic React app
+
 *by Chris Knight Johnson*
 
 ### Description
