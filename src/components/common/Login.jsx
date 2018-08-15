@@ -7,7 +7,6 @@ const provider = new firebase.auth.GoogleAuthProvider();
 const Login = observer(class Login extends React.Component {
 
   signIn = () => {
-    console.log('signIn');
     firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
       .then(() => {
         return firebase.auth().signInWithPopup(provider)
@@ -18,7 +17,6 @@ const Login = observer(class Login extends React.Component {
   };
 
   signOut = () => {
-    console.log('signOut');
     firebase.auth().signOut()
       .catch((error) => {
         console.error(error);

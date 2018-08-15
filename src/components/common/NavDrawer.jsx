@@ -24,7 +24,6 @@ class NavDrawer extends React.Component {
   };
 
   toggleDrawer = (side, open, path) => () => {
-    console.log('toggleDrawer');
     this.setState({
       [side]: open,
     });
