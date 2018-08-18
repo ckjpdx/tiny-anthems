@@ -12,7 +12,6 @@ import Quiz from './Quiz';
 import Error404 from './Error404';
 import User from './User';
 import PrivateRoute from './common/PrivateRoute';
-import AdminRoute from './common/AdminRoute';
 import NavDrawer from './common/NavDrawer';
 import sharpie from './../assets/img/tiny_sharpie.png';
 import './App.css';
@@ -36,13 +35,13 @@ class App extends React.Component {
     });
   }
 
-  handleSignIn = (user) => {
+  handleSignIn = (user, redirect = false) => {
     this.setState({
       uid: user.uid,
       name: user.displayName,
       email: user.email
     });
-    this.props.history.push('/user');
+    redirect && this.props.history.push('/user');
   }
 
   handleSignOut = () => {
@@ -64,7 +63,7 @@ class App extends React.Component {
           <PrivateRoute exact path='/user/quiz' appState={this.state} component={Quiz} />
           <Route exact path='/user/review' render={() =>
             <WriteReview />} />
-          <AdminRoute exact path='/admin' component={Admin} appState={this.state}/>} />
+          <PrivateRoute exact path='/admin' component={Admin} appState={this.state} adminRoute={true}/> } />
           <Route component={Error404} />
         </Switch>
       </div>
