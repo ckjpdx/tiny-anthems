@@ -34,7 +34,7 @@ const Quiz = observer(class Quiz extends Component {
       alert('Your questionnaire has been submitted! Please allow several weeks for song creation. Mike may be in contact with you via email for further information.');
       this.props.history.push('/');
     } else {
-      alert('Something broke on the submission! We havent any idea why. Please try again later or contact Mike and tell him his stupid app is broken so he can come yell at me. -jack');
+      alert('Something broke on the submission! We havent any idea why. Please try again later or contact Mike and tell him to yell at his web developer, Jack.');
     }
   };
 
@@ -43,13 +43,15 @@ const Quiz = observer(class Quiz extends Component {
       <input type="radio" checked readOnly />
       <label>Myself</label>
       <p>
-        In order to get a sense of your personality to guide the song, I’ve put together a small series of questions. They are all optional and there will be a field at the end to freely write anything you choose. It’s possible that none, some, or all of the information will be used in the song, the more information you provide, the better!
+        Congratulations on taking the first step toward becoming forever enshrined in the glory of song! In order to get a sense of your personality and thus create a sonic masterpiece befitting one so noble, I’ve put together a small series of questions. They are all optional and there will be a field at the end to freely write anything you choose. It’s possible that none, some, or all of the information will be used in the song, the more information you provide, the better!
       </p>
       <label>What is your name? Do you have any nicknames?</label>
       <textarea type="text" name="nameOrNickname" onChange={this.handleInput} />
       <label>When were you born?</label>
       <textarea type="text" name="whenBorn" onChange={this.handleInput} />
       <label>What are some of your hobbies or interests?</label>
+      <textarea type="text" name="aboutYou" onChange={this.handleInput} />
+      <label>Tell me about yourself as broadly or specifically as you’d like to. The more detailed and specific you are, the better.</label>
       <textarea type="text" name="hobbiesInterests" onChange={this.handleInput} />
       <label>Who are some of your favorite characters, fictional or non-fictional and why?</label>
       <textarea type="text" name="favoriteCharacters" onChange={this.handleInput} />
@@ -65,9 +67,11 @@ const Quiz = observer(class Quiz extends Component {
       <textarea type="text" name="timeMachine" onChange={this.handleInput} />
       <label>If there was a meteor on a collision course with the earth in two weeks, how would you spend that time?</label>
       <textarea type="text" name="meteorDeath" onChange={this.handleInput} />
-      <label>Anything else you’d like to share: (This can be a personal biography, story that you think defines you, list of stuff you like, or anything else you think sheds light on who you are)</label>
-      <textarea type="text" name="anythingElse" onChange={this.handleInput} />
-      <button onClick={this.handleQuizFormSubmit}>Immortalize me thru song</button>
+      <label>How do you feel about robots? Would you want one in your house? Do you care?</label>
+      <textarea type="text" name="feelsAboutRobots" onChange={this.handleInput} />
+      <label>Who are some of your favorite musicians?</label>
+      <textarea type="text" name="favMusicians" onChange={this.handleInput} />
+      <button onClick={this.handleQuizFormSubmit}>Immortalize me through song!</button>
     </div>;
 
     const forThemQuestions = <div>
