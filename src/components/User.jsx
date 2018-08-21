@@ -4,11 +4,11 @@ import { quizzesCollection } from './../store';
 import { Link } from 'react-router-dom';
 import firebase from 'firebase';
 import fileDownload from 'js-file-download';
-import immortalize from './../assets/img/immortalize.jpg';
+import rider from './../assets/img/rider.png';
 import './User.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFileAudio, faFileAlt, faForward } from '@fortawesome/free-solid-svg-icons';
+import { faFileAudio, faFileAlt } from '@fortawesome/free-solid-svg-icons';
 import { faFortAwesome } from '@fortawesome/free-brands-svg-icons'
 
 const User = observer(class User extends Component {
@@ -50,15 +50,21 @@ const User = observer(class User extends Component {
     } else {
       listSongs = <p>You don't have any anthems made yet! Fill out a questionnaire to begin the immortalization process!</p>;
     }
-
+    // apply styles to text
+    const beginText = document.getElementById('User-text-begin');
+    const riderHero = document.getElementById('User-rider');
+    function toggleBegin(){
+      beginText.classList.toggle('User-toggle-begin-text')
+      riderHero.classList.toggle('User-toggle-rider-hero')
+    }
     return (
       <div>
         <FontAwesomeIcon icon={faFortAwesome} size="5x" />
         <h2>Welcome home, {this.props.appState.name}</h2>
-        <Link to='/user/quiz'>
-          <FontAwesomeIcon icon={faForward} size="5x" id="User-start"/>
+        <Link to='/user/quiz' id="User-being-link" onMouseOver={()=>toggleBegin()} onMouseOut={()=>toggleBegin()}>
+          <img src={rider} id="User-rider" alt="a hero on a horse" />
+          <p id="User-text-begin">Begin Immortalization Process</p>
         </Link>
-        <img src={immortalize} id="User-immortalize-label" alt="immortalize label"/>
         <h2>Your questionnaires:</h2>
         <div className="User-list-area">
           {quizzes.length ? quizzes : <p>No questionnaires submitted yet!</p>}

@@ -17,12 +17,20 @@ class About extends React.Component {
         <h1>About the author</h1>
         <p>What is this, exactly?</p>
         <p>
-          Mike is pretty confident that life can and should be pretty a pretty fun, cool, adventure, and not an endless stream of newsbites and woes to be stressed about. (though those are real, too) In an attempt to live this ideology and to be a small ripple in a large pond, Mike has taken on the herculean and vainglorious task of appointing himself the lowly bard of 2018. With intentions to make life at least briefly awesome for people, Mike’s plan is to write one song for all 7.6 billion residents of the planet.
+          Some people like to party. Some people like to work on their trucks. Mike likes to remind people of how wildly absurd it is to be alive. He just so happens to want to do this in the form of song in such a way that reminds people of their own present greatness. Appointing himself with the humble yet vainglorious task of documenting and extolling the greatness of all 7.6 billion human residents of the planet one at a time, Mike has vowed to ensure that all beings are enshrined in the glory of song..
         </p>
         <p>
           Mike attended The Evergreen State College and presently lives in a cramped apartment in Portland, OR.
         </p>
-        <p>Mike likes songs and is a proud member of the clean plate club.</p>
+        <p>
+          Mike likes songs and is a proud member of the clean plate club.
+        </p>
+        <h2>
+          Other Questions? Contact Me!
+        </h2>
+        <p>
+          TinyAnthems@gmail.com, or look into the blood moon from the peak of Dark Mountain and call my name thrice.
+        </p>
         <hr />
         <FontAwesomeIcon icon={faReact} size="6x" id="About-react"/>
         <p>Tiny Anthems, a React App</p>

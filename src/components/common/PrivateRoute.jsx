@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
 const PrivateRoute = ({ component: Component, adminRoute = false, appState = null, ...rest }) => {
-  const admins = ['cknightjohnson@gmail.com', 'drmklong@gmail.com'];
+  const admins = ['cknightjohnson@gmail.com', 'drmklong@gmail.com', 'tinyanthems@gmail.com'];
   let isAdmin = false;
   admins.forEach(each => {
     if (appState.email === each) {

@@ -16,14 +16,29 @@ div.User-list-area {
   border: 1px solid #DDE
 }
 
-#User-start {
-  animation: fastforward 1s ease infinite alternate;
-  @keyframes fastforward {
-    to {
-      color: crimson;
-    }
-    from {
-      color: #800;
-    }
+img#User-rider {
+  transition: all 0.5s;
+  width: 50%;
+  @media screen and (min-width: $bp-tablet) {
+    width: 30%;
   }
+}
+
+.User-toggle-rider-hero {
+  transform: rotate(40deg);
+}
+
+p#User-text-begin {
+  color: rgba(255,0,0,0);
+  text-transform: uppercase;
+  transition: all 0.5s;
+  margin: 0;
+}
+
+.User-toggle-begin-text {
+  color: rgba(255,0,0,1) !important;
+}
+
+#User-being-link {
+  
 }
