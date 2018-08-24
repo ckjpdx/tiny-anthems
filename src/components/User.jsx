@@ -9,7 +9,7 @@ import './User.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFileAudio, faFileAlt } from '@fortawesome/free-solid-svg-icons';
-import { faFortAwesome } from '@fortawesome/free-brands-svg-icons'
+// import { faFortAwesome } from '@fortawesome/free-brands-svg-icons'
 
 const User = observer(class User extends Component {
   constructor(props){
@@ -59,9 +59,8 @@ const User = observer(class User extends Component {
     }
     return (
       <div>
-        <FontAwesomeIcon icon={faFortAwesome} size="5x" />
         <h2>Welcome home, {this.props.appState.name}</h2>
-        <Link to='/user/quiz' id="User-being-link" onMouseOver={()=>toggleBegin()} onMouseOut={()=>toggleBegin()}>
+        <Link to='/user/quiz' id="User-being-link" onMouseOver={toggleBegin.bind(this)} onMouseOut={()=>toggleBegin()}>
           <img src={rider} id="User-rider" alt="a hero on a horse" />
           <p id="User-text-begin">Begin Immortalization Process</p>
         </Link>
