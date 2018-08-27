@@ -1,6 +1,6 @@
 import React from 'react';
 import { firebase } from './../store';
-import './styles/ListedQuizUpload.css';
+import './ListedQuizUpload.css';
 
 class ListedQuizUpload extends React.Component {
   constructor(props){
@@ -48,7 +48,7 @@ class ListedQuizUpload extends React.Component {
       <form className="ListedQuizUpload">
         <input type="file" onChange={this.onFileSelect} />
         <p>Upload: {this.state.progressPercent}%</p>
-        <p className="admin-upload-label">UPLOAD SONG--></p>
+
         <button type="button" onClick={() => this.state.file && this.onUploadSong(this.props.quiz)}>Upload Song</button>
       </form>
     );

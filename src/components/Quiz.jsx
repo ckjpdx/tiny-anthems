@@ -50,9 +50,9 @@ const Quiz = observer(class Quiz extends Component {
       <label>When were you born?</label>
       <textarea type="text" name="whenBorn" onChange={this.handleInput} />
       <label>What are some of your hobbies or interests?</label>
-      <textarea type="text" name="aboutYou" onChange={this.handleInput} />
-      <label>Tell me about yourself as broadly or specifically as you’d like to. The more detailed and specific you are, the better.</label>
       <textarea type="text" name="hobbiesInterests" onChange={this.handleInput} />
+      <label>Tell me about yourself as broadly or specifically as you’d like to. The more detailed and specific you are, the better.</label>
+      <textarea type="text" name="aboutYou" onChange={this.handleInput} className="bigger"/>
       <label>Who are some of your favorite characters, fictional or non-fictional and why?</label>
       <textarea type="text" name="favoriteCharacters" onChange={this.handleInput} />
       <label>What are some accomplishments or victories that you’re proud of? What are some of your future goals?</label>
@@ -94,7 +94,7 @@ const Quiz = observer(class Quiz extends Component {
       <textarea type="text" name="whosThisFor" onChange={this.handleInput} />
       <label>Write here about this person:</label>
       <textarea type="text" name="aboutSomeoneElse" onChange={this.handleInput} />
-      <button onClick={this.handleQuizFormSubmit}>Immortalize them thru song</button>
+      <button onClick={this.handleQuizFormSubmit}>Immortalize!</button>
     </div>;
 
     let displayQuiz = null;

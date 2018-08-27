@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 import { quizzesCollection } from './../store';
 import ListedQuiz from './ListedQuiz';
-import './styles/Admin.css';
+import './Admin.css';
 
 
 const Admin = observer(class Admin extends Component {

@@ -50,17 +50,10 @@ const User = observer(class User extends Component {
     } else {
       listSongs = <p>You don't have any anthems made yet! Fill out a questionnaire to begin the immortalization process!</p>;
     }
-    // apply styles to text
-    const beginText = document.getElementById('User-text-begin');
-    const riderHero = document.getElementById('User-rider');
-    function toggleBegin(){
-      beginText.classList.toggle('User-toggle-begin-text')
-      riderHero.classList.toggle('User-toggle-rider-hero')
-    }
     return (
       <div>
         <h2>Welcome home, {this.props.appState.name}</h2>
-        <Link to='/user/quiz' id="User-being-link" onMouseOver={toggleBegin.bind(this)} onMouseOut={()=>toggleBegin()}>
+        <Link to='/user/quiz' id="User-being-link">
           <img src={rider} id="User-rider" alt="a hero on a horse" />
           <p id="User-text-begin">Begin Immortalization Process</p>
         </Link>

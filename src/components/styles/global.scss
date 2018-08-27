@@ -39,13 +39,20 @@ ul {
   }
 }
 button {
+  color: white;
+  box-shadow: 0px 2px 3px black;
+  border: 1px solid red;
   font-size: 1rem;
-  padding: 10px;
-  background: none;
+  padding: 15px;
+  background: $blood;
+  border-radius: 10px;
 }
 textarea {
   display: block;
   width: 100%;
   background: #EEF;
   margin: 0 0 20px;
+  &.bigger {
+    height: 5em;
+  }
 }

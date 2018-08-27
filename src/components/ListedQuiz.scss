@@ -1,0 +1,24 @@
+@import 'styles/_variables';
+
+div.ListedQuiz {
+  border: 2px solid black;
+  background: $blue;
+  margin: 5px;
+  padding: 10px
+}
+div.ListedQuiz span {
+  color: red;
+}
+div.ListedQuiz-pending-complete {
+  margin: 5px 0 15px;  
+  * {
+    display: inline;
+  }
+}
+div.ListedQuiz-question-answer-pair {
+  background-color: rgba(255,255,255,.9);
+  border: gray 1px solid;
+  * {
+    margin: 0;
+  }
+}

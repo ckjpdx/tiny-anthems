@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { observer } from 'mobx-react';
 import ListedQuizUpload from './ListedQuizUpload';
-import './styles/ListedQuiz.css';
+import './ListedQuiz.css';
 import firebase from 'firebase';
 
 class ListedQuiz extends Component {
@@ -50,11 +50,11 @@ class ListedQuiz extends Component {
 		return (
       <div className="ListedQuiz">
 				<div className="ListedQuiz-pending-complete">
-					<p>{quiz.data.email}</p>
+					<h2>{quiz.data.email}</h2>
 					<input type="checkbox" checked={quiz.data.pending} onChange={() => this.changePending(quiz)}/>
 					<p>Pending</p>
 				</div>
-				{quizQuestionsArrays.map((questionArray, i) => <div key={i}><h3>{questionArray[0]}?</h3><p>{questionArray[1]}</p></div>)}
+				{quizQuestionsArrays.map((questionArray, i) => <div className="ListedQuiz-question-answer-pair" key={i}><h3>{questionArray[0]}?</h3><p>{questionArray[1]}</p></div>)}
 				<h2>Song(s)</h2>
 				{quiz.data.songs && quiz.data.songs.map((song, i) => {
           return <p key={i}>{song} <span key={'x'+i} onClick={() => this.deleteSong(song, quiz)}>X</span></p>
