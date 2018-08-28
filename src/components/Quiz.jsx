@@ -6,19 +6,28 @@ import waves from './../assets/img/waves.png';
 import 'firebase/firestore';
 import './Quiz.css';
 
+import { forMeQuestionsArr, forThemQuestionsArr } from './../assets/extras/questions';
+
 const Quiz = observer(class Quiz extends Component {
   constructor(props) {
     super(props);
     this.state = props.appState;
+    this.state.quizData = {
+      questions: [],
+      answers: []
+    };
     this.handleInput = this.handleInput.bind(this);
     this.handleQuizFormSubmit = this.handleQuizFormSubmit.bind(this);
     this.handleQuizTypeToggle = this.handleQuizTypeToggle.bind(this);
   }
 
-  handleInput(e) {
-    let newQuestions = Object.assign({}, this.state.questions);
-    newQuestions[e.target.name] = e.target.value;
-    this.setState({questions: newQuestions});
+  handleInput(e, question, i) {
+    console.log('e:', e, 'question:', question, 'i:', i);
+    let newQuizData = Object.assign({}, this.state.quizData);
+    newQuizData.questions[i] = question;
+    newQuizData.answers[i] = e.target.value;
+    this.setState({quizData: newQuizData});
+    console.log(this.state);
   }
 
   handleQuizTypeToggle(e) {
@@ -28,13 +37,20 @@ const Quiz = observer(class Quiz extends Component {
 
   handleQuizFormSubmit = async (e) => {
     e.preventDefault();
-    const quizSubmitId = await quizzesCollection.add(this.state); // can return doc.id
-    console.log(quizSubmitId.id);
-    if (quizSubmitId.id) {
-      alert('Your questionnaire has been submitted! Please allow several weeks for song creation. Mike may be in contact with you via email for further information.');
-      this.props.history.push('/');
+    const checkForAnswers = this.state.quizType === 'for-me'
+      ? forMeQuestionsArr.length
+      : forThemQuestionsArr.length;
+    if (checkForAnswers === this.state.quizData.answers.length) {
+      const quizSubmitId = await quizzesCollection.add(this.state); // can return doc.id
+      console.log(quizSubmitId.id);
+      if (quizSubmitId.id) {
+        alert('Your questionnaire has been submitted! Please allow several weeks for song creation. Mike may be in contact with you via email for further information.');
+        this.props.history.push('/');
+      } else {
+        alert('Something broke on the submission! We havent any idea why. Please try again later or contact Mike and tell him to yell at his web developer, Jack.');
+      }
     } else {
-      alert('Something broke on the submission! We havent any idea why. Please try again later or contact Mike and tell him to yell at his web developer, Jack.');
+      alert('Please answer all the questions before submitting!')
     }
   };
 
@@ -45,33 +61,13 @@ const Quiz = observer(class Quiz extends Component {
       <p>
         Congratulations on taking the first step toward becoming forever enshrined in the glory of song! In order to get a sense of your personality and thus create a sonic masterpiece befitting one so noble, I’ve put together a small series of questions. They are all optional and there will be a field at the end to freely write anything you choose. It’s possible that none, some, or all of the information will be used in the song, the more information you provide, the better!
       </p>
-      <label>What is your name? Do you have any nicknames?</label>
-      <textarea type="text" name="nameOrNickname" onChange={this.handleInput} />
-      <label>When were you born?</label>
-      <textarea type="text" name="whenBorn" onChange={this.handleInput} />
-      <label>What are some of your hobbies or interests?</label>
-      <textarea type="text" name="hobbiesInterests" onChange={this.handleInput} />
-      <label>Tell me about yourself as broadly or specifically as you’d like to. The more detailed and specific you are, the better.</label>
-      <textarea type="text" name="aboutYou" onChange={this.handleInput} className="bigger"/>
-      <label>Who are some of your favorite characters, fictional or non-fictional and why?</label>
-      <textarea type="text" name="favoriteCharacters" onChange={this.handleInput} />
-      <label>What are some accomplishments or victories that you’re proud of? What are some of your future goals?</label>
-      <textarea type="text" name="accomplishments" onChange={this.handleInput} />
-      <label>Describe a memorable life experience you’ve had with an animal or with a special place. OR BOTH.</label>
-      <textarea type="text" name="memorableExperience" onChange={this.handleInput} />
-      <label>What are some things you wish had never been invented and why?</label>
-      <textarea type="text" name="neverInvented" onChange={this.handleInput} />
-      <label>If you had a super power, what would it be and why? What would you do with it? DON’T YOU LIE TO ME.</label>
-      <textarea type="text" name="superPower" onChange={this.handleInput} />
-      <label>If you could book a round-trip ticket to anywhere in a time machine, where and when would you go? What if it was one-way?</label>
-      <textarea type="text" name="timeMachine" onChange={this.handleInput} />
-      <label>If there was a meteor on a collision course with the earth in two weeks, how would you spend that time?</label>
-      <textarea type="text" name="meteorDeath" onChange={this.handleInput} />
-      <label>How do you feel about robots? Would you want one in your house? Do you care?</label>
-      <textarea type="text" name="feelsAboutRobots" onChange={this.handleInput} />
-      <label>Who are some of your favorite musicians?</label>
-      <textarea type="text" name="favMusicians" onChange={this.handleInput} />
-      <button onClick={this.handleQuizFormSubmit}>Immortalize me through song!</button>
+      {forMeQuestionsArr.map((question, i) =>
+        <div className="Quiz-for-me-question" key={'key'+i}>
+          <label>{question}</label>
+          <textarea type="text" onChange={(e)=>this.handleInput(e, question, i)}/>
+        </div>
+      )}
+      <button onClick={this.handleQuizFormSubmit}>Immortalize!</button>
     </div>;
 
     const forThemQuestions = <div>
@@ -90,10 +86,12 @@ const Quiz = observer(class Quiz extends Component {
       <p>
         Remember that there is no right or wrong information or details to share, per se, but more details to work with are always great and a little specificity goes a long way.
       </p>
-      <label>Who is this for? Enter names/aliases for this person:</label>
-      <textarea type="text" name="whosThisFor" onChange={this.handleInput} />
-      <label>Write here about this person:</label>
-      <textarea type="text" name="aboutSomeoneElse" onChange={this.handleInput} />
+      {forThemQuestionsArr.map((question, i) =>
+        <div className="Quiz-for-them-question" key={'key'+i}>
+          <label>{question}</label>
+          <textarea type="text" onChange={(e)=>this.handleInput(e, question, i)}/>
+        </div>
+      )}
       <button onClick={this.handleQuizFormSubmit}>Immortalize!</button>
     </div>;
 
