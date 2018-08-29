@@ -5,6 +5,11 @@ import ListedQuizUpload from './ListedQuizUpload';
 import './ListedQuiz.css';
 import firebase from 'firebase';
 
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+
 class ListedQuiz extends Component {
 	constructor(props) {
 		super(props);
@@ -35,32 +40,33 @@ class ListedQuiz extends Component {
 		await quiz.update({pending: newPending});
 	}
 
-	// switchPendingQuery() {
-	// 	this.state.filterPending ? (
-	// 		quizzesCollection.query = quizzesCollection.ref.where('pending', '==', true)
-	// 	):(
-	// 		quizzesCollection.query = undefined
-	// 	)
-	// }
-
 	render() {
 		const { quiz } = this.props;
-		const quizQuestionsArrays = quiz.data.questions ? Object.entries(quiz.data.questions) : [['no questions', 'no answers']];
+		const quizData = quiz.data.quizData;
+		const questionsAndAnswers = quizData
+			? quizData.questions.map((question, i) => <div className="ListedQuiz-question-answer-pair" key={i}><h3>{question}</h3><p>{quizData.answers[i]}</p></div>)
+			: <h3>WARNING: No data detected!</h3>;
 
 		return (
-      <div className="ListedQuiz">
-				<div className="ListedQuiz-pending-complete">
-					<h2>{quiz.data.email}</h2>
-					<input type="checkbox" checked={quiz.data.pending} onChange={() => this.changePending(quiz)}/>
-					<p>Pending</p>
-				</div>
-				{quizQuestionsArrays.map((questionArray, i) => <div className="ListedQuiz-question-answer-pair" key={i}><h3>{questionArray[0]}?</h3><p>{questionArray[1]}</p></div>)}
-				<h2>Song(s)</h2>
-				{quiz.data.songs && quiz.data.songs.map((song, i) => {
-          return <p key={i}>{song} <span key={'x'+i} onClick={() => this.deleteSong(song, quiz)}>X</span></p>
-        })}
-        <ListedQuizUpload quiz={quiz} />
-      </div>
+			<ExpansionPanel>
+        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+					<div className="ListedQuiz-pending-complete">
+						<h2>{quiz.data.email}</h2>
+						<input type="checkbox" checked={quiz.data.pending} onChange={() => this.changePending(quiz)}/>
+						<p>Pending</p>
+					</div>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+					<div className="ListedQuiz">
+						{questionsAndAnswers}
+						<h2>Song(s)</h2>
+						{quiz.data.songs && quiz.data.songs.map((song, i) => {
+							return <p key={i}>{song} <span key={'x'+i} onClick={() => this.deleteSong(song, quiz)}>X</span></p>
+						})}
+						<ListedQuizUpload quiz={quiz} />
+					</div>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
 		);
 	}
 }

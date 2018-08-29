@@ -9,6 +9,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.1.0-11",
     "@fortawesome/react-fontawesome": "0.1.0-11",
     "@material-ui/core": "^1.3.0",
+    "@material-ui/icons": "^3.0.1",
     "firebase": "^4.13.1",
     "firestorter": "^0.10.0",
     "js-file-download": "^0.4.1",
