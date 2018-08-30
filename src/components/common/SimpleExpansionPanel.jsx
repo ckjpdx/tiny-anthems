@@ -6,18 +6,29 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
+import './SimpleExpansionPanel.css';
+
+const styles = {
+  content: {
+    display: 'block'
+  }
+};
+
 function SimpleExpansionPanel(props) {
+  const { classes } = props;
   return (
-    <div>
-      <ExpansionPanel>
-        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-          <h2>{props.header}</h2>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          <p>{props.body}</p>
-        </ExpansionPanelDetails>
-      </ExpansionPanel>
-    </div>
+    <ExpansionPanel className="SimpleExpansionPanel">
+      <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}
+        classes={{
+          label: classes.content, // class name, e.g. `classes-nesting-label-x`
+        }}
+      >
+        <h2 className="no-margin">{props.header}</h2>
+      </ExpansionPanelSummary>
+      <ExpansionPanelDetails>
+        <p>{props.body}</p>
+      </ExpansionPanelDetails>
+    </ExpansionPanel>
   );
 }
 
@@ -26,4 +37,4 @@ SimpleExpansionPanel.propTypes = {
   body: PropTypes.string.isRequired
 };
 
-export default SimpleExpansionPanel;
+export default withStyles(styles)(SimpleExpansionPanel);
