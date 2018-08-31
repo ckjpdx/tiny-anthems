@@ -35,7 +35,7 @@ This web app allows:
 * [Font Awesome for React](https://github.com/FortAwesome/react-fontawesome)
 
 # Progress
-### Protocol
+### Standards
 - [ ] PropType checking in all components
 - [ ] Test cases for all components
 
@@ -45,12 +45,12 @@ This web app allows:
 - [x] Redirect to /user Profile page after successful sign in
 - [x] [Auth change observer](https://firebase.google.com/docs/auth/web/manage-users)
 - [x] [Auth persistence](https://firebase.google.com/docs/auth/web/auth-state-persistence)
-- [ ] Use AdminRoute to restrict admin access
+- [x] Add Admin restriction to PrivateRoute
 - [ ] React Context used for auth
 - [ ] Switch from PrivateRoute & AdminRoute to Auth HOC
 
 ### Database & Storage
-- [ ] Google Cloud Storage is used for hosting
+- [x] Site deployed via Firebase CLI to Google Hosting
 
 ##### Client
 - [x] Submit questionnaire for song creation
@@ -72,6 +72,7 @@ This web app allows:
 - [ ] Automatically email client to notify of song completion
 
 ### UX & Interface
+- [x] Responsive breakpoint styles for mobile, tablet, and desktop
 - [x] Landing page with Tiny Anthems tape that goes into player when clicked and advances user into the site
 - [x] Display demo songs to play on portfolio page via Soundcloud imbeds
 - [x] Confirm quiz was submitted and redirect to profile page.
@@ -89,7 +90,6 @@ This web app allows:
   - [ ] player that fires confetti
   - [ ] ...and cassette with song name on it in "marker" font
   - [ ] ...which initiates blob download onClick
-- [ ] breakpoint styles for tablet and desktop
 
 ### Bugs
 none yet!
