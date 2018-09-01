@@ -5,8 +5,8 @@ import boat from './../assets/img/boat.png';
 import waves from './../assets/img/waves.png';
 import 'firebase/firestore';
 import './Quiz.css';
-
 import { forMeQuestionsArr, forThemQuestionsArr } from './../assets/extras/questionArr';
+import * as emailjs from 'emailjs-com';
 
 const Quiz = observer(class Quiz extends Component {
   constructor(props) {
@@ -44,13 +44,24 @@ const Quiz = observer(class Quiz extends Component {
       const quizSubmitId = await quizzesCollection.add(this.state); // can return doc.id
       console.log(quizSubmitId.id);
       if (quizSubmitId.id) {
+        emailjs.init(process.env.REACT_APP_EMAILJS);
+        const templateParams = {
+          name: this.state.name,
+          email: this.state.email
+        };
+        emailjs.send('gmail','template_vk6ykRLd', templateParams)
+          .then(function(response) {
+            console.log('SUCCESS!', response.status, response.text);
+          }, function(err) {
+            console.log('FAILED...', err);
+          });
         alert('Your questionnaire has been submitted! Please allow several weeks for song creation. Mike may be in contact with you via email for further information.');
         this.props.history.push('/');
       } else {
         alert('Something broke on the submission! We havent any idea why. Please try again later or contact Mike and tell him to yell at his web developer, Jack.');
       }
     } else {
-      alert('Please answer all the questions before submitting!')
+      alert('Please answer all the questions before submitting!');
     }
   };
 

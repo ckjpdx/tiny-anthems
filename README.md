@@ -33,6 +33,7 @@ This web app allows:
   * use $`gh-pages-clean` to fix deployment [issues](https://github.com/tschaub/gh-pages/issues/17)
 * [Sass/SCSS](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-a-css-preprocessor-sass-less-etc)
 * [Font Awesome for React](https://github.com/FortAwesome/react-fontawesome)
+* [EmailJS](https://www.emailjs.com/docs/), library/service to send emails out without using a server
 
 # Progress
 ### Standards
