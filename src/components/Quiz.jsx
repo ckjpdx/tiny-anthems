@@ -6,7 +6,7 @@ import waves from './../assets/img/waves.png';
 import 'firebase/firestore';
 import './Quiz.css';
 
-import { forMeQuestionsArr, forThemQuestionsArr } from './../assets/extras/questions';
+import { forMeQuestionsArr, forThemQuestionsArr } from './../assets/extras/questionArr';
 
 const Quiz = observer(class Quiz extends Component {
   constructor(props) {
