@@ -10,7 +10,7 @@ import './SimpleExpansionPanel.css';
 
 const styles = {
   content: {
-    display: 'block'
+    display: 'inline'
   }
 };
 
@@ -20,10 +20,10 @@ function SimpleExpansionPanel(props) {
     <ExpansionPanel className="SimpleExpansionPanel">
       <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}
         classes={{
-          label: classes.content, // class name, e.g. `classes-nesting-label-x`
+          content: classes.content
         }}
       >
-        <h2 className="no-margin">{props.header}</h2>
+        <h2>{props.header}</h2>
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
         <p>{props.body}</p>

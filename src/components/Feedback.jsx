@@ -3,7 +3,7 @@ import React from 'react';
 function Feedback(){
   return (
     <div>
-      <h1>Reviews</h1>
+      <h1>Voices of the Immortal</h1>
       <p>
         “My best friend Vivian hired Mike to compose a Tiny Anthem for me for my birthday, after she had commissioned one for herself and loved the experience. It was one of the most thoughtful, entertaining and personal gifts I’ve ever received! She presented it to me on a thumb drive, along with a sheet of paper announcing the title of the song in calligraphy: “Gina, Chromatic Saint Against Whom All Flames Lap Harmlessly”. The song was luminous and entertaining, hilarious at points but also deeply resonant - and its title has become a bit of a talisman and anchor during life’s ups and downs. Best of all, Mike and I have become good friends as a result of this song being crafted. Highly recommend Tiny Anthems as a unique gift idea!”
         <br/>

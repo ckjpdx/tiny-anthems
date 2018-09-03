@@ -56,7 +56,7 @@ class ListedQuiz extends Component {
 						<p>Pending</p>
 					</div>
         </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
+        <ExpansionPanelDetails style={{display: 'block'}}>
 					<div className="ListedQuiz">
 						{questionsAndAnswers}
 						<h2>Song(s)</h2>

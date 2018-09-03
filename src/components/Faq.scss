@@ -1,0 +1,10 @@
+@import 'styles/_variables';
+
+.Faq {
+  hr {
+    margin: 25px;
+    @media screen and (min-width: $bp-tablet) {
+      margin: 50px;
+    }
+  }
+}
