@@ -16,5 +16,5 @@ export const faqArr = [
   `Why don't you get a real job?`,
   `I don’t know, why don’t YOU get a real job?`,
   `Other Questions? Contact Me!`,
-  `TinyAnthems@gmail.com, or look into the blood moon from the peak of Dark Mountain and call my name thrice.`
+  `You can reach Mike at TinyAnthems@gmail.com, or look into the blood moon from the peak of Dark Mountain and call my name thrice.`
 ];
