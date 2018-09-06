@@ -1,33 +1,25 @@
 import React from 'react';
-import TinyTape from './common/TinyTape';
-import tinyPlayer from './../assets/img/tiny_player_jack_empty.png';
-import tinyPlayerCover from './../assets/img/tiny_player_jack_cover.png';
-import tinySharpie from './../assets/img/tiny_sharpie.png';
-import vommy from './../assets/img/mike.gif';
-import ghost from './../assets/img/ghost.png';
+import { Link } from 'react-router-dom';
+import catterpillar from './../assets/img/catterpillar.gif';
+import cacoon from './../assets/img/cacoon.png';
+import butterfly from './../assets/img/butterfly.png';
+
 import './Home.css';
 
-function Home(props){
-  const handleTapeClick = () => {
-    document.getElementById("Home-TinyTape-wrap").classList.add('play-tape-insert');
-    document.getElementById("Home-TinyPlayer").classList.add('play-player-fly-away');
-    setTimeout(() => {
-      props.history.push('/faq');
-    }, 3000);
-  }
+function Home(){
   return (
-    <div id="Home">
-      <img src={ghost} alt="a ghost" id="Home-ghost"/>
-      <div id="Home-TinyPlayer">
-        <div id="Home-TinyTape-wrap" onClick={handleTapeClick} >
-          <img alt="tiny anthems" src={tinySharpie} id="Home-TinySharpie"/>
-          <p id="Home-tape-clickme">Click Me!</p>
-          <TinyTape />
-        </div>
-        <img src={tinyPlayerCover} id="Home-TinyPlayer-cover" alt=""/>
-        <img src={tinyPlayer} alt=""/>
+    <div className="Home">
+      <div className="Home-metamorphosis">
+        <img src={cacoon} id="cacoon" />
+        <img src={catterpillar} id="catterpillar" />
+        <img src={butterfly} id="butterfly" />
       </div>
-      <img src={vommy} id="Home-Vommy" alt="vommy the mascott"/>
+      <h2 style={{fontStyle: 'italic'}}>“Be Enshrined in the Glory of Song”</h2>
+      <h3>Since the dawn of symbolic thinking, humans of have been telling stories, creating myths, and building legends to guide one another. Here at Tiny Anthems, we believe all humans are worthy of touching immortality. For like, a few bucks or whatever you’ve got lying around, you or a loved one can live forever. Be enshrined in the glory of song.</h3>
+      <h3>To accept this great quest, one must step over the threshold.</h3>
+      <Link to="/user">
+        <button>Login to Begin</button>
+      </Link>
     </div>
   );
 }

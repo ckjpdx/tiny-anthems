@@ -1,34 +1,12 @@
 @import 'styles/_variables';
 
 img#About-vommy {
-  width: 100%;
-  margin: -10% auto;
-  animation: vommy 2s linear 1 forwards;
-}
-
-.play-vommy-shrink {
-  @keyframes vommy {
-    from {
-      width: 100%
-    }
-    to {
-      width: 40%
-    }
-  }
+  width: 40%;
+  margin: -20% auto -10%;
   @media screen and (min-width: $bp-tablet) {
-    @keyframes vommy {
-      from {
-        width: 100%
-      }
-      to {
-        width: 20%
-      }
-    }
+    margin: -10% auto -3%;
+    width: 15%;
   }
-}
-
-p#About-vommy-label {
-  color: gray;
 }
 
 #About-react {

@@ -1,0 +1,149 @@
+@mixin prefixer($declarations){
+  $prefixes: (ms, moz, webkit);
+  @each $property, $value in $declarations {
+    #{$property}: $value;
+    @each $prefix in $prefixes {
+      #{'-' + $prefix + '-' + $property}: $value;
+    }
+  }
+}
+
+div#Welcome-TinyPlayer {
+  position: relative;
+  max-width: calc(100vh * 0.53);
+  margin: 0 auto;
+
+  img#Welcome-TinyPlayer-cover {
+    position: absolute;
+    width: 87%;
+    bottom: 23%;
+    left: 7%;
+    z-index: 2;
+  }
+  div#Welcome-TinyTape-wrap {
+    position: absolute;
+    width: 150%;
+    top: 5%;
+    left: -25%;
+    z-index: 3;
+
+    img#Welcome-TinySharpie {
+      position: absolute;
+      z-index: inherit;
+      width: 57%;
+      top: 12%;
+      left: 21%;
+    }
+
+    p#Welcome-tape-clickme {
+      position: absolute;
+      z-index: 1;
+      top: 53%;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+  }
+}
+
+.play-tape-insert {
+  @include prefixer((
+  animation-duration: 1.5s,
+  animation-name: tape-insert,
+  animation-iteration-count: 1,
+  animation-fill-mode: forwards,
+  animation-play-state: playing
+  ));
+}
+@keyframes tape-insert {
+  0% {
+    position: absolute;
+    z-index: 3;
+    width: 150%;
+    top: 5%;
+    left: -25%;
+    @include prefixer((
+      transform: rotate(0deg)
+    ));
+  }
+  50% {
+    position: absolute;
+    z-index: 3;
+    width: 60%;
+    top: 5%;
+    left: 20%;
+    @include prefixer((
+      transform: rotate(360deg)
+    ));
+  }
+  100% {
+    position: absolute;
+    z-index: 2;
+    width: 60%;
+    top: 51%;
+    left: 20%;
+    @include prefixer((
+      transform: rotate(360deg)
+    ));
+  }
+}
+
+.play-player-fly-away {
+  @include prefixer((
+    animation-delay: 2s,
+    animation-duration: 1s,
+    animation-name: playerFlyAway,
+    animation-iteration-count: 1,
+    animation-fill-mode: forwards,
+    animation-play-state: playing
+  ));
+}
+@keyframes playerFlyAway {
+  from {
+    margin: 0 auto 0;
+  }
+  to {
+    margin: -100vh auto 0;
+  }
+}
+
+img#Welcome-Vommy {
+  z-index: -1;
+  top: 5%;
+  position: absolute;
+  left: 50%;
+  max-height: 90%;
+  width: auto;
+  @include prefixer((
+    transform: translateX(-50%)
+  ));
+}
+
+img#Welcome-ghost {
+  position: absolute;
+  width: 50px;
+  transform: translate(-50%, -50%);
+  animation: ghost 15s linear infinite alternate;
+  z-index: 2;
+  @keyframes ghost {
+    0% {
+      top: 20%;
+      left: 20%;
+    }
+    25% {
+      top: 80%;
+      left: 80%;
+    }
+    50% {
+      top: 20%;
+      left: 80%;
+    }
+    75% {
+      top: 80%;
+      left: 20%;
+    }
+    100% {
+      top: 35%;
+      left: 50%;
+    }
+  }
+}

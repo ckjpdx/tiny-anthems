@@ -4,10 +4,10 @@ div.App {
   text-align: center;
 }
 div#App-nav-and-title {
-  overflow: hidden;
+  // overflow: hidden;
 }
 img#App-tiny-sharpie {
-  animation: sharpie 0.5s linear infinite alternate;
+  animation: sharpie 0.75s linear infinite alternate;
   @keyframes sharpie {
     from {
       transform: rotate(3deg);

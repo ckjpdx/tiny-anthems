@@ -5,15 +5,10 @@ import { faReact } from '@fortawesome/free-brands-svg-icons'
 import './About.css';
 
 class About extends React.Component {
-  componentDidMount() {
-    document.getElementById("About-vommy").classList.add('play-vommy-shrink');
-  }
-
   render(){
     return (
       <div>
         <img src={vommy} alt="cartoon of mike throwing up musical notes" id="About-vommy" />
-        <p id="About-vommy-label">Illustration of Mike's creative process</p>
         <h1>About the author</h1>
         <p>What is this, exactly?</p>
         <p>

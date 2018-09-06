@@ -1,149 +1,47 @@
-@mixin prefixer($declarations){
-  $prefixes: (ms, moz, webkit);
-  @each $property, $value in $declarations {
-    #{$property}: $value;
-    @each $prefix in $prefixes {
-      #{'-' + $prefix + '-' + $property}: $value;
+@import 'styles/_variables';
+
+.Home {
+  div.Home-metamorphosis {
+    position: relative;
+    min-height: 18vw;
+    @media screen and (min-width: $bp-desktop) {
+      min-height: 14vw;
     }
-  }
-}
-
-div#Home-TinyPlayer {
-  position: relative;
-  max-width: calc(100vh * 0.53);
-  margin: 0 auto;
-
-  img#Home-TinyPlayer-cover {
-    position: absolute;
-    width: 87%;
-    bottom: 23%;
-    left: 7%;
-    z-index: 2;
-  }
-  div#Home-TinyTape-wrap {
-    position: absolute;
-    width: 150%;
-    top: 5%;
-    left: -25%;
-    z-index: 3;
-
-    img#Home-TinySharpie {
+    img {
       position: absolute;
-      z-index: inherit;
-      width: 57%;
-      top: 12%;
-      left: 21%;
-    }
-
-    p#Home-tape-clickme {
-      position: absolute;
-      z-index: 1;
-      top: 53%;
-      left: 50%;
-      transform: translate(-50%, 0);
+      top: 50%;
+      left: 43.5%;
+      transform: translate(-30%, -50%);
+      &#catterpillar {
+        z-index: 0;
+        width: 30%;
+        animation: catterpillar 0.3s linear 5s 1 forwards;
+      }
+      &#cacoon {
+        transform: translate(-50%, -50%);
+        z-index: 1;
+        width: 0%;
+        animation: cacoon 5.5s linear 5s 1 forwards;
+      }
+      &#butterfly{
+        z-index: 2;
+        width: 0%;
+        animation: butterfly 0.3s linear 10s 1 forwards;
+      }
     }
   }
 }
-
-.play-tape-insert {
-  @include prefixer((
-  animation-duration: 1.5s,
-  animation-name: tape-insert,
-  animation-iteration-count: 1,
-  animation-fill-mode: forwards,
-  animation-play-state: playing
-  ));
+@keyframes catterpillar {
+  from {width:30%}
+  to {width:0%}
 }
-@keyframes tape-insert {
-  0% {
-    position: absolute;
-    z-index: 3;
-    width: 150%;
-    top: 5%;
-    left: -25%;
-    @include prefixer((
-      transform: rotate(0deg)
-    ));
-  }
-  50% {
-    position: absolute;
-    z-index: 3;
-    width: 60%;
-    top: 5%;
-    left: 20%;
-    @include prefixer((
-      transform: rotate(360deg)
-    ));
-  }
-  100% {
-    position: absolute;
-    z-index: 2;
-    width: 60%;
-    top: 51%;
-    left: 20%;
-    @include prefixer((
-      transform: rotate(360deg)
-    ));
-  }
+@keyframes cacoon {
+  0% {width:0%}
+  5% {width:25%}
+  95% {width:25%}
+  100% {width:0%}
 }
-
-.play-player-fly-away {
-  @include prefixer((
-    animation-delay: 2s,
-    animation-duration: 1s,
-    animation-name: playerFlyAway,
-    animation-iteration-count: 1,
-    animation-fill-mode: forwards,
-    animation-play-state: playing
-  ));
-}
-@keyframes playerFlyAway {
-  from {
-    margin: 0 auto 0;
-  }
-  to {
-    margin: -100vh auto 0;
-  }
-}
-
-img#Home-Vommy {
-  z-index: -1;
-  top: 5%;
-  position: absolute;
-  left: 50%;
-  max-height: 90%;
-  width: auto;
-  @include prefixer((
-    transform: translateX(-50%)
-  ));
-}
-
-img#Home-ghost {
-  position: absolute;
-  width: 50px;
-  transform: translate(-50%, -50%);
-  animation: ghost 15s linear infinite alternate;
-  z-index: 2;
-  @keyframes ghost {
-    0% {
-      top: 20%;
-      left: 20%;
-    }
-    25% {
-      top: 80%;
-      left: 80%;
-    }
-    50% {
-      top: 20%;
-      left: 80%;
-    }
-    75% {
-      top: 80%;
-      left: 20%;
-    }
-    100% {
-      top: 35%;
-      left: 50%;
-    }
-  }
+@keyframes butterfly {
+  from {width:0%}
+  to {width:30%}
 }

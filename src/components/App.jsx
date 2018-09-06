@@ -1,18 +1,18 @@
 import React from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom';
 import * as firebase from 'firebase';
+import Home from './Home';
 import Faq from './Faq';
 import About from './About';
 import Portfolio from './Portfolio';
 import Feedback from './Feedback';
-import Home from './Home';
+import Welcome from './Welcome';
 import Admin from './Admin';
-import WriteReview from './WriteReview';
 import Quiz from './Quiz';
-import Error404 from './Error404';
 import User from './User';
 import PrivateRoute from './common/PrivateRoute';
 import NavDrawer from './common/NavDrawer';
+import Error404 from './Error404';
 import sharpie from './../assets/img/tiny_sharpie.png';
 import './App.css';
 
@@ -54,15 +54,14 @@ class App extends React.Component {
       <div className="App">
         {navAndTitle}
         <Switch>
-          <Route exact path='/' component={Home} />
+          <Route exact path='/' component={Welcome} />
+          <Route path='/home' component={Home} />
           <Route path='/faq' component={Faq} />
           <Route path='/about' component={About} />
           <Route path='/portfolio' component={Portfolio} />
           <Route path='/feedback' component={Feedback} />
           <PrivateRoute exact path='/user' component={User} appState={this.state}/>
           <PrivateRoute exact path='/user/quiz' appState={this.state} component={Quiz} />
-          <Route exact path='/user/review' render={() =>
-            <WriteReview />} />
           <PrivateRoute exact path='/admin' component={Admin} appState={this.state} adminRoute={true}/> } />
           <Route component={Error404} />
         </Switch>
