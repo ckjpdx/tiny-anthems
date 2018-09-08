@@ -8,7 +8,8 @@
   }
 }
 
-div#NavDrawer-profile-display {
+div#NavDrawer-bottom {
+  background: $seafoam;
   display: flex;
   justify-content: space-between;
   * {

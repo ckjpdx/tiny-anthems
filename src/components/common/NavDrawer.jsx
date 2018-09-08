@@ -46,7 +46,7 @@ class NavDrawer extends React.Component {
           <Link to='/feedback' onClick={this.toggleDrawer('top', false)}>
             <h3>Feedback</h3>
           </Link>
-          <div id="NavDrawer-profile-display">
+          <div id="NavDrawer-bottom">
             <Link to='/user' onClick={this.toggleDrawer('top', false)}><p style={{fontFamily: 'monospace'}}>{this.props.appState.email}
             <br />GO TO USER AREA</p></Link>
             <Login appState={this.props.appState} isVisible="true" />

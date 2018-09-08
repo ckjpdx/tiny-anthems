@@ -8,14 +8,19 @@ import './Quiz.css';
 import { forMeQuestionsArr, forThemQuestionsArr } from './../assets/extras/questionArr';
 import * as emailjs from 'emailjs-com';
 
+import DialogTitle from '@material-ui/core/DialogTitle';
+import Dialog from '@material-ui/core/Dialog';
+
 const Quiz = observer(class Quiz extends Component {
   constructor(props) {
     super(props);
-    this.state = props.appState;
-    this.state.quizData = {
+    this.state = {quiz: null};
+    this.state.quiz = props.appState;
+    this.state.quiz.quizData = {
       questions: [],
       answers: []
     };
+    console.log(this.state);
     this.handleInput = this.handleInput.bind(this);
     this.handleQuizFormSubmit = this.handleQuizFormSubmit.bind(this);
     this.handleQuizTypeToggle = this.handleQuizTypeToggle.bind(this);
@@ -23,31 +28,34 @@ const Quiz = observer(class Quiz extends Component {
 
   handleInput(e, question, i) {
     console.log('e:', e, 'question:', question, 'i:', i);
-    let newQuizData = Object.assign({}, this.state.quizData);
-    newQuizData.questions[i] = question;
-    newQuizData.answers[i] = e.target.value;
-    this.setState({quizData: newQuizData});
-    console.log(this.state);
+    const newQuiz = Object.assign({}, this.state.quiz);
+    console.log(this.state, newQuiz);
+    newQuiz.quizData.questions[i] = question;
+    newQuiz.quizData.answers[i] = e.target.value;
+    this.setState({quiz: newQuiz});
+    console.log(this.state.quiz);
   }
 
   handleQuizTypeToggle(e) {
-    this.setState({quizType: e.target.id});
-    console.log(this.state);
+    const newQuiz = Object.assign({}, this.state.quiz);
+    newQuiz.quizType = e.target.id;
+    this.setState({quiz: newQuiz});
+    console.log(this.state.quiz);
   }
 
   handleQuizFormSubmit = async (e) => {
     e.preventDefault();
-    const checkForAnswers = this.state.quizType === 'for-me'
+    const checkForAnswers = this.state.quiz.quizType === 'for-me'
       ? forMeQuestionsArr.length
       : forThemQuestionsArr.length;
-    if (checkForAnswers === this.state.quizData.answers.length) {
-      const quizSubmitId = await quizzesCollection.add(this.state); // can return doc.id
+    if (checkForAnswers === this.state.quiz.quizData.answers.length) {
+      const quizSubmitId = await quizzesCollection.add(this.state.quiz); // can return doc.id
       console.log(quizSubmitId.id);
       if (quizSubmitId.id) {
         emailjs.init(process.env.REACT_APP_EMAILJS);
         const templateParams = {
-          name: this.state.name,
-          email: this.state.email
+          name: this.state.quiz.name,
+          email: this.state.quiz.email
         };
         emailjs.send('gmail','template_vk6ykRLd', templateParams)
           .then(function(response) {
@@ -106,21 +114,10 @@ const Quiz = observer(class Quiz extends Component {
       <button onClick={this.handleQuizFormSubmit}>Immortalize!</button>
     </div>;
 
-    let displayQuiz = null;
-    switch(this.state.quizType) {
-      case 'for-me':
-        displayQuiz = forMeQuestions;
-        break;
-      case 'for-them':
-        displayQuiz = forThemQuestions;
-        break;
-      default: console.log('Switch Default');
-    }
-
     return (
       <div>
         <h1>Questionnaire</h1>
-        {!this.state.quizType &&
+        {!this.state.quiz.quizType &&
         <div>
           <p>You are about to begin your quest. Who is this for?</p>
           <div style={{position: 'relative'}}>
@@ -140,7 +137,7 @@ const Quiz = observer(class Quiz extends Component {
           </section>
         </div>
         }
-        {displayQuiz}
+        {this.state.quiz.quizType === 'for-me' ? forMeQuestions : this.state.quiz.quizType === 'for-them' ? forThemQuestions : null}
       </div>
     );
   }

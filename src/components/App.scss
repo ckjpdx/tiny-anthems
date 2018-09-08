@@ -7,13 +7,13 @@ div#App-nav-and-title {
   // overflow: hidden;
 }
 img#App-tiny-sharpie {
-  animation: sharpie 0.75s linear infinite alternate;
+  animation: sharpie 0.75s ease-in-out infinite alternate;
   @keyframes sharpie {
     from {
-      transform: rotate(3deg);
+      transform: rotate(2deg);
     }
     to {
-      transform: rotate(-3deg);
+      transform: rotate(-2deg);
     }
   }
   @media screen and (min-width: $bp-tablet) {
