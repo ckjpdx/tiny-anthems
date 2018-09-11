@@ -8,13 +8,12 @@ import './Quiz.css';
 import { forMeQuestionsArr, forThemQuestionsArr } from './../assets/extras/questionArr';
 import * as emailjs from 'emailjs-com';
 
-import DialogTitle from '@material-ui/core/DialogTitle';
-import Dialog from '@material-ui/core/Dialog';
+import DialogThanks from './common/DialogThanks';
 
 const Quiz = observer(class Quiz extends Component {
   constructor(props) {
     super(props);
-    this.state = {quiz: null};
+    this.state = {quiz: null, dialog: true};
     this.state.quiz = props.appState;
     this.state.quiz.quizData = {
       questions: [],
@@ -24,6 +23,8 @@ const Quiz = observer(class Quiz extends Component {
     this.handleInput = this.handleInput.bind(this);
     this.handleQuizFormSubmit = this.handleQuizFormSubmit.bind(this);
     this.handleQuizTypeToggle = this.handleQuizTypeToggle.bind(this);
+    this.handleOpen = this.handleOpen.bind(this);
+    this.handleClose = this.handleClose.bind(this);
   }
 
   handleInput(e, question, i) {
@@ -72,6 +73,9 @@ const Quiz = observer(class Quiz extends Component {
       alert('Please answer all the questions before submitting!');
     }
   };
+
+  handleOpen = () => this.setState({dialog: true});
+  handleClose = () => this.setState({dialog: false});
 
   render(){
     const forMeQuestions = <div>
@@ -138,6 +142,7 @@ const Quiz = observer(class Quiz extends Component {
         </div>
         }
         {this.state.quiz.quizType === 'for-me' ? forMeQuestions : this.state.quiz.quizType === 'for-them' ? forThemQuestions : null}
+        <DialogThanks open={this.state.dialog} onClose={this.handleClose}/>
       </div>
     );
   }

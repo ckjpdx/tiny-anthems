@@ -10,15 +10,15 @@
     img {
       position: absolute;
       top: 50%;
-      left: 43.5%;
-      transform: translate(-30%, -50%);
+      left: 50%;
+      transform: translate(-50%, -50%);
       &#catterpillar {
         z-index: 0;
         width: 30%;
         animation: catterpillar 0.3s linear 5s 1 forwards;
       }
       &#cacoon {
-        transform: translate(-50%, -50%);
+        transform: translate(-64%, -57%);
         z-index: 1;
         width: 0%;
         animation: cacoon 5.5s linear 5s 1 forwards;

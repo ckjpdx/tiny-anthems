@@ -6,7 +6,7 @@ export const faqArr = [
   `How do I get the song?`,
   `I will email you when your song is complete, which can be downloaded from the "REC." button (user area) on this site. Tapes and CD's available upon request for an additional fee.`,
   `How much does it cost?`,
-  `I ask for a $10 dollar minimum, which is still insanely modest given that I tend to spend absurd amounts of time planning the song, recording the song, re-recording the song, starting over because the first song kind of sucked, talking to my therapist about why I’m doing this, struggling with my identity, and then finally sitting down to finish the song and send it out.`,
+  `Tiny Anthems works on a sliding scale. No request will be denied due to financial constraints. I would ask for a minimum of $10.00, and if you happen to be quite well off and own many yachts, I would gladly accept payments that reflect that value of artists in the 21st century, which is to say, immeasurable, which is to say there is no limit to how much of your money I would take.`,
   `How long does it take to get my sweet sweet song?`,
   `1-4 weeks. I ain’t some prince, I have a regular job, so I put on my superhero mask after work. After you let me know you want a song (via the questionnaire or otherwise) I’ll contact you and try and give you an approximate timeline. If I’m working on a lot of songs, it’ll take longer. If not, sooner. I typically spend probably 15-20 hours working on a piece that adequately extols the virtues of my subjects, so it’s not exactly an overnight process.`,
   `Are you actually writing original pieces for each person?`,

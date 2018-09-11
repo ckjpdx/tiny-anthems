@@ -1,0 +1,12 @@
+@import '../styles/_variables';
+
+div.DialogThanks-message {
+  padding: 10px;
+  @media screen and (min-width: $bp-tablet) {
+    img {
+      display: block;
+      margin: auto;
+      width: 33%;
+    }
+  }
+}

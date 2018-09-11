@@ -23,14 +23,14 @@ const Login = observer(class Login extends React.Component {
       });
   };
 
-  render(){
-    let signUserButton;
-    if (this.props.isVisible){
-      signUserButton = this.props.appState.uid ? <button onClick={this.signOut}>Sign Out</button> : <button onClick={this.signIn}>Sign In</button>;
-    } else {
-      signUserButton = this.props.appState.uid ? null : <div style={{width: '100%', height: '100%'}} onClick={this.signIn} id="Login-player-login" role="button"></div>;
-    }
-    return signUserButton;
+  render() {
+    return (
+      <React.Fragment>
+        {this.props.appState.uid
+        ? <button onClick={this.signOut}>Sign Out</button>
+        : <button onClick={this.signIn}>Sign In</button>}
+      </React.Fragment>
+    );
   }
 });
 

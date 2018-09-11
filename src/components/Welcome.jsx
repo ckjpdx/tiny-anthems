@@ -12,7 +12,7 @@ function Welcome(props){
     document.getElementById("Welcome-TinyTape-wrap").classList.add('play-tape-insert');
     document.getElementById("Welcome-TinyPlayer").classList.add('play-player-fly-away');
     setTimeout(() => {
-      props.history.push('/faq');
+      props.history.push('/home');
     }, 3000);
   }
   return (
