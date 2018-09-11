@@ -1,11 +1,20 @@
 @import 'styles/_variables';
 
-img#User-immortalize-label {
-  display: block;
-  margin: 5vw auto 10vw;
-  transform: scaleY(1.5);
-  @media screen and (min-width: $bp-tablet) {
-    width: 50%;
+#User {
+  img {
+    width: 40%;
+    @media screen and (min-width: $bp-tablet) {
+      width: 20%;
+    }
+    &#rider {
+      transition: all 0.5s;
+      &:hover {
+        transform: rotate(40deg);
+      }
+    }
+    &#castle {
+      
+    }
   }
 }
 
@@ -16,16 +25,6 @@ div.User-list-area {
   border: 1px solid #DDE
 }
 
-img#User-rider {
-  transition: all 0.5s;
-  width: 50%;
-  &:hover {
-    transform: rotate(40deg);
-  }
-  @media screen and (min-width: $bp-tablet) {
-    width: 30%;
-  }
-}
 
 p#User-text-begin {
   color: rgb(255,0,0);

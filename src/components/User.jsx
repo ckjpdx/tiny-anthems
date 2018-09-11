@@ -5,11 +5,12 @@ import { Link } from 'react-router-dom';
 import firebase from 'firebase';
 import fileDownload from 'js-file-download';
 import rider from './../assets/img/rider.png';
+import castle from './../assets/img/castle.png';
+
 import './User.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFileAudio, faFileAlt } from '@fortawesome/free-solid-svg-icons';
-// import { faFortAwesome } from '@fortawesome/free-brands-svg-icons'
 
 const User = observer(class User extends Component {
   constructor(props){
@@ -51,10 +52,11 @@ const User = observer(class User extends Component {
       listSongs = <p>You don't have any anthems made yet! Fill out a questionnaire to begin the immortalization process!</p>;
     }
     return (
-      <div>
+      <div id="User">
+        <img src={castle} id="castle" alt="a castle" />
         <h2>Welcome home, {this.props.appState.name}</h2>
         <Link to='/user/quiz' id="User-being-link">
-          <img src={rider} id="User-rider" alt="a hero on a horse" />
+          <img src={rider} id="rider" alt="a hero on a horse" />
           <p id="User-text-begin">Begin Immortalization Process</p>
         </Link>
         <h2>Your questionnaires:</h2>
