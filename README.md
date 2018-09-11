@@ -60,7 +60,7 @@ This web app allows:
 - [x] Store questionnaire answers in a nested object inside each quiz document
 - [x] User page displays completed questionnaires and songs
   - [x] Display message if user has no songs/questionnaires to list
-- [ ] Review songs by updating quiz document object
+- ~~Review songs by updating quiz document object~~
 
 ##### Admin
 - [x] Display list of questionnaires
@@ -70,7 +70,7 @@ This web app allows:
 - [x] Admin can sort pending questionnaires with collection queries
 - [x] Display quiz questions and answers on admin view using Object.entries
 - [x] Admin checkbox to mark pending questionnaires as complete
-- [ ] Automatically email client to notify of song completion
+- ~~Automatically email client to notify of song completion~~
 
 ### UX & Interface
 - [x] Responsive breakpoint styles for mobile, tablet, and desktop
@@ -81,7 +81,6 @@ This web app allows:
   - [ ] improve confirmation with modal
 - [x] Two questionnaires: toggle for either the client or for someone the client knows
 - [x] Update React Router to use BrowserRouter instead of HashRouter
-- [ ] Contact Mike Long the minstrel via email
 - [x] Navigation 'tape-player' button design
 - [x] Sass integration
 - [x] Material UI components
