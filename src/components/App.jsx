@@ -50,14 +50,13 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state);
     const navAndTitle = this.props.history.location.pathname !== '/' && <div id="App-nav-and-title"><NavDrawer appState={this.state}/><img src={sharpie} id="App-tiny-sharpie" alt="tiny anthems title" /></div>;
     return (
       <div className="App">
         {navAndTitle}
         <Switch>
           <Route exact path='/' component={Welcome} />
-          <Route path='/home' render={props => <Home {...props}  appState={this.state} /> } />
+          <Route path='/home' render={props => <Home {...props} appState={this.state} /> } />
           <Route path='/faq' component={Faq} />
           <Route path='/about' component={About} />
           <Route path='/portfolio' component={Portfolio} />

@@ -8,12 +8,12 @@ import './Quiz.css';
 import { forMeQuestionsArr, forThemQuestionsArr } from './../assets/extras/questionArr';
 import * as emailjs from 'emailjs-com';
 
-import DialogThanks from './common/DialogThanks';
+import DialogThanks from './DialogThanks';
 
 const Quiz = observer(class Quiz extends Component {
   constructor(props) {
     super(props);
-    this.state = {quiz: null, dialog: true};
+    this.state = {quiz: null, dialog: false};
     this.state.quiz = props.appState;
     this.state.quiz.quizData = {
       questions: [],
@@ -23,8 +23,8 @@ const Quiz = observer(class Quiz extends Component {
     this.handleInput = this.handleInput.bind(this);
     this.handleQuizFormSubmit = this.handleQuizFormSubmit.bind(this);
     this.handleQuizTypeToggle = this.handleQuizTypeToggle.bind(this);
-    this.handleOpen = this.handleOpen.bind(this);
-    this.handleClose = this.handleClose.bind(this);
+    this.handleDialogOpen = this.handleDialogOpen.bind(this);
+    this.handleDialogClose = this.handleDialogClose.bind(this);
   }
 
   handleInput(e, question, i) {
@@ -50,22 +50,21 @@ const Quiz = observer(class Quiz extends Component {
       ? forMeQuestionsArr.length
       : forThemQuestionsArr.length;
     if (checkForAnswers === this.state.quiz.quizData.answers.length) {
+      document.getElementById("Quiz-submit").disabled = true;
       const quizSubmitId = await quizzesCollection.add(this.state.quiz); // can return doc.id
-      console.log(quizSubmitId.id);
       if (quizSubmitId.id) {
         emailjs.init(process.env.REACT_APP_EMAILJS);
         const templateParams = {
           name: this.state.quiz.name,
           email: this.state.quiz.email
         };
-        emailjs.send('gmail','template_vk6ykRLd', templateParams)
+        emailjs.send('gmail', 'template_vk6ykRLd', templateParams)
           .then(function(response) {
             console.log('SUCCESS!', response.status, response.text);
           }, function(err) {
             console.log('FAILED...', err);
           });
-        alert('Your questionnaire has been submitted! Please allow several weeks for song creation. Mike may be in contact with you via email for further information.');
-        this.props.history.push('/');
+        this.handleDialogOpen();
       } else {
         alert('Something broke on the submission! We havent any idea why. Please try again later or contact Mike and tell him to yell at his web developer, Jack.');
       }
@@ -74,8 +73,11 @@ const Quiz = observer(class Quiz extends Component {
     }
   };
 
-  handleOpen = () => this.setState({dialog: true});
-  handleClose = () => this.setState({dialog: false});
+  handleDialogOpen = () => this.setState({dialog: true});
+  handleDialogClose = () => {
+    this.setState({dialog: false});
+    this.props.history.push('/user');
+  };
 
   render(){
     const forMeQuestions = <div>
@@ -115,7 +117,7 @@ const Quiz = observer(class Quiz extends Component {
           <textarea type="text" onChange={(e)=>this.handleInput(e, question, i)}/>
         </div>
       )}
-      <button onClick={this.handleQuizFormSubmit}>Immortalize!</button>
+      <button id="Quiz-submit" onClick={this.handleQuizFormSubmit}>Immortalize!</button>
     </div>;
 
     return (
@@ -142,7 +144,7 @@ const Quiz = observer(class Quiz extends Component {
         </div>
         }
         {this.state.quiz.quizType === 'for-me' ? forMeQuestions : this.state.quiz.quizType === 'for-them' ? forThemQuestions : null}
-        <DialogThanks open={this.state.dialog} onClose={this.handleClose}/>
+        <DialogThanks open={this.state.dialog} onClose={this.handleDialogClose}/>
       </div>
     );
   }

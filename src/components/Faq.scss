@@ -1,4 +1,12 @@
 @import 'styles/_variables';
 
-.Faq {
+#Faq {
+  div.Faq-lighthouse {
+    img {
+      width: 30%;
+      @media screen and (min-width: $bp-tablet) {
+        width: 15%;
+      }
+    }
+  }
 }

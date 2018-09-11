@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Dialog from '@material-ui/core/Dialog';
 
-import donation from './../../assets/img/donation.jpg';
+import donation from '../assets/img/donation.jpg';
 import './DialogThanks.css';
 
 const styles = {
