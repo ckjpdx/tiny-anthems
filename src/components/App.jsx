@@ -46,7 +46,6 @@ class App extends React.Component {
 
   handleSignOut = () => {
     this.setState({uid: null, name: null, email: null});
-    this.props.history.push('/home');
   }
 
   render() {

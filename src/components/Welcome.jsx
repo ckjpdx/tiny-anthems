@@ -24,8 +24,8 @@ function Welcome(props){
           <p id="Welcome-tape-clickme">Click Me!</p>
           <TinyTape />
         </div>
-        <img src={tinyPlayerCover} id="Welcome-TinyPlayer-cover" alt=""/>
-        <img src={tinyPlayer} alt=""/>
+        <img src={tinyPlayerCover} id="Welcome-TinyPlayer-cover" alt="tape player cover"/>
+        <img src={tinyPlayer} alt="tape player"/>
       </div>
       <img src={vommy} id="Welcome-Vommy" alt="vommy the mascott"/>
     </div>
