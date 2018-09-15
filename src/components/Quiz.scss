@@ -37,7 +37,7 @@ img#waves {
     left: 25%;
   }
 }
-button#Quiz-submit:disabled {
+button.Quiz-submit:disabled {
   text-transform: uppercase;
   color: red;
   background: gold;
