@@ -92,7 +92,7 @@ const Quiz = observer(class Quiz extends Component {
           <textarea type="text" onChange={(e)=>this.handleInput(e, question, i)}/>
         </div>
       )}
-      <button onClick={this.handleQuizFormSubmit}>Immortalize!</button>
+      <button className="Quiz-submit" onClick={this.handleQuizFormSubmit}>Immortalize!</button>
     </div>;
 
     const forThemQuestions = <div>
@@ -117,7 +117,7 @@ const Quiz = observer(class Quiz extends Component {
           <textarea type="text" onChange={(e)=>this.handleInput(e, question, i)}/>
         </div>
       )}
-      <button id="Quiz-submit" onClick={this.handleQuizFormSubmit}>Immortalize!</button>
+      <button className="Quiz-submit" onClick={this.handleQuizFormSubmit}>Immortalize!</button>
     </div>;
 
     return (
