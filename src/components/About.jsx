@@ -12,7 +12,7 @@ class About extends React.Component {
         <h1>About the author</h1>
         <p>What is this, exactly?</p>
         <p>
-          Some people like to party. Some people like to work on their trucks. Mike likes to remind people of how weird it is to be alive. He just so happens to want to do this in the form of song in such a way that reminds people of their own present greatness. Appointing himself with the humble yet vainglorious task of documenting and extolling the greatness of all 7.6 billion human residents of the planet one at a time, Mike has vowed to ensure that all beings are enshrined in the glory of song.
+          Some people like to party. Some people like to work on their trucks. Mike happens to enjoy assisting people in achieving immortality. Orienting himself toward the omega-point of enlightening and enlivening his community, Mike is fascinated by service, humor, music, and spirituality. Appointing himself with the humble yet vainglorious task of documenting and extolling the greatness of all 7.6 billion human residents of the planet one at a time, Mike has vowed to ensure that all beings are enshrined in the glory of song.
         </p>
         <p>
           Mike attended The Evergreen State College and presently lives in a cramped apartment in Portland, OR.
@@ -24,7 +24,7 @@ class About extends React.Component {
           Other Questions? Contact Me!
         </h2>
         <p>
-          You can reach Mike at TinyAnthems@gmail.com, or look into the blood moon from the peak of Dark Mountain and call my name thrice.
+          You can reach Mike at TinyAnthems@gmail.com, or look into the blood moon from the peak of Dark Mountain and call my name thrice. Standard rates apply.
         </p>
         <hr />
         <FontAwesomeIcon icon={faReact} size="6x" id="About-react"/>

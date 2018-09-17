@@ -34,7 +34,7 @@ class Home extends React.Component {
           <img src={butterfly} id="butterfly" />
         </div>
         <h2 style={{fontStyle: 'italic'}}>“Be Enshrined in the Glory of Song”</h2>
-        <h3>Since the dawn of symbolic thinking, humans of have been telling stories, creating myths, and building legends to guide one another. Here at Tiny Anthems, we believe all humans are worthy of touching immortality. For like, a few bucks or whatever you’ve got lying around, you or a loved one can live forever. Be enshrined in the glory of song.</h3>
+        <h3>If you’ve ever thought, “Gee, it would be neat if someone composed and recorded an overly-elaborate piece of music about me” you have arrived on the correct website. Here at Tiny Anthems, we’re in the business of distilling the ineffable nature of humans into sonic masterpieces. At last, you, too, can live forever. Be enshrined in the glory of song.</h3>
         {this.props.appState.uid ? loggedIn : loggedOut}
       </div>
     );

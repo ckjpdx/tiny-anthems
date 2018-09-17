@@ -86,7 +86,7 @@ const Quiz = observer(class Quiz extends Component {
       <input type="radio" checked readOnly />
       <label>Myself</label>
       <p>
-        Congratulations on taking the first step toward becoming forever enshrined in the glory of song! In order to get a sense of your personality and thus create a sonic masterpiece befitting one so noble, I’ve put together a small series of questions. They are all optional and there will be a field at the end to freely write anything you choose. It’s possible that none, some, or all of the information will be used in the song, the more information you provide, the better!
+        Congratulations on taking the first step toward becoming forever enshrined in the glory of song! In order to get a sense of your personality and thus create a sonic masterpiece befitting one so noble, I’ve put together a small series of questions. The more information you provide about a subject, the better.
       </p>
       {forMeQuestionsArr.map((question, i) =>
         <div className="Quiz-for-me-question" key={'key'+i}>

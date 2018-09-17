@@ -6,7 +6,7 @@ import './Portfolio.css';
 function Portfolio(){
   return (
     <div>
-      <h1>Portfolio</h1>
+      <h1>Works</h1>
       <img src={slug} alt="a slug" id="slug"/>
       <h2>Song Samples</h2>
       <iframe title="for denzel sample" className="sample-song" width="100%" height="166" scrolling="no" frameBorder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/410666169&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>

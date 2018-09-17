@@ -26,10 +26,15 @@ class DialogThanks extends React.Component {
     return (
       <Dialog onClose={this.handleClose} aria-labelledby="simple-dialog-title" {...other}>
         <div className="DialogThanks-message">
-
         <img src={donation} alt="donation jar" />
         <p>
           Thank you for participating in what will likely be called “The greatest artistic endeavor of our time”. Below, I have included a few common payment methods that I am fond of. You may or may not be contacted with follow-up questions, and you will be alerted when your song is ready! Please contact me at TinyAnthems@gmail.com if you have any questions.
+        </p>
+        <p>
+          Donations to my meager life may be made via <a href="paypal.me/Tinyanthems" target="_blank">Paypal</a>
+        </p>
+        <p>
+          Or via Venmo @Tinyanthems
         </p>
       </div>
         <Button onClick={this.handleClose}>OKAY</Button>
