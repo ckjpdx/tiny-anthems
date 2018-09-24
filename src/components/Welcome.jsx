@@ -5,10 +5,12 @@ import tinyPlayerCover from './../assets/img/tiny_player_jack_cover.png';
 import tinySharpie from './../assets/img/tiny_sharpie.png';
 import vommy from './../assets/img/mike.gif';
 import ghost from './../assets/img/ghost.png';
+import tinyTheme from './../assets/tiny-theme.mp3';
 import './Welcome.css';
 
 function Welcome(props){
   const handleTapeClick = () => {
+    new Audio(tinyTheme).play();
     document.getElementById("Welcome-TinyTape-wrap").classList.add('play-tape-insert');
     document.getElementById("Welcome-TinyPlayer").classList.add('play-player-fly-away');
     setTimeout(() => {
