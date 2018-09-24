@@ -1,4 +1,6 @@
 export const faqArr = [
+  `What is Tiny Anthems?`,
+  `Tiny Anthems is a way of commissioning an artist (in this case, for now, me) to compose and record an original piece of music about you or a loved one. The idea is that by contributing information that you find most relevant about yourself or another recipient, you’re participating in a kind of dialogue. The other part of the dialogue is taken up by the artist, where I create an anthem or kind of theme song about the subject based on the information and intuition.`,
   `How does this work?`,
   `Using a state-of-the-art questionnaire, those seeking immortality are invited to answer a few simple questions intended to reveal various dimensions of the subject. Based on the information provided to me, I divine an original song about you or your child, parent, spouse, girlfriend, estranged uncle, pet, mailman, parole officer, etc.`,
   `Why are you doing this?`,

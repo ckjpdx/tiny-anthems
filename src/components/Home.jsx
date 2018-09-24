@@ -33,7 +33,7 @@ class Home extends React.Component {
           <img src={catterpillar} id="catterpillar" />
           <img src={butterfly} id="butterfly" />
         </div>
-        <h2 style={{fontStyle: 'italic'}}>“Be Enshrined in the Glory of Song”</h2>
+        <h2 style={{fontStyle: 'italic'}}>“Strange Songs For Strange Humans”</h2>
         <h3>If you’ve ever thought, “Gee, it would be neat if someone composed and recorded an overly-elaborate piece of music about me” you have arrived on the correct website. Here at Tiny Anthems, we’re in the business of distilling the ineffable nature of humans into sonic masterpieces. At last, you, too, can live forever. Be enshrined in the glory of song.</h3>
         {this.props.appState.uid ? loggedIn : loggedOut}
       </div>

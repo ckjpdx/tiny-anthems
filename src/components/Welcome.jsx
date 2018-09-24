@@ -5,7 +5,7 @@ import tinyPlayerCover from './../assets/img/tiny_player_jack_cover.png';
 import tinySharpie from './../assets/img/tiny_sharpie.png';
 import vommy from './../assets/img/mike.gif';
 import ghost from './../assets/img/ghost.png';
-import tinyTheme from './../assets/tiny-theme.mp3';
+import tinyTheme from './../assets/music/tiny-theme.mp3';
 import './Welcome.css';
 
 function Welcome(props){

@@ -13,7 +13,7 @@
       }
     }
     &#castle {
-      
+
     }
   }
 }
@@ -26,9 +26,8 @@ div.User-list-area {
 }
 
 
-p#User-text-begin {
-  color: rgb(255,0,0);
+button#User-text-begin {
+  display: block;
+  margin: auto;
   text-transform: uppercase;
-  transition: all 0.5s;
-  margin: 0;
 }

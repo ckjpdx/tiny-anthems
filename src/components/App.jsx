@@ -49,7 +49,13 @@ class App extends React.Component {
   }
 
   render() {
-    const navAndTitle = this.props.history.location.pathname !== '/' && <div id="App-nav-and-title"><NavDrawer appState={this.state}/><img src={sharpie} id="App-tiny-sharpie" alt="tiny anthems title" /></div>;
+    const navAndTitle = this.props.history.location.pathname !== '/'
+    && <div id="App-nav-and-title">
+        <div className="App-NavDrawer">
+          <NavDrawer appState={this.state} />
+        </div>
+        <img src={sharpie} id="App-tiny-sharpie" alt="tiny anthems title" />
+      </div>;
     return (
       <div className="App">
         {navAndTitle}

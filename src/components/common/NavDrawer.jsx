@@ -26,37 +26,54 @@ class NavDrawer extends React.Component {
     const { classes } = this.props;
     return (
       <div>
-        <Button onClick={this.toggleDrawer('top', true)}>
-          <FontAwesomeIcon icon={faBars} size="2x" />
-        </Button>
-        <Drawer anchor="top" open={this.state.top} onClose={this.toggleDrawer('top', false)} id="NavDrawer-Drawer">
-          <Link to='/home' onClick={this.toggleDrawer('top', false)}>
+        <div className="NavDrawer-drawer-not-showing">
+          <Link to='/home'>
             <h3>Home</h3>
           </Link>
-          <Link to='/faq' onClick={this.toggleDrawer('top', false)}>
+          <Link to='/faq'>
             <h3>FAQ</h3>
           </Link>
-          <Link to='/about' onClick={this.toggleDrawer('top', false)}>
+          <Link to='/about'>
             <h3>About</h3>
           </Link>
-          <Link to='/portfolio' onClick={this.toggleDrawer('top', false)}>
+          <Link to='/portfolio'>
             <h3>Works</h3>
           </Link>
-          <Link to='/feedback' onClick={this.toggleDrawer('top', false)}>
+          <Link to='/feedback'>
             <h3>Feedback</h3>
           </Link>
-          <div id="NavDrawer-bottom">
-            <Login appState={this.props.appState} isVisible="true" />
-            {this.props.appState.uid &&
-              <React.Fragment>
-                <Link to='/user' onClick={this.toggleDrawer('top', false)}>
-                  <p style={{fontFamily: 'monospace'}}>{this.props.appState.email}
-                  <br />GO TO USER AREA</p>
-                </Link>
-              </React.Fragment>
-            }
-          </div>
-        </Drawer>
+        </div>
+        <div className="NavDrawer-drawer-showing">
+          <FontAwesomeIcon icon={faBars} size="2x" onClick={this.toggleDrawer('top', true)}/>
+          <Drawer anchor="top" open={this.state.top} onClose={this.toggleDrawer('top', false)} id="NavDrawer-Drawer">
+            <Link to='/home' onClick={this.toggleDrawer('top', false)}>
+              <h3>Home</h3>
+            </Link>
+            <Link to='/faq' onClick={this.toggleDrawer('top', false)}>
+              <h3>FAQ</h3>
+            </Link>
+            <Link to='/about' onClick={this.toggleDrawer('top', false)}>
+              <h3>About</h3>
+            </Link>
+            <Link to='/portfolio' onClick={this.toggleDrawer('top', false)}>
+              <h3>Works</h3>
+            </Link>
+            <Link to='/feedback' onClick={this.toggleDrawer('top', false)}>
+              <h3>Feedback</h3>
+            </Link>
+            <div id="NavDrawer-bottom">
+              <Login appState={this.props.appState} isVisible="true" />
+              {this.props.appState.uid &&
+                <React.Fragment>
+                  <Link to='/user' onClick={this.toggleDrawer('top', false)}>
+                    <p style={{fontFamily: 'monospace'}}>{this.props.appState.email}
+                    <br />GO TO USER AREA</p>
+                  </Link>
+                </React.Fragment>
+              }
+            </div>
+          </Drawer>
+        </div>
       </div>
     );
   }

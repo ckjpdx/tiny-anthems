@@ -57,7 +57,7 @@ const User = observer(class User extends Component {
         <h2>Welcome home, {this.props.appState.name}</h2>
         <Link to='/user/quiz' id="User-being-link">
           <img src={rider} id="rider" alt="a hero on a horse" />
-          <p id="User-text-begin">Begin Immortalization Process</p>
+          <button id="User-text-begin">Begin Immortalization Process</button>
         </Link>
         <h2>Your questionnaires:</h2>
         <div className="User-list-area">

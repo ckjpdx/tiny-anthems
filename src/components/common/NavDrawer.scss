@@ -17,3 +17,18 @@ div#NavDrawer-bottom {
     display: inline;
   }
 }
+
+.NavDrawer-drawer-showing {
+  @media screen and (min-width: $bp-tablet) {
+    display: none;
+  }
+}
+.NavDrawer-drawer-not-showing {
+  display: none;
+  h3 {
+    display: inline;
+  }
+  @media screen and (min-width: $bp-tablet) {
+    display: block;
+  }
+}

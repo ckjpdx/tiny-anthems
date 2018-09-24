@@ -4,7 +4,9 @@ div.App {
   text-align: center;
 }
 div#App-nav-and-title {
-  // overflow: hidden;
+  .App-NavDrawer {
+    text-align: right;
+  }
 }
 img#App-tiny-sharpie {
   animation: sharpie 0.75s ease-in-out infinite alternate;
