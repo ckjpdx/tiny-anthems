@@ -27,8 +27,12 @@ const Login = observer(class Login extends React.Component {
     return (
       <React.Fragment>
         {this.props.appState.uid
-        ? <button onClick={this.signOut}>Sign Out</button>
-        : <button onClick={this.signIn}>Sign In</button>}
+        ? <button onClick={this.signOut}
+          className={this.props.invertColors && "Login-invert-colors"}
+          >Sign Out</button>
+        : <button onClick={this.signIn}
+          className={this.props.invertColors && "Login-invert-colors"}
+          >Sign In</button>}
       </React.Fragment>
     );
   }

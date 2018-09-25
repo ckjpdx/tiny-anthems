@@ -27,6 +27,11 @@ class NavDrawer extends React.Component {
     return (
       <div>
         <div className="NavDrawer-drawer-not-showing">
+          {this.props.appState.uid &&
+            <Link to='/user'>
+              <h3 className="underline">{this.props.appState.name}'s Area</h3>
+            </Link>
+          }
           <Link to='/home'>
             <h3>Home</h3>
           </Link>
@@ -42,6 +47,7 @@ class NavDrawer extends React.Component {
           <Link to='/feedback'>
             <h3>Feedback</h3>
           </Link>
+          <Login appState={this.props.appState} invertColors={true} />
         </div>
         <div className="NavDrawer-drawer-showing">
           <FontAwesomeIcon icon={faBars} size="2x" onClick={this.toggleDrawer('top', true)}/>

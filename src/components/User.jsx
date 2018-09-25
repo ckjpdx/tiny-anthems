@@ -4,8 +4,8 @@ import { quizzesCollection } from './../store';
 import { Link } from 'react-router-dom';
 import firebase from 'firebase';
 import fileDownload from 'js-file-download';
-import rider from './../assets/img/rider.png';
-import castle from './../assets/img/castle.png';
+import rider from './../assets/img/rider.gif';
+import castle from './../assets/img/castleflag.gif';
 
 import './User.css';
 
