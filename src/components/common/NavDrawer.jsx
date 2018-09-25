@@ -68,7 +68,7 @@ class NavDrawer extends React.Component {
               <h3>Feedback</h3>
             </Link>
             <div id="NavDrawer-bottom">
-              <Login appState={this.props.appState} isVisible="true" />
+              <Login appState={this.props.appState} />
               {this.props.appState.uid &&
                 <React.Fragment>
                   <Link to='/user' onClick={this.toggleDrawer('top', false)}>

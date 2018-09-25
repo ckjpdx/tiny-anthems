@@ -21,7 +21,7 @@ class Home extends React.Component {
     const loggedOut = <div>
       <p>To accept this great quest, one must step over the threshold.</p>
       <Link to="/user">
-      <Login appState={this.props.appState} isVisible="true" />
+      <Login appState={this.props.appState} />
       </Link>
       <p>Or if you have questions concerning this process, <Link to="/faq">click here to see the FAQ section.</Link></p>
     </div>;
