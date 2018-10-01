@@ -6,28 +6,86 @@
     @media screen and (min-width: $bp-tablet) {
       width: 20%;
     }
-    &#rider {
-      transition: all 0.5s;
-      &:hover {
-        transform: rotate(40deg);
-      }
+  }
+  div#User-castle-area {
+    position: relative;
+    margin: auto;
+    @media screen and (min-width: $bp-tablet) {
+      width: 50%
     }
-    &#castle {
-
+    #User-castle {
+      width: 50%;
+    }
+    #User-rider {
+      position: absolute;
+      width: 0;
     }
   }
 }
 
+.play-rideremerges {
+  animation: rideremerges 3s linear infinite forwards;
+  @keyframes rideremerges {
+    0% { // hidden
+      z-index: -1;
+      width: 14%;
+      bottom: 5%;
+      left: 27%;
+      transform: rotate(45deg);
+    }
+    30% { // in gate
+      z-index: -1;
+      width: 16%;
+      bottom: 3%;
+      left: 45%;
+      transform: rotate(45deg);
+    }
+    40% { // walk down, leave gate
+      z-index: 1;
+      width: 16%;
+      bottom: -6%;
+      left: 45%;
+      transform: rotate(45deg);
+    }
+    50% { // emerge
+      z-index: 1;
+      width: 60%;
+      bottom: -20%;
+      left: 23%;
+      transform: rotate(45deg);
+    }
+    60% { // hold the rear
+      z-index: 1;
+      width: 60%;
+      bottom: -6%;
+      left: 23%;
+      transform: rotate(-10deg);
+    }
+    70% { // hold the rear
+      z-index: 1;
+      width: 60%;
+      bottom: -6%;
+      left: 23%;
+      transform: rotate(0deg);
+    }
+    80% {
+      z-index: 1;
+      width: 60%;
+      bottom: -20%;
+      left: 23%;
+      transform: rotate(45deg);
+    }
+    100% { // ride off screen
+      width: 60%;
+      bottom: -20%;
+      left: 100%;
+      transform: rotate(45deg);
+    }
+  }
+}
 div.User-list-area {
   text-align: left;
   background: #EEF;
   padding: 5px;
   border: 1px solid #DDE
-}
-
-
-button#User-text-begin {
-  display: block;
-  margin: auto;
-  text-transform: uppercase;
 }
