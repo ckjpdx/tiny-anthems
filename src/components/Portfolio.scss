@@ -1,6 +1,7 @@
 @import 'styles/_variables';
 
-iframe.sample-song {
+iframe {
+  max-width: 600px;
   display: block;
   margin: 50px auto;
 }
