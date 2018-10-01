@@ -4,6 +4,7 @@ import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import SimpleExpansionPanel from './common/SimpleExpansionPanel';
 import { faqArr } from './../assets/extras/faqArr';
 import lighthouse from './../assets/img/lighthouse.png';
+import lighthouseRays from './../assets/img/lighthouse-rays.gif';
 
 import './Faq.css';
 
@@ -14,8 +15,9 @@ function Faq(){
   }
   return (
     <div id="Faq">
-      <div className="Faq-lighthouse">
-        <img src={lighthouse} alt="a lighthouse" />
+      <div id="Faq-lighthouse-area">
+        <img src={lighthouseRays} id="Faq-lightouse-rays" alt="the lighthouse rays are music notes" />
+        <img src={lighthouse} id="Faq-lighthouse" alt="a lighthouse" />
       </div>
       <h1><FontAwesomeIcon icon={faInfoCircle} /> FAQ</h1>
       {faqList}

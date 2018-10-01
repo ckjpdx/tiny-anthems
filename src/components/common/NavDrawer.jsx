@@ -29,7 +29,7 @@ class NavDrawer extends React.Component {
         <div className="NavDrawer-drawer-not-showing">
           {this.props.appState.uid &&
             <Link to='/user'>
-              <h3 className="underline">{this.props.appState.name}'s Area</h3>
+              <h3 className="underline">{this.props.appState.name}'s Castle</h3>
             </Link>
           }
           <Link to='/home'>

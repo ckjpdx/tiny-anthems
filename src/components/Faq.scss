@@ -1,11 +1,29 @@
 @import 'styles/_variables';
 
 #Faq {
-  div.Faq-lighthouse {
-    img {
-      width: 30%;
-      @media screen and (min-width: $bp-tablet) {
-        width: 15%;
+  div#Faq-lighthouse-area {
+    position: relative;
+    margin: auto;
+    width: 30%;
+    @media screen and (min-width: $bp-tablet) {
+      width: 15%;
+    }
+    img#Faq-lightouse {
+
+    }
+    img#Faq-lightouse-rays {
+      position: absolute;
+      top: 16%;
+      left: 47%;
+      animation: lighthouse-rays 6s linear infinite forwards;
+      transform-origin: center left;
+      @keyframes lighthouse-rays {
+        0% {
+          transform: perspective(140px) rotateY(0deg);
+        }
+        100% {
+          transform: perspective(140px) rotateY(360deg);
+        }
       }
     }
   }

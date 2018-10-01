@@ -101,7 +101,7 @@ const Quiz = observer(class Quiz extends Component {
       <input type="radio" checked readOnly />
       <label>Someone Else</label>
       <p>
-        Congratulations on choosing to deify and for immortalize a loved one through song. In order to paint a vivid picture of this person’s greatness, I’ll need a little information about them. I have just a few very simple questions about their identifying characteristics. Most importantly, you’ll have a chance to write freely about this person. Details might include BUT ARE ABSOLUTELY NOT LIMITED TO:
+        Congratulations on choosing to immortalize a loved one through song. In order to paint a vivid picture of this person’s greatness, I’ll need a little information about them. I have just a few very simple questions about their identifying characteristics. Most importantly, you’ll have a chance to write freely about this person. Details might include BUT ARE ABSOLUTELY NOT LIMITED TO:
       </p>
       <ul>
         <li>Your personal history/relationship with this person</li>
