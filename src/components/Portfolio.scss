@@ -5,6 +5,46 @@ iframe {
   display: block;
   margin: 50px auto;
 }
-img#slug {
-  max-width: 450px;
+div#metamorphosis {
+  position: relative;
+  min-height: 18vw;
+  @media screen and (min-width: $bp-desktop) {
+    min-height: 14vw;
+  }
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    &#catterpillar {
+      z-index: 0;
+      width: 30%;
+      animation: catterpillar 0.3s linear 5s 1 forwards;
+    }
+    &#cacoon {
+      transform: translate(-64%, -57%);
+      z-index: 1;
+      width: 0%;
+      animation: cacoon 5.5s linear 5s 1 forwards;
+    }
+    &#butterfly{
+      z-index: 2;
+      width: 0%;
+      animation: butterfly 0.3s linear 10s 1 forwards;
+    }
+  }
+}
+@keyframes catterpillar {
+  from {width:30%}
+  to {width:0%}
+}
+@keyframes cacoon {
+  0% {width:0%}
+  5% {width:25%}
+  95% {width:25%}
+  100% {width:0%}
+}
+@keyframes butterfly {
+  from {width:0%}
+  to {width:30%}
 }

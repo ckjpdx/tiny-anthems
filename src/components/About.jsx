@@ -1,14 +1,14 @@
 import React from 'react';
-import vommy from './../assets/img/mike.gif';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faReact } from '@fortawesome/free-brands-svg-icons'
 import './About.css';
+import slug from './../assets/img/slug.png';
 
 class About extends React.Component {
   render(){
     return (
-      <div>
-        <img src={vommy} alt="cartoon of mike throwing up musical notes" id="About-vommy" />
+      <div className="About">
+        <img src={slug} alt="a slug, mike's spirit creature" id="slug"/>
         <h1>About the author</h1>
         <p>What is this, exactly?</p>
         <p>
@@ -29,9 +29,7 @@ class About extends React.Component {
         <hr />
         <FontAwesomeIcon icon={faReact} size="6x" id="About-react"/>
         <p>Tiny Anthems, a React App</p>
-
-          <p><a href="https://ckjpdx.github.io/portfolio/" target="_blank" rel="noopener noreferrer">by Chris Knight Johnson</a></p>
-
+        <p><a href="https://ckjpdx.github.io/portfolio/" target="_blank" rel="noopener noreferrer">by Chris Knight Johnson</a></p>
         <p>
           <a href="https://github.com/ckjpdx/tiny-anthems/blob/master/README.md" target="_blank" rel="noopener noreferrer">Tiny Anthems README</a>
         </p>

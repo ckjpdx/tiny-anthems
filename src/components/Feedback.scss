@@ -2,6 +2,39 @@
 
 #Feedback {
   img {
-    width: 30%;
+    display: none;
+    width: 50%;
+    &.robot-mobile {
+      display: inline;
+    }
+  }
+  div.Feedback-robot {
+    width: 50%;
+  }
+  @media screen and (min-width: $bp-tablet) {
+    img {
+      display: block;
+      &.robot-mobile {
+        display: none;
+      }
+    }
+    div.Feedback-comment {
+      display: flex;
+      &:nth-child(odd){
+        flex-flow: row-reverse;
+        img {
+          transform: scaleX(-1);
+        }
+      }
+      div.Feedback-robot {
+        width: 20%;
+        img {
+          width: 100%
+        }
+      }
+      p {
+        width: 80%
+      }
+    }
   }
 }
