@@ -42,3 +42,6 @@ button#Quiz-submit:disabled {
   color: red;
   background: gold;
 }
+.Quiz-for-them-question:nth-of-type(2) textarea {
+  height: 75px;
+}

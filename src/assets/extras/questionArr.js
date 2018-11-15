@@ -9,9 +9,10 @@ export const forMeQuestionsArr = [
   `What’s scary?`,
   `Can you do any cool tricks? Backflips? Speaking in tongues? Holding your breath for 7 minutes? You know, useless superhero stuff.`,
   `If you could book a round-trip ticket to anywhere in a time machine, where and when would you go? What if it was one-way?`,
-  `If there was a meteor on a collision course with the earth in two weeks, how would you spend that time?`,
+  `What was the last significant dream you can remember?`,
   `How do you feel about robots? Would you want one in your house? Do you care?`,
-  `Who are some of your favorite musicians?`
+  `Who are some of your favorite musicians?`,
+  `Any final notes about what you might want from the anthem? Are you envisioning something serious? Something funny? Something relaxing? Something including the sound of horse hooves? Any final notes, plz. If you’d prefer the piece be STRICTLY instrumental, please indicate.`
 ];
 export const forThemQuestionsArr = [
   `Who is this for? Enter names/aliases for this person:`,

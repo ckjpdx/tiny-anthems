@@ -123,7 +123,7 @@ const Quiz = observer(class Quiz extends Component {
     </div>;
 
     return (
-      <div>
+      <div className="Quiz">
         <h1>Questionnaire</h1>
         {!this.state.quiz.quizType &&
         <div>
