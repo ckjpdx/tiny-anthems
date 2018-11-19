@@ -12,6 +12,11 @@ function Feedback(){
           <img src={robot} />
         </div>
         <p>
+          “We asked Mike to write a story about our humble city magazine. He delivered—and then some. The final song brought raucous laughter and joy to our editorial staff. We’re officially adopting it as the magazine’s anthem and it will be played at all future staff events. Mike is exceptionally talented, funny, and thoughtful and we’re lucky our paths crossed.”
+          <br />
+          -Portland Monthly Magazine
+        </p>
+        <p>
           “My best friend Vivian hired Mike to compose a Tiny Anthem for me for my birthday, after she had commissioned one for herself and loved the experience. It was one of the most thoughtful, entertaining and personal gifts I’ve ever received! She presented it to me on a thumb drive, along with a sheet of paper announcing the title of the song in calligraphy: “Gina, Chromatic Saint Against Whom All Flames Lap Harmlessly”. The song was luminous and entertaining, hilarious at points but also deeply resonant - and its title has become a bit of a talisman and anchor during life’s ups and downs. Best of all, Mike and I have become good friends as a result of this song being crafted. Highly recommend Tiny Anthems as a unique gift idea!”
           <br/>
           -Gina Altamura

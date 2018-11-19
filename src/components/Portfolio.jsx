@@ -13,8 +13,8 @@ function Portfolio(){
         <img src={catterpillar} id="catterpillar" />
         <img src={butterfly} id="butterfly" />
       </div>
-      <h1>Works</h1>
-      <h2>Anthem Samples</h2>
+      <h1>Samples</h1>
+      <p>Below are a few examples of actual Tiny Anthems composed for people who submitted a request for a song.</p>
       <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/532413651&color=%23a85476&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
       <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/532418829&color=%23a85476&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
       <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/532415085&color=%23a85476&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>

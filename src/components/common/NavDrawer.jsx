@@ -42,7 +42,7 @@ class NavDrawer extends React.Component {
             <h3>About</h3>
           </Link>
           <Link to='/portfolio'>
-            <h3>Works</h3>
+            <h3>Samples</h3>
           </Link>
           <Link to='/feedback'>
             <h3>Feedback</h3>
@@ -62,7 +62,7 @@ class NavDrawer extends React.Component {
               <h3>About</h3>
             </Link>
             <Link to='/portfolio' onClick={this.toggleDrawer('top', false)}>
-              <h3>Works</h3>
+              <h3>Samples</h3>
             </Link>
             <Link to='/feedback' onClick={this.toggleDrawer('top', false)}>
               <h3>Feedback</h3>
