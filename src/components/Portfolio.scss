@@ -3,7 +3,7 @@
 iframe {
   max-width: 600px;
   display: block;
-  margin: 50px auto;
+  margin: 0 auto;
 }
 div#metamorphosis {
   position: relative;
@@ -34,6 +34,12 @@ div#metamorphosis {
     }
   }
 }
+
+p.sample-description {
+  margin: 0 auto 50px;
+  max-width: 600px;
+}
+
 @keyframes catterpillar {
   from {width:30%}
   to {width:0%}
