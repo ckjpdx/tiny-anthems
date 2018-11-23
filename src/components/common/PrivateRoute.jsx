@@ -1,21 +1,24 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
-const PrivateRoute = ({ component: Component, adminRoute = false, appState = null, ...rest }) => {
+const PrivateRoute =
+  ({
+  component: Component,
+  adminRoute = false,
+  appState = null,
+  onSongSelect,
+  ...rest
+  }) => {
   const admins = ['cknightjohnson@gmail.com', 'drmklong@gmail.com', 'tinyanthems@gmail.com'];
-  let isAdmin = false;
-  admins.forEach(each => {
-    if (appState.email === each) {
-      isAdmin = true;
-    }
-  });
+  const isAdmin = admins.includes(appState.email);
   const adminOrUser = adminRoute ? isAdmin : appState.uid;
+  console.log(rest);
   return (
     <Route
       {...rest}
       render={props =>
         adminOrUser ? (
-          <Component {...props} appState={appState} />
+          <Component {...props} onSongSelect={onSongSelect} appState={appState} />
         ) : (
           <Redirect
             to={{
