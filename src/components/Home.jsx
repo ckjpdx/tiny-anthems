@@ -8,7 +8,6 @@ import './Home.css';
 class Home extends React.Component {
 
   render() {
-    console.log(this.props);
     const loggedIn = <div>
       <p>Good news! You're logged in!</p>
       <p>Proceed to the user area to start an application for immortality (an anthem) or to download completed anthems.</p>

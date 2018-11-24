@@ -21,7 +21,6 @@ class ListedQuizUpload extends React.Component {
   onUploadSong = (quiz) => {
     const songFileRef = `songs/${this.state.file.name}`;
     const storageRef = firebase.storage().ref(songFileRef);
-    console.log(songFileRef, storageRef);
     const task = storageRef.put(this.state.file);
     task.on(
       'state_changed',
