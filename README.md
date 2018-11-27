@@ -1,5 +1,7 @@
+
 # Tiny Anthems
-a dynamic React app
+A dynamic react app written in ES7 JavaScript utilizing cloud storage, database, hosting, and authentication.
+See it deployed [here](tinyanthems.com).
 
 *by Chris Knight Johnson*
 
