@@ -1,9 +1,20 @@
 @import 'styles/_variables';
 
 div.About {
-  
-  img#slug {
+
+  div.grid {
+    @media screen and (min-width: $bp-tablet) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  img {
     max-width: 450px;
+  }
+
+  section {
+    // width: 40%;
   }
 
   #About-react {
