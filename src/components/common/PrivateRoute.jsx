@@ -6,19 +6,22 @@ const PrivateRoute =
   component: Component,
   adminRoute = false,
   appState = null,
-  onSongSelect,
+  onSongSelect, songSelected,
   ...rest
   }) => {
   const admins = ['cknightjohnson@gmail.com', 'drmklong@gmail.com', 'tinyanthems@gmail.com'];
   const isAdmin = admins.includes(appState.email);
   const adminOrUser = adminRoute ? isAdmin : appState.uid;
-  console.log(rest);
+
   return (
     <Route
       {...rest}
       render={props =>
         adminOrUser ? (
-          <Component {...props} onSongSelect={onSongSelect} appState={appState} />
+          <Component {...props}
+            songSelected={songSelected}
+            onSongSelect={onSongSelect}
+            appState={appState} />
         ) : (
           <Redirect
             to={{
