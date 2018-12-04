@@ -4,8 +4,11 @@ import { quizzesCollection } from './../store';
 import { Link } from 'react-router-dom';
 import firebase from 'firebase';
 import fileDownload from 'js-file-download';
+import TinyTape from './common/TinyTape';
+import tapePlayer from '../assets/img/tiny_metal_player_front_closed.png';
+import tapePlayerDoor from '../assets/img/tiny_metal_player_front_open_door.png';
 
-// import './UserSong.css';
+import './UserSong.css';
 
 const UserSong = observer(class UserSong extends Component {
   constructor(props){
@@ -32,10 +35,17 @@ const UserSong = observer(class UserSong extends Component {
 
   render() {
     const song = this.props.songSelected;
-    console.log(song);
+
     return (
       <div id="UserSong">
-        <h2 onClick={() => this.downloadSong(song)}>TEST</h2>
+        <div id="UserSongPlayer">
+          <img src={tapePlayer} />
+          <img src={tapePlayerDoor} id="UserSongPlayerDoor"/>
+          <div id="UserSongTape" onClick={() => this.downloadSong(song)} >
+            <TinyTape />
+            <h2 id="UserSongTapeTitle">{song}</h2>
+          </div>
+        </div>
       </div>
     );
   }
