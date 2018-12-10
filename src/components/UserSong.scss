@@ -19,6 +19,22 @@
         transform: translate(-50%, 0);
       }
     }
+    #UserSongConfettis {
+      position: absolute;
+      z-index: 5;
+      left: 0;
+      top: 0;
+      width: 100%;
+      @for $i from 1 through 5 {
+        .UserSongConfetti:nth-child(#{$i}) {
+          z-index: 5;
+          position: absolute;
+          left: #{$i}px;
+          border-radius: 50%;
+          // transform: rotate(calc(#{$i}*25)deg) scale(calc(#{$i} + 100 / 100));
+        }
+      }
+    }
     #UserSongPlayerDoor {
       position: absolute;
       visibility: hidden;

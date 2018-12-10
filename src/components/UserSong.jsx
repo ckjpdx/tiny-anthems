@@ -7,6 +7,7 @@ import fileDownload from 'js-file-download';
 import TinyTape from './common/TinyTape';
 import tapePlayer from '../assets/img/tiny_metal_player_front_closed.png';
 import tapePlayerDoor from '../assets/img/tiny_metal_player_front_open_door.png';
+import confetti from '../assets/img/confetti.png';
 
 import './UserSong.css';
 
@@ -35,12 +36,19 @@ const UserSong = observer(class UserSong extends Component {
 
   render() {
     const song = this.props.songSelected;
+    const confettis = [];
+    for (var i = 0; i < 5; i++) {
+      confettis.push(<img src={confetti} className="UserSongConfetti"/>)
+    }
 
     return (
       <div id="UserSong">
         <div id="UserSongPlayer">
           <img src={tapePlayer} />
           <img src={tapePlayerDoor} id="UserSongPlayerDoor"/>
+          <div id="UserSongConfettis">
+            {confettis}
+          </div>
           <div id="UserSongTape" onClick={() => this.downloadSong(song)} >
             <TinyTape />
             <h2 id="UserSongTapeTitle">{song}</h2>
