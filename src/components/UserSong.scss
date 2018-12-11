@@ -3,6 +3,24 @@
 #UserSong {
   position: relative;
 
+  #UserSongBalloon {
+    animation: balloonDrop 3s linear 1 forwards;
+    @keyframes balloonDrop {
+      from {
+        position: absolute;
+        width: 10%;
+        top: -50vh;
+        left: 0vw;
+      }
+      to {
+        position: absolute;
+        width: 15%;
+        top: 0vh;
+        left: 2vw;
+      }
+    }
+  }
+
   #UserSongPlayer {
     position: absolute;
     width: 50%;
@@ -17,22 +35,6 @@
         top: 25vh;
         left: 50%;
         transform: translate(-50%, 0);
-      }
-    }
-    #UserSongConfettis {
-      position: absolute;
-      z-index: 5;
-      left: 0;
-      top: 0;
-      width: 100%;
-      @for $i from 1 through 5 {
-        .UserSongConfetti:nth-child(#{$i}) {
-          z-index: 5;
-          position: absolute;
-          left: #{$i}px;
-          border-radius: 50%;
-          // transform: rotate(calc(#{$i}*25)deg) scale(calc(#{$i} + 100 / 100));
-        }
       }
     }
     #UserSongPlayerDoor {
@@ -118,6 +120,16 @@
           transform: translate(-50%, -50%);
           width: 90%;
         }
+      }
+    }
+    #UserSongTapeInstructions {
+      position: absolute;
+      bottom: 13%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      @media screen and (min-width: $bp-tablet) {
+        bottom: 28%;
       }
     }
   }
