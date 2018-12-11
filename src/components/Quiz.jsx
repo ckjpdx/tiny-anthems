@@ -14,7 +14,12 @@ const Quiz = observer(class Quiz extends Component {
   constructor(props) {
     super(props);
     this.state = {quiz: null, dialog: false};
-    this.state.quiz = props.appState;
+    this.state.quiz = {
+      uid: props.appState.uid,
+      name: props.appState.name,
+      email: props.appState.email,
+      pending: true
+    };
     this.state.quiz.quizData = {
       questions: [],
       answers: []

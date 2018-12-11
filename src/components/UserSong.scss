@@ -1,0 +1,136 @@
+@import 'styles/_variables';
+
+#UserSong {
+  position: relative;
+
+  #UserSongBalloon {
+    animation: balloonDrop 3s linear 1 forwards;
+    @keyframes balloonDrop {
+      from {
+        position: absolute;
+        width: 10%;
+        top: -50vh;
+        left: 0vw;
+      }
+      to {
+        position: absolute;
+        width: 15%;
+        top: 0vh;
+        left: 2vw;
+      }
+    }
+  }
+
+  #UserSongPlayer {
+    position: absolute;
+    width: 50%;
+    animation: playerRise 2s linear 1 forwards;
+    @keyframes playerRise {
+      from {
+        top: 100vh;
+        left: 50%;
+        transform: translate(-50%, 0);
+      }
+      to {
+        top: 25vh;
+        left: 50%;
+        transform: translate(-50%, 0);
+      }
+    }
+    #UserSongPlayerDoor {
+      position: absolute;
+      visibility: hidden;
+      right: 0%;
+      width: 81%;
+      top: 18%;
+      animation: playerDoorOpen 3s linear 1 forwards;
+      @keyframes playerDoorOpen {
+        90% {
+          visibility: hidden;
+        }
+        100% {
+          visibility: visible;
+        }
+      }
+    }
+  }
+
+  #UserSongTape {
+    position: absolute;
+    visibility: hidden;
+    animation: tapeEmerge 6s linear 1 forwards;
+    @keyframes tapeEmerge {
+      0% {
+        visibility: hidden;
+      }
+      50% {
+        visibility: hidden;
+        position: absolute;
+        z-index: 3;
+        width: 50%;
+        top: 0%;
+        left: 40%;
+        transform: rotate(0deg);
+      }
+      100% {
+        visibility: visible;
+        position: absolute;
+        z-index: 3;
+        width: 150%;
+        top: -50%;
+        left: -25%;
+        transform: rotate(3600deg);
+      }
+    }
+
+    #UserSongTapeTitle {
+      font-family: 'Permanent Marker', cursive;
+      position: absolute;
+      top: 11%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      animation: tapeTitleSize 6s linear 1 forwards;
+
+      @keyframes tapeTitleSize {
+        0% {
+          font-size: 1vw;
+          top: 11%;
+          left: 50%;
+          font-family: 'Permanent Marker', cursive;
+          position: absolute;
+          transform: translate(-50%, -50%);
+          width: 90%;
+        }
+        50% {
+          font-size: 1vw;
+          top: 11%;
+          left: 50%;
+          font-family: 'Permanent Marker', cursive;
+          position: absolute;
+          transform: translate(-50%, -50%);
+          width: 90%;
+        }
+        100% {
+          font-size: 3vw;
+          top: 11%;
+          left: 50%;
+          font-family: 'Permanent Marker', cursive;
+          position: absolute;
+          transform: translate(-50%, -50%);
+          width: 90%;
+        }
+      }
+    }
+    #UserSongTapeInstructions {
+      position: absolute;
+      bottom: 13%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      @media screen and (min-width: $bp-tablet) {
+        bottom: 28%;
+      }
+    }
+  }
+}

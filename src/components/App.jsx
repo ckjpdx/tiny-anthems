@@ -10,6 +10,7 @@ import Welcome from './Welcome';
 import Admin from './Admin';
 import Quiz from './Quiz';
 import User from './User';
+import UserSong from './UserSong';
 import PrivateRoute from './common/PrivateRoute';
 import NavDrawer from './common/NavDrawer';
 import Error404 from './Error404';
@@ -48,6 +49,10 @@ class App extends React.Component {
     this.setState({uid: null, name: null, email: null});
   }
 
+  handleSong = (song) => {
+    this.setState({songSelected: song});
+  }
+
   render() {
     const navAndTitle = this.props.history.location.pathname !== '/'
     && <div id="App-nav-and-title">
@@ -66,7 +71,8 @@ class App extends React.Component {
           <Route path='/about' component={About} />
           <Route path='/portfolio' component={Portfolio} />
           <Route path='/feedback' component={Feedback} />
-          <PrivateRoute exact path='/user' component={User} appState={this.state}/>
+          <PrivateRoute exact path='/user' component={User} appState={this.state} onSongSelect={this.handleSong}/>
+          <PrivateRoute exact path='/user/song' component={UserSong} appState={this.state} songSelected={this.state.songSelected}/>
           <PrivateRoute exact path='/user/quiz' appState={this.state} component={Quiz} />
           <PrivateRoute exact path='/admin' component={Admin} appState={this.state} adminRoute={true}/> } />
           <Route component={Error404} />

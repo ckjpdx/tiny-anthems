@@ -3,7 +3,6 @@ import { observer } from 'mobx-react';
 import { quizzesCollection } from './../store';
 import { Link } from 'react-router-dom';
 import firebase from 'firebase';
-import fileDownload from 'js-file-download';
 import rider from './../assets/img/rider.gif';
 import castle from './../assets/img/castleflag.gif';
 
@@ -16,23 +15,6 @@ const User = observer(class User extends Component {
   constructor(props){
     super(props);
     quizzesCollection.query = quizzesCollection.ref.where('uid', '==', this.props.appState.uid);
-  }
-
-  downloadSong(song){
-    const storage = firebase.storage();
-    const gsReference = storage.refFromURL('gs://tiny-anthems-2043a.appspot.com/songs/' + song);
-    gsReference.getDownloadURL().then((url) => {
-      const xhr = new XMLHttpRequest();
-      xhr.responseType = 'blob';
-      xhr.onload = (event) => {
-        const blob = xhr.response;
-        fileDownload(blob, song);
-      };
-      xhr.open('GET', url);
-      xhr.send();
-    }).catch((error) => {
-      console.error(error);
-    });
   }
 
   handleClickImmortalize = () => {
@@ -53,11 +35,14 @@ const User = observer(class User extends Component {
     });
     if (allUserSongs.length) {
       listSongs = allUserSongs.map((song, i) =>
-        <h2 key={i} onClick={() => this.downloadSong(song)}><FontAwesomeIcon icon={faFileAudio} /> {song}</h2>
+      <Link to='/user/song'>
+        <h2 key={i} onClick={() => this.props.onSongSelect(song)}><FontAwesomeIcon icon={faFileAudio} /> {song}</h2>
+      </Link>
       )
     } else {
       listSongs = <p>You don't have any anthems made yet! Fill out a questionnaire to begin the immortalization process!</p>;
     }
+
     return (
       <div id="User">
         <div id="User-castle-area">
