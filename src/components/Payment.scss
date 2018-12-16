@@ -1,0 +1,16 @@
+@import 'styles/_variables';
+
+div.Payment {
+  img {
+    width: 50%;
+  }
+  @media screen and (min-width: $bp-tablet) {
+    img {
+      width: 25%;
+      float: left;
+    }
+    p {
+      text-align: left;
+    }
+  }
+}

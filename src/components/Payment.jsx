@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 import { quizzesCollection } from './../store';
 import 'firebase/firestore';
-// import './Payment.css'; does this need CSS?
+import './Payment.css';
 import * as emailjs from 'emailjs-com';
 import {StripeProvider} from 'react-stripe-elements';
 import donation from '../assets/img/donation.jpg';
@@ -46,8 +46,8 @@ const Payment = observer(class Payment extends Component {
 
     return (
       <div className="Payment">
+      <h1>Payment</h1>
       <img src={donation} alt="donation jar" />
-        <h1>Payment</h1>
         <p>
           The quiz you just filled out is on standby and ready to be launched into our space-machines where it will be transmuted into the everlasting format of recorded music. Before the process is complete, however, we need to take care of some… unfortunate business called “money”.
         </p>
@@ -57,6 +57,8 @@ const Payment = observer(class Payment extends Component {
         <p>
           Please note that 25% of your contribution goes toward “Friends of Noise”, a Portland-based non-profit that seeks to foster healing and growth for the creative youth in our community via the arts.
         </p>
+        <div style={{clear: "both"}} />
+        <button>MONEY PLEASE</button>
       </div>
     );
   }
