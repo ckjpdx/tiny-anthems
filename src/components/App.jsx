@@ -9,6 +9,7 @@ import Feedback from './Feedback';
 import Welcome from './Welcome';
 import Admin from './Admin';
 import Quiz from './Quiz';
+import Payment from './Payment';
 import User from './User';
 import UserSong from './UserSong';
 import PrivateRoute from './common/PrivateRoute';
@@ -24,6 +25,12 @@ class App extends React.Component {
       uid: null,
       email: null,
       name: null,
+      quiz: {
+        quizData: {
+          questions: [],
+          answers: []
+        }
+      },
       pending: true,
       quizType: null
     };
@@ -42,7 +49,7 @@ class App extends React.Component {
       name: user.displayName,
       email: user.email
     });
-    this.props.history.push('/user');
+    this.props.history.push('/user/quiz');
   }
 
   handleSignOut = () => {
@@ -51,6 +58,20 @@ class App extends React.Component {
 
   handleSong = (song) => {
     this.setState({songSelected: song});
+  }
+
+  handleQuizInput = (e, question, i) =>  {
+    console.log('e:', e, 'question:', question, 'i:', i);
+    const newQuiz = Object.assign({}, this.state.quiz);
+    console.log(this.state, newQuiz);
+    newQuiz.quizData.questions[i] = question;
+    newQuiz.quizData.answers[i] = e.target.value;
+    this.setState({quiz: newQuiz});
+    console.log(this.state.quiz);
+  }
+
+  handleQuizType = (e) => {
+    this.setState({quizType: e.target.id});
   }
 
   render() {
@@ -73,7 +94,14 @@ class App extends React.Component {
           <Route path='/feedback' component={Feedback} />
           <PrivateRoute exact path='/user' component={User} appState={this.state} onSongSelect={this.handleSong}/>
           <PrivateRoute exact path='/user/song' component={UserSong} appState={this.state} songSelected={this.state.songSelected}/>
-          <PrivateRoute exact path='/user/quiz' appState={this.state} component={Quiz} />
+          <PrivateRoute exact path='/user/quiz'
+            component={Quiz}
+            appState={this.state}
+            onQuizInput={this.handleQuizInput}
+            onQuizType={this.handleQuizType} />
+          <PrivateRoute exact path='/user/quiz/payment'
+            component={Payment}
+            appState={this.state} />
           <PrivateRoute exact path='/admin' component={Admin} appState={this.state} adminRoute={true}/> } />
           <Route component={Error404} />
         </Switch>
