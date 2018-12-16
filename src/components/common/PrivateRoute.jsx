@@ -21,7 +21,8 @@ const PrivateRoute =
           <Component {...props}
             songSelected={songSelected}
             onSongSelect={onSongSelect}
-            appState={appState} />
+            appState={appState}
+            {...rest} />
         ) : (
           <Redirect
             to={{
