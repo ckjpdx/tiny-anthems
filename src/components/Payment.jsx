@@ -46,7 +46,17 @@ const Payment = observer(class Payment extends Component {
 
     return (
       <div className="Payment">
+      <img src={donation} alt="donation jar" />
         <h1>Payment</h1>
+        <p>
+          The quiz you just filled out is on standby and ready to be launched into our space-machines where it will be transmuted into the everlasting format of recorded music. Before the process is complete, however, we need to take care of some… unfortunate business called “money”.
+        </p>
+        <p>
+          Payment for Tiny Anthem’s services are on a discretionary tiered donation system in accordance to what you can spare as a participating member of our capitalistic society. Because cost shouldn’t be prohibitive you have several options. There is a “low tier” donation for people on or around the poverty line, a “mid tier” for people who can give a bit more, and a “high tier” for those who would consider themselves comfortable and beyond.
+        </p>
+        <p>
+          Please note that 25% of your contribution goes toward “Friends of Noise”, a Portland-based non-profit that seeks to foster healing and growth for the creative youth in our community via the arts.
+        </p>
       </div>
     );
   }
