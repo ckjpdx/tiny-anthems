@@ -7,16 +7,22 @@ class CheckoutForm extends Component {
     this.submit = this.submit.bind(this);
   }
 
-  async submit(ev) {
-    // User clicked submit
-  }
+  submit = (ev) => {
+  ev.preventDefault();
+  this.props.stripe.createToken({name: 'Test Person'}).then(({token}) => {
+    console.log('Received Stripe token:', token);
+  });
+};
+
+  // async submit(ev) {
+  //   // User clicked submit
+  // }
 
   render() {
     return (
       <div className="checkout">
-        <p>Would you like to complete the purchase?</p>
         <CardElement />
-        <button onClick={this.submit}>Send</button>
+        <button onClick={this.submit}>$$$ PAY $$$</button>
       </div>
     );
   }
