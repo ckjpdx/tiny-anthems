@@ -42,14 +42,15 @@ const Payment = observer(class Payment extends Component {
     // const submitButton = <button id="Quiz-submit" onClick={this.handleQuizFormSubmit}>Immortalize!</button>;
 
     // {submitButton}
+    // <img src={donation} alt="donation jar" />
 
     return (
       <StripeProvider apiKey="pk_test_sUVTn8x78A4039NAKm9Zojnm">
         <Elements>
         <div className="Payment">
           <h1>Payment</h1>
-          <img src={donation} alt="donation jar" />
-          <CheckoutForm />
+
+          <CheckoutForm payerName={this.props.appState.name}/>
           <p>
             Thank you for your submission for immortalization through song! To finalize your transaction, please consider the payment options below.
           </p>

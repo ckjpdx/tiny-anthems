@@ -1,0 +1,9 @@
+@import 'styles/_variables';
+
+div.CheckoutForm {
+  border: solid 1px #BBB;
+  padding: 10px;
+  @media screen and (min-width: $bp-tablet) {
+    margin: 0 20%;
+  }
+}

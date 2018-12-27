@@ -49,6 +49,10 @@ button {
   padding: 15px;
   background: $blood;
   border-radius: 10px;
+  &.center {
+    display: block;
+    margin: 10px auto;
+  }
 }
 textarea {
   display: block;
@@ -58,6 +62,9 @@ textarea {
   &.bigger {
     height: 5em;
   }
+}
+span.text-spacer {
+  margin: 0 15px;
 }
 .Login-invert-colors {
   color: $blood;
