@@ -84,20 +84,20 @@ class CheckoutForm extends Component {
     return (
       <div className="CheckoutForm">
         <div>
-          <input type="radio" name="donate" value="50" onChange={this.handleAmount(false)} />
-          <label>$50</label>
+          <input type="radio" name="donate" value="50" id="pay-50" onChange={this.handleAmount(false)} />
+          <label for="pay-50">$50</label>
         </div>
         <div>
-          <input type="radio" name="donate" value="100" onChange={this.handleAmount(false)} />
-          <label>$100</label>
+          <input type="radio" name="donate" value="100" id="pay-100" onChange={this.handleAmount(false)} />
+          <label for="pay-100">$100</label>
         </div>
         <div>
-          <input type="radio" name="donate" value="200" onChange={this.handleAmount(false)} />
-          <label>$200</label>
+          <input type="radio" name="donate" value="200" id="pay-200" onChange={this.handleAmount(false)} />
+          <label for="pay-200">$200</label>
         </div>
         <div>
-          <input type="radio" name="donate" value="0" onChange={this.handleAmount(true)} />
-          <label>Custom</label>
+          <input type="radio" name="donate" value="0" id="pay-custom" onChange={this.handleAmount(true)} />
+          <label for="pay-custom">Custom</label>
           {this.state.showCustom &&
             <div>
               <label>$</label>
