@@ -6,13 +6,17 @@ class CheckoutForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      payerAmount: null
+      payerAmount: null,
+      showCustom: false
     }
     // this.submit = this.submit.bind(this);
   }
 
-  handleAmount = (e) => {
-    this.setState({payerAmount: parseInt(e.target.value)})
+  handleAmount = (custom) => (e) => {
+    let amt = e.target.value || 0;
+    amt = parseInt(amt) * 100;
+    this.setState({payerAmount: amt, showCustom: custom})
+    console.log(this.state);
   }
 
   submit = async (e) => {
@@ -67,26 +71,41 @@ class CheckoutForm extends Component {
   // }
 
   render() {
+    const amount = this.state.payerAmount;
+      const cardElementOrErrorMessage =
+      amount >= 500 ?
+      <div>
+        <CardElement />
+        <button className="center" onClick={this.submit}>$$$ PAY $$$</button>
+      </div>
+      :
+      <p>Please enter an amount of at least $5</p>;
+
     return (
       <div className="CheckoutForm">
-        <span className="text-spacer">
-          <input type="radio" name="donate" value="5000" onChange={this.handleAmount} />
+        <div>
+          <input type="radio" name="donate" value="50" onChange={this.handleAmount(false)} />
           <label>$50</label>
-        </span>
-        <span className="text-spacer">
-          <input type="radio" name="donate" value="10000" onChange={this.handleAmount} />
+        </div>
+        <div>
+          <input type="radio" name="donate" value="100" onChange={this.handleAmount(false)} />
           <label>$100</label>
-        </span>
-        <span className="text-spacer">
-          <input type="radio" name="donate" value="20000" onChange={this.handleAmount} />
+        </div>
+        <div>
+          <input type="radio" name="donate" value="200" onChange={this.handleAmount(false)} />
           <label>$200</label>
-        </span>
-        {this.state.payerAmount &&
-          <div>
-            <CardElement />
-            <button className="center" onClick={this.submit}>$$$ PAY $$$</button>
-          </div>
-        }
+        </div>
+        <div>
+          <input type="radio" name="donate" value="0" onChange={this.handleAmount(true)} />
+          <label>Custom</label>
+          {this.state.showCustom &&
+            <div>
+              <label>$</label>
+              <input type="number" name="donate" onChange={this.handleAmount(true)} />
+            </div>
+          }
+        </div>
+        {cardElementOrErrorMessage}
       </div>
     );
   }

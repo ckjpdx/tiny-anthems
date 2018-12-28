@@ -49,11 +49,10 @@ const Payment = observer(class Payment extends Component {
         <Elements>
         <div className="Payment">
           <h1>Payment</h1>
-
-          <CheckoutForm payerName={this.props.appState.name}/>
           <p>
-            Thank you for your submission for immortalization through song! To finalize your transaction, please consider the payment options below.
+          Thank you for your submission for immortalization through song! To finalize your transaction, please consider the payment options below.
           </p>
+          <CheckoutForm payerName={this.props.appState.name}/>
           <p>
             As per my socialist leanings, I endorse a “pay what you can” model. I ask that you select a level of payment that is appropriate and comfortable for you, given your financial standing. Note that your support allows me to continue to undertake these and other, community-oriented works, and that a portion of your donation goes directly to Friends of Noise.
           </p>
