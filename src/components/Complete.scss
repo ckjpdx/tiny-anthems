@@ -1,0 +1,38 @@
+div#Complete {
+  img#Complete-Vommy {
+    left: 50%;
+    max-height: 90%;
+    max-width: 200px;
+    width: 50%;
+  }
+
+  img#Complete-ghost {
+    position: absolute;
+    width: 50px;
+    transform: translate(-50%, -50%);
+    animation: Cghost 15s linear infinite alternate;
+    z-index: 2;
+    @keyframes Cghost {
+      0% {
+        top: 20%;
+        left: 20%;
+      }
+      25% {
+        top: 80%;
+        left: 80%;
+      }
+      50% {
+        top: 20%;
+        left: 80%;
+      }
+      75% {
+        top: 80%;
+        left: 20%;
+      }
+      100% {
+        top: 35%;
+        left: 50%;
+      }
+    }
+  }
+}

@@ -10,6 +10,7 @@ import Welcome from './Welcome';
 import Admin from './Admin';
 import Quiz from './Quiz';
 import Payment from './Payment';
+import Complete from './Complete';
 import User from './User';
 import UserSong from './UserSong';
 import PrivateRoute from './common/PrivateRoute';
@@ -49,7 +50,7 @@ class App extends React.Component {
       name: user.displayName,
       email: user.email
     });
-    this.props.history.push('/user/quiz/payment');
+    this.props.history.push('/user/quiz/complete');
   }
 
   handleSignOut = () => {
@@ -102,6 +103,7 @@ class App extends React.Component {
           <PrivateRoute exact path='/user/quiz/payment'
             component={Payment}
             appState={this.state} />
+          <Route exact path='/user/quiz/complete' component={Complete} />
           <PrivateRoute exact path='/admin' component={Admin} appState={this.state} adminRoute={true}/> } />
           <Route component={Error404} />
         </Switch>

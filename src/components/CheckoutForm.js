@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
 import {CardElement, injectStripe} from 'react-stripe-elements';
+import { withRouter } from 'react-router-dom';
+
 import './CheckoutForm.css';
 
 class CheckoutForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      payerAmount: null,
+      payerAmount: 0,
       showCustom: false
     }
     // this.submit = this.submit.bind(this);
@@ -43,8 +45,9 @@ class CheckoutForm extends Component {
     });
     console.log('response:', response);
 
+    if (response.body.error) return console.log(response.body.error);
+    this.props.history.push('/user/quiz/complete');
 
-    // if (res.body.error) return console.log(res.body.error);
     // // Card successfully charged
     // isSuccess = true;
     // isSubmitting = false;
@@ -111,4 +114,4 @@ class CheckoutForm extends Component {
   }
 }
 
-export default injectStripe(CheckoutForm);
+export default withRouter(injectStripe(CheckoutForm));
