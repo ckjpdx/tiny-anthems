@@ -26,13 +26,10 @@ class App extends React.Component {
       uid: null,
       email: null,
       name: null,
-      quiz: {
-        quizData: {
-          questions: [],
-          answers: []
-        }
+      quizData: {
+        questions: [],
+        answers: []
       },
-      pending: true,
       quizType: null
     };
     firebase.auth().onAuthStateChanged(user => {
@@ -63,12 +60,12 @@ class App extends React.Component {
 
   handleQuizInput = (e, question, i) =>  {
     console.log('e:', e, 'question:', question, 'i:', i);
-    const newQuiz = Object.assign({}, this.state.quiz);
-    console.log(this.state, newQuiz);
-    newQuiz.quizData.questions[i] = question;
-    newQuiz.quizData.answers[i] = e.target.value;
-    this.setState({quiz: newQuiz});
-    console.log(this.state.quiz);
+    const newQuizData = Object.assign({}, this.state.quizData);
+    console.log(this.state, newQuizData);
+    newQuizData.questions[i] = question;
+    newQuizData.answers[i] = e.target.value;
+    this.setState({quizData: newQuizData});
+    console.log(this.state.quizData);
   }
 
   handleQuizType = (e) => {
