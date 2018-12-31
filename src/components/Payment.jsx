@@ -10,12 +10,12 @@ class Payment extends Component {
 
   render(){
     return (
-      <StripeProvider apiKey="pk_test_sUVTn8x78A4039NAKm9Zojnm">
+      <StripeProvider apiKey="pk_live_DXZHnIPbi73ySKKiyDkLD1NO">
         <Elements>
         <div className="Payment">
           <h1>Payment</h1>
           <p>
-          Thank you for your submission for immortalization through song! To finalize your transaction, please consider the payment options below.
+            Thank you for your submission for immortalization through song! To finalize your transaction, please consider the payment options below.
           </p>
           <CheckoutForm
           appState={this.props.appState}
