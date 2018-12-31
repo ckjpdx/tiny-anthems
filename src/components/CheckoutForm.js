@@ -23,7 +23,6 @@ const CheckoutForm = observer(class CheckoutForm extends Component {
     let amt = e.target.value || 0;
     amt = parseInt(amt) * 100;
     this.setState({payerAmount: amt, showCustom: custom})
-    console.log(this.state);
   }
 
   submit = async (e) => {
@@ -33,7 +32,6 @@ const CheckoutForm = observer(class CheckoutForm extends Component {
 
     // let result = await stripe.createToken(card);
     let tokenObj = await this.props.stripe.createToken({name: this.props.appState.name});
-    console.log('inside the createToken return:', tokenObj.token);
     if (tokenObj.token) {
       let response = await fetch(firebaseFunc, {
         method: "POST",
@@ -46,7 +44,6 @@ const CheckoutForm = observer(class CheckoutForm extends Component {
           }
         })
       });
-      console.log('response:', response);
 
       if (response.body.error) {
         this.setState({processing: false, message: 'There was an error on submission!'});
@@ -61,10 +58,8 @@ const CheckoutForm = observer(class CheckoutForm extends Component {
         if (quizSubmitId.id) {
           emailjs.init(process.env.REACT_APP_EMAILJS);
           const templateParams = {
-            name: 'TESTING EMAIL SYSTEM',
-            email: 'TESTING@TEST.COM'
-            // name: this.props.appState.name,
-            // email: this.props.appState.email
+            name: this.props.appState.name,
+            email: this.props.appState.email
           };
           emailjs.send('gmail', 'template_vk6ykRLd', templateParams)
             .then(function(response) {
@@ -76,6 +71,7 @@ const CheckoutForm = observer(class CheckoutForm extends Component {
           alert('Something broke on the submission! We havent any idea why. Please try again later or contact Mike and tell him to yell at his web developer, Jack.');
         }
         // };
+        this.props.onClearQuiz();
         this.props.history.push('/user/quiz/complete');
       }
     } else {

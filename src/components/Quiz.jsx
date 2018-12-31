@@ -10,20 +10,19 @@ import { forMeQuestionsArr, forThemQuestionsArr } from './../assets/extras/quest
 const Quiz = observer(class Quiz extends Component {
 
 // will need to put uid, etc into quiz on submit
-  handleQuizFormCheck = async (e) => {
-    e.preventDefault();
-    const checkForAnswers = this.props.appState.quizType === 'for-me'
+  onContinue = () => {
+    const numOfAnsReq = this.props.appState.quizType === 'for-me'
       ? forMeQuestionsArr.length
       : forThemQuestionsArr.length;
-    if (checkForAnswers >= this.props.appState.quiz.quizData.answers.length) {
+    if (numOfAnsReq <= this.props.appState.quizData.answers.length) {
       this.props.history.push('/user/quiz/payment');
     } else {
-      alert('Please answer all the questions before submitting!');
+      alert('Please answer all the questions!');
     }
   };
 
   render(){
-    const submitButton = <button id="Quiz-submit" onClick={this.handleQuizFormCheck}>Immortalize!</button>;
+    const continueButton = <button id="Quiz-submit" onClick={this.onContinue}>Continue...</button>;
 
     const forMeQuestions = <div>
       <p>
@@ -33,11 +32,11 @@ const Quiz = observer(class Quiz extends Component {
         <div className="Quiz-for-me-question" key={'key'+i}>
           <label>{question}</label>
           <textarea type="text"
-          value={this.props.appState.quiz.quizData.answers[i]}
+          value={this.props.appState.quizData.answers[i]}
           onChange={(e)=>this.props.onQuizInput(e, question, i)}/>
         </div>
       )}
-      {submitButton}
+      {continueButton}
     </div>;
 
     const forThemQuestions = <div>
@@ -58,11 +57,11 @@ const Quiz = observer(class Quiz extends Component {
         <div className="Quiz-for-them-question" key={'key'+i}>
           <label>{question}</label>
           <textarea type="text"
-          value={this.props.appState.quiz.quizData.answers[i]}
+          value={this.props.appState.quizData.answers[i]}
           onChange={(e)=>this.props.onQuizInput(e, question, i)}/>
         </div>
       )}
-      {submitButton}
+      {continueButton}
     </div>;
 
     return (

@@ -29,7 +29,6 @@ class ListedQuizUpload extends React.Component {
         this.setState({
           progressPercent: percentage
         });
-        console.log(this.state.progressPercent);
       },
       (err) => {console.error(err);},
       async () => {

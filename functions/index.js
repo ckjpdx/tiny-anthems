@@ -9,15 +9,10 @@ const app = express();
 const stripe = require('stripe')(functions.config().stripe.token);
 
 function charge(req, res) {
-    console.log('req', req);
     const body = JSON.parse(req.body);
-    console.log('body', body);
     const token = body.token;
-    console.log('token', token);
     const tokenId = token.id;
-    console.log('amount in body:', body.charge.amount);
     const amount = body.charge.amount;
-    console.log('amount:', amount);
     const currency = body.charge.currency;
 
     // Charge card

@@ -47,7 +47,7 @@ class App extends React.Component {
       name: user.displayName,
       email: user.email
     });
-    this.props.history.push('/user/quiz/payment');
+    this.props.history.push('/user');
   }
 
   handleSignOut = () => {
@@ -59,17 +59,24 @@ class App extends React.Component {
   }
 
   handleQuizInput = (e, question, i) =>  {
-    console.log('e:', e, 'question:', question, 'i:', i);
     const newQuizData = Object.assign({}, this.state.quizData);
-    console.log(this.state, newQuizData);
     newQuizData.questions[i] = question;
     newQuizData.answers[i] = e.target.value;
     this.setState({quizData: newQuizData});
-    console.log(this.state.quizData);
   }
 
   handleQuizType = (e) => {
     this.setState({quizType: e.target.id});
+  }
+
+  handleClearQuiz = () => {
+    this.setState({
+      quizData: {
+        questions: [],
+        answers: []
+      },
+      quizType: null
+    });
   }
 
   render() {
@@ -99,7 +106,8 @@ class App extends React.Component {
             onQuizType={this.handleQuizType} />
           <PrivateRoute exact path='/user/quiz/payment'
             component={Payment}
-            appState={this.state} />
+            appState={this.state}
+            onClearQuiz={this.handleClearQuiz} />
           <Route exact path='/user/quiz/complete' component={Complete} />
           <PrivateRoute exact path='/admin' component={Admin} appState={this.state} adminRoute={true}/> } />
           <Route component={Error404} />
