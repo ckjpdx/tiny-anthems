@@ -28,9 +28,6 @@ const CheckoutForm = observer(class CheckoutForm extends Component {
   submit = async (e) => {
     this.setState({processing: true});
     const firebaseFunc = 'https://us-central1-tiny-anthems-2043a.cloudfunctions.net/charge/';
-    // e.preventDefault();
-
-    // let result = await stripe.createToken(card);
     let tokenObj = await this.props.stripe.createToken({name: this.props.appState.name});
     if (tokenObj.token) {
       let response = await fetch(firebaseFunc, {
@@ -49,10 +46,6 @@ const CheckoutForm = observer(class CheckoutForm extends Component {
         this.setState({processing: false, message: 'There was an error on submission!'});
         return console.log(response.body.error);
       } else {
-        // will need to put uid, etc into quiz on submit
-          // handleQuizFormSubmit = async (e) => {
-        // e.preventDefault();
-          // document.getElementById("Quiz-submit").disabled = true;
         const quizUpload = {...this.props.appState, pending: true};
         const quizSubmitId = await quizzesCollection.add(quizUpload); // can return doc.id
         if (quizSubmitId.id) {
@@ -70,7 +63,6 @@ const CheckoutForm = observer(class CheckoutForm extends Component {
         } else {
           alert('Something broke on the submission! We havent any idea why. Please try again later or contact Mike and tell him to yell at his web developer, Jack.');
         }
-        // };
         this.props.onClearQuiz();
         this.props.history.push('/user/quiz/complete');
       }

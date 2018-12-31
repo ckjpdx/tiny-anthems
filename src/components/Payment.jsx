@@ -6,16 +6,9 @@ import CheckoutForm from './CheckoutForm';
 
 import donation from '../assets/img/donation.jpg';
 
-// import 'firebase/functions'; maybe need this?
-
 class Payment extends Component {
 
   render(){
-    // const submitButton = <button id="Quiz-submit" onClick={this.handleQuizFormSubmit}>Immortalize!</button>;
-
-    // {submitButton}
-    // <img src={donation} alt="donation jar" />
-
     return (
       <StripeProvider apiKey="pk_test_sUVTn8x78A4039NAKm9Zojnm">
         <Elements>
