@@ -1,0 +1,23 @@
+div.ProgressVommy {
+  margin: auto;
+  width: 75px;
+  height: 75px;
+  border: dotted 3px black;
+  border-radius: 50%;
+
+  animation-name: spinner;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  @keyframes spinner {
+    from {
+      transform:rotate(0deg);
+    }
+    to {
+      transform:rotate(360deg);
+    }
+  }
+  img {
+    max-height: 100%;
+  }
+}

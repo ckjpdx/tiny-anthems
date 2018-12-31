@@ -6,6 +6,7 @@ import './Payment.css';
 import * as emailjs from 'emailjs-com';
 import {Elements, StripeProvider} from 'react-stripe-elements';
 import CheckoutForm from './CheckoutForm';
+
 import donation from '../assets/img/donation.jpg';
 
 // import 'firebase/functions'; maybe need this?

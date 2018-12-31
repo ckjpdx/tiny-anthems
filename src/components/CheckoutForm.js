@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {CardElement, injectStripe} from 'react-stripe-elements';
 import { withRouter } from 'react-router-dom';
+import ProgressVommy from './common/ProgressVommy';
 
 import './CheckoutForm.css';
 
@@ -9,7 +10,8 @@ class CheckoutForm extends Component {
     super(props);
     this.state = {
       payerAmount: 0,
-      showCustom: false
+      showCustom: false,
+      processing: false
     }
     // this.submit = this.submit.bind(this);
   }
@@ -22,6 +24,7 @@ class CheckoutForm extends Component {
   }
 
   submit = async (e) => {
+    this.setState({processing: true});
     const firebaseFunc = 'https://us-central1-tiny-anthems-2043a.cloudfunctions.net/charge/';
     // e.preventDefault();
 
@@ -32,21 +35,29 @@ class CheckoutForm extends Component {
     // if (isSubmitting) return;
     // isSubmitting = true;
     // let res = await charge(token.id, 123, 'usd');
-    let response = await fetch(firebaseFunc, {
-      method: "POST",
-      headers: {"Content-Type": "text/plain"},
-      body: JSON.stringify({
-        token: tokenObj.token,
-        charge: {
-          amount: this.state.payerAmount,
-          currency: "usd"
-        }
-      })
-    });
-    console.log('response:', response);
+    if (tokenObj.token) {
+      let response = await fetch(firebaseFunc, {
+        method: "POST",
+        headers: {"Content-Type": "text/plain"},
+        body: JSON.stringify({
+          token: tokenObj.token,
+          charge: {
+            amount: this.state.payerAmount,
+            currency: "usd"
+          }
+        })
+      });
+      console.log('response:', response);
 
-    if (response.body.error) return console.log(response.body.error);
-    this.props.history.push('/user/quiz/complete');
+      if (response.body.error) {
+        this.setState({processing: false});
+        return console.log(response.body.error);
+      } else {
+        this.props.history.push('/user/quiz/complete');
+      }
+    } else {
+      this.setState({processing: false});
+    }
 
     // // Card successfully charged
     // isSuccess = true;
@@ -79,7 +90,14 @@ class CheckoutForm extends Component {
       amount >= 500 ?
       <div>
         <CardElement />
-        <button className="center" onClick={this.submit}>$$$ PAY $$$</button>
+        {this.state.processing ?
+          <div>
+            <ProgressVommy />
+            <p>finalizing immortalization...</p>
+          </div>
+          :
+          <button className="center" onClick={this.submit}>Submit Payment</button>
+        }
       </div>
       :
       <p>Please enter an amount of at least $5</p>;
@@ -104,7 +122,7 @@ class CheckoutForm extends Component {
           {this.state.showCustom &&
             <div>
               <label>$</label>
-              <input type="number" name="donate" onChange={this.handleAmount(true)} />
+              <input type="number" name="donate" style={{width: 75}} onChange={this.handleAmount(true)} />
             </div>
           }
         </div>

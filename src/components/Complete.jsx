@@ -10,7 +10,7 @@ function Complete(props){
       <img src={ghost} alt="a ghost" id="Complete-ghost"/>
       <h2>Congratulations!</h2>
       <p>
-        Thank you for participating in what will likely be called “The greatest artistic endeavor of our time." Below, I have included a few common payment methods that I am fond of. You may or may not be contacted with follow-up questions, and you will be alerted when your song is ready! Please contact me at TinyAnthems@gmail.com if you have any questions.
+        Thank you for participating in what will likely be called “The greatest artistic endeavor of our time”. Once I am notified of your submission, I’ll contact you with any additional questions I might have or just to say hello. For follow up questions, or if you’re just bored, please contact me at TinyAnthems@gmail.com.
       </p>
       <p>
         No further action is required! You may close this window now or return to the site.
