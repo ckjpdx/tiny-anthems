@@ -22,7 +22,7 @@ class Payment extends Component {
           onClearQuiz={this.props.onClearQuiz}
           />
           <p>
-            As per my socialist leanings, I endorse a “pay what you can” model. I ask that you select a level of payment that is appropriate and comfortable for you, given your financial standing. Note that your support allows me to continue to undertake these and other, community-oriented works, and that a portion of your donation goes directly to Friends of Noise.
+            As per my socialist leanings, I endorse a “pay what you can” model. I ask that you select a level of payment that is appropriate and comfortable for you, given your financial standing. Note that your support allows me to continue to undertake these and other, community-oriented works, and that 20% of your donation goes directly to <a href="http://www.friendsofnoise.org/" target="_blank">Friends of Noise</a>.
           </p>
           <p>
             (If you feel inclined to pay above or below my suggested amounts, please feel free to enter a custom amount above.)

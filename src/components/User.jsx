@@ -18,7 +18,6 @@ const User = observer(class User extends Component {
   }
 
   handleClickImmortalize = () => {
-    // new Audio(tinyTheme).play(); // player something here?
     document.getElementById("User-rider").classList.add('play-rideremerges');
     setTimeout(() => {
       this.props.history.push('/user/quiz');
