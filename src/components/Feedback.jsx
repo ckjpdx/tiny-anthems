@@ -12,10 +12,29 @@ function Feedback(){
           <img src={robot} />
         </div>
         <p>
+          "I am so very glad to have come across Mike and Tiny Anthems by happenstance. My wife is a fantastic gifter, much like Leslie Knope from Parks and Recreation. So I was very glad to be able to work with Mike on a song to immortalize her in all of her glory for time immemorial. The song, titled "Cait, Who Never Surrendered To Law Enforcement (She's No Criminal)," is fantastic. I love it even aside from the fact that it's about the woman I love most in the world. Mike's sense of humor comes through strongly, and I had to pause the song the first time I played it because I was giggling too much to continue listening. It is an excellent work of art and Mike was totally awesome throughout the whole process, even making a minor revision when I realized I was missing one useful piece of information he needed. He went above and beyond what I would have expected. And he's super nice, too.
+          <br/><br/>
+          You think that's the end of the story? It is not! After receiving the song, a coworker of mine inspired me to get the song onto vinyl. I immediately started working with Mike to ensure I had the song in a format best suited to deliver via vinyl. He was enthusiastic and even wanted a copy for himself, which I was absolutely glad to do. Without Mike, I would have been Leslie Knope'd again this Christmas. Now I can win the battle of the best gift!
+          <br/><br/>
+          *Seriously - Mike is awesome, the song is awesome, and you should get many Tiny Anthems in your life!"
+          <br />
+          -Robert Ludwick
+        </p>
+      </div>
+      <div className="Feedback-comment">
+        <div className="Feedback-robot">
+          <img src={robot} />
+        </div>
+        <p>
           “We asked Mike to write a story about our humble city magazine. He delivered—and then some. The final song brought raucous laughter and joy to our editorial staff. We’re officially adopting it as the magazine’s anthem and it will be played at all future staff events. Mike is exceptionally talented, funny, and thoughtful and we’re lucky our paths crossed.”
           <br />
           -Portland Monthly Magazine
         </p>
+      </div>
+      <div className="Feedback-comment">
+        <div className="Feedback-robot">
+          <img src={robot} />
+        </div>
         <p>
           “My best friend Vivian hired Mike to compose a Tiny Anthem for me for my birthday, after she had commissioned one for herself and loved the experience. It was one of the most thoughtful, entertaining and personal gifts I’ve ever received! She presented it to me on a thumb drive, along with a sheet of paper announcing the title of the song in calligraphy: “Gina, Chromatic Saint Against Whom All Flames Lap Harmlessly”. The song was luminous and entertaining, hilarious at points but also deeply resonant - and its title has become a bit of a talisman and anchor during life’s ups and downs. Best of all, Mike and I have become good friends as a result of this song being crafted. Highly recommend Tiny Anthems as a unique gift idea!”
           <br/>

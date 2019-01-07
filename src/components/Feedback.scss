@@ -20,6 +20,8 @@
     }
     div.Feedback-comment {
       display: flex;
+      justify-content: center;
+      align-items: center;
       &:nth-child(odd){
         flex-flow: row-reverse;
         img {

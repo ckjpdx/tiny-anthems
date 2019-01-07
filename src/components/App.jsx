@@ -47,7 +47,7 @@ class App extends React.Component {
       name: user.displayName,
       email: user.email
     });
-    this.props.history.push('/user');
+    this.props.history.push('/feedback');
   }
 
   handleSignOut = () => {

@@ -15,7 +15,7 @@ const CheckoutForm = observer(class CheckoutForm extends Component {
       payerAmount: 0,
       showCustom: false,
       processing: false,
-      message: 'Please enter an amount of at least $5'
+      message: 'Please enter an amount of at least five dollars'
     }
   }
 
@@ -104,7 +104,7 @@ const CheckoutForm = observer(class CheckoutForm extends Component {
         </div>
         <div>
           <input type="radio" name="donate" value="0" id="pay-custom" onChange={this.handleAmount(true)} />
-          <label for="pay-custom">Custom</label>
+          <label for="pay-custom">Other</label>
           {this.state.showCustom &&
             <div>
               <label>$</label>

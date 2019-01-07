@@ -15,15 +15,15 @@ class Payment extends Component {
         <div className="Payment">
           <h1>Payment</h1>
           <p>
-            Thank you for your submission for immortalization through song! To finalize your transaction, please consider the payment options below.
+            Thank you for your submission for immortalization through song!
+          </p>
+          <p>
+            Tiny Anthems functions on a “pay what you can” model. I have included some suggested amounts that make it possible for me to undertake these and other, community-oriented works. Additionally, 20% of your donation goes directly to <a href="http://www.friendsofnoise.org/" target="_blank">Friends of Noise</a>, an amazing non-profit. No one will be turned away for lack of funds, and I encourage you to use the “other” option if you would like to pay a smaller (or larger) amount.
           </p>
           <CheckoutForm
           appState={this.props.appState}
           onClearQuiz={this.props.onClearQuiz}
           />
-          <p>
-            As per my socialist leanings, I endorse a “pay what you can” model. I ask that you select a level of payment that is appropriate and comfortable for you, given your financial standing. Note that your support allows me to continue to undertake these and other, community-oriented works, and that 20% of your donation goes directly to <a href="http://www.friendsofnoise.org/" target="_blank">Friends of Noise</a>.
-          </p>
           <p>
             (If you feel inclined to pay above or below my suggested amounts, please feel free to enter a custom amount above.)
           </p>
