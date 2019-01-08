@@ -70,3 +70,14 @@ span.text-spacer {
   color: $blood;
   background: white;
 }
+.showMe {
+  transition: all 1s;
+  transform: scaleY(1);
+  overflow: hidden;
+}
+.hideMe {
+  position: absolute;
+  transition: all 1s;
+  transform: scaleY(0);
+  overflow: hidden;
+}

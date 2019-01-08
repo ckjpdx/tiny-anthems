@@ -7,6 +7,7 @@ import { quizzesCollection } from './../store';
 import * as emailjs from 'emailjs-com';
 import { withRouter } from 'react-router-dom';
 import poweredByStripe from './../assets/img/powered_by_stripe.png';
+import paymentTime from './../assets/img/payment-time.gif';
 import ProgressVommy from './common/ProgressVommy';
 
 import donation from '../assets/img/donation.jpg';
@@ -18,11 +19,13 @@ const Payment = observer(class Payment extends Component {
       payerAmount: 0,
       showCustom: false,
       processing: false,
-      message: 'Please enter an amount of at least five dollars'
+      message: 'Please enter an amount of at least five dollars',
+      text: 'showMe'
     }
   }
 
   handleAmount = (custom) => (e) => {
+    this.state.text === 'showMe' && this.setState({text: 'hideMe'});
     let amt = e.target.value || 0;
     amt = parseInt(amt) * 100;
     this.setState({payerAmount: amt, showCustom: custom})
@@ -93,43 +96,44 @@ const Payment = observer(class Payment extends Component {
       </div>
 
     return (
-          <div className="Payment">
-            <h1>Payment</h1>
-            {<div>
-              <p>
-                Thank you for your submission for immortalization through song!
-              </p>
-              <p>
-                Tiny Anthems functions on a “pay what you can” model. I have included some suggested amounts that make it possible for me to undertake these and other, community-oriented works. Additionally, 20% of your donation goes directly to <a href="http://www.friendsofnoise.org/" target="_blank">Friends of Noise</a>, an amazing non-profit. No one will be turned away for lack of funds, and I encourage you to use the “other” option if you would like to pay a smaller (or larger) amount.
-              </p>
-            </div>}
-            <div className="stripe">
-              <p>{this.state.message}</p>
-              <div>
-                <input type="radio" name="donate" value="50" id="pay-50" onChange={this.handleAmount(false)} />
-                <label for="pay-50">$50</label>
-              </div>
-              <div>
-                <input type="radio" name="donate" value="100" id="pay-100" onChange={this.handleAmount(false)} />
-                <label for="pay-100">$100</label>
-              </div>
-              <div>
-                <input type="radio" name="donate" value="200" id="pay-200" onChange={this.handleAmount(false)} />
-                <label for="pay-200">$200</label>
-              </div>
-              <div>
-                <input type="radio" name="donate" value="0" id="pay-custom" onChange={this.handleAmount(true)} />
-                <label for="pay-custom">Other</label>
-                {this.state.showCustom &&
-                  <div>
-                    <label>$</label>
-                    <input type="number" name="donate" style={{width: 75, backgroundColor: 'lightgreen'}} onChange={this.handleAmount(true)} />
-                  </div>
-                }
-              </div>
-              {amount >= 500 && cardElement}
-            </div>
+      <div className="Payment">
+        <h1>Payment</h1>
+        {<div className={this.state.text}>
+          <p>
+            Thank you for your submission for immortalization through song!
+          </p>
+          <p>
+            Tiny Anthems functions on a “pay what you can” model. I have included some suggested amounts that make it possible for me to undertake these and other, community-oriented works. Additionally, 20% of your donation goes directly to <a href="http://www.friendsofnoise.org/" target="_blank">Friends of Noise</a>, an amazing non-profit. No one will be turned away for lack of funds, and I encourage you to use the “other” option if you would like to pay a smaller (or larger) amount.
+          </p>
+        </div>}
+        <div className="stripe">
+          <img src={paymentTime} alt="payment time!" />
+          <p>{this.state.message}</p>
+          <div>
+            <input type="radio" name="donate" value="50" id="pay-50" onChange={this.handleAmount(false)} />
+            <label for="pay-50">$50</label>
           </div>
+          <div>
+            <input type="radio" name="donate" value="100" id="pay-100" onChange={this.handleAmount(false)} />
+            <label for="pay-100">$100</label>
+          </div>
+          <div>
+            <input type="radio" name="donate" value="200" id="pay-200" onChange={this.handleAmount(false)} />
+            <label for="pay-200">$200</label>
+          </div>
+          <div>
+            <input type="radio" name="donate" value="0" id="pay-custom" onChange={this.handleAmount(true)} />
+            <label for="pay-custom">Other</label>
+            {this.state.showCustom &&
+              <div>
+                <label>$</label>
+                <input type="number" name="donate" style={{width: 75, backgroundColor: 'lightgreen'}} onChange={this.handleAmount(true)} />
+              </div>
+            }
+          </div>
+          {amount >= 500 && cardElement}
+        </div>
+      </div>
     );
   }
 })
