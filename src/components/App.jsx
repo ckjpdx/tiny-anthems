@@ -18,6 +18,7 @@ import NavDrawer from './common/NavDrawer';
 import Error404 from './Error404';
 import sharpie from './../assets/img/tiny_sharpie.png';
 import './App.css';
+import {Elements, StripeProvider} from 'react-stripe-elements';
 
 class App extends React.Component {
   constructor(props) {
@@ -104,10 +105,14 @@ class App extends React.Component {
             appState={this.state}
             onQuizInput={this.handleQuizInput}
             onQuizType={this.handleQuizType} />
-          <PrivateRoute exact path='/user/quiz/payment'
-            component={Payment}
-            appState={this.state}
-            onClearQuiz={this.handleClearQuiz} />
+          <StripeProvider apiKey="pk_live_DXZHnIPbi73ySKKiyDkLD1NO">
+            <Elements>
+              <PrivateRoute exact path='/user/quiz/payment'
+                component={Payment}
+                appState={this.state}
+                onClearQuiz={this.handleClearQuiz} />
+            </Elements>
+          </StripeProvider>
           <Route exact path='/user/quiz/complete' component={Complete} />
           <PrivateRoute exact path='/admin' component={Admin} appState={this.state} adminRoute={true}/> } />
           <Route component={Error404} />
