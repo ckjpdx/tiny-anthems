@@ -48,7 +48,7 @@ class App extends React.Component {
       name: user.displayName,
       email: user.email
     });
-    this.props.history.push('/user/quiz/payment');
+    this.props.history.push('/user');
   }
 
   handleSignOut = () => {
