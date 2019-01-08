@@ -6,4 +6,10 @@ div.CheckoutForm {
   @media screen and (min-width: $bp-tablet) {
     margin: 0 20%;
   }
+  section {
+    margin: 25px auto;
+    border-top: 3px solid #9fa3b6;
+    border-bottom: 3px solid #9fa3b6;
+    padding: 5px 0;
+  }
 }

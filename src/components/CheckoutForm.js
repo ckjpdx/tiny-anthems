@@ -4,6 +4,7 @@ import { observer } from 'mobx-react';
 import { quizzesCollection } from './../store';
 import * as emailjs from 'emailjs-com';
 import { withRouter } from 'react-router-dom';
+import poweredByStripe from './../assets/img/powered_by_stripe.png';
 import ProgressVommy from './common/ProgressVommy';
 
 import './CheckoutForm.css';
@@ -76,7 +77,10 @@ const CheckoutForm = observer(class CheckoutForm extends Component {
     const amount = this.state.payerAmount;
       const cardElement =
       <div>
-        <CardElement />
+        <section>
+          <img src={poweredByStripe} alt="powered by stripe" style={{width: 'unset'}} />
+          <CardElement />
+        </section>
         {this.state.processing ?
           <div>
             <ProgressVommy />
