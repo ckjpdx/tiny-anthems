@@ -36,11 +36,14 @@ const Admin = observer(class Admin extends Component {
 		// const { fetching } = quizzesCollection;
 
 		return (
-			<div>
-				<label>Filter for:</label>
-				<input type="checkbox" checked={this.state.filterPending} onChange={this.changeFilterPending.bind(this)}/><label>Pending</label>
-        <h2>Questionnaires</h2>
-        {quizChildren}
+			<div className="Admin" style={{backgroundColor: '#e8dce1'}}>
+        <h2>Immortalization Applications</h2>
+				<p>These wretched mortals seek your divine melody, milord:</p>
+				<div style={{margin: 10}}>
+					<label>Filter for:</label>
+					<input type="checkbox" checked={this.state.filterPending} onChange={this.changeFilterPending.bind(this)}/><label>Pending</label>
+				</div>
+				{quizChildren}
 			</div>
 		);
 	}
