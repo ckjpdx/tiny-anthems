@@ -10,7 +10,7 @@ import poweredByStripe from './../assets/img/powered_by_stripe.png';
 import paymentTime from './../assets/img/payment-time.gif';
 import ProgressVommy from './common/ProgressVommy';
 
-import donation from '../assets/img/donation.jpg';
+// import donation from '../assets/img/donation.jpg';
 
 const Payment = observer(class Payment extends Component {
   constructor(props) {
@@ -27,7 +27,7 @@ const Payment = observer(class Payment extends Component {
   handleAmount = (custom) => (e) => {
     this.state.text === 'showMe' && this.setState({text: 'hideMe'});
     let amt = e.target.value || 0;
-    amt = parseInt(amt) * 100;
+    amt = parseInt(amt, 10) * 100;
     this.setState({payerAmount: amt, showCustom: custom})
   }
 
@@ -103,7 +103,7 @@ const Payment = observer(class Payment extends Component {
             Thank you for your submission for immortalization through song!
           </p>
           <p>
-            Tiny Anthems functions on a “pay what you can” model. I have included some suggested amounts that make it possible for me to undertake these and other, community-oriented works. Additionally, 20% of your donation goes directly to <a href="http://www.friendsofnoise.org/" target="_blank">Friends of Noise</a>, an amazing non-profit. No one will be turned away for lack of funds, and I encourage you to use the “other” option if you would like to pay a smaller (or larger) amount.
+            Tiny Anthems functions on a “pay what you can” model. I have included some suggested amounts that make it possible for me to undertake these and other, community-oriented works. Additionally, 20% of your donation goes directly to <a href="http://www.friendsofnoise.org/" target="_blank" rel="noopener noreferrer">Friends of Noise</a>, an amazing non-profit. No one will be turned away for lack of funds, and I encourage you to use the “other” option if you would like to pay a smaller (or larger) amount.
           </p>
         </div>}
         <div className="stripe">

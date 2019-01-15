@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 import { quizzesCollection } from './../store';
 import { Link } from 'react-router-dom';
-import firebase from 'firebase';
 import rider from './../assets/img/rider.gif';
 import castle from './../assets/img/castleflag.gif';
 
@@ -29,7 +28,7 @@ const User = observer(class User extends Component {
     let allUserSongs = [];
     let listSongs = [];
 
-    quizzesCollection.docs.map(quiz => quiz.data.songs).map(songsArray => {
+    quizzesCollection.docs.map(quiz => quiz.data.songs).forEach(songsArray => {
       songsArray && songsArray.forEach(song => allUserSongs.push(song));
     });
     if (allUserSongs.length) {

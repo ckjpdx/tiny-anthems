@@ -11,7 +11,7 @@ import './Faq.css';
 function Faq(){
   let faqList = [];
   for (let i = 0; i < faqArr.length; i += 2) {
-    faqList.push(<SimpleExpansionPanel header={faqArr[i]} body={faqArr[i+1]} />);
+    faqList.push(<SimpleExpansionPanel header={faqArr[i]} body={faqArr[i+1]} key={i} />);
   }
   return (
     <div id="Faq">

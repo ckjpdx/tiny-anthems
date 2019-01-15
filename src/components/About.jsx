@@ -34,11 +34,11 @@ class About extends React.Component {
             <p>
               Tiny Anthems, in addition to creating everlasting sonic masterpieces that will ring for all of eternity, is about community-building and using the arts as a vehicle for social change. To this end, 25% of all donations and commissions for Anthems will be redirected to radical non-profits and enterprises that align with this mission.
             </p>
-            <a href="http://www.friendsofnoise.org/" target="_blank">
+            <a href="http://www.friendsofnoise.org/" target="_blank" rel="noopener noreferrer">
               <img id="friendsofnoise" src="http://www.friendsofnoise.org/wp-content/uploads/2017/04/logolanding.png" alt="friends of noise" />
             </a>
             <p>
-              Presently, Tiny Anthems is psyched to be contributing to Portland, OR’s <a href="http://www.friendsofnoise.org/" target="_blank">“Friends Of Noise”</a>, who work to empower youth via safe, all-ages concert opportunities and teaching a variety of workshops to empower young people to explore their artistic selves. Yes. It’s very cool.
+              Presently, Tiny Anthems is psyched to be contributing to Portland, OR’s <a href="http://www.friendsofnoise.org/" target="_blank" rel="noopener noreferrer">“Friends Of Noise”</a>, who work to empower youth via safe, all-ages concert opportunities and teaching a variety of workshops to empower young people to explore their artistic selves. Yes. It’s very cool.
             </p>
           </section>
         </div>

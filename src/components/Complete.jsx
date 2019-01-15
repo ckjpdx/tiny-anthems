@@ -1,7 +1,7 @@
 import React from 'react';
 import vommy from './../assets/img/mike.gif';
 import ghost from './../assets/img/ghost.png';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Complete.css';
 
 function Complete(props){

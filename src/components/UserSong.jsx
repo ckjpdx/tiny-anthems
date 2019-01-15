@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 import { quizzesCollection } from './../store';
-import { Link } from 'react-router-dom';
 import firebase from 'firebase';
 import fileDownload from 'js-file-download';
 import TinyTape from './common/TinyTape';
@@ -41,8 +40,8 @@ const UserSong = observer(class UserSong extends Component {
       <div id="UserSong">
         <img src={balloon} id="UserSongBalloon" alt="a balloon" />
         <div id="UserSongPlayer">
-          <img src={tapePlayer} />
-          <img src={tapePlayerDoor} id="UserSongPlayerDoor"/>
+          <img src={tapePlayer} alt="tape player"/>
+          <img src={tapePlayerDoor} id="UserSongPlayerDoor" alt="tape player door"/>
           <div id="UserSongTape" onClick={() => this.downloadSong(song)} >
             <TinyTape />
             <h2 id="UserSongTapeTitle">{song}</h2>

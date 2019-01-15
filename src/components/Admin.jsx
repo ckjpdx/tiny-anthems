@@ -33,7 +33,7 @@ const Admin = observer(class Admin extends Component {
 	render() {
 		const { docs } = quizzesCollection;
 		const quizChildren = docs.map((quiz) => <ListedQuiz key={quiz.id} quiz={quiz} />);
-		const { fetching } = quizzesCollection;
+		// const { fetching } = quizzesCollection;
 
 		return (
 			<div>

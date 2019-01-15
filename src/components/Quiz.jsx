@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
-import { quizzesCollection } from './../store';
 import boat from './../assets/img/boat.png';
 import waves from './../assets/img/waves.png';
 import 'firebase/firestore';

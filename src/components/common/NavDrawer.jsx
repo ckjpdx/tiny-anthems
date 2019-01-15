@@ -1,7 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Drawer from '@material-ui/core/Drawer';
-import Button from '@material-ui/core/Button';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
@@ -23,7 +21,6 @@ class NavDrawer extends React.Component {
   };
 
   render() {
-    const { classes } = this.props;
     return (
       <div>
         <div className="NavDrawer-drawer-not-showing">
@@ -84,9 +81,5 @@ class NavDrawer extends React.Component {
     );
   }
 }
-
-NavDrawer.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
 
 export default withRouter(NavDrawer);

@@ -114,7 +114,10 @@ class App extends React.Component {
             </Elements>
           </StripeProvider>
           <Route exact path='/user/quiz/complete' component={Complete} />
-          <PrivateRoute exact path='/admin' component={Admin} appState={this.state} adminRoute={true}/> } />
+          <PrivateRoute exact path='/admin'
+            component={Admin}
+            appState={this.state}
+            adminRoute={true}/> } />
           <Route component={Error404} />
         </Switch>
       </div>
