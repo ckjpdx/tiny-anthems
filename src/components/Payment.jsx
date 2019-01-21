@@ -9,8 +9,9 @@ import { withRouter } from 'react-router-dom';
 import poweredByStripe from './../assets/img/powered_by_stripe.png';
 import paymentTime from './../assets/img/payment-time.gif';
 import ProgressVommy from './common/ProgressVommy';
-
-// import donation from '../assets/img/donation.jpg';
+import donation from '../assets/img/donation.jpg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLock } from '@fortawesome/free-solid-svg-icons';
 
 const Payment = observer(class Payment extends Component {
   constructor(props) {
@@ -19,7 +20,7 @@ const Payment = observer(class Payment extends Component {
       payerAmount: 0,
       showCustom: false,
       processing: false,
-      message: 'Please enter an amount of at least five dollars',
+      message: 'Please choose a payment tier you’re comfortable with:',
       text: 'showMe'
     }
   }
@@ -91,13 +92,13 @@ const Payment = observer(class Payment extends Component {
             <p>finalizing immortalization...</p>
           </div>
           :
-          <button className="center" onClick={this.submit}>Submit Payment</button>
+          <button className="center" onClick={this.submit}><FontAwesomeIcon icon={faLock} /> Submit Payment</button>
         }
       </div>
 
     return (
       <div className="Payment">
-        <h1>Payment</h1>
+      <img src={donation} alt="a donation jar to give mike your money" className="donationjar"/>
         {<div className={this.state.text}>
           <p>
             Thank you for your submission for immortalization through song!
@@ -107,7 +108,7 @@ const Payment = observer(class Payment extends Component {
           </p>
         </div>}
         <div className="stripe">
-          <img src={paymentTime} alt="payment time!" />
+        {amount >= 500 && <img src={paymentTime} alt="payment time!" className="paymenttime"/>}
           <p>{this.state.message}</p>
           <div>
             <input type="radio" name="donate" value="50" id="pay-50" onChange={this.handleAmount(false)} />

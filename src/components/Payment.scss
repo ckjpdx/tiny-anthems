@@ -1,8 +1,14 @@
 @import 'styles/_variables';
 
 div.Payment {
-  img {
+  img.donationjar {
     width: 50%;
+    @media screen and (min-width: $bp-tablet) {
+      width: 20%
+    }
+  }
+  img.paymenttime {
+    width: 50%
   }
   input, label {
     font-size: 1.3em;
