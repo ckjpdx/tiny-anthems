@@ -18,3 +18,6 @@ export const forThemQuestionsArr = [
   `Who is this for? Enter names/aliases for this person:`,
   `Write here about this person:`
 ];
+export const forItQuestionsArr = [
+  `Please share the subject of the song with as much detail as you can provide.`
+];

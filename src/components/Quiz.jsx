@@ -4,15 +4,18 @@ import boat from './../assets/img/boat.png';
 import waves from './../assets/img/waves.png';
 import 'firebase/firestore';
 import './Quiz.css';
-import { forMeQuestionsArr, forThemQuestionsArr } from './../assets/extras/questionArr';
+import { forMeQuestionsArr, forThemQuestionsArr, forItQuestionsArr } from './../assets/extras/questionArr';
 
 const Quiz = observer(class Quiz extends Component {
 
 // will need to put uid, etc into quiz on submit
   onContinue = () => {
-    const numOfAnsReq = this.props.appState.quizType === 'for-me'
-      ? forMeQuestionsArr.length
-      : forThemQuestionsArr.length;
+    const numOfAnsReq =
+    this.props.appState.quizType === 'for-me'
+      ? forMeQuestionsArr.length :
+    this.props.appState.quizType === 'for-them'
+      ? forThemQuestionsArr.length
+      : forItQuestionsArr.length;
     if (numOfAnsReq <= this.props.appState.quizData.answers.length) {
       this.props.history.push('/user/quiz/payment');
     } else {
@@ -63,6 +66,21 @@ const Quiz = observer(class Quiz extends Component {
       {continueButton}
     </div>;
 
+    const forItQuestions = <div>
+    <p>
+      You have chosen to have a Tiny Anthem composed about someone or something that is not a human. Perhaps it’s for a business! Perhaps it’s for a film you’d like to make about volcanoes. Perhaps it’s a piece of ambient music to be played at your next underwater yoga class. I don’t know because you haven’t told me yet! Let’s remedy that via the box below.
+    </p>
+      {forItQuestionsArr.map((question, i) =>
+        <div className="Quiz-for-it-question" key={'key'+i}>
+          <label>{question}</label>
+          <textarea type="text"
+          value={this.props.appState.quizData.answers[i]}
+          onChange={(e)=>this.props.onQuizInput(e, question, i)}/>
+        </div>
+      )}
+      {continueButton}
+    </div>
+
     return (
       <div className="Quiz">
         <h1>Questionnaire</h1>
@@ -85,8 +103,13 @@ const Quiz = observer(class Quiz extends Component {
             <input type="radio" id="for-them" name="for-who-buttons" onChange={this.props.onQuizType}/>
             <label htmlFor="for-them">Someone Else</label>
           </div>
+          <div>
+            <input type="radio" id="for-it" name="for-who-buttons" onChange={this.props.onQuizType}/>
+            <label htmlFor="for-it">Non-human Entity</label>
+          </div>
         </section>
-        {this.props.appState.quizType === 'for-me' ? forMeQuestions : this.props.appState.quizType === 'for-them' ? forThemQuestions : null}
+        {this.props.appState.quizType === 'for-me' ? forMeQuestions : this.props.appState.quizType === 'for-them' ? forThemQuestions :
+        this.props.appState.quizType === 'for-it' ? forItQuestions : null}
       </div>
     );
   }
