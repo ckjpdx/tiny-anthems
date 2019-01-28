@@ -24,7 +24,7 @@ const Quiz = observer(class Quiz extends Component {
   };
 
   render(){
-    const continueButton = <button id="Quiz-submit" onClick={this.onContinue}>Continue...</button>;
+    const continueButton = <button id="Quiz-submit" onClick={this.onContinue}>Continue</button>;
 
     const forMeQuestions = <div>
       <p>

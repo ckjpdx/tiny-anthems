@@ -15,8 +15,9 @@ export const forMeQuestionsArr = [
   `Any final notes about what you might want from the anthem? Are you envisioning something serious? Something funny? Something relaxing? Something including the sound of horse hooves? Any final notes, plz. If you’d prefer the piece be STRICTLY instrumental, please indicate.`
 ];
 export const forThemQuestionsArr = [
-  `Who is this for? Enter names/aliases for this person:`,
-  `Write here about this person:`
+  `Who is this song for?`,
+  `Please give a sort of biography of this person, however you see fit:`,
+  `Tell me about your relationship to this person:`
 ];
 export const forItQuestionsArr = [
   `Please share the subject of the song with as much detail as you can provide.`
