@@ -51,7 +51,7 @@ class ListedQuiz extends Component {
 			<ExpansionPanel>
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
 					<div className="ListedQuiz-pending-complete">
-						<h2>{quiz.data.email}</h2>
+						<h3>{quiz.data.name} • {quiz.data.email}</h3>
 						<input type="checkbox" checked={quiz.data.pending} onChange={() => this.changePending(quiz)}/>
 						<p>Pending</p>
 					</div>
