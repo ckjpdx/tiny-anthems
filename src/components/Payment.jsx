@@ -32,6 +32,8 @@ const Payment = observer(class Payment extends Component {
     this.setState({payerAmount: amt, showCustom: custom})
   }
 
+  parseQuiz = quizData => quizData.questions.map((question, i) => `<h3>${question}</h3><p>${quizData.answers[i]}</p>`).join("");
+
   submit = async (e) => {
     this.setState({processing: true});
     const firebaseFunc = 'https://us-central1-tiny-anthems-2043a.cloudfunctions.net/charge/';
@@ -57,11 +59,13 @@ const Payment = observer(class Payment extends Component {
         const quizSubmitId = await quizzesCollection.add(quizUpload); // can return doc.id
         if (quizSubmitId.id) {
           emailjs.init(process.env.REACT_APP_EMAILJS);
-          const templateParams = {
+          const params = {
             name: this.props.appState.name,
-            email: this.props.appState.email
+            email: this.props.appState.email,
+            docId: quizSubmitId.id,
+            quizData: this.parseQuiz(this.props.appState.quizData)
           };
-          emailjs.send('gmail', 'template_vk6ykRLd', templateParams)
+          emailjs.send('gmail', 'tiny_anthem_commissioned', params)
             .then(function(response) {
               console.log('EMAIL SUCCESS!', response.status, response.text);
             }, function(err) {
