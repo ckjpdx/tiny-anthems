@@ -34,11 +34,37 @@ const Payment = observer(class Payment extends Component {
 
   parseQuiz = quizData => quizData.questions.map((question, i) => `<h3>${question}</h3><p>${quizData.answers[i]}</p>`).join("");
 
-  submit = async (e) => {
+  submit = async () => {
     this.setState({processing: true});
-    const firebaseFunc = 'https://us-central1-tiny-anthems-2043a.cloudfunctions.net/charge/';
     let tokenObj = await this.props.stripe.createToken({name: this.props.appState.name});
     if (tokenObj.token) {
+      const quizUpload = {...this.props.appState, pending: true};
+      const quizSubmitId = await quizzesCollection.add(quizUpload); // can return doc.id
+      if (quizSubmitId.id) {
+        emailjs.init(process.env.REACT_APP_EMAILJS);
+        const params = {
+          name: this.props.appState.name,
+          email: this.props.appState.email,
+          docId: quizSubmitId.id,
+          quizData: this.parseQuiz(this.props.appState.quizData)
+        };
+        emailjs.send('gmail', 'ta_test', params).then(response => {
+          console.log('EMAIL SUCCESS!', response.status, response.text);
+          this.goStripe(tokenObj);
+        }, err => {
+          console.log('EMAIL FAILED...', err);
+        });
+      } else {
+        alert('Database failed! Please email us your quiz instead: TinyAnthems@gmail.com');
+      }
+    } else {
+      this.setState({processing: false});
+    }
+  };
+
+  goStripe = async (tokenObj) => {
+    if (tokenObj.token) {
+      const firebaseFunc = 'https://us-central1-tiny-anthems-2043a.cloudfunctions.net/charge/';
       let response = await fetch(firebaseFunc, {
         method: "POST",
         headers: {"Content-Type": "text/plain"},
@@ -50,37 +76,17 @@ const Payment = observer(class Payment extends Component {
           }
         })
       });
-
       if (response.body.error) {
-        this.setState({processing: false, message: 'There was an error on submission!'});
-        return console.log(response.body.error);
+        console.log(response.body.error);
+        alert('Stripe payment failed! Please email us your quiz instead: TinyAnthems@gmail.com');
+        this.setState({processing: false});
       } else {
-        const quizUpload = {...this.props.appState, pending: true};
-        const quizSubmitId = await quizzesCollection.add(quizUpload); // can return doc.id
-        if (quizSubmitId.id) {
-          emailjs.init(process.env.REACT_APP_EMAILJS);
-          const params = {
-            name: this.props.appState.name,
-            email: this.props.appState.email,
-            docId: quizSubmitId.id,
-            quizData: this.parseQuiz(this.props.appState.quizData)
-          };
-          emailjs.send('gmail', 'tiny_anthem_commissioned', params)
-            .then(function(response) {
-              console.log('EMAIL SUCCESS!', response.status, response.text);
-            }, function(err) {
-              console.log('EMAIL FAILED...', err);
-            });
-        } else {
-          alert('Something broke on the submission! We havent any idea why. Please try again later or contact Mike and tell him to yell at his web developer, Jack.');
-        }
+        console.log(response);
         this.props.onClearQuiz();
         this.props.history.push('/user/quiz/complete');
       }
-    } else {
-      this.setState({processing: false});
     }
-  };
+  }
 
   render(){
     const amount = this.state.payerAmount;

@@ -6,7 +6,7 @@ const cors = require('cors')({origin: true});
 const app = express();
 
 // TODO: Remember to set token using >> firebase functions:config:set stripe.token="SECRET_STRIPE_TOKEN_HERE"
-const stripe = require('stripe')(functions.config().stripe.token);
+const stripe = require('stripe')(functions.config().stripe.token); // .token or .test
 
 function charge(req, res) {
     const body = JSON.parse(req.body);
@@ -19,7 +19,7 @@ function charge(req, res) {
     stripe.charges.create({
         amount,
         currency,
-        description: 'Firebase Example',
+        description: 'Tiny Anthems',
         source: tokenId,
     }).then(charge => {
         send(res, 200, {
