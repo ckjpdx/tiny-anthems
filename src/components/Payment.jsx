@@ -20,7 +20,6 @@ const Payment = observer(class Payment extends Component {
       payerAmount: 0,
       showCustom: false,
       processing: false,
-      message: 'Please choose a payment tier you’re comfortable with:',
       text: 'showMe'
     }
   }
@@ -49,10 +48,9 @@ const Payment = observer(class Payment extends Component {
           quizData: this.parseQuiz(this.props.appState.quizData)
         };
         emailjs.send('gmail', 'ta_test', params).then(response => {
-          console.log('EMAIL SUCCESS!', response.status, response.text);
           this.goStripe(tokenObj);
         }, err => {
-          console.log('EMAIL FAILED...', err);
+          alert('Error! Your quiz was submitted but your payment was not processed and Tiny Anthems was not notified. Please email us to arrange payment: TinyAnthems@gmail.com')
         });
       } else {
         alert('Database failed! Please email us your quiz instead: TinyAnthems@gmail.com');
@@ -100,6 +98,9 @@ const Payment = observer(class Payment extends Component {
           <div>
             <ProgressVommy />
             <p>finalizing immortalization...</p>
+            <p>
+              if this spins for a minute or more please copy and paste your quiz answers into an email instead: TinyAnthems@gmail.com
+            </p>
           </div>
           :
           <button className="center" onClick={this.submit}><FontAwesomeIcon icon={faLock} /> Submit Payment</button>
@@ -119,7 +120,7 @@ const Payment = observer(class Payment extends Component {
         </div>}
         <div className="stripe">
         {amount >= 500 && <img src={paymentTime} alt="payment time!" className="paymenttime"/>}
-          <p>{this.state.message}</p>
+          <p>Please choose a payment tier you’re comfortable with:</p>
           <div>
             <input type="radio" name="donate" value="50" id="pay-50" onChange={this.handleAmount(false)} />
             <label for="pay-50">$50</label>
