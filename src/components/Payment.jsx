@@ -47,7 +47,7 @@ const Payment = observer(class Payment extends Component {
           docId: quizSubmitId.id,
           quizData: this.parseQuiz(this.props.appState.quizData)
         };
-        emailjs.send('gmail', 'ta_test', params).then(response => {
+        emailjs.send('gmail', 'tiny_anthems', params).then(response => {
           this.goStripe(tokenObj);
         }, err => {
           alert('Error! Your quiz was submitted but your payment was not processed and Tiny Anthems was not notified. Please email us to arrange payment: TinyAnthems@gmail.com')
