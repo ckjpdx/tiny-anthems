@@ -15,10 +15,12 @@ firebase.initializeApp({
 initFirestorter({ firebase: firebase });
 
 const quizzesCollection = new Collection('quizzes');
+const allQuizzesCollection = new Collection('quizzes');
 const userDoc = new Document();
 
 export {
   firebase,
   quizzesCollection,
+  allQuizzesCollection,
   userDoc
 };

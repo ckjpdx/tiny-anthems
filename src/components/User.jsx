@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
-import { quizzesCollection } from './../store';
+import { quizzesCollection, allQuizzesCollection } from './../store';
 import { Link } from 'react-router-dom';
 import rider from './../assets/img/rider.gif';
 import castle from './../assets/img/castleflag.gif';
@@ -14,6 +14,7 @@ const User = observer(class User extends Component {
   constructor(props){
     super(props);
     quizzesCollection.query = quizzesCollection.ref.where('uid', '==', this.props.appState.uid);
+    allQuizzesCollection.query = allQuizzesCollection.ref.where('pending', '==', true);
   }
 
   handleClickImmortalize = () => {
@@ -23,6 +24,16 @@ const User = observer(class User extends Component {
     }, 3000)};
 
   render() {
+    const currentWaitTime = allQuizzesCollection.docs.length * 4;
+
+    const waitTimeMessage = <div>
+      {currentWaitTime > 14
+        ? "Tiny Anthems is excited to report that due to high demand, our wait time is longer than normal on the immortalization process. The current wait, we would guess, is... "
+        : "Approx wait time: "}
+        <br />
+        <div style={{fontSize: 30}}>{currentWaitTime} days</div>
+    </div>;
+
     // refactor? https://stackoverflow.com/questions/10865025/merge-flatten-an-array-of-arrays-in-javascript
     const quizzes = quizzesCollection.docs.map(quiz => <h2 key={quiz.id}><FontAwesomeIcon icon={faFileAlt} /> {quiz.data.quizData.answers && quiz.data.quizData.answers[0]} - {quiz.data.pending ? 'Pending' : 'Complete'}</h2>);
     let allUserSongs = [];
@@ -48,7 +59,8 @@ const User = observer(class User extends Component {
           <img src={rider} id="User-rider" alt="a hero on horseback" />
         </div>
         <h2>Welcome home, {this.props.appState.name}</h2>
-          <button id="User-text-begin" onClick={this.handleClickImmortalize}>Begin Immortalization Process</button>
+        {waitTimeMessage}
+        <button id="User-text-begin" onClick={this.handleClickImmortalize}>Begin Immortalization Process</button>
         <h2>Your questionnaires:</h2>
         <div className="User-list-area">
           {quizzes.length ? quizzes : <p>No questionnaires submitted yet!</p>}
