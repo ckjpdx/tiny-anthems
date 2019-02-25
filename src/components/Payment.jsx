@@ -35,8 +35,11 @@ const Payment = observer(class Payment extends Component {
 
   submit = async () => {
     this.setState({processing: true});
-    let tokenObj = await this.props.stripe.createToken({name: this.props.appState.name});
-    if (tokenObj.token) {
+    let tokenObj = {token: null};
+    if (this.state.payerAmount > 0) {
+      tokenObj = await this.props.stripe.createToken({name: this.props.appState.name});
+    }
+    if (tokenObj.token || this.state.payerAmount === -100) {
       const quizUpload = {...this.props.appState, pending: true};
       const quizSubmitId = await quizzesCollection.add(quizUpload); // can return doc.id
       if (quizSubmitId.id) {
@@ -45,15 +48,16 @@ const Payment = observer(class Payment extends Component {
           name: this.props.appState.name,
           email: this.props.appState.email,
           docId: quizSubmitId.id,
+          payment: this.state.payerAmount > 0 ? (this.state.payerAmount / 100) : "Income-Based Request",
           quizData: this.parseQuiz(this.props.appState.quizData)
         };
         emailjs.send('gmail', 'tiny_anthems', params).then(response => {
-          this.goStripe(tokenObj);
+          this.state.payerAmount > 0 && this.goStripe(tokenObj);
         }, err => {
-          alert('Error! Your quiz was submitted but your payment was not processed and Tiny Anthems was not notified. Please email us to arrange payment: TinyAnthems@gmail.com')
+          alert('Error! Your quiz was probably submitted but your payment was not processed, and Tiny Anthems was not notified. Please email us to arrange payment: TinyAnthems@gmail.com')
         });
       } else {
-        alert('Database failed! Please email us your quiz instead: TinyAnthems@gmail.com');
+        alert('Database failed! So sorry! Please email us your quiz instead: TinyAnthems@gmail.com');
       }
     } else {
       this.setState({processing: false});
@@ -75,11 +79,9 @@ const Payment = observer(class Payment extends Component {
         })
       });
       if (response.body.error) {
-        console.log(response.body.error);
         alert('Stripe payment failed! Please email us your quiz instead: TinyAnthems@gmail.com');
         this.setState({processing: false});
       } else {
-        console.log(response);
         this.props.onClearQuiz();
         this.props.history.push('/user/quiz/complete');
       }
@@ -88,24 +90,27 @@ const Payment = observer(class Payment extends Component {
 
   render(){
     const amount = this.state.payerAmount;
-      const cardElement =
-      <div>
-        <section>
-          <img src={poweredByStripe} alt="powered by stripe" style={{width: 'unset'}} />
-          <CardElement />
-        </section>
-        {this.state.processing ?
-          <div>
-            <ProgressVommy />
-            <p>finalizing immortalization...</p>
-            <p>
-              if this spins for a minute or more please copy and paste your quiz answers into an email instead: TinyAnthems@gmail.com
-            </p>
-          </div>
-          :
-          <button className="center" onClick={this.submit}><FontAwesomeIcon icon={faLock} /> Submit Payment</button>
-        }
-      </div>
+
+    const cardElement =
+    <div>
+      <section>
+        <img src={poweredByStripe} alt="powered by stripe" style={{width: 'unset'}} />
+        <CardElement />
+      </section>
+      {this.state.processing ?
+        <div>
+          <ProgressVommy />
+          <p>finalizing immortalization...</p>
+          <p>
+            if this spins for a minute or more please copy and paste your quiz answers into an email instead: TinyAnthems@gmail.com
+          </p>
+        </div>
+        :
+        <button className="center" onClick={this.submit}><FontAwesomeIcon icon={faLock} /> Submit Payment</button>
+      }
+    </div>;
+
+    const submitRequest = <button className="center" onClick={this.submit}>Submit Request</button>;
 
     return (
       <div className="Payment">
@@ -134,16 +139,16 @@ const Payment = observer(class Payment extends Component {
             <label for="pay-200">$200</label>
           </div>
           <div>
-            <input type="radio" name="donate" value="0" id="pay-custom" onChange={this.handleAmount(true)} />
-            <label for="pay-custom">Other</label>
+            <input type="radio" name="donate" value="-1" id="pay-custom" onChange={this.handleAmount(true)} />
+            <label for="pay-custom">Income-Based Request</label>
             {this.state.showCustom &&
               <div>
-                <label>$</label>
-                <input type="number" name="donate" style={{width: 75, backgroundColor: 'lightgreen'}} onChange={this.handleAmount(true)} />
+                <p>My goal is to be able to provide unique and meaningful art to any who would seek it. For practical reasons, I cannot accept all submissions. Please submit your Tiny Anthem request to the Ministry of Altruism, and I will do my absolute best to comply. No payment is required up front with this tier, but the immortalization process is NOT guaranteed.</p>
               </div>
             }
           </div>
-          {amount >= 500 && cardElement}
+          {amount >= 5000 && cardElement}
+          {amount === -100 && submitRequest}
         </div>
       </div>
     );
