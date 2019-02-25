@@ -18,17 +18,14 @@ const Payment = observer(class Payment extends Component {
     super(props);
     this.state = {
       payerAmount: 0,
-      showCustom: false,
-      processing: false,
-      text: 'showMe'
+      processing: false
     }
   }
 
-  handleAmount = (custom) => (e) => {
-    this.state.text === 'showMe' && this.setState({text: 'hideMe'});
+  handleAmount = () => (e) => {
     let amt = e.target.value || 0;
     amt = parseInt(amt, 10) * 100;
-    this.setState({payerAmount: amt, showCustom: custom})
+    this.setState({payerAmount: amt})
   }
 
   parseQuiz = quizData => quizData.questions.map((question, i) => `<h3>${question}</h3><p>${quizData.answers[i]}</p>`).join("");
@@ -141,7 +138,7 @@ const Payment = observer(class Payment extends Component {
           <div>
             <input type="radio" name="donate" value="-1" id="pay-custom" onChange={this.handleAmount(true)} />
             <label for="pay-custom">Income-Based Request</label>
-            {this.state.showCustom &&
+            {amount === -100 &&
               <div>
                 <p>My goal is to be able to provide unique and meaningful art to any who would seek it. For practical reasons, I cannot accept all submissions. Please submit your Tiny Anthem request to the Ministry of Altruism, and I will do my absolute best to comply. No payment is required up front with this tier, but the immortalization process is NOT guaranteed.</p>
               </div>
