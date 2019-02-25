@@ -112,7 +112,7 @@ const Payment = observer(class Payment extends Component {
     return (
       <div className="Payment">
       <img src={donation} alt="a donation jar to give mike your money" className="donationjar"/>
-        {<div className={this.state.text}>
+        {amount === 0 && <div>
           <p>
             Thank you for your submission for immortalization through song!
           </p>
@@ -124,19 +124,19 @@ const Payment = observer(class Payment extends Component {
         {amount >= 500 && <img src={paymentTime} alt="payment time!" className="paymenttime"/>}
           <p>Please choose a payment tier you’re comfortable with:</p>
           <div>
-            <input type="radio" name="donate" value="50" id="pay-50" onChange={this.handleAmount(false)} />
+            <input type="radio" name="donate" value="50" id="pay-50" onChange={this.handleAmount()} />
             <label for="pay-50">$50</label>
           </div>
           <div>
-            <input type="radio" name="donate" value="100" id="pay-100" onChange={this.handleAmount(false)} />
+            <input type="radio" name="donate" value="100" id="pay-100" onChange={this.handleAmount()} />
             <label for="pay-100">$100</label>
           </div>
           <div>
-            <input type="radio" name="donate" value="200" id="pay-200" onChange={this.handleAmount(false)} />
+            <input type="radio" name="donate" value="200" id="pay-200" onChange={this.handleAmount()} />
             <label for="pay-200">$200</label>
           </div>
           <div>
-            <input type="radio" name="donate" value="-1" id="pay-custom" onChange={this.handleAmount(true)} />
+            <input type="radio" name="donate" value="-1" id="pay-custom" onChange={this.handleAmount()} />
             <label for="pay-custom">Income-Based Request</label>
             {amount === -100 &&
               <div>
