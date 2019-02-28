@@ -49,7 +49,12 @@ const Payment = observer(class Payment extends Component {
           quizData: this.parseQuiz(this.props.appState.quizData)
         };
         emailjs.send('gmail', 'tiny_anthems', params).then(response => {
-          this.state.payerAmount > 0 && this.goStripe(tokenObj);
+          if (this.state.payerAmount > 0) {
+            this.goStripe(tokenObj);
+          } else {
+            this.props.onClearQuiz();
+            this.props.history.push('/user/quiz/complete');
+          }
         }, err => {
           alert('Error! Your quiz was probably submitted but your payment was not processed, and Tiny Anthems was not notified. Please email us to arrange payment: TinyAnthems@gmail.com')
         });
@@ -107,7 +112,15 @@ const Payment = observer(class Payment extends Component {
       }
     </div>;
 
-    const submitRequest = <button className="center" onClick={this.submit}>Submit Request</button>;
+    const submitRequest = this.state.processing
+    ? <div>
+        <ProgressVommy />
+        <p>finalizing immortalization...</p>
+        <p>
+          if this spins for a minute or more please copy and paste your quiz answers into an email instead: TinyAnthems@gmail.com
+        </p>
+      </div>
+    : <button className="center" onClick={this.submit}>Submit Request</button>;
 
     return (
       <div className="Payment">
