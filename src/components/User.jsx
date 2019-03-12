@@ -4,6 +4,7 @@ import { quizzesCollection, allQuizzesCollection } from './../store';
 import { Link } from 'react-router-dom';
 import rider from './../assets/img/rider.gif';
 import castle from './../assets/img/castleflag.gif';
+import ProgressVommy from './common/ProgressVommy';
 
 import './User.css';
 
@@ -24,8 +25,9 @@ const User = observer(class User extends Component {
     }, 3000)};
 
   render() {
-    const currentWaitTime = allQuizzesCollection.docs.length * 4;
+    const { fetching } = quizzesCollection;
 
+    const currentWaitTime = allQuizzesCollection.docs.length * 4;
     const waitTimeMessage = <div>
       {currentWaitTime > 14
         ? "Tiny Anthems is excited to report that due to high demand, our wait time is longer than normal on the immortalization process. The current wait, we would guess, is... "
@@ -53,23 +55,26 @@ const User = observer(class User extends Component {
     }
 
     return (
-      <div id="User">
-        <div id="User-castle-area">
-          <img src={castle} id="User-castle" alt="a castle" />
-          <img src={rider} id="User-rider" alt="a hero on horseback" />
-        </div>
-        <h2>Welcome home, {this.props.appState.name}</h2>
-        {waitTimeMessage}
-        <button id="User-text-begin" onClick={this.handleClickImmortalize}>Begin Immortalization Process</button>
-        <h2>Your questionnaires:</h2>
-        <div className="User-list-area">
-          {quizzes.length ? quizzes : <p>No questionnaires submitted yet!</p>}
-        </div>
-        <h2>Your anthems:</h2>
-        <div className="User-list-area">
-          {listSongs}
-        </div>
-      </div>
+      <React.Fragment>
+        {fetching ? <ProgressVommy/> :
+        <div id="User">
+          <div id="User-castle-area">
+            <img src={castle} id="User-castle" alt="a castle" />
+            <img src={rider} id="User-rider" alt="a hero on horseback" />
+          </div>
+          <h2>Welcome home, {this.props.appState.name}</h2>
+          {waitTimeMessage}
+          <button id="User-text-begin" onClick={this.handleClickImmortalize}>Begin Immortalization Process</button>
+          <h2>Your questionnaires:</h2>
+          <div className="User-list-area">
+            {quizzes.length ? quizzes : <p>No questionnaires submitted yet!</p>}
+          </div>
+          <h2>Your anthems:</h2>
+          <div className="User-list-area">
+            {listSongs}
+          </div>
+        </div>}
+      </React.Fragment>
     );
   }
 });
