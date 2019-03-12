@@ -33,7 +33,7 @@ const Quiz = observer(class Quiz extends Component {
       {forMeQuestionsArr.map((question, i) =>
         <div className="Quiz-for-me-question" key={'key'+i}>
           <label>{question}</label>
-          <textarea type="text"
+          <textarea type="text" maxlength={i === 0 && "50"}
           value={this.props.appState.quizData.answers[i]}
           onChange={(e)=>this.props.onQuizInput(e, question, i)}/>
         </div>
@@ -58,7 +58,7 @@ const Quiz = observer(class Quiz extends Component {
       {forThemQuestionsArr.map((question, i) =>
         <div className="Quiz-for-them-question" key={'key'+i}>
           <label>{question}</label>
-          <textarea type="text"
+          <textarea type="text" maxlength={i === 0 && "50"}
           value={this.props.appState.quizData.answers[i]}
           onChange={(e)=>this.props.onQuizInput(e, question, i)}/>
         </div>
@@ -73,7 +73,7 @@ const Quiz = observer(class Quiz extends Component {
       {forItQuestionsArr.map((question, i) =>
         <div className="Quiz-for-it-question" key={'key'+i}>
           <label>{question}</label>
-          <textarea type="text"
+          <textarea type="text" maxlength={i === 0 && "50"}
           value={this.props.appState.quizData.answers[i]}
           onChange={(e)=>this.props.onQuizInput(e, question, i)}/>
         </div>
