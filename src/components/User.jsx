@@ -54,7 +54,6 @@ const User = observer(class User extends Component {
 
     return (
       <React.Fragment>
-      <ProgressVommy/>
         {quizzesCollection.fetching ? <ProgressVommy/> :
         <div id="User">
           <div id="User-castle-area">
