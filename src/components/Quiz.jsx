@@ -23,6 +23,17 @@ const Quiz = observer(class Quiz extends Component {
     }
   };
 
+  insertQuestions = (questionsArr) =>
+    questionsArr.map((question, i) =>
+      <div className="Quiz-question" key={'key'+i}>
+        <label>{question}</label>
+        <textarea
+          type="text"
+          maxlength={i === 0 && "50"}
+          value={this.props.appState.quizData.answers[i]}
+          onChange={(e)=>this.props.onQuizInput(e, question, i)}/>
+      </div>);
+
   render(){
     const continueButton = <button id="Quiz-submit" onClick={this.onContinue}>Continue</button>;
 
@@ -30,14 +41,7 @@ const Quiz = observer(class Quiz extends Component {
       <p>
         Congratulations on taking the first step toward becoming forever enshrined in the glory of song! In order to get a sense of your personality and thus create a sonic masterpiece befitting one so noble, I’ve put together a small series of questions. The more information you provide about a subject, the better.
       </p>
-      {forMeQuestionsArr.map((question, i) =>
-        <div className="Quiz-for-me-question" key={'key'+i}>
-          <label>{question}</label>
-          <textarea type="text" maxlength={i === 0 && "50"}
-          value={this.props.appState.quizData.answers[i]}
-          onChange={(e)=>this.props.onQuizInput(e, question, i)}/>
-        </div>
-      )}
+      {this.insertQuestions(forMeQuestionsArr)}
       {continueButton}
     </div>;
 
@@ -55,29 +59,15 @@ const Quiz = observer(class Quiz extends Component {
       <p>
         Remember that there is no right or wrong information or details to share, per se, but more details to work with are always great and a little specificity goes a long way.
       </p>
-      {forThemQuestionsArr.map((question, i) =>
-        <div className="Quiz-for-them-question" key={'key'+i}>
-          <label>{question}</label>
-          <textarea type="text" maxlength={i === 0 && "50"}
-          value={this.props.appState.quizData.answers[i]}
-          onChange={(e)=>this.props.onQuizInput(e, question, i)}/>
-        </div>
-      )}
+      {this.insertQuestions(forThemQuestionsArr)}
       {continueButton}
     </div>;
 
     const forItQuestions = <div>
-    <p>
-      You have chosen to have a Tiny Anthem composed about someone or something that is not a human. Perhaps it’s for a business! Perhaps it’s for a film you’d like to make about volcanoes. Perhaps it’s a piece of ambient music to be played at your next underwater yoga class. I don’t know because you haven’t told me yet! Let’s remedy that via the box below.
-    </p>
-      {forItQuestionsArr.map((question, i) =>
-        <div className="Quiz-for-it-question" key={'key'+i}>
-          <label>{question}</label>
-          <textarea type="text" maxlength={i === 0 && "50"}
-          value={this.props.appState.quizData.answers[i]}
-          onChange={(e)=>this.props.onQuizInput(e, question, i)}/>
-        </div>
-      )}
+      <p>
+        You have chosen to have a Tiny Anthem composed about someone or something that is not a human. Perhaps it’s for a business! Perhaps it’s for a film you’d like to make about volcanoes. Perhaps it’s a piece of ambient music to be played at your next underwater yoga class. I don’t know because you haven’t told me yet! Let’s remedy that via the box below.
+      </p>
+      {this.insertQuestions(forItQuestionsArr)}
       {continueButton}
     </div>
 
