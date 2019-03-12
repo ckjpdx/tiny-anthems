@@ -25,8 +25,6 @@ const User = observer(class User extends Component {
     }, 3000)};
 
   render() {
-    const { fetching } = quizzesCollection;
-
     const currentWaitTime = allQuizzesCollection.docs.length * 4;
     const waitTimeMessage = <div>
       {currentWaitTime > 14
@@ -56,7 +54,8 @@ const User = observer(class User extends Component {
 
     return (
       <React.Fragment>
-        {fetching ? <ProgressVommy/> :
+      <ProgressVommy/>
+        {quizzesCollection.fetching ? <ProgressVommy/> :
         <div id="User">
           <div id="User-castle-area">
             <img src={castle} id="User-castle" alt="a castle" />
