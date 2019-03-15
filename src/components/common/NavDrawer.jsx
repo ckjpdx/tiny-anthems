@@ -6,7 +6,7 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 import './NavDrawer.css';
 import Login from './Login';
-import { Link, withRouter } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 
 class NavDrawer extends React.Component {
   state = {
@@ -28,25 +28,25 @@ class NavDrawer extends React.Component {
       <div>
         <div className="NavDrawer-drawer-not-showing">
           {this.props.appState.uid &&
-            <Link to='/user'>
-              <h3 className="underline sky">{userName[0]}'s Castle</h3>
-            </Link>
+            <NavLink to='/user'>
+              <h3 className="underline">{userName[0]}'s Castle</h3>
+            </NavLink>
           }
-          <Link to='/home'>
+          <NavLink to='/home'>
             <h3>Home</h3>
-          </Link>
-          <Link to='/faq'>
+          </NavLink>
+          <NavLink to='/faq'>
             <h3>FAQ</h3>
-          </Link>
-          <Link to='/about'>
+          </NavLink>
+          <NavLink to='/about'>
             <h3>About</h3>
-          </Link>
-          <Link to='/portfolio'>
+          </NavLink>
+          <NavLink to='/portfolio'>
             <h3>Samples</h3>
-          </Link>
-          <Link to='/feedback'>
+          </NavLink>
+          <NavLink to='/feedback'>
             <h3>Feedback</h3>
-          </Link>
+          </NavLink>
           <Login appState={this.props.appState} invertColors={true} />
         </div>
         <div className="NavDrawer-drawer-showing">
@@ -54,26 +54,26 @@ class NavDrawer extends React.Component {
           <Drawer anchor="top" open={this.state.top} onClose={this.toggleDrawer('top', false)} id="NavDrawer-Drawer">
           {this.props.appState.uid &&
             <React.Fragment>
-              <Link to='/user' onClick={this.toggleDrawer('top', false)}>
-                <h3 className="sky">{userName[0]}'s Castle</h3>
-              </Link>
+              <NavLink to='/user' onClick={this.toggleDrawer('top', false)}>
+                <h3>{userName[0]}'s Castle</h3>
+              </NavLink>
             </React.Fragment>
           }
-            <Link to='/home' onClick={this.toggleDrawer('top', false)}>
+            <NavLink to='/home' onClick={this.toggleDrawer('top', false)}>
               <h3>Home</h3>
-            </Link>
-            <Link to='/faq' onClick={this.toggleDrawer('top', false)}>
+            </NavLink>
+            <NavLink to='/faq' onClick={this.toggleDrawer('top', false)}>
               <h3>FAQ</h3>
-            </Link>
-            <Link to='/about' onClick={this.toggleDrawer('top', false)}>
+            </NavLink>
+            <NavLink to='/about' onClick={this.toggleDrawer('top', false)}>
               <h3>About</h3>
-            </Link>
-            <Link to='/portfolio' onClick={this.toggleDrawer('top', false)}>
+            </NavLink>
+            <NavLink to='/portfolio' onClick={this.toggleDrawer('top', false)}>
               <h3>Samples</h3>
-            </Link>
-            <Link to='/feedback' onClick={this.toggleDrawer('top', false)}>
+            </NavLink>
+            <NavLink to='/feedback' onClick={this.toggleDrawer('top', false)}>
               <h3>Feedback</h3>
-            </Link>
+            </NavLink>
             <div id="NavDrawer-bottom">
               <Login appState={this.props.appState} />
             </div>
