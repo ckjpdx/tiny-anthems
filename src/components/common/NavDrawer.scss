@@ -9,7 +9,7 @@
 }
 
 div#NavDrawer-bottom {
-  background: $seafoam;
+  background: $mustard;
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
@@ -25,10 +25,12 @@ div#NavDrawer-bottom {
 }
 .NavDrawer-drawer-not-showing {
   display: none;
+  box-shadow: 0px -10px  30px #5556;
+  background: #fff6;
   text-align: center;
   h3 {
     display: inline;
-    text-decoration: overline;
+    text-transform: uppercase;
   }
   @media screen and (min-width: $bp-tablet) {
     display: block;

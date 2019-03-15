@@ -21,12 +21,15 @@ class NavDrawer extends React.Component {
   };
 
   render() {
+    const regexFirstName = /^(\w+)/;
+    const userName = regexFirstName.exec(this.props.appState.name);
+
     return (
       <div>
         <div className="NavDrawer-drawer-not-showing">
           {this.props.appState.uid &&
             <Link to='/user'>
-              <h3 className="underline">{this.props.appState.name}'s Castle</h3>
+              <h3 className="underline sky">{userName[0]}'s Castle</h3>
             </Link>
           }
           <Link to='/home'>
@@ -49,6 +52,13 @@ class NavDrawer extends React.Component {
         <div className="NavDrawer-drawer-showing">
           <FontAwesomeIcon icon={faBars} size="2x" onClick={this.toggleDrawer('top', true)}/>
           <Drawer anchor="top" open={this.state.top} onClose={this.toggleDrawer('top', false)} id="NavDrawer-Drawer">
+          {this.props.appState.uid &&
+            <React.Fragment>
+              <Link to='/user' onClick={this.toggleDrawer('top', false)}>
+                <h3 className="sky">{userName[0]}'s Castle</h3>
+              </Link>
+            </React.Fragment>
+          }
             <Link to='/home' onClick={this.toggleDrawer('top', false)}>
               <h3>Home</h3>
             </Link>
@@ -66,14 +76,6 @@ class NavDrawer extends React.Component {
             </Link>
             <div id="NavDrawer-bottom">
               <Login appState={this.props.appState} />
-              {this.props.appState.uid &&
-                <React.Fragment>
-                  <Link to='/user' onClick={this.toggleDrawer('top', false)}>
-                    <p style={{fontFamily: 'monospace'}}>{this.props.appState.email}
-                    <br />GO TO USER AREA</p>
-                  </Link>
-                </React.Fragment>
-              }
             </div>
           </Drawer>
         </div>

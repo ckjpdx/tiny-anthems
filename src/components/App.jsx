@@ -93,31 +93,33 @@ class App extends React.Component {
         <Elements>
           <div className="App">
             {navAndTitle}
-            <Switch>
-              <Route exact path='/' component={Welcome} />
-              <Route path='/home' render={props => <Home {...props} appState={this.state} /> } />
-              <Route path='/faq' component={Faq} />
-              <Route path='/about' component={About} />
-              <Route path='/portfolio' component={Portfolio} />
-              <Route path='/feedback' component={Feedback} />
-              <PrivateRoute exact path='/user' component={User} appState={this.state} onSongSelect={this.handleSong}/>
-              <PrivateRoute exact path='/user/song' component={UserSong} appState={this.state} songSelected={this.state.songSelected}/>
-              <PrivateRoute exact path='/user/quiz'
-                component={Quiz}
-                appState={this.state}
-                onQuizInput={this.handleQuizInput}
-                onQuizType={this.handleQuizType} />
-              <Route exact path='/user/quiz/complete' component={Complete} />
-              <PrivateRoute exact path='/admin'
-                component={Admin}
-                appState={this.state}
-                adminRoute={true}/> } />
-              <PrivateRoute exact path='/user/quiz/payment'
-                component={Payment}
-                appState={this.state}
-                onClearQuiz={this.handleClearQuiz} />
-              <Route component={Error404} />
-            </Switch>
+            <div className="padding-and-max-width">
+              <Switch>
+                <Route exact path='/' component={Welcome} />
+                <Route path='/home' render={props => <Home {...props} appState={this.state} /> } />
+                <Route path='/faq' component={Faq} />
+                <Route path='/about' component={About} />
+                <Route path='/portfolio' component={Portfolio} />
+                <Route path='/feedback' component={Feedback} />
+                <PrivateRoute exact path='/user' component={User} appState={this.state} onSongSelect={this.handleSong}/>
+                <PrivateRoute exact path='/user/song' component={UserSong} appState={this.state} songSelected={this.state.songSelected}/>
+                <PrivateRoute exact path='/user/quiz'
+                  component={Quiz}
+                  appState={this.state}
+                  onQuizInput={this.handleQuizInput}
+                  onQuizType={this.handleQuizType} />
+                <Route exact path='/user/quiz/complete' component={Complete} />
+                <PrivateRoute exact path='/admin'
+                  component={Admin}
+                  appState={this.state}
+                  adminRoute={true}/> } />
+                <PrivateRoute exact path='/user/quiz/payment'
+                  component={Payment}
+                  appState={this.state}
+                  onClearQuiz={this.handleClearQuiz} />
+                <Route component={Error404} />
+              </Switch>
+            </div>
           </div>
         </Elements>
       </StripeProvider>

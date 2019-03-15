@@ -2,6 +2,14 @@
 
 div.App {
   text-align: center;
+  div.padding-and-max-width {
+    padding: 5px;
+    max-width: $bp-desktop;
+    margin: auto;
+    @media screen and (min-width: $bp-tablet) {
+      padding: 15px;
+    }
+  }
 }
 div#App-nav-and-title {
   .App-NavDrawer {

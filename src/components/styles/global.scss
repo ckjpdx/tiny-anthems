@@ -12,12 +12,7 @@ html {
   background-position: center;
 }
 body {
-  padding: 5px;
-  max-width: $bp-desktop;
   margin: auto;
-  @media screen and (min-width: $bp-tablet) {
-    padding: 15px;
-  }
 }
 a {
   text-decoration: none;
@@ -72,4 +67,14 @@ span.text-spacer {
 .Login-invert-colors {
   color: $blood;
   background: white;
+}
+
+.blood {
+  color: $blood;
+}
+.mustard {
+  color: $mustard
+}
+.sky {
+  color: $sky
 }
