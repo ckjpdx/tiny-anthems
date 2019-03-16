@@ -47,7 +47,7 @@ class NavDrawer extends React.Component {
           <NavLink to='/feedback'>
             <h3>Feedback</h3>
           </NavLink>
-          <Login appState={this.props.appState} invertColors={true} />
+          <Login appState={this.props.appState} />
         </div>
         <div className="NavDrawer-drawer-showing">
           <FontAwesomeIcon icon={faBars} size="2x" onClick={this.toggleDrawer('top', true)}/>

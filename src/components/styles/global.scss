@@ -47,12 +47,13 @@ ul {
 }
 button {
   color: white;
-  box-shadow: 0px 2px 3px black;
-  border: 1px solid red;
-  font-size: 1rem;
-  padding: 15px;
+  font-family: 'Rajdhani', sans-serif;
+  box-shadow: 0px 2px 10px #0008;
+  border: none;
+  text-transform: uppercase;
+  font-size: 1.17em;
+  padding: 10px;
   background: $blood;
-  border-radius: 10px;
   &.center {
     display: block;
     margin: 10px auto;
@@ -70,11 +71,6 @@ textarea {
 span.text-spacer {
   margin: 0 15px;
 }
-.Login-invert-colors {
-  color: $blood;
-  background: white;
-}
-
 .blood {
   color: $blood;
 }
