@@ -7,7 +7,7 @@
 html {
   font-family: 'Roboto', sans-serif;
   box-sizing: border-box;
-  background-image: url('../../assets/img/paper-plain-long.jpg');
+  background-image: url('../../assets/img/paper-plain-page.jpg');
   background-size: cover;
   background-position: center;
 }
@@ -54,6 +54,9 @@ button {
   font-size: 1.17em;
   padding: 10px;
   background: $blood;
+  &:hover {
+    cursor: alias;
+  }
   &.center {
     display: block;
     margin: 10px auto;
