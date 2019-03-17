@@ -9,7 +9,7 @@ import { withRouter } from 'react-router-dom';
 import poweredByStripe from './../assets/img/powered_by_stripe.png';
 import paymentTime from './../assets/img/payment-time.gif';
 import ProgressVommy from './common/ProgressVommy';
-import donation from '../assets/img/donation.jpg';
+import donation from '../assets/img/donation.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
 
