@@ -29,23 +29,23 @@ class NavDrawer extends React.Component {
         <div className="NavDrawer-drawer-not-showing">
           {this.props.appState.uid &&
             <NavLink to='/user'>
-              <h3 className="underline">{userName[0]}'s Castle</h3>
+              <li>{userName[0]}'s&nbsp;Castle</li>
             </NavLink>
           }
           <NavLink to='/home'>
-            <h3>Home</h3>
+            <li>Home</li>
           </NavLink>
           <NavLink to='/faq'>
-            <h3>FAQ</h3>
+            <li>FAQ</li>
           </NavLink>
           <NavLink to='/about'>
-            <h3>About</h3>
+            <li>About</li>
           </NavLink>
           <NavLink to='/portfolio'>
-            <h3>Samples</h3>
+            <li>Samples</li>
           </NavLink>
           <NavLink to='/feedback'>
-            <h3>Feedback</h3>
+            <li>Feedback</li>
           </NavLink>
           <Login appState={this.props.appState} />
         </div>
@@ -55,24 +55,24 @@ class NavDrawer extends React.Component {
           {this.props.appState.uid &&
             <React.Fragment>
               <NavLink to='/user' onClick={this.toggleDrawer('top', false)}>
-                <h3>{userName[0]}'s Castle</h3>
+                <li>{userName[0]}'s Castle</li>
               </NavLink>
             </React.Fragment>
           }
             <NavLink to='/home' onClick={this.toggleDrawer('top', false)}>
-              <h3>Home</h3>
+              <li>Home</li>
             </NavLink>
             <NavLink to='/faq' onClick={this.toggleDrawer('top', false)}>
-              <h3>FAQ</h3>
+              <li>FAQ</li>
             </NavLink>
             <NavLink to='/about' onClick={this.toggleDrawer('top', false)}>
-              <h3>About</h3>
+              <li>About</li>
             </NavLink>
             <NavLink to='/portfolio' onClick={this.toggleDrawer('top', false)}>
-              <h3>Samples</h3>
+              <li>Samples</li>
             </NavLink>
             <NavLink to='/feedback' onClick={this.toggleDrawer('top', false)}>
-              <h3>Feedback</h3>
+              <li>Feedback</li>
             </NavLink>
             <div id="NavDrawer-bottom">
               <Login appState={this.props.appState} />

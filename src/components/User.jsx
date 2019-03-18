@@ -28,10 +28,10 @@ const User = observer(class User extends Component {
     const currentWaitTime = allQuizzesCollection.docs.length * 4;
     const waitTimeMessage = <div>
       {currentWaitTime > 14
-        ? "Tiny Anthems is excited to report that due to high demand, our wait time is longer than normal on the immortalization process. The current wait, we would guess, is... "
+        ? "Tiny Anthems is pretty dang excited to report that the current (approximate) wait time for the completion of the immortalization process is:"
         : "Approx wait time: "}
         <br />
-        <div style={{fontSize: 30}}>{currentWaitTime} days</div>
+        <div style={{fontSize: 40, fontFamily: 'Permanent Marker', padding: 10}}>{currentWaitTime} days</div>
     </div>;
 
     // refactor? https://stackoverflow.com/questions/10865025/merge-flatten-an-array-of-arrays-in-javascript
@@ -49,7 +49,7 @@ const User = observer(class User extends Component {
       </Link>
       )
     } else {
-      listSongs = <p>You don't have any anthems made yet! Fill out a questionnaire to begin the immortalization process!</p>;
+      listSongs = <p>You don't have any anthems made yet!</p>;
     }
 
     return (

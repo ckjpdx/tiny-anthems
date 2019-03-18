@@ -1,11 +1,15 @@
-@import url('https://fonts.googleapis.com/css?family=Kalam|Rajdhani|Roboto|Permanent+Marker');
+@import url('https://fonts.googleapis.com/css?family=Rajdhani:400,600|Permanent+Marker');
 @import 'variables';
 
 *, *:before, *:after {
   box-sizing: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
 }
 html {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 18px;
   box-sizing: border-box;
   background-image: url('../../assets/img/paper-plain-page.jpg');
   background-size: cover;
@@ -28,11 +32,17 @@ a {
 img {
   width: 100%;
 }
-h1, h2, h3 {
-  font-family: 'Rajdhani', sans-serif;
+h1 {
+  font-size: 2em;
 }
-p {
-  font-family: 'Kalam', cursive;
+h2 {
+  font-size: 1.5em;
+}
+h3 {
+  font-size: 1.25em;
+}
+label {
+  font-weight: 600;
 }
 ul {
   margin: auto;
@@ -41,21 +51,19 @@ ul {
   @media screen and (min-width: $bp-tablet) {
     max-width: 75%;
   }
-  li {
-
-  }
 }
 button {
   color: white;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: inherit;
+  font-size: inherit;
   box-shadow: 0px 2px 10px #0008;
   border: none;
   text-transform: uppercase;
-  font-size: 1.17em;
   padding: 10px;
   background: $blood;
   &:hover {
-    cursor: alias;
+    cursor: pointer;
+    color: $mustard;
   }
   &.center {
     display: block;
@@ -65,11 +73,8 @@ button {
 textarea {
   display: block;
   width: 100%;
-  background: #EEF;
+  background: none;
   margin: 0 0 20px;
-  &.bigger {
-    height: 5em;
-  }
 }
 span.text-spacer {
   margin: 0 15px;
