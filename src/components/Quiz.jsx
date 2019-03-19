@@ -4,18 +4,13 @@ import boat from './../assets/img/boat.png';
 import waves from './../assets/img/waves.png';
 import 'firebase/firestore';
 import './Quiz.css';
-import { forMeQuestionsArr, forThemQuestionsArr, forItQuestionsArr } from './../assets/extras/questionArr';
+import { questionsArr } from './../assets/extras/questionArr';
 
 const Quiz = observer(class Quiz extends Component {
 
 // will need to put uid, etc into quiz on submit
   onContinue = () => {
-    const numOfAnsReq =
-    this.props.appState.quizType === 'for-me'
-      ? forMeQuestionsArr.length :
-    this.props.appState.quizType === 'for-them'
-      ? forThemQuestionsArr.length
-      : forItQuestionsArr.length;
+    const numOfAnsReq = questionsArr.length;
     if (numOfAnsReq <= this.props.appState.quizData.answers.length) {
       this.props.history.push('/user/quiz/payment');
     } else {
@@ -37,69 +32,23 @@ const Quiz = observer(class Quiz extends Component {
   render(){
     const continueButton = <button id="Quiz-submit" onClick={this.onContinue}>Continue</button>;
 
-    const forMeQuestions = <div>
-      <p>
-        Congratulations on taking the first step toward becoming forever enshrined in the glory of song! In order to get a sense of your personality and thus create a sonic masterpiece befitting one so noble, I’ve put together a small series of questions. The more information you provide about a subject, the better.
-      </p>
-      {this.insertQuestions(forMeQuestionsArr)}
-      {continueButton}
-    </div>;
-
-    const forThemQuestions = <div>
-      <p>
-        Congratulations on choosing to immortalize a loved one through song. In order to paint a vivid picture of this person’s greatness, I’ll need a little information about them. I have just a few very simple questions about their identifying characteristics. Most importantly, you’ll have a chance to write freely about this person. Details might include BUT ARE ABSOLUTELY NOT LIMITED TO:
-      </p>
-      <ul>
-        <li>Your personal history/relationship with this person</li>
-        <li>Personality traits worthy of being forever enshrined in the magnificent glory of song</li>
-        <li>Their job, hobbies, etc</li>
-        <li>A TV show or piece of pop-culture they’re really into</li>
-        <li>Anything weird or interesting about them</li>
-      </ul>
-      <p>
-        Remember that there is no right or wrong information or details to share, per se, but more details to work with are always great and a little specificity goes a long way.
-      </p>
-      {this.insertQuestions(forThemQuestionsArr)}
-      {continueButton}
-    </div>;
-
-    const forItQuestions = <div>
-      <p>
-        You have chosen to have a Tiny Anthem composed about someone or something that is not a human. Perhaps it’s for a business! Perhaps it’s for a film you’d like to make about volcanoes. Perhaps it’s a piece of ambient music to be played at your next underwater yoga class. I don’t know because you haven’t told me yet! Let’s remedy that via the box below.
-      </p>
-      {this.insertQuestions(forItQuestionsArr)}
-      {continueButton}
-    </div>
-
     return (
       <div className="Quiz">
-        <h1>Questionnaire</h1>
-        {!this.props.appState.quizType &&
-        <div>
-          <p>You are about to begin your quest. Who is this for?</p>
-          <div style={{position: 'relative'}}>
-            <img src={waves} alt="waves" id="waves"/>
-            <img src={boat} alt="a boat" id="boat"/>
-          </div>
+        <div style={{position: 'relative'}}>
+          <img src={waves} alt="waves" id="waves"/>
+          <img src={boat} alt="a boat" id="boat"/>
         </div>
-        }
-        <p>Fill out a questionnaire for:</p>
-        <section id="Quiz-labels">
-          <div>
-            <input type="radio" id="for-me" name="for-who-buttons" onChange={this.props.onQuizType}/>
-            <label htmlFor="for-me">Myself</label>
-          </div>
-          <div>
-            <input type="radio" id="for-them" name="for-who-buttons" onChange={this.props.onQuizType}/>
-            <label htmlFor="for-them">Someone Else</label>
-          </div>
-          <div>
-            <input type="radio" id="for-it" name="for-who-buttons" onChange={this.props.onQuizType}/>
-            <label htmlFor="for-it">Non-human Entity</label>
-          </div>
-        </section>
-        {this.props.appState.quizType === 'for-me' ? forMeQuestions : this.props.appState.quizType === 'for-them' ? forThemQuestions :
-        this.props.appState.quizType === 'for-it' ? forItQuestions : null}
+        <h1>Immortalization Application</h1>
+        <div>
+          <p>
+            You have embarked on your journey. Congratulations on taking the first step on the path toward musical immortality. In order to compose a vivid musical homage to the subject, Tiny Anthems requires your participation!
+          </p>
+          <p>
+            Whether you are choosing to have a piece composed for yourself, a spouse, a crow you saw one time, or a business, I leave it up to you to guide the process. There is no right or wrong information to provide, but as a general rule, the more you can tell me about the subject, the better. Nicknames, ages, interests, accomplishments, etc. YOU CAN DO THIS.
+          </p>
+          {this.insertQuestions(questionsArr)}
+          {continueButton}
+        </div>
       </div>
     );
   }

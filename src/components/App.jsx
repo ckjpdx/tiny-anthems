@@ -30,8 +30,7 @@ class App extends React.Component {
       quizData: {
         questions: [],
         answers: []
-      },
-      quizType: null
+      }
     };
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
@@ -66,17 +65,12 @@ class App extends React.Component {
     this.setState({quizData: newQuizData});
   }
 
-  handleQuizType = (e) => {
-    this.setState({quizType: e.target.id});
-  }
-
   handleClearQuiz = () => {
     this.setState({
       quizData: {
         questions: [],
         answers: []
-      },
-      quizType: null
+      }
     });
   }
 
@@ -106,8 +100,7 @@ class App extends React.Component {
                 <PrivateRoute exact path='/user/quiz'
                   component={Quiz}
                   appState={this.state}
-                  onQuizInput={this.handleQuizInput}
-                  onQuizType={this.handleQuizType} />
+                  onQuizInput={this.handleQuizInput} />
                 <Route exact path='/user/quiz/complete' component={Complete} />
                 <PrivateRoute exact path='/admin'
                   component={Admin}
