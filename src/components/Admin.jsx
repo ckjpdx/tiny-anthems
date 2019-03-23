@@ -4,6 +4,8 @@ import { quizzesCollection, settingsDoc } from './../store';
 import ProgressVommy from './common/ProgressVommy';
 import ListedQuiz from './ListedQuiz';
 import './Admin.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCrown } from '@fortawesome/free-solid-svg-icons'
 
 const Admin = observer(class Admin extends Component {
 	constructor(props) {
@@ -45,7 +47,7 @@ const Admin = observer(class Admin extends Component {
 
 		return (
 			<div className="Admin">
-  			<h1>ADMIN</h1>
+  			<h1><FontAwesomeIcon icon={faCrown} /> ADMIN <FontAwesomeIcon icon={faCrown} /></h1>
 				{quizzesCollection.fetching ? <ProgressVommy /> :
 				<div>
 					<label>Wait factor: X{wait} (days) </label><button onClick={this.changeWait} value="1">+</button><button onClick={this.changeWait} value="-1">-</button>
