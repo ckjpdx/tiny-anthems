@@ -17,7 +17,7 @@ import PrivateRoute from './common/PrivateRoute';
 import NavDrawer from './common/NavDrawer';
 import Error404 from './Error404';
 import sharpie from './../assets/img/tiny_sharpie.png';
-import {Elements, StripeProvider} from 'react-stripe-elements';
+import { Elements, StripeProvider } from 'react-stripe-elements';
 import './App.css';
 
 class App extends React.Component {
