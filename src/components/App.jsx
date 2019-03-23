@@ -75,12 +75,13 @@ class App extends React.Component {
   }
 
   render() {
-    const navAndTitle = this.props.history.location.pathname !== '/'
+    const path = this.props.history.location.pathname;
+    const navAndTitle = path !== '/'
     && <div id="App-nav-and-title">
         <div className="App-NavDrawer">
           <NavDrawer appState={this.state} />
         </div>
-        <img src={sharpie} id="App-tiny-sharpie" alt="tiny anthems title" />
+        {path !== '/admin' && <img src={sharpie} id="App-tiny-sharpie" alt="tiny anthems title" />}
       </div>;
     return (
       <StripeProvider apiKey="pk_live_DXZHnIPbi73ySKKiyDkLD1NO">
