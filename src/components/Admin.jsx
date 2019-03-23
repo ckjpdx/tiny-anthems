@@ -30,7 +30,7 @@ const Admin = observer(class Admin extends Component {
 		)
 	}
 
-	tickUp = (e) => {
+	changeWait = (e) => {
 		console.log(e.target.value);
 		const wait = settingsDoc.data.waitPerSong;
 		settingsDoc.update({
@@ -41,18 +41,21 @@ const Admin = observer(class Admin extends Component {
 	render() {
 		const { docs } = quizzesCollection;
 		const listedQuizzes = docs.map((quiz) => <ListedQuiz key={quiz.id} quiz={quiz} />);
-		const { fetching } = quizzesCollection;
 		const wait = settingsDoc.data.waitPerSong;
 
 		return (
 			<div className="Admin">
-  			<h2>Immortalization Applications</h2>
-				<label>Days per song: {wait} </label><button onClick={this.tickUp} value="1">+</button><button onClick={this.tickUp} value="-1">-</button>
-				<div style={{margin: 10}}>
-					<label>Filter for:</label>
-					<input type="checkbox" checked={this.state.filterPending} onChange={this.changeFilterPending.bind(this)}/><label>Pending</label>
+  			<h1>ADMIN</h1>
+				{quizzesCollection.fetching ? <ProgressVommy /> :
+				<div>
+					<label>Wait factor: X{wait} (days) </label><button onClick={this.changeWait} value="1">+</button><button onClick={this.changeWait} value="-1">-</button>
+					<div style={{margin: 10}}>
+						<label>Filter for:</label>
+						<input type="checkbox" checked={this.state.filterPending} onChange={this.changeFilterPending.bind(this)}/><label>Pending</label>
+					</div>
+					{listedQuizzes}
 				</div>
-				{fetching ? <ProgressVommy /> : listedQuizzes}
+				}
 			</div>
 		);
 	}
