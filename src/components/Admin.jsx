@@ -33,7 +33,6 @@ const Admin = observer(class Admin extends Component {
 	}
 
 	changeWait = (e) => {
-		console.log(e.target.value);
 		const wait = settingsDoc.data.waitPerSong;
 		settingsDoc.update({
 	  	waitPerSong: wait + parseInt(e.target.value)
