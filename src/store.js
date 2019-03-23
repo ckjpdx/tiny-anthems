@@ -16,11 +16,11 @@ initFirestorter({ firebase: firebase });
 
 const quizzesCollection = new Collection('quizzes');
 const allQuizzesCollection = new Collection('quizzes');
-const userDoc = new Document();
+const settingsDoc = new Document('data/settings');
 
 export {
   firebase,
   quizzesCollection,
   allQuizzesCollection,
-  userDoc
+  settingsDoc
 };
