@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
-import { quizzesCollection, allQuizzesCollection } from './../store';
+import { quizzesCollection, allQuizzesCollection, settingsDoc } from './../store';
 import { Link } from 'react-router-dom';
 import rider from './../assets/img/rider.gif';
 import castle from './../assets/img/castleflag.gif';
@@ -25,7 +25,7 @@ const User = observer(class User extends Component {
     }, 3000)};
 
   render() {
-    const currentWaitTime = allQuizzesCollection.docs.length * 4;
+    const currentWaitTime = allQuizzesCollection.docs.length * settingsDoc.data.waitPerSong;
     const waitTimeMessage = <div>
       {currentWaitTime > 14
         ? "Tiny Anthems is pretty dang excited to report that the current (approximate) wait time for the completion of the immortalization process is:"
