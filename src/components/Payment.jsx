@@ -126,23 +126,25 @@ const Payment = observer(class Payment extends Component {
     return (
       <div className="Payment">
         <img src={donation} alt="a donation jar to give mike your money" className="donationjar"/>
-          {amount === 0 && <div>
-            <p>
-              Thank you for your submission for immortalization through song!
-            </p>
-            <p>
-              Tiny Anthems functions on a “pay what you can” model. I have included some suggested amounts that make it possible for me to undertake these and other, community-oriented works. Additionally, 20% of your donation goes directly to <a href="http://www.friendsofnoise.org/" target="_blank" rel="noopener noreferrer">Friends of Noise</a>, an amazing non-profit. No one will be turned away for lack of funds, and I encourage you to use the “other” option if you would like to pay a smaller (or larger) amount.
-            </p>
-          </div>}
-          <div className="stripe">
+        {amount === 0 &&
+        <div>
+          <p>
+            Thank you for your submission for immortalization through song!
+          </p>
+          <p>
+            Tiny Anthems functions on a “pay what you can” model. I have included some suggested amounts that make it possible for me to undertake these and other, community-oriented works. Additionally, 20% of your donation goes directly to <a href="http://www.friendsofnoise.org/" target="_blank" rel="noopener noreferrer">Friends of Noise</a>, an amazing non-profit. No one will be turned away for lack of funds, and I encourage you to use the “other” option if you would like to pay a smaller (or larger) amount.
+          </p>
+        </div>
+        }
+        <div className="stripe">
           {amount > 0 && <img src={paymentTime} alt="payment time!" className="paymenttime"/>}
-            <p>Please choose a payment tier you’re comfortable with:</p>
-            {prices && prices.map(price =>
-              <div>
-                <input type="radio" name="donate" value={price} id={"pay-" + price} onChange={this.handleAmount()} />
-                <label for={"pay-" + price}>${price}</label>
-              </div>
-            )}
+          <p>Please choose a payment tier you’re comfortable with:</p>
+          {prices && prices.map(price =>
+          <div>
+            <input type="radio" name="donate" value={price} id={"pay-" + price} onChange={this.handleAmount()} />
+            <label for={"pay-" + price}>${price}</label>
+          </div>
+          )}
           <div>
             <input type="radio" name="donate" value="-1" id="pay-custom" onChange={this.handleAmount()} />
             <label for="pay-custom">Income-Based Request</label>
