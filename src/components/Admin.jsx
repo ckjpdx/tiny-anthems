@@ -53,6 +53,13 @@ const Admin = observer(class Admin extends Component {
 		}
 	}
 
+	updatePrices = () => {
+		settingsDoc.update({
+			prices: this.state.newPrices
+		});
+		this.setState({newPrices: null});
+	}
+
 	render() {
 		const { docs } = quizzesCollection;
 		const listedQuizzes = docs.map((quiz) => <ListedQuiz key={quiz.id} quiz={quiz} />);
@@ -66,7 +73,7 @@ const Admin = observer(class Admin extends Component {
   			<h1><FontAwesomeIcon icon={faCrown} /> ADMIN <FontAwesomeIcon icon={faCrown} /></h1>
 				{quizzesCollection.fetching ? <ProgressVommy /> :
 				<div>
-					<label>Wait: P x {perSongWait} = {currentWaitTime} days </label>
+					<label>Wait: {perSongWait} x pending = {currentWaitTime} days </label>
 					<button onClick={this.changeWait} value="1">+</button>
 					<button onClick={this.changeWait} value="-1">-</button>
 					<p className="subtext">Days wait per song x pending songs = total wait time</p>
@@ -75,7 +82,7 @@ const Admin = observer(class Admin extends Component {
 						{nPrices && <label style={{color: 'red'}}>New: {nPrices.join(", ")}</label>}
 						<br/>
 						<input onChange={this.changePrices}/>
-						{nPrices && <button>Update</button>}
+						{nPrices && <button onClick={this.updatePrices}>Update</button>}
 						<p className="subtext">New prices separated by commas: 50, 100, 200</p>
 					</div>
 					<div style={{margin: 10}}>
