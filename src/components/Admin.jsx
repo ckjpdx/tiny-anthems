@@ -15,6 +15,7 @@ const Admin = observer(class Admin extends Component {
 
 		this.state = {
 			filterPending: true,
+			newPricesInput: "",
 			newPrices: null
 		};
 	}
@@ -42,6 +43,7 @@ const Admin = observer(class Admin extends Component {
 	}
 
 	changePrices = (e) => {
+		this.setState({newPricesInput: e.target.value});
 		if (e.target.value !== "") {
 			const arr = e.target.value.match(/\d+/gm);
 			if (arr) {
@@ -57,7 +59,7 @@ const Admin = observer(class Admin extends Component {
 		settingsDoc.update({
 			prices: this.state.newPrices
 		});
-		this.setState({newPrices: null});
+		this.setState({newPrices: null, newPricesInput: ""});
 	}
 
 	render() {
@@ -81,7 +83,7 @@ const Admin = observer(class Admin extends Component {
 						<label>Prices: {prices && prices.join(", ")} </label>
 						{nPrices && <label style={{color: 'red'}}>New: {nPrices.join(", ")}</label>}
 						<br/>
-						<input onChange={this.changePrices}/>
+						<input onChange={this.changePrices} value={this.state.newPricesInput}/>
 						{nPrices && <button onClick={this.updatePrices}>Update</button>}
 						<p className="subtext">New prices separated by commas: 50, 100, 200</p>
 					</div>
