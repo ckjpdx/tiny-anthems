@@ -1,13 +1,13 @@
 @import 'styles/_variables';
 
-#User {
-  img {
+.User {
+  img.User-castle {
     width: 40%;
     @media screen and (min-width: $bp-tablet) {
       width: 20%;
     }
   }
-  div#User-castle-area {
+  div.User-castle-area {
     position: relative;
     margin: auto;
     @media screen and (min-width: $bp-tablet) {

@@ -26,13 +26,6 @@ const User = observer(class User extends Component {
 
   render() {
     const currentWaitTime = allQuizzesCollection.docs.length * settingsDoc.data.waitPerSong;
-    const waitTimeMessage = <div>
-      {currentWaitTime > 14
-        ? "Tiny Anthems is pretty dang excited to report that the current (approximate) wait time for the completion of the immortalization process is:"
-        : "Approx wait time: "}
-        <br />
-        <div style={{fontSize: 40, fontFamily: 'Permanent Marker', padding: 10}}>{currentWaitTime} days</div>
-    </div>;
 
     // refactor? https://stackoverflow.com/questions/10865025/merge-flatten-an-array-of-arrays-in-javascript
     const quizzes = quizzesCollection.docs.map(quiz => <h2 key={quiz.id}><FontAwesomeIcon icon={faFileAlt} /> {quiz.data.quizData.answers && quiz.data.quizData.answers[0]} - {quiz.data.pending ? 'Pending' : 'Complete'}</h2>);
@@ -55,13 +48,16 @@ const User = observer(class User extends Component {
     return (
       <React.Fragment>
         {quizzesCollection.fetching ? <ProgressVommy/> :
-        <div id="User">
-          <div id="User-castle-area">
+        <div className="User">
+          <div className="User-castle-area">
             <img src={castle} id="User-castle" alt="a castle" />
             <img src={rider} id="User-rider" alt="a hero on horseback" />
           </div>
           <h2>Welcome home, {this.props.appState.name}</h2>
-          {waitTimeMessage}
+          <p>Tiny Anthems is pretty dang excited to report that the current (approximate) wait time for the completion of the immortalization process is:<br/>
+          {isNaN(currentWaitTime) ? <ProgressVommy/> :
+            <span style={{fontSize: 40, fontFamily: 'Permanent Marker'}}>{currentWaitTime} days</span>}
+          </p>
           <button id="User-text-begin" onClick={this.handleClickImmortalize}>Begin Immortalization Process</button>
           <h2>Your questionnaires:</h2>
           <div className="User-list-area">
