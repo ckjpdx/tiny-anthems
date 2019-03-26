@@ -3,7 +3,7 @@ import 'firebase/firestore';
 import './Payment.css';
 import { observer } from 'mobx-react';
 import {CardElement, injectStripe} from 'react-stripe-elements';
-import { quizzesCollection } from './../store';
+import { quizzesCollection, settingsDoc } from './../store';
 import * as emailjs from 'emailjs-com';
 import { withRouter } from 'react-router-dom';
 import poweredByStripe from './../assets/img/powered_by_stripe.png';
@@ -92,6 +92,7 @@ const Payment = observer(class Payment extends Component {
 
   render(){
     const amount = this.state.payerAmount;
+    const prices = settingsDoc.data.prices;
 
     const cardElement =
     <div>
@@ -124,40 +125,34 @@ const Payment = observer(class Payment extends Component {
 
     return (
       <div className="Payment">
-      <img src={donation} alt="a donation jar to give mike your money" className="donationjar"/>
-        {amount === 0 && <div>
-          <p>
-            Thank you for your submission for immortalization through song!
-          </p>
-          <p>
-            Tiny Anthems functions on a “pay what you can” model. I have included some suggested amounts that make it possible for me to undertake these and other, community-oriented works. Additionally, 20% of your donation goes directly to <a href="http://www.friendsofnoise.org/" target="_blank" rel="noopener noreferrer">Friends of Noise</a>, an amazing non-profit. No one will be turned away for lack of funds, and I encourage you to use the “other” option if you would like to pay a smaller (or larger) amount.
-          </p>
-        </div>}
-        <div className="stripe">
-        {amount >= 500 && <img src={paymentTime} alt="payment time!" className="paymenttime"/>}
-          <p>Please choose a payment tier you’re comfortable with:</p>
-          <div>
-            <input type="radio" name="donate" value="50" id="pay-50" onChange={this.handleAmount()} />
-            <label for="pay-50">$50</label>
-          </div>
-          <div>
-            <input type="radio" name="donate" value="100" id="pay-100" onChange={this.handleAmount()} />
-            <label for="pay-100">$100</label>
-          </div>
-          <div>
-            <input type="radio" name="donate" value="200" id="pay-200" onChange={this.handleAmount()} />
-            <label for="pay-200">$200</label>
-          </div>
+        <img src={donation} alt="a donation jar to give mike your money" className="donationjar"/>
+          {amount === 0 && <div>
+            <p>
+              Thank you for your submission for immortalization through song!
+            </p>
+            <p>
+              Tiny Anthems functions on a “pay what you can” model. I have included some suggested amounts that make it possible for me to undertake these and other, community-oriented works. Additionally, 20% of your donation goes directly to <a href="http://www.friendsofnoise.org/" target="_blank" rel="noopener noreferrer">Friends of Noise</a>, an amazing non-profit. No one will be turned away for lack of funds, and I encourage you to use the “other” option if you would like to pay a smaller (or larger) amount.
+            </p>
+          </div>}
+          <div className="stripe">
+          {amount > 0 && <img src={paymentTime} alt="payment time!" className="paymenttime"/>}
+            <p>Please choose a payment tier you’re comfortable with:</p>
+            {prices && prices.map(price =>
+              <div>
+                <input type="radio" name="donate" value={price} id={"pay-" + price} onChange={this.handleAmount()} />
+                <label for={"pay-" + price}>${price}</label>
+              </div>
+            )}
           <div>
             <input type="radio" name="donate" value="-1" id="pay-custom" onChange={this.handleAmount()} />
             <label for="pay-custom">Income-Based Request</label>
             {amount === -100 &&
-              <div>
-                <p>My goal is to be able to provide unique and meaningful art to any who would seek it. For practical reasons, I cannot accept all submissions. Please submit your Tiny Anthem request to the Ministry of Altruism, and I will do my absolute best to comply. No payment is required up front with this tier, but the immortalization process is NOT guaranteed.</p>
-              </div>
+            <div>
+              <p>My goal is to be able to provide unique and meaningful art to any who would seek it. For practical reasons, I cannot accept all submissions. Please submit your Tiny Anthem request to the Ministry of Altruism, and I will do my absolute best to comply. No payment is required up front with this tier, but the immortalization process is NOT guaranteed.</p>
+            </div>
             }
           </div>
-          {amount >= 5000 && cardElement}
+          {amount > 0 && cardElement}
           {amount === -100 && submitRequest}
         </div>
       </div>
