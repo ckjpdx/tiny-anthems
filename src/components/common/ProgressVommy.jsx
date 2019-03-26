@@ -5,7 +5,7 @@ import './ProgressVommy.css';
 function ProgressVommy(props){
   return (
     <div className="ProgressVommy">
-      <img src={vommy} alt="in progress spinner" />
+      <img src={vommy} className="vommy" alt="in progress spinner" />
     </div>
   );
 }
