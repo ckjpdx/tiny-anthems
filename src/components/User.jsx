@@ -58,6 +58,8 @@ const User = observer(class User extends Component {
           {isNaN(currentWaitTime) ? <ProgressVommy/> :
             <span style={{fontSize: 40, fontFamily: 'Permanent Marker'}}>{currentWaitTime} days</span>}
           </p>
+          <p className="subtext blood">Warning: Safari users have been experiencing issues completing payment of the questionnaire. Please save your completed answers somewhere safe in the event you cannot complete the process normally and need to email us instead.
+          </p>
           <button id="User-text-begin" onClick={this.handleClickImmortalize}>Begin Immortalization Process</button>
           <h2>Your questionnaires:</h2>
           <div className="User-list-area">
