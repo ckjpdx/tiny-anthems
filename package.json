@@ -24,6 +24,7 @@
     "react-dom": "^16.8.6",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.1",
+    "react-soundplayer": "^1.0.4",
     "react-stripe-elements": "^2.0.1"
   },
   "scripts": {
