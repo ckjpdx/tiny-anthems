@@ -10,12 +10,12 @@ class SoundPlayer extends Component {
 
     return (
       <div className="Player">
-        <h3>{trackTitle}</h3>
+        <p>{trackTitle}</p>
         <div className="Player-controls">
           <PlayButton {...this.props} className="btn"/>
           <Timer {...this.props} />
-          <Progress {...this.props} />
         </div>
+        <Progress {...this.props} />
       </div>
     );
   }
