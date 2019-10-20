@@ -10,7 +10,7 @@ class SoundPlayer extends Component {
 
     return (
       <div className="Player">
-        <p>{trackTitle}</p>
+        <p className="Player-track-title">{trackTitle}</p>
         <div className="Player-controls">
           <PlayButton {...this.props} className="btn"/>
           <Timer {...this.props} />

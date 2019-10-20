@@ -17,9 +17,9 @@ function Portfolio(){
         <img src={catterpillar} id="catterpillar" alt="catterpillar"/>
         <img src={butterfly} id="butterfly" alt="butterfly"/>
       </div>
-      <button onClick={() => setPage('works')}><h1>Works</h1></button>
-      <button onClick={() => setPage('samples')}><h1>Samples</h1></button>
-      {page === null && <p>Check out my stuff!</p>}
+      <button onClick={() => setPage('works')}>Works</button>
+      <button onClick={() => setPage('samples')}>Samples</button>
+      {page === null && <p>Check out my stuff! See "Works" for complete songs, or "Samples" for song snippets.</p>}
       {page === 'works' && <PortfolioWorks/>}
       {page === 'samples' && <PortfolioSamples/>}
     </div>
