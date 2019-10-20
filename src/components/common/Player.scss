@@ -1,0 +1,35 @@
+@import './../styles/variables';
+
+.Player {
+  margin: 30px 0;
+  padding: 5px;
+  box-shadow: 0px 0px 5px 5px #CCC;
+  > * {
+    margin: 5px;
+  }
+  .Player-track-title {
+    font-weight: bold;
+  }
+  .Player-controls {
+    display: flex;
+    .btn {
+      width: 25px;
+      height: 25px;
+      padding: 5px;
+      svg {
+        vertical-align: super;
+      }
+    }
+    .sb-soundplayer-timer {
+      margin: 0 5px;
+    }
+  }
+  div.sb-soundplayer-progress-container {
+    height: 5px;
+    background-color: $sky;
+    div.sb-soundplayer-progress-inner {
+      height: 100%;
+      background-color: $mustard;
+    }
+  }
+}
