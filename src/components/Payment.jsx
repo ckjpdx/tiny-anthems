@@ -156,7 +156,7 @@ const Payment = observer(class Payment extends Component {
             </div>
           }
           {this.props.appState.quizData.vommyPin && this.state.payerAmount > 0 &&
-            <p className="blood">With Vommy Pin Phrase "{this.props.appState.quizData.vommyPin}" you pay: ${this.state.payerAmount / 100}</p>
+            <p className="blood">With Vommy Pin you pay: ${this.state.payerAmount / 100}</p>
           }
           {amount > 0 && cardElement}
           {amount === -100 && submitRequest}
