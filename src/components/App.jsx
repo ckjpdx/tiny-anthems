@@ -29,7 +29,8 @@ class App extends React.Component {
       name: null,
       quizData: {
         questions: [],
-        answers: []
+        answers: [],
+        vommyPin: false,
       }
     };
     firebase.auth().onAuthStateChanged(user => {
@@ -62,6 +63,12 @@ class App extends React.Component {
     const newQuizData = Object.assign({}, this.state.quizData);
     newQuizData.questions[i] = question;
     newQuizData.answers[i] = e.target.value;
+    this.setState({quizData: newQuizData});
+  }
+
+  handleQuizInputVommyPin = () =>  {
+    const newQuizData = Object.assign({}, this.state.quizData);
+    newQuizData.vommyPin = !this.state.quizData.vommyPin;
     this.setState({quizData: newQuizData});
   }
 
@@ -101,7 +108,8 @@ class App extends React.Component {
                 <PrivateRoute exact path='/user/quiz'
                   component={Quiz}
                   appState={this.state}
-                  onQuizInput={this.handleQuizInput} />
+                  onQuizInput={this.handleQuizInput}
+                  onQuizInputVommyPin={this.handleQuizInputVommyPin} />
                 <Route exact path='/user/quiz/complete' component={Complete} />
                 <PrivateRoute exact path='/admin'
                   component={Admin}

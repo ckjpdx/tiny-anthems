@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 import boat from './../assets/img/boat.png';
 import waves from './../assets/img/waves.png';
+import vommypin from './../assets/img/vommypin.png';
 import 'firebase/firestore';
 import './Quiz.css';
 import { questionsArr } from './../assets/extras/questionArr';
@@ -47,6 +48,12 @@ const Quiz = observer(class Quiz extends Component {
             Whether you are choosing to have a piece composed for yourself, a spouse, a crow you saw one time, or a business, I leave it up to you to guide the process. There is no right or wrong information to provide, but as a general rule, the more you can tell me about the subject, the better. Nicknames, ages, interests, accomplishments, etc. YOU CAN DO THIS.
           </p>
           {this.insertQuestions(questionsArr)}
+          <div style={{margin: '15px 0'}}>
+            <img src={vommypin} alt="a metal vommy pin" id="vommypin"/>
+            <input type="checkbox" id="vommypin-checkbox"
+              checked={this.props.appState.quizData.vommyPin}
+              onChange={()=>this.props.onQuizInputVommyPin()} /><label for="vommypin-checkbox">I own a Vommy Pin!</label>
+          </div>
           {continueButton}
         </div>
       </div>
