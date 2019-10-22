@@ -24,6 +24,9 @@ const Payment = observer(class Payment extends Component {
 
   handleAmount = () => (e) => {
     let amt = e.target.value || 0;
+    if (amt > 0 && this.props.appState.quizData.vommyPin) {
+      amt = amt - 20;
+    }
     amt = parseInt(amt, 10) * 100;
     this.setState({payerAmount: amt})
   }
@@ -140,20 +143,21 @@ const Payment = observer(class Payment extends Component {
           {amount > 0 && <img src={paymentTime} alt="payment time!" className="paymenttime"/>}
           <p>Please choose a payment tier you’re comfortable with:</p>
           {prices && prices.map(price =>
-          <div>
-            <input type="radio" name="donate" value={price} id={"pay-" + price} onChange={this.handleAmount()} />
-            <label for={"pay-" + price}>${price}</label>
-          </div>
+            <div>
+              <input type="radio" name="donate" value={price} id={"pay-" + price} onChange={this.handleAmount()} />
+              <label for={"pay-" + price}>${price}</label>
+            </div>
           )}
-          <div>
-            <input type="radio" name="donate" value="-1" id="pay-custom" onChange={this.handleAmount()} />
-            <label for="pay-custom">Income-Based Request</label>
-            {amount === -100 &&
+          <input type="radio" name="donate" value="-1" id="pay-custom" onChange={this.handleAmount()} />
+          <label for="pay-custom">Income-Based Request</label>
+          {amount === -100 &&
             <div>
               <p>My goal is to be able to provide unique and meaningful art to any who would seek it. For practical reasons, I cannot accept all submissions. Please submit your Tiny Anthem request to the Ministry of Altruism, and I will do my absolute best to comply. No payment is required up front with this tier, but the immortalization process is NOT guaranteed.</p>
             </div>
-            }
-          </div>
+          }
+          {this.props.appState.quizData.vommyPin && this.state.payerAmount > 0 &&
+            <p className="blood">With Vommy Pin Phrase "{this.props.appState.quizData.vommyPin}" you pay: ${this.state.payerAmount / 100}</p>
+          }
           {amount > 0 && cardElement}
           {amount === -100 && submitRequest}
         </div>
