@@ -22,6 +22,26 @@ function Feedback(){
           <img src={robot} alt="a robot" />
         </div>
         <p>
+          "Tiny Anthems is a BIG hit!  I gifted anthems to both my mom and my dad for their Mother’s Day and Father’s Day gifts.  Mike Long was able to totally capture the essence of both my parents and magically create custom kickass songs that totally embody each individual, their quirks and all.  I think a major part of the human experience really boils down to a desire to feel understood.  Mike delivers this to Tiny Anthem recipients by way of his carefully crafted songs just for them.  I appreciated Mike’s attention to detail to the entire process: the mood/genre of the music, the flow of the lyrics, the lyrics themselves, my feedback and requests.  Tiny Anthems make the world a more joyful, fun place!"
+          <br />
+          -Jess Kemmis
+        </p>
+      </div>
+      <div className="Feedback-comment">
+        <div className="Feedback-robot">
+          <img src={robot} alt="a robot" />
+        </div>
+        <p>
+          "Mike was amazing to work with. I feel like he actually got to know who our kid is and spent way more time investigating her interests than I ever could’ve imagined. The result was a gift for her 13th birthday that captures her spirit, heart, and mind, as well as our own reflections of her. The level of detail and intricacy was unbelievable. The mix of humor and heartfelt emotion was spot on. This gift is way better than any “thing” we ever could’ve bought for her. Our hearts are full. Thank you!"
+          <br />
+          -Evin Cole
+        </p>
+      </div>
+      <div className="Feedback-comment">
+        <div className="Feedback-robot">
+          <img src={robot} alt="a robot" />
+        </div>
+        <p>
           "I gave my wife a theme song from Tiny Anthems as an anniversary present. It was an unbelievably awesome experience. The amount of care and thoughtfulness put into the project exceeded my expectations. The communication and back-and-forth was excellent, and resulted in a highly personal (and hilarious) final result. I can't recommend this highly enough, and am excited to commission my next tune soon!"
           <br />
           -Chris G.
