@@ -10,6 +10,7 @@ div#metamorphosis {
   min-height: 18vw;
   @media screen and (min-width: $bp-desktop) {
     min-height: 14vw;
+    margin-bottom: 30px;
   }
   img {
     position: absolute;
@@ -35,6 +36,16 @@ div#metamorphosis {
   }
 }
 
+div.PortfolioWorks {
+  div.works-area {
+    p {
+      margin-top: 10px;
+    }
+    div.Player {
+      margin: 40px 0 0;
+    }
+  }
+}
 p.sample-description {
   margin: 0 auto 50px;
   max-width: 600px;
