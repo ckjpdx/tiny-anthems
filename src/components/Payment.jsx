@@ -48,7 +48,7 @@ const Payment = observer(class Payment extends Component {
           name: this.props.appState.name,
           email: this.props.appState.email,
           docId: quizSubmitId.id,
-          payment: this.state.payerAmount > 0 ? (this.state.payerAmount / 100) : "Income-Based Request",
+          payment: this.state.payerAmount > 0 ? (this.state.payerAmount / 100) : "Tiny Anthems Lottery",
           quizData: this.parseQuiz(this.props.appState.quizData)
         };
         emailjs.send('gmail', 'tiny_anthems', params).then(response => {
@@ -149,10 +149,10 @@ const Payment = observer(class Payment extends Component {
             </div>
           )}
           <input type="radio" name="donate" value="-1" id="pay-custom" onChange={this.handleAmount()} />
-          <label for="pay-custom">Income-Based Request</label>
+          <label for="pay-custom">Tiny Anthems Lottery</label>
           {amount === -100 &&
             <div>
-              <p>My goal is to be able to provide unique and meaningful art to any who would seek it. For practical reasons, I cannot accept all submissions. Please submit your Tiny Anthem request to the Ministry of Altruism, and I will do my absolute best to comply. No payment is required up front with this tier, but the immortalization process is NOT guaranteed.</p>
+              <p>Tiny Anthems relies upon paid commissions to be able to accept unpaid requests for songs. The Tiny Anthems lottery does not require payment but it does not guarantee that the submission will be accepted. Choosing this option will submit your piece into the lottery and we shall notify your masterwork is accepted.</p>
             </div>
           }
           {this.props.appState.quizData.vommyPin && this.state.payerAmount > 0 &&
