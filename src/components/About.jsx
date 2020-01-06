@@ -26,7 +26,7 @@ class About extends React.Component {
           <section>
             <h1>Justice</h1>
             <p>
-              Tiny Anthems, in addition to creating everlasting sonic masterpieces that will ring for all of eternity, is about community-building and using the arts as a vehicle for social change. To this end, 25% of all donations and commissions for Anthems will be redirected to radical non-profits and enterprises that align with this mission.
+              Tiny Anthems, in addition to creating everlasting sonic masterpieces that will ring for all of eternity, is about community-building and using the arts as a vehicle for social change. To this end, 20% of all donations and commissions for Anthems will be redirected to radical non-profits and enterprises that align with this mission.
             </p>
             <a href="http://www.friendsofnoise.org/" target="_blank" rel="noopener noreferrer">
               <img id="friendsofnoise" src="http://www.friendsofnoise.org/wp-content/uploads/2017/04/logolanding.png" alt="friends of noise" />
