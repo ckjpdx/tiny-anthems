@@ -152,7 +152,7 @@ const Payment = observer(class Payment extends Component {
           <label for="pay-custom">Tiny Anthems Lottery</label>
           {amount === -100 &&
             <div>
-              <p>Tiny Anthems relies upon paid commissions to be able to accept unpaid requests for songs. The Tiny Anthems lottery does not require payment but it does not guarantee that the submission will be accepted. Choosing this option will submit your piece into the lottery and we shall notify your masterwork is accepted.</p>
+              <p>Tiny Anthems relies upon paid commissions to be able to accept unpaid requests for songs. The Tiny Anthems lottery does not require payment but it does not guarantee that the submission will be accepted. Choosing this option will submit your piece into the lottery and we shall notify you if your masterwork is accepted.</p>
             </div>
           }
           {this.props.appState.quizData.vommyPin && this.state.payerAmount > 0 &&
