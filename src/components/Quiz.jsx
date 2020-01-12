@@ -25,7 +25,7 @@ const Quiz = observer(class Quiz extends Component {
         <label>{question}</label>
         <textarea
           type="text"
-          maxlength={i === 0 && "50"}
+          maxLength={i === 0 && "50" || "9000"}
           value={this.props.appState.quizData.answers[i]}
           onChange={(e)=>this.props.onQuizInput(e, question, i)}/>
       </div>);
@@ -48,11 +48,39 @@ const Quiz = observer(class Quiz extends Component {
             Whether you are choosing to have a piece composed for yourself, a spouse, a crow you saw one time, or a business, I leave it up to you to guide the process. There is no right or wrong information to provide, but as a general rule, the more you can tell me about the subject, the better. Nicknames, ages, interests, accomplishments, etc. YOU CAN DO THIS.
           </p>
           {this.insertQuestions(questionsArr)}
+          <p>Preferred Format of Sonic Masterwork: (in addition to mp3 file. check all that apply.)</p>
+          <input
+            style={{marginLeft: 20}}
+            type="checkbox"
+            name="media-format"
+            value="tape"
+            checked={this.props.appState.quizData.mediaFormats.tape}
+            onChange={e => this.props.onQuizMediaFormatCheck(e)}>
+          </input>
+          <label>Tape</label>
+          <input
+            style={{marginLeft: 20}}
+            type="checkbox"
+            name="media-format"
+            value="cd"
+            checked={this.props.appState.quizData.mediaFormats.cd}
+            onChange={e => this.props.onQuizMediaFormatCheck(e)}>
+          </input>
+          <label>CD</label>
+          <input
+            style={{marginLeft: 20}}
+            type="checkbox"
+            name="media-format"
+            value="vinyl"
+            checked={this.props.appState.quizData.mediaFormats.vinyl}
+            onChange={e => this.props.onQuizMediaFormatCheck(e)}>
+          </input>
+          <label>Vinyl</label>
           <div style={{margin: '15px 0'}}>
             <img src={vommypin} alt="a metal vommy pin" id="vommypin"/>
             <input type="checkbox" id="vommypin-checkbox"
               checked={this.props.appState.quizData.vommyPin}
-              onChange={()=>this.props.onQuizInputVommyPin()} /><label for="vommypin-checkbox">I own a Vommy Pin!</label>
+              onChange={()=>this.props.onQuizInputVommyPin()} /><label htmlFor="vommypin-checkbox">I own a Vommy Pin!</label>
           </div>
           {continueButton}
         </div>

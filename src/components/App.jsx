@@ -31,6 +31,7 @@ class App extends React.Component {
         questions: [],
         answers: [],
         vommyPin: false,
+        mediaFormats: {tape: false, cd: false, vinyl: false}
       }
     };
     firebase.auth().onAuthStateChanged(user => {
@@ -48,7 +49,7 @@ class App extends React.Component {
       name: user.displayName,
       email: user.email
     });
-    this.props.history.push('/user');
+    this.props.history.push('/user/quiz');
   }
 
   handleSignOut = () => {
@@ -69,6 +70,12 @@ class App extends React.Component {
   handleQuizInputVommyPin = () =>  {
     const newQuizData = Object.assign({}, this.state.quizData);
     newQuizData.vommyPin = !this.state.quizData.vommyPin;
+    this.setState({quizData: newQuizData});
+  }
+
+  handleQuizMediaFormatCheck = (e) =>  {
+    const newQuizData = Object.assign({}, this.state.quizData);
+    newQuizData.mediaFormats[e.target.value] = e.target.checked;
     this.setState({quizData: newQuizData});
   }
 
@@ -109,7 +116,8 @@ class App extends React.Component {
                   component={Quiz}
                   appState={this.state}
                   onQuizInput={this.handleQuizInput}
-                  onQuizInputVommyPin={this.handleQuizInputVommyPin} />
+                  onQuizInputVommyPin={this.handleQuizInputVommyPin}
+                  onQuizMediaFormatCheck={this.handleQuizMediaFormatCheck} />
                 <Route exact path='/user/quiz/complete' component={Complete} />
                 <PrivateRoute exact path='/admin'
                   component={Admin}
