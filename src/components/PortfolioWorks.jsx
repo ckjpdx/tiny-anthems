@@ -19,7 +19,7 @@ function PortfolioWorks(){
         streamUrl="https://firebasestorage.googleapis.com/v0/b/tiny-anthems-2043a.appspot.com/o/examples%2FBill%20and%20Penni%2C%20Tolerating%20One%20Another%20for%2026%2C000%2C000%20Minutes.mp3?alt=media&token=87b1fe12-47a8-45b0-9de4-110567b219e1"
         />
         <p>
-
+        Bill and Penni’s piece was commissioned by their daughter for their 50th wedding anniversary. Give that the two of them, I learned, had owned and operated a music store and played a lot of folk music, I developed the piece to reflect that, musically. Each verse tells a story from one of their perspectives about their relationship with the chorus and finale of the song being predicated upon their excellence as a duo.
         </p>
         <Player
         trackTitle="Cait, Who Never Surrendered To Law Enforcement (She's No Criminal)"
@@ -33,21 +33,21 @@ function PortfolioWorks(){
         streamUrl="https://firebasestorage.googleapis.com/v0/b/tiny-anthems-2043a.appspot.com/o/examples%2FDave%2C%20Specializing%20In%20Felines%20and%20Sports%2C%20But%20Not%20At%20The%20Same%20Time.mp3?alt=media&token=b67dd6ba-7b18-4d2f-9543-69ca205a8116"
         />
         <p>
-
+        After receiving a submission about a man who had an unfailing affinity for cats and well as sports, it was obvious that the only Tiny Anthem that would suffice would be the one that told the tale of Dave: lover of cat-ball.
         </p>
         <Player
         trackTitle="Gina, The Chomatic Saint Against Whom All Flames Lap Harmlessly"
         streamUrl="https://firebasestorage.googleapis.com/v0/b/tiny-anthems-2043a.appspot.com/o/examples%2FGina%2C%20The%20Chomatic%20Saint%20Against%20Whom%20All%20Flames%20Lap%20Harmlessly.mp3?alt=media&token=72aaa73d-b92a-4b2f-af57-8f05f2bccc92"
         />
         <p>
-        Harvey’s song request came from a family member of his. They told me about his passion for environmental rights and justice, and I penned a song wherein Harvey is a sort of larger-than-life hero.
+        Gina’s friend commissioned me to compose her piece and her resume was stacked, to say the least. Obsessively involved in Portland’s music scene and non-profit work with an emphasis on hip-hop, I wanted Gina’s song to revere her as a sort of saint of the Portland music scene. This was the first and last song to ever feature a tinny Casio keyboard solo, easily one of my favorite moments put to tape.
         </p>
         <Player
         trackTitle="Harvey, The World is in Your Capable Care"
         streamUrl="https://firebasestorage.googleapis.com/v0/b/tiny-anthems-2043a.appspot.com/o/examples%2FHarvey%2C%20The%20World%20is%20in%20Your%20Capable%20Care.mp3?alt=media&token=b14f38b8-7047-4538-8d09-988196bbae98"
         />
         <p>
-        This song was requested by Portland Monthly Magazine to accompany a written and online piece about Tiny Anthems for publication in their Feb 2019 issue. They gave me artistic liberty, so I composed a song about how dreadful and terrible life was before the magazine went into publication, and how much more glorious life subsequently became following the magazine’s debut.
+        Harvey’s song request came from a family member of his. They told me about his passion for environmental rights and justice, and I penned a song wherein Harvey is a sort of larger-than-life hero.
         </p>
         <Player
         trackTitle="Portland Monthly, You Delivered Us From Our Waking Nightmare (Let Us Rejoice In Song)"
